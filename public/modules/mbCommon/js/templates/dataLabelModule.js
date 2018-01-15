@@ -8,23 +8,23 @@
  *          
  *  Last Revision: 01-01-2017
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  *  
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: dataLabelModule( void ) void
     
-    sharesoft.dataLabelModule = function( ) {
+    pleisterman.dataLabelModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -35,10 +35,10 @@
             'element'           :   'div',                          // string
             'display'           :   'inline-block',                 // css display style
             'verticalAlign'     :   'top',                          // css vertical align
-            'fontSize'          :   sharesoft.getSetting( 'dataEditLabelFontSize' ),      // css font size
-            'fontWeight'        :   sharesoft.getSetting( 'dataEditLabelFontWeight' ),    // css font weight    
-            'marginTop'         :   sharesoft.getSetting( 'dataEditLabelMarginTop' ),     // css margin top
-            'marginRight'       :   sharesoft.getSetting( 'dataEditLabelMarginRight' )    // css margin rigth
+            'fontSize'          :   pleisterman.getSetting( 'dataEditLabelFontSize' ),      // css font size
+            'fontWeight'        :   pleisterman.getSetting( 'dataEditLabelFontWeight' ),    // css font weight    
+            'marginTop'         :   pleisterman.getSetting( 'dataEditLabelMarginTop' ),     // css margin top
+            'marginRight'       :   pleisterman.getSetting( 'dataEditLabelMarginRight' )    // css margin rigth
         };                                                          // done json: label initial options   
         // DONE MEMBERS
         
@@ -49,7 +49,7 @@
             // debug info
             self.debug( 'construct' );
             
-            // add the extensions to sharesoft
+            // add the extensions to pleisterman
             self.addApplicationsExtensions();
             
         // DONE FUNCTION: construct( void ) void
@@ -58,7 +58,7 @@
         // FUNCTION: addApplicationsExtensions( void ) void
             
             // add get label html
-            sharesoft.getLabelHtml = self.getHtml;
+            pleisterman.getLabelHtml = self.getHtml;
             
         // DONE FUNCTION: addApplicationsExtensions( void ) void
         };
@@ -117,5 +117,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: dataLabelModule( void ) void
-})( sharesoft );
+})( pleisterman );
 // done create module function

@@ -8,22 +8,22 @@
  *  Purpose: 
  *       this module controls common ajax result errors
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
     
     // FUNCTION: hasAjaxResultErrorsFunction( void ) 
     
-    sharesoft.hasAjaxResultErrorsFunction = function( ) {
+    pleisterman.hasAjaxResultErrorsFunction = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -46,8 +46,8 @@
         self.addApplicationsExtensions = function(){
         // FUNCTION: construct( void ) void
             
-            // add the check data callback extension to sharesoft
-            sharesoft.hasAjaxResultErrors = self.hasAjaxResultErrors;
+            // add the check data callback extension to pleisterman
+            pleisterman.hasAjaxResultErrors = self.hasAjaxResultErrors;
             
         // DONE FUNCTION: construct( void ) void
         };
@@ -57,7 +57,7 @@
             // check critical errors
             if( result['criticalError'] ){
                 // show critical error
-                sharesoft.showCriticalError( result['criticalError'] );
+                pleisterman.showCriticalError( result['criticalError'] );
                 // done with error
                 return true;
             }
@@ -65,7 +65,7 @@
             
             if( result['idNotFound'] ){
                 // show critical error
-                sharesoft.showCriticalError( result['idNotFound'] );
+                pleisterman.showCriticalError( result['idNotFound'] );
                 // done with error
                 return true;
             }
@@ -99,5 +99,5 @@
         // DONE PUBLIC
     };
     // DONE FUNCTION: hasAjaxResultErrorsFunction( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

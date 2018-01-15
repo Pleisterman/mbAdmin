@@ -6,22 +6,22 @@
  *  Last revision: 16-01-2017
  * 
  *  Purpose: 
- *          this file controls settings for the application sharesoft
+ *          this file controls settings for the application pleisterman
  *          settings are immutable global values for the project
  *           
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
-    sharesoft.settingsModule = function( ) {
+( function( pleisterman ){
+    pleisterman.settingsModule = function( ) {
         
         //  settingsModule 
          
@@ -226,7 +226,7 @@
         self.construct = function() {
         // FUNCTION: construct( void ) void
             
-            // add the extensions to sharesoft
+            // add the extensions to pleisterman
             self.addApplicationsExtensions();
             
         // DONE FUNCTION: construct( void ) void
@@ -235,7 +235,7 @@
         // FUNCTION addApplicationsExtensions( void ) void
         
             // add get setting
-            sharesoft.getSetting = self.get;
+            pleisterman.getSetting = self.get;
             
         // DONE FUNCTION: addApplicationsExtensions( void ) void
         };
@@ -280,7 +280,7 @@
         // DONE PUBLIC
     };
     // DONE MODULE: settingsModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function
 
 

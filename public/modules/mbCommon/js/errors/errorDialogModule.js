@@ -10,22 +10,22 @@
  *          an error can be displayed with a close button
  *          a critical error can be displayed, this dialog can not be closed
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: errorDialogModule( void ) void 
     
-    sharesoft.errorDialogModule = function( ) {
+    pleisterman.errorDialogModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -42,8 +42,8 @@
             'left'                  :   0,                              // css left
             'styleHeight'           :   '100%',                         // css style height
             'styleWidth'            :   '100%',                         // css style width
-            'backgroundColor'       :   sharesoft.colors['errorOverlayBackgroundColor']['color'], // css color: background color    
-            'zIndex'                :   sharesoft.getSetting( 'zIndexErrorLayer' ).toString()     // css z-index
+            'backgroundColor'       :   pleisterman.colors['errorOverlayBackgroundColor']['color'], // css color: background color    
+            'zIndex'                :   pleisterman.getSetting( 'zIndexErrorLayer' ).toString()     // css z-index
         };                                                              // done json: error layer options
         self.dialogOptions = {                                          // json: dialog options
             'id'                    :   self.MODULE + 'Dialog',         // string: element id
@@ -51,12 +51,12 @@
             'overflow'              :   'hidden',                       // css overflow
             'position'              :   'absolute',                     // css position
             'styleWidth'            :   '44em',                         // css style width
-            'border'                :   sharesoft.getSetting( 'dialogBorder' ),             // boolean: has border
-            'borderWidth'           :   sharesoft.getSetting( 'dialogBorderWidth' ),        // css border width
-            'borderColor'           :   sharesoft.colors['dialogBorderColor']['color'],     // css color: border color
-            'borderStyle'           :   sharesoft.getSetting( 'dialogBorderStyle' ),        // css border style
-            'borderRadius'          :   sharesoft.getSetting( 'dialogBorderRadius' ),       // css border radius
-            'backgroundColor'       :   sharesoft.colors['dialogBackgroundColor']['color']  // css color: background color
+            'border'                :   pleisterman.getSetting( 'dialogBorder' ),             // boolean: has border
+            'borderWidth'           :   pleisterman.getSetting( 'dialogBorderWidth' ),        // css border width
+            'borderColor'           :   pleisterman.colors['dialogBorderColor']['color'],     // css color: border color
+            'borderStyle'           :   pleisterman.getSetting( 'dialogBorderStyle' ),        // css border style
+            'borderRadius'          :   pleisterman.getSetting( 'dialogBorderRadius' ),       // css border radius
+            'backgroundColor'       :   pleisterman.colors['dialogBackgroundColor']['color']  // css color: background color
         };                                                              // done json: dialog options
         self.scrollContainerOptions = {                                 // json: scoll container options
             'id'                    :   self.MODULE + 'DialogScollContainer', // string: element id
@@ -73,13 +73,13 @@
         self.headerOptions = {                                          // json: header options
             'id'                    :   self.MODULE + 'DialogHeader',   // string: element id
             'element'               :   'div',                          // string: html element type 
-            'text'                  :   sharesoft.translations['errorHeader'],              // string: text
-            'fontSize'              :   sharesoft.getSetting( 'dialogHeaderFontSize' ),     // css font size
-            'fontWeight'            :   sharesoft.getSetting( 'dialogHeaderFontWeight' ),   // css font weight
-            'color'                 :   sharesoft.colors['errorDialogHighlightColor']['color'],  // css color: color
-            'marginLeft'            :   sharesoft.getSetting( 'dialogHeaderMarginLeft' ),   // css margin left
-            'marginBottom'          :   sharesoft.getSetting( 'dialogHeaderMarginBottom' ), // css margin right
-            'padding'               :   sharesoft.getSetting( 'dialogHeaderPadding' )       // css padding
+            'text'                  :   pleisterman.translations['errorHeader'],              // string: text
+            'fontSize'              :   pleisterman.getSetting( 'dialogHeaderFontSize' ),     // css font size
+            'fontWeight'            :   pleisterman.getSetting( 'dialogHeaderFontWeight' ),   // css font weight
+            'color'                 :   pleisterman.colors['errorDialogHighlightColor']['color'],  // css color: color
+            'marginLeft'            :   pleisterman.getSetting( 'dialogHeaderMarginLeft' ),   // css margin left
+            'marginBottom'          :   pleisterman.getSetting( 'dialogHeaderMarginBottom' ), // css margin right
+            'padding'               :   pleisterman.getSetting( 'dialogHeaderPadding' )       // css padding
         };                                                              // done json: header options
         self.errorContainerOptions = {                                  // json: error container options
             'id'                    :   self.MODULE + 'DialogMessageContainer',  // string: element id
@@ -88,12 +88,12 @@
         self.errorOptions = {                                           // json: error options
             'id'                    :   self.MODULE + 'DialogMessage',  // string: element id
             'element'               :   'div',                          // string: html element type 
-            'color'                 :   sharesoft.colors['errorDialogColor']['color'],        // css color: color 
-            'fontSize'              :   sharesoft.getSetting( 'dialogMessageFontSize' ),    // css font size       
-            'fontWeight'            :   sharesoft.getSetting( 'dialogMessageFontWeight' ),  // css font weight
-            'marginLeft'            :   sharesoft.getSetting( 'dialogMessageMarginLeft' ),  // css margin left
-            'paddingLeft'           :   sharesoft.getSetting( 'dialogMessagePaddingLeft' ), // css padding left
-            'paddingRight'          :   sharesoft.getSetting( 'dialogMessagePaddingRight' ), // css margin right
+            'color'                 :   pleisterman.colors['errorDialogColor']['color'],        // css color: color 
+            'fontSize'              :   pleisterman.getSetting( 'dialogMessageFontSize' ),    // css font size       
+            'fontWeight'            :   pleisterman.getSetting( 'dialogMessageFontWeight' ),  // css font weight
+            'marginLeft'            :   pleisterman.getSetting( 'dialogMessageMarginLeft' ),  // css margin left
+            'paddingLeft'           :   pleisterman.getSetting( 'dialogMessagePaddingLeft' ), // css padding left
+            'paddingRight'          :   pleisterman.getSetting( 'dialogMessagePaddingRight' ), // css margin right
             'marginBottom'          :   '2.3em'                         // css margin bottom
         };                                                              // done json: error options
         self.buttonContainerOptions = {                                 // json: button contianer options
@@ -106,21 +106,21 @@
         self.buttonOptions = {                                          // json: button options
             'id'                    :   self.MODULE + 'CloseButton',    // string: element id
             'element'               :   'div',                          // string html element type 
-            'text'                  :   sharesoft.translations['ok'],     // string: text
-            'color'                 :   sharesoft.colors['errorDialogButtonColor']['color'],           // css color: color 
-            'backgroundColor'       :   sharesoft.colors['errorDialogButtonBackgroundColor']['color'], // css color: background color
-            'fontSize'              :   sharesoft.getSetting( 'buttonFontSize' ),                      // css font size
-            'fontWeight'            :   sharesoft.getSetting( 'buttonFontWeight' ),                    // css font weight
-            'padding'               :   sharesoft.getSetting( 'dialogButtonPadding' ),                 // css padding   
-            'marginTop'             :   sharesoft.getSetting( 'dialogButtonMarginTop' ),               // css margin top   
-            'marginBottom'          :   sharesoft.getSetting( 'dialogButtonMarginBottom' ),            // css margin bottom
+            'text'                  :   pleisterman.translations['ok'],     // string: text
+            'color'                 :   pleisterman.colors['errorDialogButtonColor']['color'],           // css color: color 
+            'backgroundColor'       :   pleisterman.colors['errorDialogButtonBackgroundColor']['color'], // css color: background color
+            'fontSize'              :   pleisterman.getSetting( 'buttonFontSize' ),                      // css font size
+            'fontWeight'            :   pleisterman.getSetting( 'buttonFontWeight' ),                    // css font weight
+            'padding'               :   pleisterman.getSetting( 'dialogButtonPadding' ),                 // css padding   
+            'marginTop'             :   pleisterman.getSetting( 'dialogButtonMarginTop' ),               // css margin top   
+            'marginBottom'          :   pleisterman.getSetting( 'dialogButtonMarginBottom' ),            // css margin bottom
             'marginLeft'            :   '4em',                          // css margin left
             'marginRight'           :   '4em',                          // css margin right
             'border'                :   true,                           // boolean: has border
-            'borderWidth'           :   sharesoft.getSetting( 'buttonBorderWidth' ),                  // css border width
-            'borderColor'           :   sharesoft.colors['errorDialogButtonBorderColor']['color'],    // css color: border color
-            'borderStyle'           :   sharesoft.getSetting( 'buttonBorderStyle' ),                  // css border style
-            'borderRadius'          :   sharesoft.getSetting( 'buttonBorderRadius' ),                 // css border radius
+            'borderWidth'           :   pleisterman.getSetting( 'buttonBorderWidth' ),                  // css border width
+            'borderColor'           :   pleisterman.colors['errorDialogButtonBorderColor']['color'],    // css color: border color
+            'borderStyle'           :   pleisterman.getSetting( 'buttonBorderStyle' ),                  // css border style
+            'borderRadius'          :   pleisterman.getSetting( 'buttonBorderRadius' ),                 // css border radius
             'cursor'                :   'pointer',                      // css cursor                       
             'textAlign'             :   'center'                        // css text align
         };                                                              // done json: button options
@@ -139,7 +139,7 @@
             // add events
             self.addEvents();
 
-            // add the extensions to sharesoft
+            // add the extensions to pleisterman
             self.addApplicationsExtensions();
 
             // add event subscriptions
@@ -151,9 +151,9 @@
         // FUNCTION: addApplicationsExtensions( void ) void
             
             // add show error
-            sharesoft.showError = self.showError;
+            pleisterman.showError = self.showError;
             // add show criticalk error
-            sharesoft.showCriticalError = self.showCriticalError;
+            pleisterman.showCriticalError = self.showCriticalError;
             
         // DONE FUNCTION: addApplicationsExtensions( void ) void
         };
@@ -212,9 +212,9 @@
         // FUNCTION: buttonMouseOver( void ) void
             
             // mouse over -> background color highlight
-            $( '#' + self.buttonOptions['id'] ).css( 'background-color', sharesoft.colors['errorDialogButtonBackgroundHighlightColor']['color'] );
+            $( '#' + self.buttonOptions['id'] ).css( 'background-color', pleisterman.colors['errorDialogButtonBackgroundHighlightColor']['color'] );
             // mouse over -> color highlight
-            $( '#' + self.buttonOptions['id'] ).css( 'color', sharesoft.colors['errorDialogButtonHighlightColor']['color'] );
+            $( '#' + self.buttonOptions['id'] ).css( 'color', pleisterman.colors['errorDialogButtonHighlightColor']['color'] );
             
         // DONE FUNCTION: buttonMouseOver( void ) void
         };
@@ -229,9 +229,9 @@
             // done is selected
             
             // mouse out -> background color default
-            $( '#' + self.buttonOptions['id'] ).css( 'background-color', sharesoft.colors['errorDialogButtonBackgroundColor']['color'] );
+            $( '#' + self.buttonOptions['id'] ).css( 'background-color', pleisterman.colors['errorDialogButtonBackgroundColor']['color'] );
             // mouse out -> color default
-            $( '#' + self.buttonOptions['id'] ).css( 'color', sharesoft.colors['errorDialogButtonColor']['color'] );
+            $( '#' + self.buttonOptions['id'] ).css( 'color', pleisterman.colors['errorDialogButtonColor']['color'] );
             
         // DONE FUNCTION: buttonMouseOut( string: element id ) void
         };
@@ -246,7 +246,7 @@
                 'deSelect'  :   self.buttonMouseOut,
                 'keys'      :   [
                     {
-                        'keyCode'   :   sharesoft.getSetting( 'keyCodes' )['space'],
+                        'keyCode'   :   pleisterman.getSetting( 'keyCodes' )['space'],
                         'type'      :   'tabStop',
                         'function'  :   self.close
                     }
@@ -279,7 +279,7 @@
         // FUNCTION: showError( string: errorId ) void
         
             // set header text
-            $( '#' + self.headerOptions['id'] ).html( sharesoft.translations['errorHeader'] );
+            $( '#' + self.headerOptions['id'] ).html( pleisterman.translations['errorHeader'] );
             // show close button
             $( '#' + self.buttonOptions['id'] ).show();
             
@@ -289,7 +289,7 @@
             jsProject.callEvent( 'activateTabStopsLayer', 'error' );
 
             // get the error message
-            sharesoft.getError( errorId, self.show );  
+            pleisterman.getError( errorId, self.show );  
             
         // DONE FUNCTION: showError( string: errorId, json: optiond ) void
         };
@@ -297,7 +297,7 @@
         // FUNCTION: showCriticalError( string: errorId ) void
         
             // set header text
-            $( '#' + self.headerOptions['id'] ).html( sharesoft.translations['criticalErrorHeader'] );
+            $( '#' + self.headerOptions['id'] ).html( pleisterman.translations['criticalErrorHeader'] );
             // hide close button
             $( '#' + self.buttonOptions['id'] ).hide();
             
@@ -305,7 +305,7 @@
             jsProject.callEvent( 'activateTabStopsLayer', 'error' );
 
             // get the error message
-            sharesoft.getError( errorId, self.show );  
+            pleisterman.getError( errorId, self.show );  
             
         // DONE FUNCTION: showCriticalError( string: errorId ) void
         };
@@ -401,5 +401,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: errorDialogModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

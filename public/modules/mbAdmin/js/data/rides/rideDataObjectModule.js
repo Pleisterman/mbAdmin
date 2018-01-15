@@ -13,23 +13,23 @@
  *      it handles the data checks before updates and inserts
  *      it handles the callback errors
 \ * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  *  
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: rideDataObjectModule( void ) void
     
-    sharesoft.rideDataObjectModule = function( ) {
+    pleisterman.rideDataObjectModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -47,7 +47,7 @@
                 'displayOptions'    :   {                   // json: display options
                     'firstLetterCapital'  :   true,         // boolean: first letter is capital
                     'label'         :   {                   // json: label
-                        'text'          :   sharesoft.translations['description'] // string: label TRANSLATION: description
+                        'text'          :   pleisterman.translations['description'] // string: label TRANSLATION: description
                     },                                      // done json: label
                     'emptyError'    :   true                // boolean: empty error
                 },                                          // done json: display options
@@ -62,7 +62,7 @@
                 'type'                  :   'select',       // string: display type: select
                 'displayOptions'        :   {               // json: display options
                     'label'             :   {               // json: label
-                        'text'          :   sharesoft.translations['vehicle'] // string: label TRANSLATION: vehicle
+                        'text'          :   pleisterman.translations['vehicle'] // string: label TRANSLATION: vehicle
                     }                                       // done json: label
                 },                                          // done json: display options
                 'value'                 :   null,                       // integer: projectid
@@ -77,7 +77,7 @@
                 'type'                  :   'date',         // string: display type: date
                 'displayOptions'        :   {               // json: display options
                     'label'             :   {               // json: label
-                        'text'          :   sharesoft.translations['date'] // string: label TRANSLATION: date
+                        'text'          :   pleisterman.translations['date'] // string: label TRANSLATION: date
                     }                                       // done json: label
                 },                                          // done json: display options
                 'optional'              :   false,          // boolean: optional
@@ -90,7 +90,7 @@
                 'type'              :   'textarea',         // string: display type: text
                 'displayOptions'    :   {                   // json: display options
                     'label'         :   {                   // json: label
-                        'text'          :   sharesoft.translations['from'] // string: label TRANSLATION: from
+                        'text'          :   pleisterman.translations['from'] // string: label TRANSLATION: from
                     },                                      // done json: label
                     'emptyError'    :   true                // boolean: empty error
                 },                                          // done json: display options
@@ -103,7 +103,7 @@
                 'type'              :   'textarea',         // string: display type: text
                 'displayOptions'    :   {                   // json: display options
                     'label'         :   {                   // json: label
-                        'text'          :   sharesoft.translations['to'] // string: label TRANSLATION: to
+                        'text'          :   pleisterman.translations['to'] // string: label TRANSLATION: to
                     },                                      // done json: label
                     'emptyError'    :   true                // boolean: empty error
                 },                                          // done json: display options
@@ -116,7 +116,7 @@
                 'type'                  :   'select',       // string: display type: select
                 'displayOptions'        :   {               // json: display options
                     'label'             :   {               // json: label
-                        'text'          :   sharesoft.translations['project'] // string: label TRANSLATION: project
+                        'text'          :   pleisterman.translations['project'] // string: label TRANSLATION: project
                     }                                       // done json: label
                 },                                          // done json: display options
                 'value'                 :   null,                       // integer: projectid
@@ -132,7 +132,7 @@
                     'element'       :   'div',              // string: html element type
                     'display'       :   'block',            // css display
                     'clear'         :   'both',             // css clear
-                    'backgroundColor' : sharesoft.colors['panelHighlightBackgroundColor']['color'],  // COLOR: panelHighlightBackgroundColor
+                    'backgroundColor' : pleisterman.colors['panelHighlightBackgroundColor']['color'],  // COLOR: panelHighlightBackgroundColor
                     'styleHeight'   :   '1.1em',            // css height
                     'padding'       :   '0.2em',            // css padding
                     'paddingLeft'   :   '1.0em',            // css padding left
@@ -140,7 +140,7 @@
                     'marginTop'     :   '1.4em',            // css margin top
                     'styleWidth'    :   '48.0em',           // css width
                     'textAlign'     :   'left',             // css text align
-                    'text'          :   sharesoft.translations['milage']  // string: text TRANSLATION: milage
+                    'text'          :   pleisterman.translations['milage']  // string: text TRANSLATION: milage
                 }                                           // done display options
             },                                              // done json: element
             {                                               // json: odometerStart
@@ -149,7 +149,7 @@
                 'displayOptions'    :   {                   // json: display options
                     'type'              :   'number',       // display type: number
                     'label'             :   {               // json: label
-                        'text'          :   sharesoft.translations['start'] // string: label TRANSLATION: start
+                        'text'          :   pleisterman.translations['start'] // string: label TRANSLATION: start
                     },                                      // done json: label
                     'emptyError'    :   true,               // boolean empty error
                     'input'         :   {                   // json: input
@@ -166,7 +166,7 @@
                 'displayOptions'    :   {                   // json: display options
                     'type'              :   'number',       // display type: number
                     'label'             :   {               // json: label
-                        'text'          :   sharesoft.translations['end'] // string: label TRANSLATION: end
+                        'text'          :   pleisterman.translations['end'] // string: label TRANSLATION: end
                     },                                      // done json: label
                     'emptyError'    :   true,               // boolean empty error
                     'input'         :   {                   // json: input
@@ -183,7 +183,7 @@
                     'element'       :   'div',              // string: html element type
                     'display'       :   'block',            // css display
                     'clear'         :   'both',             // css clear
-                    'backgroundColor' : sharesoft.colors['panelHighlightBackgroundColor']['color'],  // COLOR: panelHighlightBackgroundColor
+                    'backgroundColor' : pleisterman.colors['panelHighlightBackgroundColor']['color'],  // COLOR: panelHighlightBackgroundColor
                     'styleHeight'   :   '1.1em',            // css height
                     'padding'       :   '0.2em',            // css padding
                     'paddingLeft'   :   '1.0em',            // css padding left
@@ -199,7 +199,7 @@
                 'type'              :   'documents',        // string: display type: documents 
                 'displayOptions'    :   {                   // json: display options
                     'label'             :   {               // json: label
-                        'text'          :   sharesoft.translations['documents'] // string: label TRANSLATION: documents
+                        'text'          :   pleisterman.translations['documents'] // string: label TRANSLATION: documents
                     }                                       // done json: label
                 },                                          // done json: display options
                 'selectModule'      :   null,               // module: select module
@@ -289,19 +289,19 @@
             documentsObject['value'] = id;
 
             // show busy screen
-            sharesoft.startBusyProcess();
+            pleisterman.startBusyProcess();
 
             // construct data object
             var data = { 
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'subject'           :   'rides',
                 'what'              :   'rowById',
                 'selection'         :   id 
             };
             // done construct data object
              
-            // AJAX: /sharesoft/read
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/read', sharesoft.token, data, self.getDataCallback );
+            // AJAX: /pleisterman/read
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/read', pleisterman.token, data, self.getDataCallback );
 
         // DONE FUNCTION: getData( callback, string: id ) void
         };
@@ -311,7 +311,7 @@
             // check result
             if( self.hasCallbackErrors( result ) ){
                 // hide busy screen
-                sharesoft.endBusyProcess();
+                pleisterman.endBusyProcess();
                 // done with error
                 return;
             }
@@ -333,7 +333,7 @@
             // done loop through result    
 
             // hide busy screen
-            sharesoft.endBusyProcess();
+            pleisterman.endBusyProcess();
             
             // call the callback
             self.callerOptions['callback']();
@@ -351,7 +351,7 @@
             // remember reload callback
             self.callerOptions['reloadCallback'] = reloadCallback;
             // show busy screen
-            sharesoft.startBusyProcess();
+            pleisterman.startBusyProcess();
 
             // unset data error
             jsProject.setValue( 'hasError', 'data', false );
@@ -362,7 +362,7 @@
             // check data
             if( self.hasDataErrors() ){
                 // hide busy screen
-                sharesoft.endBusyProcess();
+                pleisterman.endBusyProcess();
                 // done with error
                 return;
             }
@@ -390,7 +390,7 @@
 
             // construct data object
             var data = { 
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'subject'           :   'rides',
                 'what'              :   'rowById',
                 'id'                :   id,
@@ -398,8 +398,8 @@
             };
             // done construct data object
              
-            // AJAX: /sharesoft/update
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/update', sharesoft.token, data, self.updateCallback );
+            // AJAX: /pleisterman/update
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/update', pleisterman.token, data, self.updateCallback );
 
         // DONE FUNCTION: update( function: updateCallback, function: reloadCallback ) void
         };
@@ -409,7 +409,7 @@
             // check for errors
             if( self.hasCallbackErrors( result ) ){
                 // end busy
-                sharesoft.endBusyProcess();
+                pleisterman.endBusyProcess();
                 // done with error
                 return;
             }
@@ -440,7 +440,7 @@
             self.callerOptions['updateCallback']();
             
             // end busy
-            sharesoft.endBusyProcess();
+            pleisterman.endBusyProcess();
             
             // refresh project list
             jsProject.callEvent( 'refreshList', 'projects' );
@@ -456,7 +456,7 @@
             self.callerOptions['callback'] = callback;
             
             // show busy screen
-            sharesoft.startBusyProcess();
+            pleisterman.startBusyProcess();
             
             // unset data error
             jsProject.setValue( 'hasError', 'data', false );
@@ -467,7 +467,7 @@
             // check data
             if( self.hasDataErrors() ){
                 // hide busy screen
-                sharesoft.endBusyProcess();
+                pleisterman.endBusyProcess();
                 // done with error
                 return;
             }
@@ -489,15 +489,15 @@
 
             // construct data object
             var data = { 
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'subject'           :   'rides',
                 'what'              :   'row',
                 'values'            :   values 
             };
             // done construct data object
              
-            // AJAX: /sharesoft/insert
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/insert', sharesoft.token, data, self.insertCallback );
+            // AJAX: /pleisterman/insert
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/insert', pleisterman.token, data, self.insertCallback );
             
         // DONE FUNCTION: insert( function: callback ) void
         };
@@ -507,7 +507,7 @@
             // check for errors
             if( self.hasCallbackErrors( result ) ){
                 // end busy
-                sharesoft.endBusyProcess();
+                pleisterman.endBusyProcess();
                 // done with error
                 return;
             }
@@ -547,7 +547,7 @@
             documentsObject['value'] = result['id'];
 
             // end busy
-            sharesoft.endBusyProcess();
+            pleisterman.endBusyProcess();
 
             // call update callback
             self.callerOptions['callback']( result['id'] );
@@ -596,7 +596,7 @@
         // FUNCTION: hasCallbackErrors( json: result ) boolean
             
             // global check result
-            if( sharesoft.hasAjaxResultErrors( result ) ){
+            if( pleisterman.hasAjaxResultErrors( result ) ){
                 // done with error
                 return;
             }
@@ -610,7 +610,7 @@
                 // dataOutOfDate
                 if( result['error'] === 'dataOutOfDate' ){
                     // show out of date dialog
-                    sharesoft.showOutOfDateDialog( self.callerOptions['reloadCallback'] );
+                    pleisterman.showOutOfDateDialog( self.callerOptions['reloadCallback'] );
                     // done with error
                     return true;
                 }
@@ -621,7 +621,7 @@
                     // get odometer start object from data object
                     var odometerStartObject = jsProject.getJsonValue( self.dataObject, ['id=odometerStart'] );  
                     // get error with start time object errorfunction
-                    sharesoft.getError( 'odometerStartBeforeVehicleOdometerStart', odometerStartObject['errorFunction'] );
+                    pleisterman.getError( 'odometerStartBeforeVehicleOdometerStart', odometerStartObject['errorFunction'] );
                 }
                 // done  odometer start before vehicle odometer start
 
@@ -682,5 +682,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: rideDataObjectModule( void ) void
-})( sharesoft );
+})( pleisterman );
 // done create module function

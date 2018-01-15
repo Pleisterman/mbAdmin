@@ -8,22 +8,22 @@
  *  Purpose: 
  *      this module controls the user info
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
 */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
         // MODULE: userInfoModule( string: menuButtonId ) void
 
-    sharesoft.userInfoModule = function( ) {
+    pleisterman.userInfoModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -37,7 +37,7 @@
                 'type'              :   'text',                     // string: type
                 'displayOptions'    :   {                           // json: display options
                     'label'         :   {                           // json: label
-                        'text'          :   sharesoft.translations['name'] // string: text
+                        'text'          :   pleisterman.translations['name'] // string: text
                     },                                              // done json: label
                     'emptyError'    :   true,                       // boolean: empty error
                 },                                                  // done json: display options
@@ -53,7 +53,7 @@
                 'type'              :   'text',
                 'displayOptions'    :   {
                     'label'         :   {
-                        'text'          :   sharesoft.translations['loginName']
+                        'text'          :   pleisterman.translations['loginName']
                     },
                     'emptyError'    :   true,
                     'input'         :   {
@@ -72,7 +72,7 @@
                 'displayOptions'    :   {
                     'type'          :   'email',
                     'label'         :   {
-                        'text'          :   sharesoft.translations['email']
+                        'text'          :   pleisterman.translations['email']
                     },
                     'emptyError'    :   true,
                     'input'         :   {
@@ -110,7 +110,7 @@
         // FUNCTION: openInitialSelection( void ) void
             
             // open subject = userinfo
-            if( sharesoft.options['openSubject']['value'] === 'userInfo' ){
+            if( pleisterman.options['openSubject']['value'] === 'userInfo' ){
                 // show data
                 self.getData(); 
             }
@@ -138,7 +138,7 @@
                 // create message options
                 
                 // show the message
-                sharesoft.showMessage( 'dataChanged', options );
+                pleisterman.showMessage( 'dataChanged', options );
             }
             // done check data changed
             else {
@@ -154,18 +154,18 @@
             jsProject.callEvent( 'cancel' );
             
             // remember open subject
-            sharesoft.setOption( 'openSubject', self.id );
+            pleisterman.setOption( 'openSubject', self.id );
 
             // construct data object
             var data = { 
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'subject'           :   'authentification',
                 'what'              :   'userInfo'
             };
             // done construct data object
              
             // make the ajax call
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/read', sharesoft.token, data, self.show );
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/read', pleisterman.token, data, self.show );
             
         };
         self.show = function( result ){
@@ -173,8 +173,8 @@
             
             // check critical errors
             if( result['criticalError'] ){
-                sharesoft.showCriticalError( result['criticalError'] );
-                sharesoft.endBusyProcess();
+                pleisterman.showCriticalError( result['criticalError'] );
+                pleisterman.endBusyProcess();
                 return;
             }
             // done check critical errors
@@ -217,7 +217,7 @@
             self.debug( 'update' );
 
             // show busy screen
-            sharesoft.startBusyProcess();
+            pleisterman.startBusyProcess();
 
             // reset data error
             jsProject.setValue( 'hasError', 'data', false );
@@ -228,7 +228,7 @@
             // check data error
             if( jsProject.getValue( 'hasError', 'data' )  ){
                 // end busy
-                sharesoft.endBusyProcess();
+                pleisterman.endBusyProcess();
                 // done with error 
                 return;
             }
@@ -237,7 +237,7 @@
             // check values
             if( !self.checkValues() ){
                 // end busy
-                sharesoft.endBusyProcess();
+                pleisterman.endBusyProcess();
                 // done with error 
                 return;
             }
@@ -256,7 +256,7 @@
             
             // construct data object
             var data = { 
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'subject'           :   'authentification',
                 'what'              :   'userInfo',
                 'values'            :   values 
@@ -264,7 +264,7 @@
             // done construct data object
              
             // make the ajax call
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/update', sharesoft.token, data, self.updateCallback );
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/update', pleisterman.token, data, self.updateCallback );
             
         };
         self.updateCallback = function( result ){
@@ -273,7 +273,7 @@
             // check for errors
             if( self.hasErrors( result ) ){
                 // end busy
-                sharesoft.endBusyProcess();
+                pleisterman.endBusyProcess();
                 // done with error
                 return;
             }
@@ -298,7 +298,7 @@
             jsProject.callEvent( 'userNameChange', userName );
             
             // end busy
-            sharesoft.endBusyProcess();
+            pleisterman.endBusyProcess();
 
             // call after update
             jsProject.callEvent( 'afterUpdate' );
@@ -311,13 +311,13 @@
             $.each( self.dataObject, function( index, value ) {
                 if( value['id'] === 'name' ){
                     if( value['value'].length < value['minimumLength'] ){
-                        sharesoft.getError( 'textToShort', self.showNameLengthError );
+                        pleisterman.getError( 'textToShort', self.showNameLengthError );
                         hasError = true;
                     }
                 }
                 if( value['id'] === 'loginName' ){
                     if( value['value'].length < value['minimumLength'] ){
-                        sharesoft.getError( 'textToShort', self.showLoginNameLengthError );
+                        pleisterman.getError( 'textToShort', self.showLoginNameLengthError );
                         hasError = true;
                     }
                 }
@@ -355,7 +355,7 @@
         self.hasErrors = function( result ){
             // check critical errors
             if( result['criticalError'] ){
-                sharesoft.showCriticalError( result['criticalError'] );
+                pleisterman.showCriticalError( result['criticalError'] );
                 return true;
             }
             // done check critical errors
@@ -367,7 +367,7 @@
                 if( result['error'] === 'nameEmpty' ){
                     $.each( self.dataObject, function( index, value ) {
                         if( value['id'] === 'name' ){
-                            sharesoft.getError( 'nameEmpty', value['errorFunction'] );
+                            pleisterman.getError( 'nameEmpty', value['errorFunction'] );
                         }
                     });
                 }
@@ -429,5 +429,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: userInfoModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

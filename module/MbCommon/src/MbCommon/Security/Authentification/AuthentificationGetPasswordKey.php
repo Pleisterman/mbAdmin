@@ -9,7 +9,7 @@
  *  Author: Pleisterman
  *  Web: www.pleisterman.nl 
  *  Mail: info@pleisterman.nl 
- *  GitHub: PleistermanNL 
+ *  GitHub: Pleisterman 
  * 
  * Purpose: this class handles creating the tokens for the login
  *     

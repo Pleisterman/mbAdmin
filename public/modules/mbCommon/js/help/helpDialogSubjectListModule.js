@@ -8,22 +8,22 @@
  *  Purpose: 
  *          this module shows a list of subjects for the help dialog
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: helpDialogSubjectListModule( string: containerId, function: callback ) void 
     
-    sharesoft.helpDialogSubjectListModule = function( containerId, callback ) {
+    pleisterman.helpDialogSubjectListModule = function( containerId, callback ) {
         // PRIVATE:
         
         // MEMBERS
@@ -35,21 +35,21 @@
         self.headerOptions = {                                          // json: header options
             'id'                        :   self.MODULE + 'ListRowsHeader', // string: element id
             'element'                   :   'div',                      // string: html element type 
-            'text'                      :   sharesoft.translations['subjects'], // string: text
+            'text'                      :   pleisterman.translations['subjects'], // string: text
             'minimumWidth'              :   '15.0em',                   // css minimum width
             'styleHeight'               :   '1.1em',                    // css style height
             'marginTop'                 :   '0.1em',                    // css margin top   
-            'color'                     :   sharesoft.colors['panelHighlightColor']['color'], // css color: color
+            'color'                     :   pleisterman.colors['panelHighlightColor']['color'], // css color: color
             'fontSize'                  :   '0.9em',                    // css font size
             'marginBottom'              :   '0.2em',                    // css margin bottom
             'paddingLeft'               :   '1.2em',                    // css padding left
             'padding'                   :   '0.2em',                    // css padding   
             'paddingBottom'             :   '0.4em',                    // css padding bottom
             'borderBottom'              :   true,                       // boolean, has border
-            'borderColor'               :   sharesoft.colors['panelBorderColor']['color'],  // css color: border color
+            'borderColor'               :   pleisterman.colors['panelBorderColor']['color'],  // css color: border color
             'borderWidth'               :   '0.1em',                    // css border width 
             'borderStyle'               :   'solid',                    // css border style 
-            'backgroundColor'           :   sharesoft.colors['panelHighlightBackgroundColor']['color'] // css color: background color
+            'backgroundColor'           :   pleisterman.colors['panelHighlightBackgroundColor']['color'] // css color: background color
         };                                                              // done json: header options
         self.listRowsOptions = {                                        // json: list rows options
             'id'                    :   self.MODULE + 'listRows',       // string: element id
@@ -62,11 +62,11 @@
             'overflow'              :   'hidden',                       // css overflow style
             'marginBottom'          :   2,                              // css margin bottom
             'marginTop'             :   2,                              // css margin top
-            'backgroundColor'       :   sharesoft.colors['editBackgroundColor']['color'], // css color: border color
+            'backgroundColor'       :   pleisterman.colors['editBackgroundColor']['color'], // css color: border color
             'borderTop'             :   true,                           // add border option
             'borderBottom'          :   true,                           // add border option
             'borderWidth'           :   1,                              // px
-            'borderColor'           :   sharesoft.colors['buttonBorderColor']['color'],
+            'borderColor'           :   pleisterman.colors['buttonBorderColor']['color'],
             'borderStyle'           :   'groove',                       // css border style
             'padding'               :   4,                              // css padding
             'paddingBottom'         :   6,                              // css padding bottom
@@ -80,9 +80,9 @@
             'backgroundColor'       :   'transparent',                  // css color: background color
             'overflow'              :   'hidden',                       // css overflow
             'paddingTop'            :   2,                              // css padding top
-            'color'                 :   sharesoft.colors['editColor']['color'],
-            'fontSize'              :   sharesoft.getSetting( 'listRowFontSize' ),      // css font size
-            'fontWeight'            :   sharesoft.getSetting( 'listRowFontWeight' ),    // css font weight
+            'color'                 :   pleisterman.colors['editColor']['color'],
+            'fontSize'              :   pleisterman.getSetting( 'listRowFontSize' ),      // css font size
+            'fontWeight'            :   pleisterman.getSetting( 'listRowFontWeight' ),    // css font weight
             'paddingLeft'           :   '2.0em'                         // css padding left
         };                                                              // done json: row text options
         self.selectedSubjectIndex = 'overview';                         // string     
@@ -132,15 +132,15 @@
         // FUNCTION: addRows( void ) void
             
             // loop over rows
-            $.each( sharesoft.helpSubjects, function( index, value ) {
+            $.each( pleisterman.helpSubjects, function( index, value ) {
                 // set row values
                 self.rowOptions['id'] = self.listRowsOptions['id'] + '_' + index;
                 
                 if( index === self.selectedSubjectIndex ){
-                    self.rowOptions['backgroundColor'] = sharesoft.colors['panelHighlightBackgroundColor']['color'];
+                    self.rowOptions['backgroundColor'] = pleisterman.colors['panelHighlightBackgroundColor']['color'];
                 }
                 else {
-                    self.rowOptions['backgroundColor'] = sharesoft.colors['panelBackgroundColor']['color'];
+                    self.rowOptions['backgroundColor'] = pleisterman.colors['panelBackgroundColor']['color'];
                 }
             
                 // add row
@@ -152,10 +152,10 @@
                 // done set text values
 
                 if( index === self.selectedSubjectIndex ){
-                    self.rowTextOptions['color'] = sharesoft.colors['panelHighlightColor']['color'];
+                    self.rowTextOptions['color'] = pleisterman.colors['panelHighlightColor']['color'];
                 }
                 else {
-                    self.rowTextOptions['color'] = sharesoft.colors['panelColor']['color'];
+                    self.rowTextOptions['color'] = pleisterman.colors['panelColor']['color'];
                 }
             
                 // add text 
@@ -169,7 +169,7 @@
         // FUNCTION: addRowEvents( event: event, integer: index ) void
             
             // loop over rows
-            $.each( sharesoft.helpSubjects, function( index, value ) {
+            $.each( pleisterman.helpSubjects, function( index, value ) {
                 // row events
                 $( '#' + self.listRowsOptions['id'] + '_' + index ).mouseleave( function( event ){ self.rowMouseOut( event, index ); });
                 $( '#' + self.listRowsOptions['id'] + '_' + index ).mouseenter( function( event ){ self.rowMouseIn( event, index ); });
@@ -184,8 +184,8 @@
         // FUNCTION: rowMouseIn( event: event, integer: index ) void
             
             // mouse over -> background color, color highlight
-            $( '#' + self.listRowsOptions['id'] + '_' + index ).css( 'background-color', sharesoft.colors['panelHighlightBackgroundColor']['color'] );
-            $( '#' + self.listRowsOptions['id'] + 'Text_' + index ).css( 'color', sharesoft.colors['panelHighlightColor']['color'] );
+            $( '#' + self.listRowsOptions['id'] + '_' + index ).css( 'background-color', pleisterman.colors['panelHighlightBackgroundColor']['color'] );
+            $( '#' + self.listRowsOptions['id'] + 'Text_' + index ).css( 'color', pleisterman.colors['panelHighlightColor']['color'] );
             
         // DONE FUNCTION: rowMouseIn( void ) void
         };
@@ -200,8 +200,8 @@
             // done is selected index
             
             // mouse over -> background, color
-            $( '#' + self.listRowsOptions['id'] + '_' + index ).css( 'background-color', sharesoft.colors['editBackgroundColor']['color'] );
-            $( '#' + self.listRowsOptions['id'] + 'Text_' + index ).css( 'color', sharesoft.colors['editColor']['color'] );
+            $( '#' + self.listRowsOptions['id'] + '_' + index ).css( 'background-color', pleisterman.colors['editBackgroundColor']['color'] );
+            $( '#' + self.listRowsOptions['id'] + 'Text_' + index ).css( 'color', pleisterman.colors['editColor']['color'] );
             
         // DONE FUNCTION: rowMouseOut( event: event, integer: index ) void
         };
@@ -212,8 +212,8 @@
             event.stopPropagation(); 
 
             // mouse over -> background color, color highlight
-            $( '#' + self.listRowsOptions['id'] + '_' + self.selectedSubjectIndex ).css( 'background-color', sharesoft.colors['editBackgroundColor']['color'] );
-            $( '#' + self.listRowsOptions['id'] + 'Text_' + self.selectedSubjectIndex ).css( 'color', sharesoft.colors['editColor']['color'] );
+            $( '#' + self.listRowsOptions['id'] + '_' + self.selectedSubjectIndex ).css( 'background-color', pleisterman.colors['editBackgroundColor']['color'] );
+            $( '#' + self.listRowsOptions['id'] + 'Text_' + self.selectedSubjectIndex ).css( 'color', pleisterman.colors['editColor']['color'] );
             
             //set selected index
             self.selectedSubjectIndex = index;
@@ -261,10 +261,10 @@
             var itemCount = 0;
 
             // find current index
-            $.each( sharesoft.helpSubjects, function( index, value ) {
+            $.each( pleisterman.helpSubjects, function( index, value ) {
                 if( index === self.selectedSubjectIndex ){
-                    $( '#' + self.listRowsOptions['id'] + '_' + index ).css( 'background-color', sharesoft.colors['editBackgroundColor']['color'] );
-                    $( '#' + self.listRowsOptions['id'] + 'Text_' + index ).css( 'color', sharesoft.colors['editColor']['color'] );
+                    $( '#' + self.listRowsOptions['id'] + '_' + index ).css( 'background-color', pleisterman.colors['editBackgroundColor']['color'] );
+                    $( '#' + self.listRowsOptions['id'] + 'Text_' + index ).css( 'color', pleisterman.colors['editColor']['color'] );
                     selected = itemCount;
                 }
                 itemCount++;
@@ -284,13 +284,13 @@
             
             // select new index
             itemCount = 0;
-            $.each( sharesoft.helpSubjects, function( index, value ) {
+            $.each( pleisterman.helpSubjects, function( index, value ) {
                 if( itemCount === selected ){
                     // remember selected
                     self.selectedSubjectIndex = index;
                     // highlight
-                    $( '#' + self.listRowsOptions['id'] + '_' + index ).css( 'background-color', sharesoft.colors['panelHighlightBackgroundColor']['color'] );
-                    $( '#' + self.listRowsOptions['id'] + 'Text_' + index ).css( 'color', sharesoft.colors['panelHighlightColor']['color'] );
+                    $( '#' + self.listRowsOptions['id'] + '_' + index ).css( 'background-color', pleisterman.colors['panelHighlightBackgroundColor']['color'] );
+                    $( '#' + self.listRowsOptions['id'] + 'Text_' + index ).css( 'color', pleisterman.colors['panelHighlightColor']['color'] );
                     // done highlight
                 }
                 itemCount++;
@@ -309,10 +309,10 @@
             var itemCount = 0;
             
             // find current index
-            $.each( sharesoft.helpSubjects, function( index, value ) {
+            $.each( pleisterman.helpSubjects, function( index, value ) {
                 if( index === self.selectedSubjectIndex ){
-                    $( '#' + self.listRowsOptions['id'] + '_' + index ).css( 'background-color', sharesoft.colors['editBackgroundColor']['color'] );
-                    $( '#' + self.listRowsOptions['id'] + 'Text_' + index ).css( 'color', sharesoft.colors['editColor']['color'] );
+                    $( '#' + self.listRowsOptions['id'] + '_' + index ).css( 'background-color', pleisterman.colors['editBackgroundColor']['color'] );
+                    $( '#' + self.listRowsOptions['id'] + 'Text_' + index ).css( 'color', pleisterman.colors['editColor']['color'] );
                     selected = itemCount;
                 }
                 itemCount++;
@@ -332,13 +332,13 @@
             
             // select new index
             itemCount = 0;
-            $.each( sharesoft.helpSubjects, function( index, value ) {
+            $.each( pleisterman.helpSubjects, function( index, value ) {
                 if( itemCount === selected ){
                     // remmeber selected
                     self.selectedSubjectIndex = index;
                     // highlight
-                    $( '#' + self.listRowsOptions['id'] + '_' + index ).css( 'background-color', sharesoft.colors['panelHighlightBackgroundColor']['color'] );
-                    $( '#' + self.listRowsOptions['id'] + 'Text_' + index ).css( 'color', sharesoft.colors['panelHighlightColor']['color'] );
+                    $( '#' + self.listRowsOptions['id'] + '_' + index ).css( 'background-color', pleisterman.colors['panelHighlightBackgroundColor']['color'] );
+                    $( '#' + self.listRowsOptions['id'] + 'Text_' + index ).css( 'color', pleisterman.colors['panelHighlightColor']['color'] );
                     // done highlight
                 }
                 itemCount++;
@@ -358,17 +358,17 @@
                 'deSelect'  :   self.listRowsDeSelect,
                 'keys'      :   [
                     {
-                        'keyCode'   :   sharesoft.getSetting( 'keyCodes' )['space'],
+                        'keyCode'   :   pleisterman.getSetting( 'keyCodes' )['space'],
                         'type'      :   'tabStop',
                         'function'  :   self.listRowsPressSelected
                     },
                     {
-                        'keyCode'   :   sharesoft.getSetting( 'keyCodes' )['arrowUp'],
+                        'keyCode'   :   pleisterman.getSetting( 'keyCodes' )['arrowUp'],
                         'type'      :   'tabStop',
                         'function'  :   self.listRowsSelectPrevious
                     },
                     {
-                        'keyCode'   :   sharesoft.getSetting( 'keyCodes' )['arrowDown'],
+                        'keyCode'   :   pleisterman.getSetting( 'keyCodes' )['arrowDown'],
                         'type'      :   'tabStop',
                         'function'  :   self.listRowsSelectNext
                     }
@@ -388,28 +388,28 @@
             self.debug( 'update colors' );
             
             // update header colors
-            $( '#' + self.headerOptions['id'] ).css( 'color', sharesoft.colors['panelHighlightColor']['color'] );
-            self.headerOptions['color'] = sharesoft.colors['panelHighlightColor']['color'];
-            $( '#' + self.headerOptions['id'] ).css( 'background-color', sharesoft.colors['panelHighlightBackgroundColor']['color'] );
-            self.headerOptions['backgroundColor'] = sharesoft.colors['panelHighlightBackgroundColor']['color'];
-            $( '#' + self.headerOptions['id'] ).css( 'border-color', sharesoft.colors['panelBorderColor']['color'] );
-            self.headerOptions['borderColor'] = sharesoft.colors['panelBorderColor']['color'];
+            $( '#' + self.headerOptions['id'] ).css( 'color', pleisterman.colors['panelHighlightColor']['color'] );
+            self.headerOptions['color'] = pleisterman.colors['panelHighlightColor']['color'];
+            $( '#' + self.headerOptions['id'] ).css( 'background-color', pleisterman.colors['panelHighlightBackgroundColor']['color'] );
+            self.headerOptions['backgroundColor'] = pleisterman.colors['panelHighlightBackgroundColor']['color'];
+            $( '#' + self.headerOptions['id'] ).css( 'border-color', pleisterman.colors['panelBorderColor']['color'] );
+            self.headerOptions['borderColor'] = pleisterman.colors['panelBorderColor']['color'];
             // done update header colors
 
             // update row colors
-            $( '#' + self.rowOptions['id'] ).css( 'color', sharesoft.colors['editColor']['color'] );
-            self.rowTextOptions['color'] = sharesoft.colors['panelHighlightColor']['color'];
-            self.rowOptions['backgroundColor'] = sharesoft.colors['editBackgroundColor']['color'];
-            self.rowOptions['borderColor'] = sharesoft.colors['buttonBorderColor']['color'];
+            $( '#' + self.rowOptions['id'] ).css( 'color', pleisterman.colors['editColor']['color'] );
+            self.rowTextOptions['color'] = pleisterman.colors['panelHighlightColor']['color'];
+            self.rowOptions['backgroundColor'] = pleisterman.colors['editBackgroundColor']['color'];
+            self.rowOptions['borderColor'] = pleisterman.colors['buttonBorderColor']['color'];
             // loop over rows
-            $.each( sharesoft.helpSubjects, function( index, value ) {
+            $.each( pleisterman.helpSubjects, function( index, value ) {
                 if( index === self.selectedSubjectIndex ){
-                    $( '#' + self.listRowsOptions['id'] + '_' + index ).css( 'background-color', sharesoft.colors['panelHighlightBackgroundColor']['color'] );
-                    $( '#' + self.listRowsOptions['id'] + 'Text_' + index ).css( 'color', sharesoft.colors['panelHighlightColor']['color'] );
+                    $( '#' + self.listRowsOptions['id'] + '_' + index ).css( 'background-color', pleisterman.colors['panelHighlightBackgroundColor']['color'] );
+                    $( '#' + self.listRowsOptions['id'] + 'Text_' + index ).css( 'color', pleisterman.colors['panelHighlightColor']['color'] );
                 }
                 else {
-                    $( '#' + self.listRowsOptions['id'] + '_' + index ).css( 'background-color', sharesoft.colors['editBackgroundColor']['color'] );
-                    $( '#' + self.listRowsOptions['id'] + 'Text_' + index ).css( 'color', sharesoft.colors['editColor']['color'] );
+                    $( '#' + self.listRowsOptions['id'] + '_' + index ).css( 'background-color', pleisterman.colors['editBackgroundColor']['color'] );
+                    $( '#' + self.listRowsOptions['id'] + 'Text_' + index ).css( 'color', pleisterman.colors['editColor']['color'] );
                 }
             });
             // done loop over rows
@@ -446,5 +446,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: helpDialogSubjectListModule( string: containerId, function: callback ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

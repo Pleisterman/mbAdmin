@@ -8,23 +8,23 @@
  *  Purpose: 
  *      handles data for contact projects
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  *  
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: projectContactsModule( void ) void 
     
-    sharesoft.projectContactsModule = function( ) {
+    pleisterman.projectContactsModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -50,7 +50,7 @@
             self.debug( 'getRows' );
             
             // show busy screen
-            sharesoft.startBusyProcess();
+            pleisterman.startBusyProcess();
             
             // remember callback
             self.callback = callback;
@@ -65,7 +65,7 @@
             
             // construct data object
             var data = { 
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'subject'           :   'projectContacts',
                 'what'              :   'list',
                 'selection'         :   projectId
@@ -73,7 +73,7 @@
             // done construct data object
 
             // ajax
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/read', sharesoft.token, data, self.getRowsCallback );
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/read', pleisterman.token, data, self.getRowsCallback );
             
         // DONE FUNCTION: getRows( function: callback ) void
         };
@@ -85,15 +85,15 @@
 
             // check critical errors
             if( result['criticalError'] ){
-                sharesoft.showCriticalError( result['criticalError'] );
-                sharesoft.endBusyProcess();
+                pleisterman.showCriticalError( result['criticalError'] );
+                pleisterman.endBusyProcess();
                 // error return
                 return;
             }
             // done check critical errors
 
             // end busy 
-            sharesoft.endBusyProcess();
+            pleisterman.endBusyProcess();
             
             // check for callback
             if( self.callback ){
@@ -122,14 +122,14 @@
             // done get projectId
 
             // show busy screen
-            sharesoft.startBusyProcess();
+            pleisterman.startBusyProcess();
             
             // remember callback
             self.callback = callback;
             
             // construct data object
             var data = { 
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'subject'           :   'projectContacts',
                 'what'              :   'link',
                 'id'                :   projectId,
@@ -138,7 +138,7 @@
             // done construct data object
 
             // ajax
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/update', sharesoft.token, data, self.linkRowsCallback );
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/update', pleisterman.token, data, self.linkRowsCallback );
             
         // DONE FUNCTION: linkRows( json: idArray, function: callback ) void
         };
@@ -148,8 +148,8 @@
             self.debug( 'linkRowsCallback' );
             // check critical errors
             if( result['criticalError'] ){
-                sharesoft.showCriticalError( result['criticalError'] );
-                sharesoft.endBusyProcess();
+                pleisterman.showCriticalError( result['criticalError'] );
+                pleisterman.endBusyProcess();
                 // error return
                 return;
             }
@@ -160,7 +160,7 @@
 
             
             // end busy 
-            sharesoft.endBusyProcess();
+            pleisterman.endBusyProcess();
 
             // check for callback
             if( self.callback ){
@@ -210,5 +210,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: projectContactsModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

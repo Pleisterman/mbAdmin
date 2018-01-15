@@ -7,22 +7,22 @@
  * 
  *  Purpose: 
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: documentUploadModule( void ) void 
     
-    sharesoft.documentUploadModule = function( ) {
+    pleisterman.documentUploadModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -36,9 +36,9 @@
             'id'                    :   self.MODULE + 'Upload',         // string: element id
             'element'               :   'div',                          // string html: element type 
             'position'              :   'absolute',                     // css position
-            'backgroundColor'       :   sharesoft.colors['panelBackgroundColor']['color'], // css color: background color
+            'backgroundColor'       :   pleisterman.colors['panelBackgroundColor']['color'], // css color: background color
             'border'                :   true,                           // boolean has border
-            'borderColor'           :   sharesoft.colors['panelBorderColor']['color'],  // css color: border color
+            'borderColor'           :   pleisterman.colors['panelBorderColor']['color'],  // css color: border color
             'borderWidth'           :   '0.2em',                        // css border width
             'borderStyle'           :   'groove',                       // css border style
             'padding'               :   '0.4em',                        // css padding
@@ -50,8 +50,8 @@
             'fontSize'              :   '1.0em',                        // css font size
             'fontWeight'            :   'bold',                         // css font weight
             'borderRadius'          :   '0.2em',                        // css border radius
-            'backgroundColor'       :   sharesoft.colors['panelHighlightBackgroundColor']['color'], // css color: background color
-            'color'                 :   sharesoft.colors['panelHighlightColor']['color'],           // css color: color
+            'backgroundColor'       :   pleisterman.colors['panelHighlightBackgroundColor']['color'], // css color: background color
+            'color'                 :   pleisterman.colors['panelHighlightColor']['color'],           // css color: color
             'textAlign'             :   'left'                          // css text align    
         };                                                              // done json: header options
         self.frameOptions = {                                           // json: frame options
@@ -81,7 +81,7 @@
             // debug info
             self.debug( 'construct' );
         
-            // add the extensions to sharesoft
+            // add the extensions to pleisterman
             self.addApplicationsExtensions();
 
             // event subscription
@@ -93,11 +93,11 @@
         // FUNCTION: addApplicationsExtensions( void ) void
             
             // add show document upload
-            sharesoft.showDocumentUpload = self.showUploadFrame;
+            pleisterman.showDocumentUpload = self.showUploadFrame;
             // get document upload options
-            sharesoft.getDocumentUploadOptions = self.getUploadOptions;
+            pleisterman.getDocumentUploadOptions = self.getUploadOptions;
             // hide frame
-            sharesoft.hideDocumentUpload = self.hideUploadFrame;
+            pleisterman.hideDocumentUpload = self.hideUploadFrame;
             
         // DONE FUNCTION: addApplicationsExtensions( void ) void
         };
@@ -133,7 +133,7 @@
             self.addHtml();
 
             // load frame
-            $( '#' + self.frameOptions['id'] ).attr('src', '/' + sharesoft.baseDirectory + '/upload' );
+            $( '#' + self.frameOptions['id'] ).attr('src', '/' + pleisterman.baseDirectory + '/upload' );
 
             // show overlay
             $( '#' + self.overlayOptions['id'] ).show();
@@ -155,7 +155,7 @@
             // add header to container
             if( self.callerOptions['mode'] === 'insert' ){
                 // set heder text
-                self.headerOptions['text'] = sharesoft.translations['documentUploadInsertHeader'];
+                self.headerOptions['text'] = pleisterman.translations['documentUploadInsertHeader'];
             }
             $( '#' + self.containerOptions['id'] ).append( jsProject.jsonToElementHtml( self.headerOptions ) );
             // done add header to container
@@ -287,5 +287,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: documentUploadModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

@@ -11,22 +11,22 @@
  *          An open vat list wil always be loaded and cashed 
  *          Closed vat wil be loaded and cashed when needed
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
     
     // MODULE: vatSelectModule( void ) void
     
-    sharesoft.vatSelectModule = function( ) {
+    pleisterman.vatSelectModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -75,11 +75,11 @@
             self.debug( 'load' );
 
             // show busy screen
-            sharesoft.startBusyProcess();
+            pleisterman.startBusyProcess();
 
             // construct data object
             var data = { 
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'subject'           :   'vat',
                 'what'              :   'list',
                 'selection'         :   '',
@@ -88,7 +88,7 @@
             // done construct data object
 
             // ajax
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/read', sharesoft.token, data, self.loadCallback );
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/read', pleisterman.token, data, self.loadCallback );
             
         // DONE FUNCTION: load( void ) void
         };
@@ -97,8 +97,8 @@
             
             // check critical errors
             if( result['criticalError'] ){
-                sharesoft.showCriticalError( result['criticalError'] );
-                sharesoft.endBusyProcess();
+                pleisterman.showCriticalError( result['criticalError'] );
+                pleisterman.endBusyProcess();
                 // error return
                 return;
             }
@@ -120,7 +120,7 @@
             // data changed
             
             // end busy 
-            sharesoft.endBusyProcess();
+            pleisterman.endBusyProcess();
 
             // call the callback    
             self.callback();
@@ -146,13 +146,13 @@
         // FUNCTION: lisSelectorLoadCallback( void ) void
             
             // sort vat
-            self.data['rows'].sort( sharesoft.orderByText );
+            self.data['rows'].sort( pleisterman.orderByText );
 
             // create selector options
             var options = {
                 'id'                    :   'vat',
                 'elementId'             :   self.callerOptions['elementId'],
-                'headerText'            :   sharesoft.translations['vat'],
+                'headerText'            :   pleisterman.translations['vat'],
                 'rows'                  :   self.data['rows'],
                 'filterChangeCallback'  :   self.listFilterChangeCallback,
                 'selectCallback'        :   self.listSelectCallback
@@ -160,7 +160,7 @@
             // done create selector options
             
             // open selector
-            sharesoft.showListSelector( options );
+            pleisterman.showListSelector( options );
             
         // DONE FUNCTION: lisSelectorLoadCallback( void ) void
         };
@@ -221,11 +221,11 @@
             self.callerOptions['callback'] = callback;
             
             // show busy screen
-            sharesoft.startBusyProcess();
+            pleisterman.startBusyProcess();
 
             // construct data object
             var data = { 
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'subject'           :   'vat',
                 'what'              :   'selectData',
                 'selection'         :   id,
@@ -234,7 +234,7 @@
             // done construct data object
              
             // make the ajax call
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/read', sharesoft.token, data, self.getSelectDataCallback );
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/read', pleisterman.token, data, self.getSelectDataCallback );
             
         // DONE FUNCTION: getSelectData( integer: id, function: callback ) void
         };
@@ -243,8 +243,8 @@
             
             // check critical errors
             if( result['criticalError'] ){
-                sharesoft.showCriticalError( result['criticalError'] );
-                sharesoft.endBusyProcess();
+                pleisterman.showCriticalError( result['criticalError'] );
+                pleisterman.endBusyProcess();
                 return;
             }
             // done check critical errors
@@ -266,7 +266,7 @@
             // data changed
             
             // hide busy screen
-            sharesoft.endBusyProcess();
+            pleisterman.endBusyProcess();
             
             // call the callback
             self.callerOptions['callback']( result );
@@ -317,5 +317,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: vatSelectModule( void ) void
-})( sharesoft );
+})( pleisterman );
 // done create module function

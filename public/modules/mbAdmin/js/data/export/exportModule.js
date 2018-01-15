@@ -8,23 +8,23 @@
  *  Purpose: 
  *          this module controls export of data 
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  *  
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: exportModule( void ) void
     
-    sharesoft.exportModule = function( ) {
+    pleisterman.exportModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -35,11 +35,11 @@
         self.listRows = [                                   // json: listRows
             {                                               // json: tasks
                 'id'    :   'tasks',                        // string: id
-                'text'  :   sharesoft.translations['tasks'] // string: TRANSLATION: tasks
+                'text'  :   pleisterman.translations['tasks'] // string: TRANSLATION: tasks
             },                                              // done json: tasks
             {                                               // json: rides
                 'id'    :   'rides',                        // string: id
-                'text'  :   sharesoft.translations['rides'] // string: TRANSLATION: rides
+                'text'  :   pleisterman.translations['rides'] // string: TRANSLATION: rides
             }                                               // done json: rides
         ];                                                  // done json: listRows
         self.listOptions = {                                // json: list options
@@ -68,7 +68,7 @@
             self.debug( 'construct' );
 
             // create list
-            self.list = new sharesoft.listModule( self.listOptions, self.listCallback );
+            self.list = new pleisterman.listModule( self.listOptions, self.listCallback );
             
             // create data objects
             self.addDataObjects();
@@ -90,21 +90,21 @@
         // FUNCTION: addDataObjects( void ) void
 
             // add delimiter module
-            self.delimiterSelectModule = new sharesoft.delimiterSelectModule();
+            self.delimiterSelectModule = new pleisterman.delimiterSelectModule();
             // add projectsDataObject module
-            self.projectsDataObjectModule = new sharesoft.exportProjectsDataObjectModule();
+            self.projectsDataObjectModule = new pleisterman.exportProjectsDataObjectModule();
             // add contactsDataObject module
-            self.contactsDataObjectModule = new sharesoft.exportContactsDataObjectModule( );
+            self.contactsDataObjectModule = new pleisterman.exportContactsDataObjectModule( );
             // add vehiclesDataObject module
-            self.vehiclesDataObjectModule = new sharesoft.exportVehiclesDataObjectModule( );
+            self.vehiclesDataObjectModule = new pleisterman.exportVehiclesDataObjectModule( );
             // add exportTasksTotalsSelect module
-            self.exportTasksTotalsSelectModule = new sharesoft.exportTasksTotalsSelectModule();
+            self.exportTasksTotalsSelectModule = new pleisterman.exportTasksTotalsSelectModule();
             // add tasksDataObject module
-            self.tasksDataObjectModule = new sharesoft.exportTasksDataObjectModule( self.delimiterSelectModule, self.exportTasksTotalsSelectModule );
+            self.tasksDataObjectModule = new pleisterman.exportTasksDataObjectModule( self.delimiterSelectModule, self.exportTasksTotalsSelectModule );
             // add delimiter exportRideTotalsSelect module
-            self.exportRideTotalsSelectModule = new sharesoft.exportRidesTotalsSelectModule();
+            self.exportRideTotalsSelectModule = new pleisterman.exportRidesTotalsSelectModule();
             // add ridesDataObject module
-            self.ridesDataObjectModule = new sharesoft.exportRidesDataObjectModule( self.delimiterSelectModule, self.exportRideTotalsSelectModule );
+            self.ridesDataObjectModule = new pleisterman.exportRidesDataObjectModule( self.delimiterSelectModule, self.exportRideTotalsSelectModule );
             
         // DONE FUNCTION: addDataObjects( void ) void
         };
@@ -116,7 +116,7 @@
             
             // create list options
             var options = {
-                'headerText'    :   sharesoft.translations['subjects'],
+                'headerText'    :   pleisterman.translations['subjects'],
                 'rows'          :   self.listRows
             };
             // done create list options
@@ -125,7 +125,7 @@
             self.list.refreshRows( options );
             
             // export header is open
-            if( sharesoft.options['exportHeaderOpen']['value'] === 'true' ){
+            if( pleisterman.options['exportHeaderOpen']['value'] === 'true' ){
                 // show list content
                 self.list.openContent( true );
             }
@@ -147,15 +147,15 @@
                 // case header
                 case 'header' : {
                     // export header is open
-                    if( sharesoft.options['exportHeaderOpen']['value'] === 'true' ){
+                    if( pleisterman.options['exportHeaderOpen']['value'] === 'true' ){
                         // set option: OPTION: exportHeaderOpen
-                        sharesoft.setOption( 'exportHeaderOpen', 'false' );
+                        pleisterman.setOption( 'exportHeaderOpen', 'false' );
                         // hide list content
                         self.list.openContent( false );
                     }
                     else {
                         // set option: OPTION: exportHeaderOpen
-                        sharesoft.setOption( 'exportHeaderOpen', 'true' );
+                        pleisterman.setOption( 'exportHeaderOpen', 'true' );
                         // show list content
                         self.list.openContent( true );
                     }
@@ -185,11 +185,11 @@
         // FUNCTION: openInitialSelection( void ) void
 
             // open subject is export
-            if( sharesoft.options['openSubject']['value'] === 'export' ){
+            if( pleisterman.options['openSubject']['value'] === 'export' ){
                 // subject row id exists
-                if( sharesoft.options['openSubjectRowId']['value'] !== undefined && sharesoft.options['openSubjectRowId']['value'] ){
+                if( pleisterman.options['openSubjectRowId']['value'] !== undefined && pleisterman.options['openSubjectRowId']['value'] ){
                     // get selected row
-                    self.display( sharesoft.options['openSubjectRowId']['value'] );
+                    self.display( pleisterman.options['openSubjectRowId']['value'] );
                 }
                 // done subject row id exists
             }
@@ -212,7 +212,7 @@
                 // done create message options
                 
                 // show the message
-                sharesoft.showMessage( 'dataChanged', options );
+                pleisterman.showMessage( 'dataChanged', options );
             }
             else {
                 // data unchanged get row
@@ -254,9 +254,9 @@
             jsProject.callEvent( 'cancel' );    
 
             // set open subject
-            sharesoft.setOption( 'openSubject', 'export' );
+            pleisterman.setOption( 'openSubject', 'export' );
             // set open id
-            sharesoft.setOption( 'openSubjectRowId', id );
+            pleisterman.setOption( 'openSubjectRowId', id );
             // display
             
             // set data !changed 
@@ -286,7 +286,7 @@
                     // set data object
                     jsProject.setValue( 'dataObject', 'data', self.projectsDataObjectModule.getDataObject() );    
                     // set header text TRANSLATION: exportProjectsHeader
-                    jsProject.setValue( 'headerText', 'data', sharesoft.translations['exportProjectsHeader'] );    
+                    jsProject.setValue( 'headerText', 'data', pleisterman.translations['exportProjectsHeader'] );    
                     // done 
                     break;   
                 }
@@ -295,7 +295,7 @@
                     // set data object
                     jsProject.setValue( 'dataObject', 'data', self.contactsDataObjectModule.getDataObject() );    
                     // set header text TRANSLATION: exportContactsHeader
-                    jsProject.setValue( 'headerText', 'data', sharesoft.translations['exportContactsHeader'] );    
+                    jsProject.setValue( 'headerText', 'data', pleisterman.translations['exportContactsHeader'] );    
                     // done 
                     break;   
                 }
@@ -304,7 +304,7 @@
                     // set data object
                     jsProject.setValue( 'dataObject', 'data', self.vehiclesDataObjectModule.getDataObject() );    
                     // set header text TRANSLATION: exportVehiclesHeader
-                    jsProject.setValue( 'headerText', 'data', sharesoft.translations['exportVehiclesHeader'] );    
+                    jsProject.setValue( 'headerText', 'data', pleisterman.translations['exportVehiclesHeader'] );    
                     // done 
                     break;   
                 }
@@ -313,7 +313,7 @@
                     // set data object
                     jsProject.setValue( 'dataObject', 'data', self.tasksDataObjectModule.getDataObject() );    
                     // set header text TRANSLATION: exportTasksHeader
-                    jsProject.setValue( 'headerText', 'data', sharesoft.translations['exportTasksHeader'] );    
+                    jsProject.setValue( 'headerText', 'data', pleisterman.translations['exportTasksHeader'] );    
                     // done 
                     break;   
                 }
@@ -322,7 +322,7 @@
                     // set data object
                     jsProject.setValue( 'dataObject', 'data', self.ridesDataObjectModule.getDataObject() );    
                     // set header text TRANSLATION: exportRidesHeader
-                    jsProject.setValue( 'headerText', 'data', sharesoft.translations['exportRidesHeader'] );    
+                    jsProject.setValue( 'headerText', 'data', pleisterman.translations['exportRidesHeader'] );    
                     // done 
                     break;   
                 }
@@ -343,7 +343,7 @@
             self.debug( 'export type: ' + exportType );
             
             // set open id
-            var id = sharesoft.options['openSubjectRowId']['value'];
+            var id = pleisterman.options['openSubjectRowId']['value'];
             switch( id ){
                 case 'tasks' :  {
                     self.tasksDataObjectModule.export( exportType, self.exportCallback );
@@ -367,14 +367,14 @@
         
             // construct data object
             var data = { 
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'subject'           :   'file',
                 'what'              :   result['file'] 
             };
             // done construct data object
              
             // make the ajax call
-            jsProject.secureDownload( '/' + sharesoft.baseDirectory + '/read', sharesoft.token, data );
+            jsProject.secureDownload( '/' + pleisterman.baseDirectory + '/read', pleisterman.token, data );
             
         // DONE FUNCTION: exportCallback( json: result ) void
         };
@@ -406,5 +406,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: exportModule( void ) void
-})( sharesoft );
+})( pleisterman );
 // done create module function

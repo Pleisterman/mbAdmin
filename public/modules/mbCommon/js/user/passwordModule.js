@@ -8,22 +8,22 @@
  *  Purpose: 
  *       this module controls the user password
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: passwordModule( void ) void 
     
-    sharesoft.passwordModule = function( ) {
+    pleisterman.passwordModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -37,7 +37,7 @@
                 'type'              :   'text',                     // string: type
                 'displayOptions'    :   {                           // json: display options
                     'label'         :   {                           // json: label
-                        'text'          :   sharesoft.translations['passwordNew'] // string: text
+                        'text'          :   pleisterman.translations['passwordNew'] // string: text
                     },                                              // done json: label
                     'emptyError'    :   true,                       // boolean: empty error
                     'type'              :   'password'              // string: type
@@ -53,7 +53,7 @@
                 'type'              :   'text',                     // string: type
                 'displayOptions'    :   {                           // json: display options
                     'label'         :   {                           // json: label
-                        'text'          :   sharesoft.translations['passwordRepeat'] // string: text
+                        'text'          :   pleisterman.translations['passwordRepeat'] // string: text
                     },                                              // done json: label
                     'emptyError'    :   true,                       // boolean: empty error
                     'type'              :   'password',             // string: type
@@ -66,7 +66,7 @@
                 'type'              :   'passwordStrength',         // string: type
                 'displayOptions'    :   {                           // json: display options
                     'label'         :   {                           // json: label
-                        'text'          :   sharesoft.translations['passwordStrength'] // string: text
+                        'text'          :   pleisterman.translations['passwordStrength'] // string: text
                     }                                               // done json: label
                 },                                                  // done json: display options
                 'showStrengthFunction'     :   null                 // function: show password strength function
@@ -76,7 +76,7 @@
                 'type'          :   'button',                       // string: type
                 'displayOptions'    :   {                           // json: displayOptions
                 },                                                  // done json: displayOptions
-                'value'         :  sharesoft.translations['showPassword'], // string: text
+                'value'         :  pleisterman.translations['showPassword'], // string: text
                 'callback'      :  null                             // function: callback
             }                                                       // done json: show password button
         ];                                                          // done json: dataObject
@@ -163,13 +163,13 @@
             // password visible
             if( self.passwordVisible ){
                 // chenge button text
-                $( '#' + buttonId ).html( sharesoft.translations['hidePassword'] );
+                $( '#' + buttonId ).html( pleisterman.translations['hidePassword'] );
                 $( '#' + passwordInputId ).attr( 'type', 'text' );
                 $( '#' + passwordRepeatInputId ).attr( 'type', 'text' );
             }
             else {
                 // chenge button text
-                $( '#' + buttonId ).html( sharesoft.translations['showPassword'] );
+                $( '#' + buttonId ).html( pleisterman.translations['showPassword'] );
                 $( '#' + passwordInputId ).attr( 'type', 'password' );
                 $( '#' + passwordRepeatInputId ).attr( 'type', 'password' );
             }
@@ -181,7 +181,7 @@
         // FUNCTION: openInitialSelection( void ) void
             
             // open subject = userpassword
-            if( sharesoft.options['openSubject']['value'] === self.id ){
+            if( pleisterman.options['openSubject']['value'] === self.id ){
                 // show data
                 self.show(); 
             }
@@ -196,7 +196,7 @@
             self.debug( 'prepareShow' );  
             
             // call global prepare data show
-            sharesoft.prepareDataShow( self.show );
+            pleisterman.prepareDataShow( self.show );
             
         // DONE FUNCTION: prepareShow( void ) void
         };
@@ -207,7 +207,7 @@
             jsProject.callEvent( 'cancel' );
             
             // remember open subject
-            sharesoft.setOption( 'openSubject', self.id );
+            pleisterman.setOption( 'openSubject', self.id );
 
             // get password object from dataObject
             var passwordObject = jsProject.getJsonValue( self.dataObject, ['id=password'] );            
@@ -241,7 +241,7 @@
             self.debug( 'update' );
 
             // show busy screen
-            sharesoft.startBusyProcess();
+            pleisterman.startBusyProcess();
             
             // reset data error
             jsProject.setValue( 'hasError', 'data', false );
@@ -252,7 +252,7 @@
             // check data error
             if( jsProject.getValue( 'hasError', 'data' )  ){
                 // end busy
-                sharesoft.endBusyProcess();
+                pleisterman.endBusyProcess();
                 // done with error 
                 return;
             }
@@ -261,7 +261,7 @@
             // check data
             if( !self.checkData() ){
                 // end busy
-                sharesoft.endBusyProcess();
+                pleisterman.endBusyProcess();
                 // doen with error
                 return;
             }
@@ -269,14 +269,14 @@
             
             // construct data object for password key
             var data = { 
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'subject'           :   'authentification',
                 'what'              :   'passwordKey'
             };
             // done construct data object for password key
              
             // make the ajax call for password key
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/read', sharesoft.token, data, self.getPasswordKeyCallback );
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/read', pleisterman.token, data, self.getPasswordKeyCallback );
             
         // DONE FUNCTION: update( void ) void
         };
@@ -286,7 +286,7 @@
             // check for errors
             if( self.hasAjaxResultErrors( result ) ){
                 // end busy
-                sharesoft.endBusyProcess();
+                pleisterman.endBusyProcess();
                 // done with error
                 return;
             }
@@ -302,7 +302,7 @@
             
             // construct data object
             var data = { 
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'subject'           :   'authentification',
                 'what'              :   'password',
                 'values'            :   values 
@@ -310,7 +310,7 @@
             // done construct data object
              
             // make the ajax call
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/update', sharesoft.token, data, self.updateCallback );
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/update', pleisterman.token, data, self.updateCallback );
             
         // DONE FUNCTION: getPasswordKeyCallback( json: result ) void
         };
@@ -320,7 +320,7 @@
             // check for errors
             if( self.hasAjaxResultErrors( result ) ){
                 // end busy
-                sharesoft.endBusyProcess();
+                pleisterman.endBusyProcess();
                 // done with error
                 return;
             }
@@ -335,7 +335,7 @@
             jsProject.setValue( 'changed', 'data', false );    
             
             // end busy
-            sharesoft.endBusyProcess();
+            pleisterman.endBusyProcess();
 
             // call after update
             jsProject.callEvent( 'afterUpdate' );
@@ -356,7 +356,7 @@
             var repeatPassword = $.trim( repeatPasswordObject['value'] );
             
             // validate password
-            if( sharesoft.validatePassword( password, repeatPassword, passwordObject['errorFunction'] ) ){ 
+            if( pleisterman.validatePassword( password, repeatPassword, passwordObject['errorFunction'] ) ){ 
                 // done
                 return true;
             }
@@ -372,7 +372,7 @@
         // FUNCTION: hasAjaxResultErrors( json: result ) boolean
             
             // global check result
-            if( sharesoft.hasAjaxResultErrors( result ) ){
+            if( pleisterman.hasAjaxResultErrors( result ) ){
                 // done with error
                 return true;
             }
@@ -412,7 +412,7 @@
             // reset data changed
             jsProject.setValue( 'changed', 'data', false );
             // unset open subject
-            sharesoft.setOption( 'openSubject', null );            
+            pleisterman.setOption( 'openSubject', null );            
             // call cancel event
             jsProject.callEvent( 'cancel' );
             
@@ -447,5 +447,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: passwordModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

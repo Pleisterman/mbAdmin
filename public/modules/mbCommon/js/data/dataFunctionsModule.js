@@ -8,22 +8,22 @@
  *  Purpose: 
  *       this module controls common data funtions
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
     
     // MODULE: dataFunctionsModule( void ) 
     
-    sharesoft.dataFunctionsModule = function( ) {
+    pleisterman.dataFunctionsModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -48,9 +48,9 @@
         // FUNCTION: addFunctions( json: result ) void
             
             // add has ajax result errors
-            self.hasAjaxResultErrorsFunction = new sharesoft.hasAjaxResultErrorsFunction();
+            self.hasAjaxResultErrorsFunction = new pleisterman.hasAjaxResultErrorsFunction();
             // add prepare show
-            self.prepareDataShowFunction = new sharesoft.prepareDataShowFunction();
+            self.prepareDataShowFunction = new pleisterman.prepareDataShowFunction();
             
         // DONE FUNCTION: addFunctions( json: result ) void
         };
@@ -78,5 +78,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: dataFunctionsModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

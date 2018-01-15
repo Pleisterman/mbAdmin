@@ -14,22 +14,22 @@
  *              new button, 
  *              text    
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: listHeaderModule( json: options, function: callback ) void 
     
-    sharesoft.listHeaderModule = function( options, callback ) {
+    pleisterman.listHeaderModule = function( options, callback ) {
         // PRIVATE:
         
         // MEMBERS
@@ -41,11 +41,11 @@
         self.headerOptions = {                                          // json: header options
             'element'               :   'div',                          // string: html element type 
             'overflow'              :   'visible',                      // css overflow
-            'backgroundColor'       :   sharesoft.colors['panelBackgroundColor']['color'], // css color: background color
+            'backgroundColor'       :   pleisterman.colors['panelBackgroundColor']['color'], // css color: background color
             'borderTop'             :   true,                           // boolean: has border top
             'borderBottom'          :   true,                           // boolean: has border bottom
             'borderWidth'           :   '0.1em',                        // css border width
-            'borderColor'           :   sharesoft.colors['panelBorderColor']['color'],  // css color: border color
+            'borderColor'           :   pleisterman.colors['panelBorderColor']['color'],  // css color: border color
             'borderStyle'           :   'solid',                        // css border style
             'padding'               :   '0.0em',                        // css padding
             'paddingTop'            :   '0.2em',                        // css padding top
@@ -58,7 +58,7 @@
             'element'               :   'div',                          // string: html element type 
             'display'               :   'inline-block',                 // css display
             'verticalAlign'         :   'middle',                       // css vertical align
-            'color'                 :   sharesoft.colors['panelColor']['color'],    // css color: color
+            'color'                 :   pleisterman.colors['panelColor']['color'],    // css color: color
             'fontSize'              :   '1.2em',                        // css font size
             'fontWeight'            :   'bold',                         // css font weight
             'textAlign'             :   'left',                         // css text align
@@ -109,16 +109,16 @@
             var textMargin = 0;
             
             // add the Modules
-            self.orderModule = new sharesoft.listHeaderOrderModule( self.options['id'] );
+            self.orderModule = new pleisterman.listHeaderOrderModule( self.options['id'] );
             if( self.options['hasHeaderSelection'] ){
-                self.selectionModule = new sharesoft.listHeaderSelectionModule( self.options['id'], self.selectionsCallback );
+                self.selectionModule = new pleisterman.listHeaderSelectionModule( self.options['id'], self.selectionsCallback );
             }
             else {
                 textMargin += self.headerTextOptions['buttonMargin'];
             }
             
             if( self.options['hasHeaderNew'] ){
-                self.newModule = new sharesoft.listHeaderNewModule( self.options['id'], self.listNewCallback );
+                self.newModule = new pleisterman.listHeaderNewModule( self.options['id'], self.listNewCallback );
             }
             else {
                 textMargin += self.headerTextOptions['buttonMargin'];
@@ -127,7 +127,7 @@
 
             // add text
             self.headerTextOptions['id'] = 'listHeaderText' + self.options['id']; 
-            self.headerTextOptions['text'] = sharesoft.translations[self.options['id']];
+            self.headerTextOptions['text'] = pleisterman.translations[self.options['id']];
             self.headerTextOptions['marginLeft'] = textMargin + 'em';
             $( '#listHeader' + self.options['id'] ).append( jsProject.jsonToElementHtml( self.headerTextOptions ) );
             // done add text
@@ -149,9 +149,9 @@
         // FUNCTION: mouseover( html element: element ) void
             
             // mouse over -> background color highlight
-            $( '#' + element.id ).css( 'background-color', sharesoft.colors['panelHighlightBackgroundColor']['color'] );
+            $( '#' + element.id ).css( 'background-color', pleisterman.colors['panelHighlightBackgroundColor']['color'] );
             // mouse over -> color highlight
-            $( '#' + element.id ).css( 'color', sharesoft.colors['panelHighlightColor']['color'] );
+            $( '#' + element.id ).css( 'color', pleisterman.colors['panelHighlightColor']['color'] );
             
         // DONE FUNCTION: mouseover( html element: element ) void
         };
@@ -187,9 +187,9 @@
             // done element to low
             
             // mouse over -> background color highlight
-            $( '#' + element.id ).css( 'background-color', sharesoft.colors['panelHighlightBackgroundColor']['color'] );
+            $( '#' + element.id ).css( 'background-color', pleisterman.colors['panelHighlightBackgroundColor']['color'] );
             // mouse over -> color highlight
-            $( '#' + element.id ).css( 'color', sharesoft.colors['panelHighlightColor']['color'] );
+            $( '#' + element.id ).css( 'color', pleisterman.colors['panelHighlightColor']['color'] );
             
         // DONE FUNCTION: click( html element: element ) void
         };
@@ -214,9 +214,9 @@
         // FUNCTION: mouseOut( html element: element ) void
             
             // mouse out -> background color default
-            $( '#' + element.id ).css( 'background-color', sharesoft.colors['panelBackgroundColor']['color'] );
+            $( '#' + element.id ).css( 'background-color', pleisterman.colors['panelBackgroundColor']['color'] );
             // mouse out -> color default
-            $( '#' + element.id ).css( 'color', sharesoft.colors['panelColor']['color'] );
+            $( '#' + element.id ).css( 'color', pleisterman.colors['panelColor']['color'] );
             
         // DONE FUNCTION: mouseOut( html element: element ) void
         };
@@ -399,9 +399,9 @@
         // FUNCTION: updateColors( void ) void
             
             self.debug( 'update colors' );
-            $( '#' + self.headerOptions['id'] ).css( 'background-color', sharesoft.colors['panelBackgroundColor']['color'] );
-            $( '#' + self.headerOptions['id'] ).css( 'border-color', sharesoft.colors['panelBorderColor']['color'] );
-            $( '#' + self.headerTextOptions['id'] ).css( 'color', sharesoft.colors['panelColor']['color'] );
+            $( '#' + self.headerOptions['id'] ).css( 'background-color', pleisterman.colors['panelBackgroundColor']['color'] );
+            $( '#' + self.headerOptions['id'] ).css( 'border-color', pleisterman.colors['panelBorderColor']['color'] );
+            $( '#' + self.headerTextOptions['id'] ).css( 'color', pleisterman.colors['panelColor']['color'] );
             
         // DONE FUNCTION: updateColors( void ) void
         };
@@ -429,5 +429,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: listHeaderModule( json: options, function: callback  ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

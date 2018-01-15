@@ -12,22 +12,22 @@
  *          on updates
  *          checks for default focus
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: dataEditPasswordStrengthModule( string: contentId, json: values ) void 
     
-    sharesoft.dataEditPasswordStrengthModule = function( contentId, values ) {
+    pleisterman.dataEditPasswordStrengthModule = function( contentId, values ) {
         // PRIVATE:
         
         // MEMBERS
@@ -41,12 +41,12 @@
             'element'               :   'div',                          // string: html element type 
             'position'              :   'relative',                     // css position
             'display'               :   'table',                        // css display
-            'padding'               :   sharesoft.getSetting( 'dataEditItemPadding' ),          // css padding
-            'marginTop'             :   sharesoft.getSetting( 'dataEditItemMarginTop' ),        // css margin top
-            'marginLeft'            :   sharesoft.getSetting( 'dataEditItemMarginLeft' ),       // css margin left
-            'backgroundColor'       :   sharesoft.colors['dataItemBackgroundColor']['color'],   // css color: background color
+            'padding'               :   pleisterman.getSetting( 'dataEditItemPadding' ),          // css padding
+            'marginTop'             :   pleisterman.getSetting( 'dataEditItemMarginTop' ),        // css margin top
+            'marginLeft'            :   pleisterman.getSetting( 'dataEditItemMarginLeft' ),       // css margin left
+            'backgroundColor'       :   pleisterman.colors['dataItemBackgroundColor']['color'],   // css color: background color
             'rememberBackgroundColor':  '',                             // css color: remember background color
-            'borderRadius'          :   sharesoft.getSetting( 'dataEditBorderRadius' ),         // css border radius
+            'borderRadius'          :   pleisterman.getSetting( 'dataEditBorderRadius' ),         // css border radius
             'mouseOver'             :   false,                          // boolean: mouse over
         };                                                              // done json: item container options
         self.inputContainerOptions = {                                  // json: input container options
@@ -59,11 +59,11 @@
             'element'               :   'div',                          // string: html element type
             'display'               :   'inline-block',                 // css display
             'verticalAlign'         :   'top',                          // css vertical align
-            'fontSize'              :   sharesoft.getSetting( 'dataEditLabelFontSize' ),        // css font size
-            'fontWeight'            :   sharesoft.getSetting( 'dataEditLabelFontWeight' ),      // css font weight
-            'marginTop'             :   sharesoft.getSetting( 'dataEditLabelMarginTop' ),       // css margin top    
-            'marginRight'           :   sharesoft.getSetting( 'dataEditLabelMarginRight' ),     // css margin right
-            'styleWidth'            :   sharesoft.getSetting( 'dataEditLabelWidth' ),           // css style width
+            'fontSize'              :   pleisterman.getSetting( 'dataEditLabelFontSize' ),        // css font size
+            'fontWeight'            :   pleisterman.getSetting( 'dataEditLabelFontWeight' ),      // css font weight
+            'marginTop'             :   pleisterman.getSetting( 'dataEditLabelMarginTop' ),       // css margin top    
+            'marginRight'           :   pleisterman.getSetting( 'dataEditLabelMarginRight' ),     // css margin right
+            'styleWidth'            :   pleisterman.getSetting( 'dataEditLabelWidth' ),           // css style width
             'rememberColor'         :   '',                             // css color: rememeber color
             'rememberFontWeight'    :   ''                              // css font weight: remember font weight  
         };                                                              // done json: label options
@@ -76,7 +76,7 @@
         };                                                              // done json: strength ok options  
         self.strengthValidOptions = {                                   // json: strength valid options  
             'id'                    :   'dataStrengthValid' + self.values['id'],  // string: element id
-            'text'                  :   sharesoft.translations['invalid'], // string: text      
+            'text'                  :   pleisterman.translations['invalid'], // string: text      
             'element'               :   'div',                          // string: html element type 
             'display'               :   'inline-block',                 // css display
             'marginTop'             :   '0.4em',                        // css margin top
@@ -84,9 +84,9 @@
             'styleWidth'            :   '10.0em',                       // css style width
             'padding'               :   '0.4em',                        // css padding
             'paddingBottom'         :   '0.6em',                        // css padding bottom
-            'fontSize'              :   sharesoft.getSetting( 'dataEditInputFontSize' ),      // css font size
-            'fontWeight'            :   sharesoft.getSetting( 'dataEditInputFontWeight' ),    // css font weight
-            'color'                 :   sharesoft.colors['editColor']['color'],               // css color: color
+            'fontSize'              :   pleisterman.getSetting( 'dataEditInputFontSize' ),      // css font size
+            'fontWeight'            :   pleisterman.getSetting( 'dataEditInputFontWeight' ),    // css font weight
+            'color'                 :   pleisterman.colors['editColor']['color'],               // css color: color
             'backgroundColor'       :   'transparent'                   // css color: background color
         };                                                              // done json: strength valid options  
         self.strengthColorOptions = {                                      // json: strength color options  
@@ -97,7 +97,7 @@
             'marginLeft'            :   '0.6em',                        // css margin left
             'verticalAlign'         :   'middle',                       // css vertical align
             'styleWidth'            :   '5.0em',                        // css style width
-            'styleHeigth'           :   sharesoft.getSetting( 'dataEditInputFontSize' ), // css style height
+            'styleHeigth'           :   pleisterman.getSetting( 'dataEditInputFontSize' ), // css style height
             'padding'               :   '0.4em',                        // css padding
             'paddingBottom'         :   '0.6em',                        // css padding bottom
             'backgroundColor'       :   'red'                           // css color: background color
@@ -171,16 +171,16 @@
         // FUNCTION: showPasswordStrength( string: password ) void
 
             // show password strength color
-            $( '#' + self.strengthColorOptions['id'] ).css( 'backgroundColor', sharesoft.getPasswordStrengthColor( password ) );
+            $( '#' + self.strengthColorOptions['id'] ).css( 'backgroundColor', pleisterman.getPasswordStrengthColor( password ) );
             
             // check password valid
-            if( sharesoft.getPasswordStrengthValid( password ) ){
+            if( pleisterman.getPasswordStrengthValid( password ) ){
                 // show password strength valid
-                $( '#' + self.strengthValidOptions['id'] ).html( sharesoft.translations['valid']  );
+                $( '#' + self.strengthValidOptions['id'] ).html( pleisterman.translations['valid']  );
             }
             else {
                 // show password strength valid
-                $( '#' + self.strengthValidOptions['id'] ).html( sharesoft.translations['invalid']  );
+                $( '#' + self.strengthValidOptions['id'] ).html( pleisterman.translations['invalid']  );
             }
             // done check password valid
                 
@@ -238,5 +238,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: dataEditPasswordStrengthModule( string: contentId, json: values ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

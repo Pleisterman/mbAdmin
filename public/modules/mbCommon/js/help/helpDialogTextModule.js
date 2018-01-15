@@ -8,22 +8,22 @@
  *  Purpose: 
  *          this module costructs the text for the help dialog
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: helpDialogTextModule( string: containerId ) void 
     
-    sharesoft.helpDialogTextModule = function( containerId ) {
+    pleisterman.helpDialogTextModule = function( containerId ) {
         // PRIVATE:
         
         // MEMBERS
@@ -37,17 +37,17 @@
             'display'                   :   'relative',                 // css display
             'styleHeight'               :   '1.1em',                    // css style height
             'marginTop'                 :   '0.1em',                    // css margin top
-            'color'                     :   sharesoft.colors['panelHighlightColor']['color'],   // css color: color
+            'color'                     :   pleisterman.colors['panelHighlightColor']['color'],   // css color: color
             'fontSize'                  :   '0.9em',                    // css font size
             'marginBottom'              :   '0.2em',                    // css margin bottom
             'paddingLeft'               :   '1.2em',                    // css padding left
             'padding'                   :   '0.2em',                    // css padding
             'paddingBottom'             :   '0.4em',                    // css padding bottom
             'borderBottom'              :   true,                       // boolean: has border
-            'borderColor'               :   sharesoft.colors['panelBorderColor']['color'],  // css color: border color
+            'borderColor'               :   pleisterman.colors['panelBorderColor']['color'],  // css color: border color
             'borderWidth'               :   '0.1em',                    // css border width
             'borderStyle'               :   'solid',                    // css border style
-            'backgroundColor'           :   sharesoft.colors['panelHighlightBackgroundColor']['color']  // css color: background color
+            'backgroundColor'           :   pleisterman.colors['panelHighlightBackgroundColor']['color']  // css color: background color
         };                                                              // done json: header options
         self.textOptions = {                                            // json: text options
             'id'                        :   self.MODULE + 'Text',       // string: element id
@@ -56,12 +56,12 @@
             'overflow'                  :   'auto',                     // css overflow
             'styleHeight'               :   '21.1em',                   // css style height
             'marginTop'                 :   '0.4em',                    // css margin top
-            'color'                     :   sharesoft.colors['editColor']['color'],     // css color: color
+            'color'                     :   pleisterman.colors['editColor']['color'],     // css color: color
             'fontSize'                  :   '0.9em',                    // css font size
             'marginBottom'              :   '0.2em',                    // css margin bottom
             'padding'                   :   '0.4em',                    // css padding
             'paddingBottom'             :   '0.4em',                    // css padding bottom
-            'backgroundColor'           :   sharesoft.colors['editBackgroundColor']['color'],   // css color: background color
+            'backgroundColor'           :   pleisterman.colors['editBackgroundColor']['color'],   // css color: background color
             'scrollHeight'              :   10                          // integer: scrollheight
         };                                                              // done json: text options
         // DONE MEMBERS     
@@ -106,7 +106,7 @@
             $( '#' + self.textOptions['id'] ).html( text );
             
             // set header text
-            $( '#' + self.headerOptions['id'] ).html( sharesoft.helpSubjects[subjectId]['translation'] );
+            $( '#' + self.headerOptions['id'] ).html( pleisterman.helpSubjects[subjectId]['translation'] );
             
         // DONE FUNCTION: setText( string: seubjectId, string: text ) void
         };
@@ -161,12 +161,12 @@
                 'deSelect'  :   self.textDeSelect,
                 'keys'      :   [
                     {
-                        'keyCode'   :   sharesoft.getSetting( 'keyCodes' )['arrowUp'],
+                        'keyCode'   :   pleisterman.getSetting( 'keyCodes' )['arrowUp'],
                         'type'      :   'tabStop',
                         'function'  :   self.textScrollUp
                     },
                     {
-                        'keyCode'   :   sharesoft.getSetting( 'keyCodes' )['arrowDown'],
+                        'keyCode'   :   pleisterman.getSetting( 'keyCodes' )['arrowDown'],
                         'type'      :   'tabStop',
                         'function'  :   self.textScrollDown
                     }
@@ -186,19 +186,19 @@
             self.debug( 'update colors' );
 
             // update header colors
-            $( '#' + self.headerOptions['id'] ).css( 'color', sharesoft.colors['panelHighlightColor']['color'] );
-            self.headerOptions['color'] = sharesoft.colors['panelHighlightColor']['color'];
-            $( '#' + self.headerOptions['id'] ).css( 'background-color', sharesoft.colors['panelHighlightBackgroundColor']['color'] );
-            self.headerOptions['backgroundColor'] = sharesoft.colors['panelHighlightBackgroundColor']['color'];
-            $( '#' + self.headerOptions['id'] ).css( 'border-color', sharesoft.colors['panelBorderColor']['color'] );
-            self.headerOptions['borderColor'] = sharesoft.colors['panelBorderColor']['color'];
+            $( '#' + self.headerOptions['id'] ).css( 'color', pleisterman.colors['panelHighlightColor']['color'] );
+            self.headerOptions['color'] = pleisterman.colors['panelHighlightColor']['color'];
+            $( '#' + self.headerOptions['id'] ).css( 'background-color', pleisterman.colors['panelHighlightBackgroundColor']['color'] );
+            self.headerOptions['backgroundColor'] = pleisterman.colors['panelHighlightBackgroundColor']['color'];
+            $( '#' + self.headerOptions['id'] ).css( 'border-color', pleisterman.colors['panelBorderColor']['color'] );
+            self.headerOptions['borderColor'] = pleisterman.colors['panelBorderColor']['color'];
             // done update header colors
             
             // update text colors
-            $( '#' + self.textOptions['id'] ).css( 'color', sharesoft.colors['editColor']['color'] );
-            self.textOptions['color'] = sharesoft.colors['editColor']['color'];
-            $( '#' + self.textOptions['id'] ).css( 'background-color', sharesoft.colors['editBackgroundColor']['color'] );
-            self.textOptions['backgroundColor'] = sharesoft.colors['editBackgroundColor']['color'];
+            $( '#' + self.textOptions['id'] ).css( 'color', pleisterman.colors['editColor']['color'] );
+            self.textOptions['color'] = pleisterman.colors['editColor']['color'];
+            $( '#' + self.textOptions['id'] ).css( 'background-color', pleisterman.colors['editBackgroundColor']['color'] );
+            self.textOptions['backgroundColor'] = pleisterman.colors['editBackgroundColor']['color'];
             // done update text colors
             
         // DONE FUNCTION: updateColors( void ) void
@@ -237,5 +237,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: helpDialogTextModule( string: containerId ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

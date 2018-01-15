@@ -11,22 +11,22 @@
  *          callback event as long as the mouse is down
  *          the repeated call ends on the mouseup event
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: repeatButtonModule( string: element id, integer: slowInterval, integer: fastInterval, function: repeatCallback ) void 
     
-    sharesoft.repeatButtonModule = function( elementId, slowInterval, fastInterval, repeatCallback ) {
+    pleisterman.repeatButtonModule = function( elementId, slowInterval, fastInterval, repeatCallback ) {
         // PRIVATE:
         
         // MEMBERS
@@ -181,5 +181,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: repeatButtonModule( string: element id, integer: slowInterval, integer: fastInterval, function: repeatCallback ) void  
-})( sharesoft );
+})( pleisterman );
 // done create module function

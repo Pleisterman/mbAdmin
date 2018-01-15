@@ -9,26 +9,26 @@
  *      this module controls the font data
  *      it contains the font dataObject
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
  *  Purpose:  
  *      contains the basic html code for the header
  *      of the website
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
 */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: fontModule( void ) void
     
-    sharesoft.fontModule = function( ) {
+    pleisterman.fontModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -42,10 +42,10 @@
                 'type'              :   'spinner',          // data type: spinner
                 'displayOptions'    :   {                   // json: display options
                     'label'         :   {                   // json: label
-                        'text'          :   sharesoft.translations['fontSize'] // string: label TRANSLATION: fontSize
+                        'text'          :   pleisterman.translations['fontSize'] // string: label TRANSLATION: fontSize
                     }                                       // done json: label
                 },                                          // done json: display options
-                'value'         :   sharesoft.options['fontSize']['value'], // integer: OPTION: fontSize
+                'value'         :   pleisterman.options['fontSize']['value'], // integer: OPTION: fontSize
                 'minimum'       :   10,                     // integer: minimum
                 'maximum'       :   36                      // integer: minimum
             },                                              // done json: fontSize
@@ -54,7 +54,7 @@
                 'type'           :   'list',                // data type: list
                 'displayOptions'    :   {                   // json: display options
                     'label'         :   {                   // json: label
-                        'text'          :   sharesoft.translations['fontFamily'] // string: label TRANSLATION: fontFamily
+                        'text'          :   pleisterman.translations['fontFamily'] // string: label TRANSLATION: fontFamily
                     },                                      // done json: label
                     'list'          :   {                   // json: list    
                         'styleHeight'       : 120           // css height
@@ -96,7 +96,7 @@
             // create font family rows
             var rows = Array();
             // get families
-            var families = sharesoft.options['fontFamilies']['value'].split(';');
+            var families = pleisterman.options['fontFamilies']['value'].split(';');
             
             // create selected index
             var selectedIndex = 0;
@@ -114,7 +114,7 @@
                 rows.push( row );
                 
                 // is current font family
-                if( row['text'] === sharesoft.options['fontFamily']['value'] ){
+                if( row['text'] === pleisterman.options['fontFamily']['value'] ){
                     // remember index 
                     selectedIndex = i;
                 }
@@ -141,7 +141,7 @@
         // FUNCTION: openInitialSelection( void ) void
             
             // show font if selected
-            if( sharesoft.options['openSubject']['value'] === 'font' ){
+            if( pleisterman.options['openSubject']['value'] === 'font' ){
                 // show
                 self.show(); 
             }
@@ -156,7 +156,7 @@
             self.debug( 'prepareShow' );  
             
             // call global prepare data show
-            sharesoft.prepareDataShow( self.show );
+            pleisterman.prepareDataShow( self.show );
             
         // DONE FUNCTION: prepareShow( void ) void
         };
@@ -172,7 +172,7 @@
             // debug info    
             self.debug( 'open subject=' + self.id );
             // set open subject option
-            sharesoft.setOption( 'openSubject', self.id );
+            pleisterman.setOption( 'openSubject', self.id );
 
             // set data values
             jsProject.setValue( 'changed', 'data', false );    
@@ -215,9 +215,9 @@
                     // debug info
                     self.debug( 'font size: ' + data['value'] );
                     // set option
-                    sharesoft.setOption( 'fontSize', data['value'] );
+                    pleisterman.setOption( 'fontSize', data['value'] );
                     // set document font size
-                    $( document.body ).css( 'font-size', sharesoft.options['fontSize']['value'] + 'px' );
+                    $( document.body ).css( 'font-size', pleisterman.options['fontSize']['value'] + 'px' );
                 }
                 // done is font size
                 
@@ -228,7 +228,7 @@
                     // get font
                     var font = data['rows'][fontIndex]['text'];
                     // set option
-                    sharesoft.setOption( 'fontFamily', font );
+                    pleisterman.setOption( 'fontFamily', font );
                     // set document body font
                     $( document.body ).css( 'font-family', font );
                 }
@@ -265,7 +265,7 @@
             // reset data changed
             jsProject.setValue( 'changed', 'data', false );
             // unset open subject
-            sharesoft.setOption( 'openSubject', null );            
+            pleisterman.setOption( 'openSubject', null );            
             // call cancel event
             jsProject.callEvent( 'cancel' );
             
@@ -300,5 +300,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: fontModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

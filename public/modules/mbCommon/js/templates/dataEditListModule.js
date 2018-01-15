@@ -8,22 +8,22 @@
  *  Purpose: 
  *          Displays a single select list in the data content.
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: dataEditListModule( string: contentId, json: values, boolean: isEdit  ) void 
     
-    sharesoft.dataEditListModule = function( contentId, values, isEdit ) {
+    pleisterman.dataEditListModule = function( contentId, values, isEdit ) {
         // PRIVATE:
         
         // MEMBERS
@@ -33,18 +33,18 @@
         self.isEdit = isEdit;                                           // boolean: isEdit    
         self.values = values;                                           // json: values
         self.contentId = contentId;                                     // string: element id
-        self.imageUrl = sharesoft.getSetting( 'imageUrl' );             // string: image dir
+        self.imageUrl = pleisterman.getSetting( 'imageUrl' );             // string: image dir
         self.itemContainerOptions = {                                   // json: item container options
             'id'                    :   'itemContainer' + self.values['id'],  // string: element id
             'element'               :   'div',                          // string: html element type 
             'position'              :   'relative',                     // css position
             'display'               :   'table',                        // css display
-            'padding'               :   sharesoft.getSetting( 'dataEditItemPadding' ),          // css padding
-            'marginTop'             :   sharesoft.getSetting( 'dataEditItemMarginTop' ),        // css margin top
-            'marginLeft'            :   sharesoft.getSetting( 'dataEditItemMarginLeft' ),       // css margin left
-            'backgroundColor'       :   sharesoft.colors['dataItemBackgroundColor']['color'],   // css color: background color
+            'padding'               :   pleisterman.getSetting( 'dataEditItemPadding' ),          // css padding
+            'marginTop'             :   pleisterman.getSetting( 'dataEditItemMarginTop' ),        // css margin top
+            'marginLeft'            :   pleisterman.getSetting( 'dataEditItemMarginLeft' ),       // css margin left
+            'backgroundColor'       :   pleisterman.colors['dataItemBackgroundColor']['color'],   // css color: background color
             'rememberBackgroundColor':  '',                             // css color: remember background color
-            'borderRadius'          :   sharesoft.getSetting( 'dataEditBorderRadius' ),         // css border radius
+            'borderRadius'          :   pleisterman.getSetting( 'dataEditBorderRadius' ),         // css border radius
             'mouseOver'             :   false,                          // boolean: mouse over
             'cursor'                :   'pointer'                       // css cursor
         };                                                              // done json: item container options
@@ -58,11 +58,11 @@
             'element'               :   'div',                          // string: html element type
             'display'               :   'inline-block',                 // css display
             'verticalAlign'         :   'top',                          // css vertical align
-            'fontSize'              :   sharesoft.getSetting( 'dataEditLabelFontSize' ),        // css font size
-            'fontWeight'            :   sharesoft.getSetting( 'dataEditLabelFontWeight' ),      // css font weight
-            'marginTop'             :   sharesoft.getSetting( 'dataEditLabelMarginTop' ),       // css margin top    
-            'marginRight'           :   sharesoft.getSetting( 'dataEditLabelMarginRight' ),     // css margin height
-            'styleWidth'            :   sharesoft.getSetting( 'dataEditLabelWidth' ),           // css style width
+            'fontSize'              :   pleisterman.getSetting( 'dataEditLabelFontSize' ),        // css font size
+            'fontWeight'            :   pleisterman.getSetting( 'dataEditLabelFontWeight' ),      // css font weight
+            'marginTop'             :   pleisterman.getSetting( 'dataEditLabelMarginTop' ),       // css margin top    
+            'marginRight'           :   pleisterman.getSetting( 'dataEditLabelMarginRight' ),     // css margin height
+            'styleWidth'            :   pleisterman.getSetting( 'dataEditLabelWidth' ),           // css style width
             'rememberColor'         :   '',                             // css color: remember color
             'rememberFontWeight'    :   ''                              // css font weight: remember font weight  
         };                                                              // done json: label options
@@ -75,14 +75,14 @@
             'display'               :   'inline-block',                 // css display 
             'verticalAlign'         :   'middle',                       // css verical align
             'textAlign'             :   'left',                         // css text align
-            'backgroundColor'       :   sharesoft.colors['editBackgroundColor']['color'],   // css color: background color  
-            'fontSize'              :   sharesoft.getSetting( 'dataListFontSize' ),         // css font size
-            'fontWeight'            :   sharesoft.getSetting( 'dataListFontWeight' ),       // css font weight
-            'color'                 :   sharesoft.colors['editColor']['color'],             // css color: color   
+            'backgroundColor'       :   pleisterman.colors['editBackgroundColor']['color'],   // css color: background color  
+            'fontSize'              :   pleisterman.getSetting( 'dataListFontSize' ),         // css font size
+            'fontWeight'            :   pleisterman.getSetting( 'dataListFontWeight' ),       // css font weight
+            'color'                 :   pleisterman.colors['editColor']['color'],             // css color: color   
             'border'                :   true,                           // boolean: has border
-            'borderWidth'           :   sharesoft.getSetting( 'dataListBorderWidth' ),   // css border width   
-            'borderColor'           :   sharesoft.colors['panelBorderColor']['color'],   // css color: border color
-            'borderStyle'           :   sharesoft.getSetting( 'dataListBorderStyle' ),   // css border style        
+            'borderWidth'           :   pleisterman.getSetting( 'dataListBorderWidth' ),   // css border width   
+            'borderColor'           :   pleisterman.colors['panelBorderColor']['color'],   // css color: border color
+            'borderStyle'           :   pleisterman.getSetting( 'dataListBorderStyle' ),   // css border style        
         };                                                              // done json: input options
         self.rowOptions = {                                             // json: row options        
             'idPrefix'              :   self.MODULE + 'Row',            // string: idPrefix
@@ -91,9 +91,9 @@
             'marginTop'             :   '0.2em',                        // css margin top
             'borderTop'             :   true,                           // boolean: has border top
             'borderBottom'          :   true,                           // boolean: has border bottom
-            'borderColor'           :   sharesoft.colors['buttonBorderColor']['color'], // css color: border color
+            'borderColor'           :   pleisterman.colors['buttonBorderColor']['color'], // css color: border color
             'borderWidth'           :   '0.1em',                        // css border width
-            'backgroundColor'       :   sharesoft.colors['editBackgroundColor']['color'], // css color: background color
+            'backgroundColor'       :   pleisterman.colors['editBackgroundColor']['color'], // css color: background color
             'borderStyle'           :   'groove',                       // css border style
             'padding'               :   '0.4em',                        // css padding
             'paddingBottom'         :   '0.6em',                        // css padding bottom
@@ -110,13 +110,13 @@
             'readOnly'              :   true,                           // boolean: readonly
             'overflow'              :   'hidden',                       // css overflow
             'paddingTop'            :   '0.2em',                        // css padding top
-            'color'                 :   sharesoft.colors['editColor']['color'],             // css color: color
-            'fontSize'              :   sharesoft.getSetting( 'listRowFontSize' ),          // css font size
-            'fontWeight'            :   sharesoft.getSetting( 'listRowFontWeight' ),        // css font weight
+            'color'                 :   pleisterman.colors['editColor']['color'],             // css color: color
+            'fontSize'              :   pleisterman.getSetting( 'listRowFontSize' ),          // css font size
+            'fontWeight'            :   pleisterman.getSetting( 'listRowFontWeight' ),        // css font weight
             'paddingLeft'           :   '3.4em',                        // css padding left
             'border'                :   true,                           // boolean: has border bottom
             'borderWidth'           :   '0.0em',                        // css border width
-            'borderColor'           :   sharesoft.colors['panelBorderColor']['color'], // css color: COLOR: panelBorderColor
+            'borderColor'           :   pleisterman.colors['panelBorderColor']['color'], // css color: COLOR: panelBorderColor
             'borderStyle'           :   'solid',                        // css border style
         };                                                              // done json: row text options       
         self.selectedTabstopRowId = null;                               // string: row id
@@ -189,11 +189,11 @@
         // FUNCTION: setSelectedDisplay( void ) void
             
             // input mouse in -> color highlight
-            $( '#' + self.inputOptions['id'] ).css( 'color', sharesoft.colors['buttonHighlightColor']['color'] );
+            $( '#' + self.inputOptions['id'] ).css( 'color', pleisterman.colors['buttonHighlightColor']['color'] );
             // set item background color selected
-            $( '#' + self.itemContainerOptions['id'] ).css( 'background-color', sharesoft.colors['buttonHighlightBackgroundColor']['color'] );
+            $( '#' + self.itemContainerOptions['id'] ).css( 'background-color', pleisterman.colors['buttonHighlightBackgroundColor']['color'] );
             // set label color selected
-            $( '#' + self.labelOptions['id'] ).css( 'color', sharesoft.colors['buttonHighlightColor']['color'] );
+            $( '#' + self.labelOptions['id'] ).css( 'color', pleisterman.colors['buttonHighlightColor']['color'] );
             // set label font weight selected
             $( '#' + self.labelOptions['id'] ).css( 'font-weight', 'bold' );
             
@@ -260,7 +260,7 @@
             // add text 
             $( '#' + self.rowOptions['id'] ).html( jsProject.jsonToElementHtml( self.rowTextOptions ) );
             // set text
-            $( '#' + self.rowTextOptions['id'] ).val( sharesoft.translations['noRows'] );
+            $( '#' + self.rowTextOptions['id'] ).val( pleisterman.translations['noRows'] );
             
             // has rows
             if( self.values['rows'].length > 0 ){
@@ -367,12 +367,12 @@
                 'canFocus'  :   false,
                 'keys'      :   [
                     {
-                        'keyCode'   :   sharesoft.getSetting( 'keyCodes' )['arrowUp'],
+                        'keyCode'   :   pleisterman.getSetting( 'keyCodes' )['arrowUp'],
                         'type'      :   'tabStop',
                         'function'  :   self.previousRow
                     },
                     {
-                        'keyCode'   :   sharesoft.getSetting( 'keyCodes' )['arrowDown'],
+                        'keyCode'   :   pleisterman.getSetting( 'keyCodes' )['arrowDown'],
                         'type'      :   'tabStop',
                         'function'  :   self.nextRow
                     }
@@ -629,13 +629,13 @@
             $.each( self.values['rows'], function( index, row ) {
                 if( parseInt( row['id'] ) === self.selectedTabstopRowId || parseInt( row['id'] ) === self.mouseOverId || parseInt( row['id'] ) === self.selected ){
                     // change selected colors
-                    $( '#' + self.rowOptions['idPrefix'] + self.values['id'] + '_'  + row['id'] ).css( 'background-color', sharesoft.colors['panelHighlightBackgroundColor']['color'] );
-                    $( '#' + self.rowOptions['idPrefix']+ self.values['id'] + '_'  + row['id'] ).css( 'color', sharesoft.colors['panelHighlightColor']['color'] );
+                    $( '#' + self.rowOptions['idPrefix'] + self.values['id'] + '_'  + row['id'] ).css( 'background-color', pleisterman.colors['panelHighlightBackgroundColor']['color'] );
+                    $( '#' + self.rowOptions['idPrefix']+ self.values['id'] + '_'  + row['id'] ).css( 'color', pleisterman.colors['panelHighlightColor']['color'] );
                 }
                 else {
                     // change selected colors
-                    $( '#' + self.rowOptions['idPrefix'] + self.values['id'] + '_'  + row['id'] ).css( 'background-color', sharesoft.colors['editBackgroundColor']['color'] );
-                    $( '#' + self.rowOptions['idPrefix'] + self.values['id'] + '_'  + row['id'] ).css( 'color', sharesoft.colors['editColor']['color'] );
+                    $( '#' + self.rowOptions['idPrefix'] + self.values['id'] + '_'  + row['id'] ).css( 'background-color', pleisterman.colors['editBackgroundColor']['color'] );
+                    $( '#' + self.rowOptions['idPrefix'] + self.values['id'] + '_'  + row['id'] ).css( 'color', pleisterman.colors['editColor']['color'] );
                 }
             });
             // done loop over rows
@@ -733,5 +733,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: dataEditListModule( string: contentId, json: values, boolean: isEdit ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

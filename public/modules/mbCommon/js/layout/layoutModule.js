@@ -6,24 +6,24 @@
  *  Last revision: 31-12-2016
  * 
  *  Purpose: 
- *          this module handles the layout for the sharesoft
+ *          this module handles the layout for the pleisterman
  *           
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: layoutModule( void ) void 
     
-    sharesoft.layoutModule = function( ) {
+    pleisterman.layoutModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -33,9 +33,9 @@
         self.documentCssOptions = {                             // json: document css options
             'maximum-width'     :   '',                                             // css maximum width
             'margin'            :   '0 auto',                                       // css margin
-            'font-size'         :   sharesoft.options['fontSize']['value'] + 'px',  // css font size
-            'font-family'       :   sharesoft.options['fontFamily']['value'],       // css font- family
-            'color'             :   sharesoft.colors['commonColor']['color']        // css color: color
+            'font-size'         :   pleisterman.options['fontSize']['value'] + 'px',  // css font size
+            'font-family'       :   pleisterman.options['fontFamily']['value'],       // css font- family
+            'color'             :   pleisterman.colors['commonColor']['color']        // css color: color
         };                                                      // done json: document css options
         self.layoutOptions = {                                  // json: layout options
             'id'                :   'layout',                   // string: id
@@ -46,8 +46,8 @@
             'left'              :   0,                          // css left
             'minimumWidth'      :   600,                        // css width: maximum width
             'minimumHeight'     :   300,                        // css height: maximum height
-            'backgroundColor'   :   sharesoft.colors['commonBackgroundColor']['color'], // css color: background color
-            'zIndex'            :   sharesoft.getSetting( 'zIndexLayout' ).toString()   // css z-index
+            'backgroundColor'   :   pleisterman.colors['commonBackgroundColor']['color'], // css color: background color
+            'zIndex'            :   pleisterman.getSetting( 'zIndexLayout' ).toString()   // css z-index
         };                                                      // done json: layout options
         self.topRowOptions  = {                                 // json: top row options
             'element'           :   'div',                      // string: html element type
@@ -56,12 +56,12 @@
             'position'          :   'absolute',                 // css position
             'overflow'          :   'hidden',                   // css overflow
             'backgroundColor'   :   'transparent',              // css color: background color
-            'styleHeight'       :   sharesoft.getSetting( 'layoutTopRowHeight' ), // css style height
+            'styleHeight'       :   pleisterman.getSetting( 'layoutTopRowHeight' ), // css style height
             'top'               :   0,                          // css top
             'left'              :   0,                          // css left
             'borderBottom'      :   true,                       // boolean: add border
             'borderWidth'       :   '0.1em',                    // css border width
-            'borderColor'       :   sharesoft.colors['panelBorderColor']['color'],  // css border color
+            'borderColor'       :   pleisterman.colors['panelBorderColor']['color'],  // css border color
             'borderStyle'       :   'solid',                    // css border style
             'leftWidth'         :   '9.0em'                     // css size: left part width
         };                                                      // done json: top row options
@@ -78,11 +78,11 @@
             'element'           :   'div',                      // string: html element type
             'position'          :   'absolute',                 // css position
             'overflow'          :   'hidden',                   // css overflow
-            'styleHeight'       :   sharesoft.getSetting( 'layoutBottomRowHeight' ), // css style height
+            'styleHeight'       :   pleisterman.getSetting( 'layoutBottomRowHeight' ), // css style height
             'styleWidth'        :   '100%',                     // css style width
             'borderTop'         :   true,                       // boolean: add border
             'borderWidth'       :   '0.1em',                    // css border width
-            'borderColor'       :   sharesoft.colors['panelBorderColor']['color'], // css border color
+            'borderColor'       :   pleisterman.colors['panelBorderColor']['color'], // css border color
             'borderStyle'       :   'solid',                    // css border style
             'backgroundColor'   :   'transparent'               // css color: background color
         };                                                      // done json: bottom row options
@@ -95,8 +95,8 @@
             'left'              :   0,                          // css left
             'styleHeight'       :   '100%',                     // css style height 
             'styleWidth'        :   '100%',                     // css style width 
-            'zIndex'            :   sharesoft.getSetting( 'zIndexOverlay' ).toString(),
-            'backgroundColor'   :   sharesoft.colors['overlayBackgroundColor']['color']
+            'zIndex'            :   pleisterman.getSetting( 'zIndexOverlay' ).toString(),
+            'backgroundColor'   :   pleisterman.colors['overlayBackgroundColor']['color']
         };                                                      // done json: overlay options
         // DONE MEMBERS     
         
@@ -254,15 +254,15 @@
             self.debug( 'update colors' );
             
             // set document body color 
-            $( document.body ).css( 'color', sharesoft.colors['commonColor']['color'] );
+            $( document.body ).css( 'color', pleisterman.colors['commonColor']['color'] );
             // set layout background color 
-            $( '#' + self.layoutOptions['id'] ).css( 'background-color', sharesoft.colors['commonBackgroundColor']['color'] );
+            $( '#' + self.layoutOptions['id'] ).css( 'background-color', pleisterman.colors['commonBackgroundColor']['color'] );
             // set top left row border color
-            $( '#' + self.topRowOptions['leftId'] ).css( 'border-color', sharesoft.colors['panelBorderColor']['color'] );
+            $( '#' + self.topRowOptions['leftId'] ).css( 'border-color', pleisterman.colors['panelBorderColor']['color'] );
             // set top right row border color
-            $( '#' + self.topRowOptions['rightId'] ).css( 'border-color', sharesoft.colors['panelBorderColor']['color'] );
+            $( '#' + self.topRowOptions['rightId'] ).css( 'border-color', pleisterman.colors['panelBorderColor']['color'] );
             // set bottom row border color 
-            $( '#' + self.bottomRowOptions['id'] ).css( 'border-color', sharesoft.colors['panelBorderColor']['color'] );
+            $( '#' + self.bottomRowOptions['id'] ).css( 'border-color', pleisterman.colors['panelBorderColor']['color'] );
             
         // DONE FUNCTION: updateColors( void ) void
         };
@@ -290,5 +290,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: layoutModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

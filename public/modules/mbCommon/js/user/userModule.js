@@ -8,24 +8,24 @@
  *  Purpose: 
  *          this module handles user functions;
  *          Remember me, login, refreshToken
- *          for the application sharesoft.
+ *          for the application pleisterman.
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: userModule( void ) void
     
-    sharesoft.userModule = function( ) {
+    pleisterman.userModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -52,22 +52,22 @@
             self.debug( 'construct' );
             
             // create the login dialog
-            self.loginDialog = new sharesoft.loginDialogModule( self.prepareLogin );
+            self.loginDialog = new pleisterman.loginDialogModule( self.prepareLogin );
             
             // create the relogin dialog
-            self.reLoginDialog = new sharesoft.reLoginDialogModule();
+            self.reLoginDialog = new pleisterman.reLoginDialogModule();
 
             // create the send reset password email dialog
-            self.sendResetPasswordEmailDialog = new sharesoft.sendResetPasswordEmailDialogModule( self.sendResetPasswordEmail );
+            self.sendResetPasswordEmailDialog = new pleisterman.sendResetPasswordEmailDialogModule( self.sendResetPasswordEmail );
 
             // create the reset password dialog
-            self.resetPasswordDialog = new sharesoft.resetPasswordDialogModule( );
+            self.resetPasswordDialog = new pleisterman.resetPasswordDialogModule( );
 
             // create menu module
-            self.userMenuModule = new sharesoft.userMenuModule();
+            self.userMenuModule = new pleisterman.userMenuModule();
             
             // create user password check module
-            self.passwordCheckModule = new sharesoft.passwordCheckModule();
+            self.passwordCheckModule = new pleisterman.passwordCheckModule();
             
         // DONE FUNCTION: construct( void ) void
         };
@@ -75,7 +75,7 @@
         // FUNCTION: start( void ) void
             
             // is password reset
-            if( sharesoft.isResetPassword ){
+            if( pleisterman.isResetPassword ){
                 // show password reset
                 
                 // debug info
@@ -85,7 +85,7 @@
                 self.resetPasswordDialog.show( self.prepareResetPassword );
                 
                 // end busy proces
-                sharesoft.endBusyProcess();
+                pleisterman.endBusyProcess();
             }
             else {
                 // call remember me
@@ -103,12 +103,12 @@
             
             // create json: data
             var data = { 
-                'workDirectory'     :   sharesoft.workDirectory
+                'workDirectory'     :   pleisterman.workDirectory
             };
             // done create json: data
 
             // ajax remember me
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/login/rememberMe', sharesoft.token, data, self.rememberMeCallback );
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/login/rememberMe', pleisterman.token, data, self.rememberMeCallback );
             
         // DONE FUNCTION: rememberMe( void ) void
         };
@@ -116,10 +116,10 @@
         // FUNCTION: rememberMeCallback( json: result  ) void
         
             // end busy proces
-            sharesoft.endBusyProcess();
+            pleisterman.endBusyProcess();
 
             // global check result
-            if( sharesoft.hasAjaxResultErrors( result ) ){
+            if( pleisterman.hasAjaxResultErrors( result ) ){
                 // done with error
                 return;
             }
@@ -130,7 +130,7 @@
                 // debug info
                 self.debug( 'public token: ' + result['token'] );
                 // remember token
-                sharesoft.token = result['token'];
+                pleisterman.token = result['token'];
             }
             // done set new token if exists
             
@@ -166,15 +166,15 @@
             
             // create json: data
             var data = {
-                'workDirectory'     :   sharesoft.workDirectory
+                'workDirectory'     :   pleisterman.workDirectory
             };
             // done create json: data
             
             // show busy screen
-            sharesoft.startBusyProcess();
+            pleisterman.startBusyProcess();
 
             // ajax
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/login/prepareLogin', sharesoft.token, data, self.prepareLoginCallback );
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/login/prepareLogin', pleisterman.token, data, self.prepareLoginCallback );
             
         // DONE FUNCTION: prepareLogin( void ) void
         };
@@ -182,7 +182,7 @@
         // FUNCTION: prepareLoginCallback( json: result  ) void
             
             // global check result
-            if( sharesoft.hasAjaxResultErrors( result ) ){
+            if( pleisterman.hasAjaxResultErrors( result ) ){
                 // done with error
                 return;
             }
@@ -199,7 +199,7 @@
                 // done login delayed
                 
                 // hide busy screen
-                sharesoft.endBusyProcess();
+                pleisterman.endBusyProcess();
                 // done with error
                 return;
             }
@@ -208,13 +208,13 @@
             // check and set new token
             if( result['token'] ){
                 // remember token
-                sharesoft.token = result['token'];
+                pleisterman.token = result['token'];
             }
             else {
                 // error no token
                 self.loginDialog.showError( 'loginError' );
                 // hide busy screen
-                sharesoft.endBusyProcess();
+                pleisterman.endBusyProcess();
                 // done with error
                 return;
             }
@@ -227,7 +227,7 @@
                 // error no token
                 self.loginDialog.showError( 'loginError' );
                 // hide busy screen
-                sharesoft.endBusyProcess();
+                pleisterman.endBusyProcess();
                 // return
                 return;
             }
@@ -240,7 +240,7 @@
             
             // create json: data
             var data = {
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'name'              :   encodedName,
                 'password'          :   encodedPassword,
                 'rememberMe'        :   values['rememberMe']
@@ -248,7 +248,7 @@
             // done create json: data
             
             // ajax
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/login', sharesoft.token, data, self.loginCallback );
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/login', pleisterman.token, data, self.loginCallback );
             
         // DONE FUNCTION: prepareLoginCallback( json: result  ) void
         };
@@ -259,10 +259,10 @@
             self.debug( 'login callback ' );
             
             // hide busy screen
-            sharesoft.endBusyProcess();
+            pleisterman.endBusyProcess();
 
             // global check result
-            if( sharesoft.hasAjaxResultErrors( result ) ){
+            if( pleisterman.hasAjaxResultErrors( result ) ){
                 // done with error
                 return;
             }
@@ -271,7 +271,7 @@
             // set new token
             if( result['token'] ){
                 // remember token
-                sharesoft.token = result['token'];
+                pleisterman.token = result['token'];
             }
             // done set new token
             
@@ -300,13 +300,13 @@
             
             // create json: data
             var data = {
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'email'             :   email
             };
             // done create json: data
             
             // ajax
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/resetPassword/sendResetPasswordEmail', sharesoft.token, data, self.sendResetPasswordEmailCallback );
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/resetPassword/sendResetPasswordEmail', pleisterman.token, data, self.sendResetPasswordEmailCallback );
 
         // DONE FUNCTION: sendResetPasswordEmail( string: email ) void
         };
@@ -320,7 +320,7 @@
             // done create message options
 
             // show message
-            sharesoft.showMessage( 'sendResetPasswordEmailAfterSendMessage', messageOptions );
+            pleisterman.showMessage( 'sendResetPasswordEmailAfterSendMessage', messageOptions );
             
         // DONE FUNCTION: sendResetPasswordEmailCallback( json: result  ) void
         };
@@ -341,7 +341,7 @@
             // change canceled
             if( !change ){
                 // reload application
-                open( '/' + sharesoft.baseDirectory + '/' + sharesoft.workDirectory, '_self' );
+                open( '/' + pleisterman.baseDirectory + '/' + pleisterman.workDirectory, '_self' );
                 // done
                 return;
             }
@@ -349,12 +349,12 @@
             
             // create json: data
             var data = {
-                'workDirectory'     :   sharesoft.workDirectory
+                'workDirectory'     :   pleisterman.workDirectory
             };
             // done create json: data
             
             // ajax
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/resetPassword/prepareResetPassword', sharesoft.token, data, self.prepareResetPasswordCallback );           
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/resetPassword/prepareResetPassword', pleisterman.token, data, self.prepareResetPasswordCallback );           
             
         // DONE FUNCTION: resetPassword( void  ) void
         };
@@ -365,7 +365,7 @@
             self.debug( 'prepareResetPasswordCallback result: ' + result );
            
             // global check result
-            if( sharesoft.hasAjaxResultErrors( result ) ){
+            if( pleisterman.hasAjaxResultErrors( result ) ){
                 // done with error
                 return;
             }
@@ -376,13 +376,13 @@
             
             // create json: data
             var data = {
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'value'          :   jsProject.xorString( password, result['key'] )
             };
             // done create json: data
             
             // ajax
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/resetPassword/resetPassword', result['token'], data, self.resetPasswordCallback );           
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/resetPassword/resetPassword', result['token'], data, self.resetPasswordCallback );           
             
         // DONE FUNCTION: prepareResetPasswordCallback( json: result  ) void
         };
@@ -392,7 +392,7 @@
             self.debug( 'resetPasswordCallback result: ' + result );
             
             // global check result
-            if( sharesoft.hasAjaxResultErrors( result ) ){
+            if( pleisterman.hasAjaxResultErrors( result ) ){
                 // done with error
                 return;
             }
@@ -401,7 +401,7 @@
             // set new token
             if( result['token'] ){
                 // remember token
-                sharesoft.token = result['token'];
+                pleisterman.token = result['token'];
             }
             // done set new token
             
@@ -417,7 +417,7 @@
             // done create message options
             
             // show message
-            sharesoft.showMessage( 'passwordChanged', messageOptions );
+            pleisterman.showMessage( 'passwordChanged', messageOptions );
             
         // DONE FUNCTION: resetPasswordCallback( json: result  ) void
         };
@@ -470,9 +470,9 @@
             var currentDelay = parseInt( ( now - self.refreshPeriodStart ) / 1000 );
                         
             // debug info
-            self.debug( 'expired: ' + currentDelay + ' refresh after: ' + sharesoft.pageTokenRefreshPeriod );
+            self.debug( 'expired: ' + currentDelay + ' refresh after: ' + pleisterman.pageTokenRefreshPeriod );
             // expiration period reached
-            if( currentDelay > sharesoft.pageTokenRefreshPeriod  ){
+            if( currentDelay > pleisterman.pageTokenRefreshPeriod  ){
                 // refresh token
                 self.refreshToken();
             }
@@ -493,12 +493,12 @@
             
             // create json: data
             var data = {
-                'workDirectory'     :   sharesoft.workDirectory
+                'workDirectory'     :   pleisterman.workDirectory
             };
             // done create json: data
             
             // ajax
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/refreshToken', sharesoft.token, data, self.refreshTokenCallback );
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/refreshToken', pleisterman.token, data, self.refreshTokenCallback );
             
         // DONE FUNCTION: refreshToken( void ) void
         };
@@ -506,7 +506,7 @@
         // FUNCTION: refreshTokenCallback( json: result ) void
         
             // global check result
-            if( sharesoft.hasAjaxResultErrors( result ) ){
+            if( pleisterman.hasAjaxResultErrors( result ) ){
                 // done with error
                 return;
             }
@@ -515,7 +515,7 @@
             // debug info
             self.debug( 'new token: ' + result['token'] );
             // remember token
-            sharesoft.token = result['token'];
+            pleisterman.token = result['token'];
             // restart timer
             self.startTokenRefreshTimer();
             // done set new token
@@ -551,5 +551,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: userModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

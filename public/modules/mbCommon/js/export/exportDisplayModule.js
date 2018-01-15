@@ -8,23 +8,23 @@
  * 
  * Last revision: 01-01-2017
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  *  
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: exportDisplayModule( string: contentId ) void
     
-    sharesoft.exportDisplayModule = function( contentId ) {
+    pleisterman.exportDisplayModule = function( contentId ) {
         // PRIVATE:
         
         // MEMBERS
@@ -86,7 +86,7 @@
                     // case: text
                     case 'text' :  {
                         // create text 
-                        var input = new sharesoft.dataEditTextModule( self.contentId, values, false );
+                        var input = new pleisterman.dataEditTextModule( self.contentId, values, false );
                         // remember object
                         self.inputModules.push( input );
                         // done
@@ -95,7 +95,7 @@
                     // case: textarea
                     case 'textarea' :  {
                         // create text area
-                        var input = new sharesoft.dataEditTextAreaModule( self.contentId, values, false );
+                        var input = new pleisterman.dataEditTextAreaModule( self.contentId, values, false );
                         // remember object
                         self.inputModules.push( input );
                         // done
@@ -104,7 +104,7 @@
                     // case: checkbox
                     case 'checkbox' :  {
                         // create checkbox
-                        var input = new sharesoft.dataEditCheckboxModule( self.contentId, values, false );
+                        var input = new pleisterman.dataEditCheckboxModule( self.contentId, values, false );
                         // remember object
                         self.inputModules.push( input );
                         // done
@@ -113,7 +113,7 @@
                     // case: date
                     case 'date' :  {
                         // create date    
-                        var input = new sharesoft.dataEditDateModule( self.contentId, values, false  );
+                        var input = new pleisterman.dataEditDateModule( self.contentId, values, false  );
                         // remember object
                         self.inputModules.push( input );
                         // done
@@ -122,7 +122,7 @@
                     // case: list
                     case 'list' :  {
                         // create list    
-                        var input = new sharesoft.dataEditListModule( self.contentId, values, false );
+                        var input = new pleisterman.dataEditListModule( self.contentId, values, false );
                         // remember object
                         self.inputModules.push( input );
                         // done
@@ -131,7 +131,7 @@
                     // case: select
                     case 'select' :  {
                         // create select    
-                        var input = new sharesoft.dataEditSelectModule( self.contentId, values, false  );
+                        var input = new pleisterman.dataEditSelectModule( self.contentId, values, false  );
                         // remember object
                         self.inputModules.push( input );
                         // done
@@ -140,7 +140,7 @@
                     // case: spinner
                     case 'spinner' :  {
                         // create spinner    
-                        var input = new sharesoft.dataEditSpinnerModule( self.contentId, values, false  );
+                        var input = new pleisterman.dataEditSpinnerModule( self.contentId, values, false  );
                         // remember object
                         self.inputModules.push( input );
                         // done
@@ -228,5 +228,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: exportDisplayModule( string: contentId ) void
-})( sharesoft );
+})( pleisterman );
 // done create module function

@@ -8,30 +8,30 @@
  * Purpose: this module displays the brand image
  *          the image is linked to the sharsoft website
  *           
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: brandModule( void ) void 
     
-    sharesoft.brandModule = function( ) {
+    pleisterman.brandModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
         var self = this;                                            // object: self
         self.MODULE = 'brandModule';                                // string:  MODULE
         self.debugOn = false;                                       // boolean: debug
-        self.url = 'http://www.sharesoft.nl';                       // string url
-        self.imageUrl = sharesoft.getSetting( 'imageUrl' );         // string: image dir
+        self.url = 'http://www.pleisterman.nl';                       // string url
+        self.imageUrl = pleisterman.getSetting( 'imageUrl' );         // string: image dir
         self.parentOptions = {                                      // json: parent options
             'id'                    :   'bottomRow'                 // string: element id
         };                                                          // done json: parent options
@@ -39,8 +39,8 @@
             'id'                    :   'brand',                    // string: element id
             'element'               :   'div',                      // string: html element type 
             'cursor'                :   'pointer',                  // css cursor            
-            'styleHeight'           :   sharesoft.getSetting( 'layoutTopRowHeight' ), // css style height
-            'styleWidth'            :   sharesoft.getSetting( 'layoutTopRowHeight' ), // css style width  
+            'styleHeight'           :   pleisterman.getSetting( 'layoutTopRowHeight' ), // css style height
+            'styleWidth'            :   pleisterman.getSetting( 'layoutTopRowHeight' ), // css style width  
             'marginRight'           :   '210px',                    // css margin right
             'float'                 :   'right',                    // css float
             'eventLayer'            :   'main'                      // string event layer id
@@ -49,12 +49,12 @@
             'id'                    :   'brandImage',               // string: element id
             'element'               :   'img',                      // string: html element type 
             'src'                   :   self.imageUrl + 'brand.png',// string: file name
-            'title'                 :   sharesoft.translations['brandTitle'],   // string: title
+            'title'                 :   pleisterman.translations['brandTitle'],   // string: title
             'borderRadius'          :   '0.1em',                    // css border radius
             'marginTop'             :   '0.7em'                     // css margin top
         };                                                          // done json: image options
         self.mouseOverOptions = {                                   // json: mouse over options
-            'backgroundColor'           :  sharesoft.colors['panelHighlightBackgroundColor']['color'] // css color: background color
+            'backgroundColor'           :  pleisterman.colors['panelHighlightBackgroundColor']['color'] // css color: background color
         };                                                          // done json: mouse over options
         // DONE MEMBERS     
         
@@ -129,5 +129,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: brandModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

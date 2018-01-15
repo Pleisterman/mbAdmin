@@ -6,24 +6,24 @@
  *  Last revision: 16-01-2017
  * 
  *  Purpose: 
- *          this module adds the global values for the sharesoft application
+ *          this module adds the global values for the pleisterman application
  *           
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: valuesModule( void ) void 
     
-    sharesoft.valuesModule = function( ) {
+    pleisterman.valuesModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -44,7 +44,7 @@
             {                                               // json: divider position
                 "groupName" :   "divider",                  // string: group name
                 "valueName" :   "position",                 // string: value name
-                "value"     :   parseInt( sharesoft.options['dividerPosition']['value'] ) // integer: value
+                "value"     :   parseInt( pleisterman.options['dividerPosition']['value'] ) // integer: value
             },                                              // done json: divider position
             {                                               // json: divider collapsed
                 "groupName" :   "divider",                  // string: group name
@@ -169,5 +169,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: valuesModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

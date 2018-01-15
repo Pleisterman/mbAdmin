@@ -7,22 +7,22 @@
  * 
  *  Purpose: 
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: dataModule( void ) void 
     
-    sharesoft.dataModule = function( options ) {
+    pleisterman.dataModule = function( options ) {
         // PRIVATE:
         
         // MEMBERS
@@ -34,10 +34,10 @@
             'element'               :   'div',                          // string: element type
             'display'               :   'inline-block',                 // css display style
             'verticalAlign'         :   'top',                          // css vertical align
-            'fontSize'              :   parent.sharesoft.getSetting( 'dataEditLabelFontSize' ),     // css font size
-            'fontWeight'            :   parent.sharesoft.getSetting( 'dataEditLabelFontWeight' ),   // css font weight
-            'marginTop'             :   parent.sharesoft.getSetting( 'dataEditLabelMarginTop' ),    // css margin top
-            'marginRight'           :   parent.sharesoft.getSetting( 'dataEditLabelMarginRight' )   // css margin right
+            'fontSize'              :   parent.pleisterman.getSetting( 'dataEditLabelFontSize' ),     // css font size
+            'fontWeight'            :   parent.pleisterman.getSetting( 'dataEditLabelFontWeight' ),   // css font weight
+            'marginTop'             :   parent.pleisterman.getSetting( 'dataEditLabelMarginTop' ),    // css margin top
+            'marginRight'           :   parent.pleisterman.getSetting( 'dataEditLabelMarginRight' )   // css margin right
         };                                                              // done json: label options
         self.nameContainerOptions = {                                   // json: name container options
             'parentId'              :   'contentContainer',             // string: parent element id
@@ -46,14 +46,14 @@
             'display'               :   'block',                        // css display
             'position'              :   'relative',                     // css position
             'verticalAlign'         :   'middle',                       // css verical align
-            'backgroundColor'       :   parent.sharesoft.colors['dataItemBackgroundColor']['color'], // css color: background color
+            'backgroundColor'       :   parent.pleisterman.colors['dataItemBackgroundColor']['color'], // css color: background color
             'padding'               :   '0.4em',                        // css padding
             'marginTop'             :   '0.4em',                        // css margin top
             'marginLeft'            :   '2.0em'                         // css margin left
         };                                                              // done json: name container options
         self.nameLabelOptions = {                                       // json: name label options
             'id'                    :   'nameLabel',                    // string: element id
-            'text'                  :   parent.sharesoft.translations['name']   // string: text
+            'text'                  :   parent.pleisterman.translations['name']   // string: text
         };                                                              // done json: name label options
         self.nameOptions = {                                            // json: name options
             'id'                    :   'name',                         // string: id
@@ -62,10 +62,10 @@
             'type'                  :   'text',                         // string: input type 
             'display'               :   'inline-block',                 // css display 
             'styleWidth'            :   '20.7em',                       // css style width
-            'backgroundColor'       :   parent.sharesoft.colors['editBackgroundColor']['color'],    // css color: background color
-            'fontSize'              :   parent.sharesoft.getSetting( 'dataEditInputFontSize' ),     // css font size
-            'fontWeight'            :   parent.sharesoft.getSetting( 'dataEditInputFontWeight' ),   // css font weight
-            'color'                 :   parent.sharesoft.colors['editColor']['color'],              // css color: color
+            'backgroundColor'       :   parent.pleisterman.colors['editBackgroundColor']['color'],    // css color: background color
+            'fontSize'              :   parent.pleisterman.getSetting( 'dataEditInputFontSize' ),     // css font size
+            'fontWeight'            :   parent.pleisterman.getSetting( 'dataEditInputFontWeight' ),   // css font weight
+            'color'                 :   parent.pleisterman.colors['editColor']['color'],              // css color: color
             'border'                :   true,                           // boolean: has border    
             'borderStyle'           :   'solid',                        // css border style
             'borderWidth'           :   '0.1em',                        // css border width
@@ -79,7 +79,7 @@
             'display'               :   'block',                        // css display
             'position'              :   'relative',                     // css position
             'verticalAlign'         :   'middle',                       // css verical align
-            'backgroundColor'       :   parent.sharesoft.colors['dataItemBackgroundColor']['color'], // css color: background color
+            'backgroundColor'       :   parent.pleisterman.colors['dataItemBackgroundColor']['color'], // css color: background color
             'padding'               :   '0.4em',                        // css padding
             'marginTop'             :   '0.4em',                        // css margin top
             'marginLeft'            :   '2.0em'                         // css margin left
@@ -89,10 +89,10 @@
             'type'                  :   'text',                         // string: input type 
             'element'               :   'input',                        // string: html element type 
             'display'               :   'inline-block',                 // css display
-            'backgroundColor'       :   parent.sharesoft.colors['editBackgroundColor']['color'],    // css color: background color
-            'fontSize'              :   parent.sharesoft.getSetting( 'dataEditInputFontSize' ),     // css font size
-            'fontWeight'            :   parent.sharesoft.getSetting( 'dataEditInputFontWeight' ),   // css font weight
-            'color'                 :   parent.sharesoft.colors['buttonDisabledColor']['color'],    // css color: color
+            'backgroundColor'       :   parent.pleisterman.colors['editBackgroundColor']['color'],    // css color: background color
+            'fontSize'              :   parent.pleisterman.getSetting( 'dataEditInputFontSize' ),     // css font size
+            'fontWeight'            :   parent.pleisterman.getSetting( 'dataEditInputFontWeight' ),   // css font weight
+            'color'                 :   parent.pleisterman.colors['buttonDisabledColor']['color'],    // css color: color
             'styleWidth'            :   '20.7em',                       // css style width
             'border'                :   true,                           // boolean: has border   
             'borderColor'           :   'transparent',                  // css color: border style
@@ -110,16 +110,16 @@
             'element'               :   'input',                        // string: html element type
             'type'                  :   'file',                         // string: input type 
             'minimumWidth'          :   '22.0em',                       // css minimum width
-            'color'                 :   parent.sharesoft.colors['buttonColor']['color'],            // css color: color
-            'backgroundColor'       :   parent.sharesoft.colors['buttonBackgroundColor']['color'],  // css color: background color
-            'fontSize'              :   parent.sharesoft.getSetting( 'buttonFontSize' ),            // css font size
-            'fontWeight'            :   parent.sharesoft.getSetting( 'buttonFontWeight' ),          // css font weight
-            'padding'               :   parent.sharesoft.getSetting( 'buttonPadding' ),             // css padding
+            'color'                 :   parent.pleisterman.colors['buttonColor']['color'],            // css color: color
+            'backgroundColor'       :   parent.pleisterman.colors['buttonBackgroundColor']['color'],  // css color: background color
+            'fontSize'              :   parent.pleisterman.getSetting( 'buttonFontSize' ),            // css font size
+            'fontWeight'            :   parent.pleisterman.getSetting( 'buttonFontWeight' ),          // css font weight
+            'padding'               :   parent.pleisterman.getSetting( 'buttonPadding' ),             // css padding
             'border'                :   true,                           // boolean: has border 
-            'borderWidth'           :   parent.sharesoft.getSetting( 'buttonBorderWidth' ),         // css border width
-            'borderColor'           :   parent.sharesoft.colors['buttonBorderColor']['color'],      // css color: border color
-            'borderStyle'           :   parent.sharesoft.getSetting( 'buttonBorderStyle' ),         // css border style
-            'borderRadius'          :   parent.sharesoft.getSetting( 'buttonBorderRadius' ),        // css border radius
+            'borderWidth'           :   parent.pleisterman.getSetting( 'buttonBorderWidth' ),         // css border width
+            'borderColor'           :   parent.pleisterman.colors['buttonBorderColor']['color'],      // css color: border color
+            'borderStyle'           :   parent.pleisterman.getSetting( 'buttonBorderStyle' ),         // css border style
+            'borderRadius'          :   parent.pleisterman.getSetting( 'buttonBorderRadius' ),        // css border radius
             'marginTop'             :   '0.6em',                        // css margin top
             'marginBottom'          :   '0.4em',                        // css margin bottom
             'marginLeft'            :   '1.8em',                        // css margin left
@@ -135,16 +135,16 @@
             'updateFileButtonId'    :   'buttonUpdateFile',             // string: update file button element id  
             'element'               :   'div',                          // string: html element type 
             'display'               :   'inline-block',                 // css display
-            'color'                 :   parent.sharesoft.colors['buttonColor']['color'],            // css color: color     
-            'backgroundColor'       :   parent.sharesoft.colors['buttonBackgroundColor']['color'],  // css color: background color
-            'fontSize'              :   parent.sharesoft.getSetting( 'buttonFontSize' ),            // css font size
-            'fontWeight'            :   parent.sharesoft.getSetting( 'buttonFontWeight' ),          // css font weight
-            'padding'               :   parent.sharesoft.getSetting( 'buttonPadding' ),             // css padding
+            'color'                 :   parent.pleisterman.colors['buttonColor']['color'],            // css color: color     
+            'backgroundColor'       :   parent.pleisterman.colors['buttonBackgroundColor']['color'],  // css color: background color
+            'fontSize'              :   parent.pleisterman.getSetting( 'buttonFontSize' ),            // css font size
+            'fontWeight'            :   parent.pleisterman.getSetting( 'buttonFontWeight' ),          // css font weight
+            'padding'               :   parent.pleisterman.getSetting( 'buttonPadding' ),             // css padding
             'border'                :   true,                           // add border option
-            'borderWidth'           :   parent.sharesoft.getSetting( 'buttonBorderWidth' ),         // css border width
-            'borderColor'           :   parent.sharesoft.colors['buttonBorderColor']['color'],      // css color: border color
-            'borderStyle'           :   parent.sharesoft.getSetting( 'buttonBorderStyle' ),         // css border style
-            'borderRadius'          :   parent.sharesoft.getSetting( 'buttonBorderRadius' ),        // css border radius
+            'borderWidth'           :   parent.pleisterman.getSetting( 'buttonBorderWidth' ),         // css border width
+            'borderColor'           :   parent.pleisterman.colors['buttonBorderColor']['color'],      // css color: border color
+            'borderStyle'           :   parent.pleisterman.getSetting( 'buttonBorderStyle' ),         // css border style
+            'borderRadius'          :   parent.pleisterman.getSetting( 'buttonBorderRadius' ),        // css border radius
             'marginTop'             :   '0.4em',                        // css margin top           
             'marginBottom'          :   '0.4em',                        // css margin bottom        
             'marginLeft'            :   '2.0em',                        // css margin left         
@@ -238,7 +238,7 @@
             $( '#' + self.originalFileNameContainerOptions['parentId'] ).append( parent.jsProject.jsonToElementHtml( self.originalFileNameContainerOptions ) );
              
             // add label
-            self.labelOptions['text'] = parent.sharesoft.translations['originalFileName'];
+            self.labelOptions['text'] = parent.pleisterman.translations['originalFileName'];
             $( '#' + self.originalFileNameContainerOptions['id'] ).append( parent.jsProject.jsonToElementHtml( self.labelOptions ) );
             // done add label
 
@@ -306,7 +306,7 @@
         // FUNCTION: addInsertButtons( void ) void
             
             // set button text
-            self.buttonOptions['text'] = parent.sharesoft.translations['insert'];
+            self.buttonOptions['text'] = parent.pleisterman.translations['insert'];
             // set id
             self.buttonOptions['id'] = self.buttonOptions['insertButtonId'];
 
@@ -314,8 +314,8 @@
             $( '#' + self.buttonOptions['parentId'] ).append( parent.jsProject.jsonToElementHtml( self.buttonOptions ) );
 
             // set disabled colors
-            $( '#' + self.buttonOptions['insertButtonId'] ).css( 'background-color', parent.sharesoft.colors['buttonDisabledBackgroundColor']['color'] );
-            $( '#' + self.buttonOptions['insertButtonId'] ).css( 'color', parent.sharesoft.colors['buttonDisabledColor']['color'] );
+            $( '#' + self.buttonOptions['insertButtonId'] ).css( 'background-color', parent.pleisterman.colors['buttonDisabledBackgroundColor']['color'] );
+            $( '#' + self.buttonOptions['insertButtonId'] ).css( 'color', parent.pleisterman.colors['buttonDisabledColor']['color'] );
             // done set disabled colors
             
             // add tab stop
@@ -337,7 +337,7 @@
                 'deSelect'  :   self.buttonInsertMouseOut,
                 'keys'      :   [
                     {
-                        'keyCode'   :   sharesoft.getSetting( 'keyCodes' )['space'],
+                        'keyCode'   :   pleisterman.getSetting( 'keyCodes' )['space'],
                         'type'      :   'tabStop',
                         'function'  :   self.insert
                     }                ]
@@ -363,15 +363,15 @@
         // FUNCTION: addUpdateNameButton( void ) void
             
             // set button text
-            self.buttonOptions['text'] = parent.sharesoft.translations['updateName'];
+            self.buttonOptions['text'] = parent.pleisterman.translations['updateName'];
             // set id
             self.buttonOptions['id'] = self.buttonOptions['updateNameButtonId'];
 
             // create html
             $( '#' + self.buttonOptions['parentId'] ).append( parent.jsProject.jsonToElementHtml( self.buttonOptions ) );
             // set disabled colors
-            $( '#' + self.buttonOptions['updateNameButtonId'] ).css( 'background-color', parent.sharesoft.colors['buttonDisabledBackgroundColor']['color'] );
-            $( '#' + self.buttonOptions['updateNameButtonId'] ).css( 'color', parent.sharesoft.colors['buttonDisabledColor']['color'] );
+            $( '#' + self.buttonOptions['updateNameButtonId'] ).css( 'background-color', parent.pleisterman.colors['buttonDisabledBackgroundColor']['color'] );
+            $( '#' + self.buttonOptions['updateNameButtonId'] ).css( 'color', parent.pleisterman.colors['buttonDisabledColor']['color'] );
             // done set disabled colors
 
             // add tab stop
@@ -393,7 +393,7 @@
                 'deSelect'  :   self.buttonUpdateNameMouseOut,
                 'keys'      :   [
                     {
-                        'keyCode'   :   sharesoft.getSetting( 'keyCodes' )['space'],
+                        'keyCode'   :   pleisterman.getSetting( 'keyCodes' )['space'],
                         'type'      :   'tabStop',
                         'function'  :   self.updateName
                     }                ]
@@ -409,15 +409,15 @@
         // FUNCTION: addUpdateFileButton( void ) void
             
             // set button text
-            self.buttonOptions['text'] = parent.sharesoft.translations['updateFile'];
+            self.buttonOptions['text'] = parent.pleisterman.translations['updateFile'];
             // set id
             self.buttonOptions['id'] = self.buttonOptions['updateFileButtonId'];
 
             // create html
             $( '#' + self.buttonOptions['parentId'] ).append( parent.jsProject.jsonToElementHtml( self.buttonOptions ) );
             // set disabled colors
-            $( '#' + self.buttonOptions['updateFileButtonId'] ).css( 'background-color', parent.sharesoft.colors['buttonDisabledBackgroundColor']['color'] );
-            $( '#' + self.buttonOptions['updateFileButtonId'] ).css( 'color', parent.sharesoft.colors['buttonDisabledColor']['color'] );
+            $( '#' + self.buttonOptions['updateFileButtonId'] ).css( 'background-color', parent.pleisterman.colors['buttonDisabledBackgroundColor']['color'] );
+            $( '#' + self.buttonOptions['updateFileButtonId'] ).css( 'color', parent.pleisterman.colors['buttonDisabledColor']['color'] );
             // done set disabled colors
             
             // add tab stop
@@ -439,7 +439,7 @@
                 'deSelect'  :   self.buttonUpdateFileMouseOut,
                 'keys'      :   [
                     {
-                        'keyCode'   :   sharesoft.getSetting( 'keyCodes' )['space'],
+                        'keyCode'   :   pleisterman.getSetting( 'keyCodes' )['space'],
                         'type'      :   'tabStop',
                         'function'  :   self.updateFile
                     }                ]
@@ -456,7 +456,7 @@
             
             // add close 
             self.buttonOptions['id'] = self.buttonOptions['closeButtonId'];
-            self.buttonOptions['text'] = parent.sharesoft.translations['close'];
+            self.buttonOptions['text'] = parent.pleisterman.translations['close'];
             $( '#' + self.buttonOptions['parentId'] ).append( parent.jsProject.jsonToElementHtml( self.buttonOptions ) );
             // done add close 
 
@@ -479,12 +479,12 @@
                 'deSelect'  :   self.buttonCloseMouseOut,
                 'keys'      :   [
                     {
-                        'keyCode'   :   sharesoft.getSetting( 'keyCodes' )['space'],
+                        'keyCode'   :   pleisterman.getSetting( 'keyCodes' )['space'],
                         'type'      :   'tabstop',
                         'function'  :   self.close
                     },                
                     {
-                        'keyCode'   :   sharesoft.getSetting( 'keyCodes' )['escape'],
+                        'keyCode'   :   pleisterman.getSetting( 'keyCodes' )['escape'],
                         'type'      :   'default',
                         'function'  :   self.close
                     }                
@@ -623,17 +623,17 @@
             // if select
             if( select ){
                 // set item background color selected
-                $( '#' + self.nameContainerOptions['id'] ).css( 'background-color', parent.sharesoft.colors['buttonHighlightBackgroundColor']['color'] );
+                $( '#' + self.nameContainerOptions['id'] ).css( 'background-color', parent.pleisterman.colors['buttonHighlightBackgroundColor']['color'] );
                 // set label color selected
-                $( '#' + self.nameLabelOptions['id'] ).css( 'color', parent.sharesoft.colors['buttonHighlightColor']['color'] );
+                $( '#' + self.nameLabelOptions['id'] ).css( 'color', parent.pleisterman.colors['buttonHighlightColor']['color'] );
                 // set label font weight selected
                 $( '#' + self.nameLabelOptions['id'] ).css( 'font-weight', 'bold' );
             }
             else {
                 // set item background color default
-                $( '#' + self.nameContainerOptions['id'] ).css( 'background-color', parent.sharesoft.colors['buttonBackgroundColor']['color'] );
+                $( '#' + self.nameContainerOptions['id'] ).css( 'background-color', parent.pleisterman.colors['buttonBackgroundColor']['color'] );
                 // set label color default
-                $( '#' + self.nameLabelOptions['id'] ).css( 'color', parent.sharesoft.colors['buttonColor']['color'] );
+                $( '#' + self.nameLabelOptions['id'] ).css( 'color', parent.pleisterman.colors['buttonColor']['color'] );
                 // set label font weight default
                 $( '#' + self.nameLabelOptions['id'] ).css( 'font-weight', 'normal' );
             }
@@ -652,9 +652,9 @@
             // mode is update
             if( self.options['callerOptions']['mode'] === 'update' ){ 
                 // update button name change enabled background color
-                $( '#' + self.buttonOptions['updateNameButtonId'] ).css( 'background-color', parent.sharesoft.colors['buttonBackgroundColor']['color'] );
+                $( '#' + self.buttonOptions['updateNameButtonId'] ).css( 'background-color', parent.pleisterman.colors['buttonBackgroundColor']['color'] );
                 // update button name change enabled color
-                $( '#' + self.buttonOptions['updateNameButtonId'] ).css( 'color', parent.sharesoft.colors['buttonColor']['color'] );
+                $( '#' + self.buttonOptions['updateNameButtonId'] ).css( 'color', parent.pleisterman.colors['buttonColor']['color'] );
                 // remember enable name change
                 self.nameChangeEnabled = true;
 
@@ -705,13 +705,13 @@
             // if select
             if( select ){
                 // set item background color selected
-                $( '#' + self.fileButtonOptions['id'] ).css( 'background-color', parent.sharesoft.colors['buttonHighlightBackgroundColor']['color'] );
+                $( '#' + self.fileButtonOptions['id'] ).css( 'background-color', parent.pleisterman.colors['buttonHighlightBackgroundColor']['color'] );
                 // set focus
                 $( '#' + self.fileButtonOptions['id'] ).focus();
             }
             else {
                 // set item background color default
-                $( '#' + self.fileButtonOptions['id'] ).css( 'background-color', parent.sharesoft.colors['buttonBackgroundColor']['color'] );
+                $( '#' + self.fileButtonOptions['id'] ).css( 'background-color', parent.pleisterman.colors['buttonBackgroundColor']['color'] );
             }
             // done if select
             
@@ -735,9 +735,9 @@
                 // is insert mode
                 if( self.options['callerOptions']['mode'] === 'insert' ){
                     // insert button enable background color
-                    $( '#' + self.buttonOptions['insertButtonId'] ).css( 'background-color', parent.sharesoft.colors['buttonBackgroundColor']['color'] );
+                    $( '#' + self.buttonOptions['insertButtonId'] ).css( 'background-color', parent.pleisterman.colors['buttonBackgroundColor']['color'] );
                     // insert button enable color
-                    $( '#' + self.buttonOptions['insertButtonId'] ).css( 'color', parent.sharesoft.colors['buttonColor']['color'] );
+                    $( '#' + self.buttonOptions['insertButtonId'] ).css( 'color', parent.pleisterman.colors['buttonColor']['color'] );
                     // remember enable insert
                     self.insertEnabled = true;
                     
@@ -766,9 +766,9 @@
                 // is update mode
                 if( self.options['callerOptions']['mode'] === 'update' ){
                     // update file button enable background color
-                    $( '#' + self.buttonOptions['updateFileButtonId'] ).css( 'background-color', parent.sharesoft.colors['buttonBackgroundColor']['color'] );
+                    $( '#' + self.buttonOptions['updateFileButtonId'] ).css( 'background-color', parent.pleisterman.colors['buttonBackgroundColor']['color'] );
                     // update file button enable color
-                    $( '#' + self.buttonOptions['updateFileButtonId'] ).css( 'color', parent.sharesoft.colors['buttonColor']['color'] );
+                    $( '#' + self.buttonOptions['updateFileButtonId'] ).css( 'color', parent.pleisterman.colors['buttonColor']['color'] );
                     // remmeber update file enabled
                     self.updateFileEnabled = true;
 
@@ -783,9 +783,9 @@
                 // mode is insert
                 if( self.options['callerOptions']['mode'] === 'insert' ){
                     // upload button disabled background color
-                    $( '#' + self.buttonOptions['insertButtonId'] ).css( 'background-color', parent.sharesoft.colors['buttonDisabledBackgroundColor']['color'] );
+                    $( '#' + self.buttonOptions['insertButtonId'] ).css( 'background-color', parent.pleisterman.colors['buttonDisabledBackgroundColor']['color'] );
                     // upload button disabled color
-                    $( '#' + self.buttonOptions['insertButtonId'] ).css( 'color', parent.sharesoft.colors['buttonDisabledColor']['color'] );
+                    $( '#' + self.buttonOptions['insertButtonId'] ).css( 'color', parent.pleisterman.colors['buttonDisabledColor']['color'] );
                     // remember upload disabled
                     self.insertEnabled = false;
                     
@@ -799,9 +799,9 @@
                 // is update mode
                 if( self.options['callerOptions']['mode'] === 'update' ){
                     // update file button disabled background color
-                    $( '#' + self.buttonOptions['updateFileButtonId'] ).css( 'background-color', parent.sharesoft.colors['buttonDisabledBackgroundColor']['color'] );
+                    $( '#' + self.buttonOptions['updateFileButtonId'] ).css( 'background-color', parent.pleisterman.colors['buttonDisabledBackgroundColor']['color'] );
                     // update file button disabled color
-                    $( '#' + self.buttonOptions['updateFileButtonId'] ).css( 'color', parent.sharesoft.colors['buttonDisabledColor']['color'] );
+                    $( '#' + self.buttonOptions['updateFileButtonId'] ).css( 'color', parent.pleisterman.colors['buttonDisabledColor']['color'] );
                     // remember update file disabled
                     self.updateFileEnabled = false;
                     
@@ -859,14 +859,14 @@
             // if select
             if( select ){
                 // mouse over -> background color, color highlight
-                $( '#' + self.buttonOptions['insertButtonId'] ).css( 'background-color', parent.sharesoft.colors['buttonHighlightBackgroundColor']['color'] );
-                $( '#' + self.buttonOptions['insertButtonId'] ).css( 'color', parent.sharesoft.colors['buttonHighlightColor']['color'] );
+                $( '#' + self.buttonOptions['insertButtonId'] ).css( 'background-color', parent.pleisterman.colors['buttonHighlightBackgroundColor']['color'] );
+                $( '#' + self.buttonOptions['insertButtonId'] ).css( 'color', parent.pleisterman.colors['buttonHighlightColor']['color'] );
                 // done mouse over -> background color, color highlight
             }
             else {
                 // mouse over -> background color, color highlight
-                $( '#' + self.buttonOptions['insertButtonId'] ).css( 'background-color', parent.sharesoft.colors['buttonBackgroundColor']['color'] );
-                $( '#' + self.buttonOptions['insertButtonId'] ).css( 'color', parent.sharesoft.colors['buttonColor']['color'] );
+                $( '#' + self.buttonOptions['insertButtonId'] ).css( 'background-color', parent.pleisterman.colors['buttonBackgroundColor']['color'] );
+                $( '#' + self.buttonOptions['insertButtonId'] ).css( 'color', parent.pleisterman.colors['buttonColor']['color'] );
                 // done mouse over -> background color, color highlight
             }
             // done if select
@@ -899,8 +899,8 @@
             // name change disabled
 
             // mouse over -> background color, color highlight
-            $( '#' + self.buttonOptions['updateNameButtonId'] ).css( 'background-color', parent.sharesoft.colors['buttonHighlightBackgroundColor']['color'] );
-            $( '#' + self.buttonOptions['updateNameButtonId'] ).css( 'color', parent.sharesoft.colors['buttonHighlightColor']['color'] );
+            $( '#' + self.buttonOptions['updateNameButtonId'] ).css( 'background-color', parent.pleisterman.colors['buttonHighlightBackgroundColor']['color'] );
+            $( '#' + self.buttonOptions['updateNameButtonId'] ).css( 'color', parent.pleisterman.colors['buttonHighlightColor']['color'] );
             // done mouse over -> background color, color highlight
             
         // DONE FUNCTION: buttonUpdateNameMouseIn( void ) void
@@ -916,8 +916,8 @@
             // done is current tabstop
 
             // mouse over -> background color, color highlight
-            $( '#' + self.buttonOptions['updateNameButtonId'] ).css( 'background-color', parent.sharesoft.colors['buttonBackgroundColor']['color'] );
-            $( '#' + self.buttonOptions['updateNameButtonId'] ).css( 'color', parent.sharesoft.colors['buttonColor']['color'] );
+            $( '#' + self.buttonOptions['updateNameButtonId'] ).css( 'background-color', parent.pleisterman.colors['buttonBackgroundColor']['color'] );
+            $( '#' + self.buttonOptions['updateNameButtonId'] ).css( 'color', parent.pleisterman.colors['buttonColor']['color'] );
             // done mouse over -> background color, color highlight
             
         // DONE FUNCTION: buttonUpdateNameMouseOut( void ) void
@@ -952,8 +952,8 @@
             jsProject.callEvent( 'enableTabStop', tabstopOptions );
 
             // set disabled colors
-            $( '#' + self.buttonOptions['updateNameButtonId'] ).css( 'background-color', parent.sharesoft.colors['buttonDisabledBackgroundColor']['color'] );
-            $( '#' + self.buttonOptions['updateNameButtonId'] ).css( 'color', parent.sharesoft.colors['buttonDisabledColor']['color'] );
+            $( '#' + self.buttonOptions['updateNameButtonId'] ).css( 'background-color', parent.pleisterman.colors['buttonDisabledBackgroundColor']['color'] );
+            $( '#' + self.buttonOptions['updateNameButtonId'] ).css( 'color', parent.pleisterman.colors['buttonDisabledColor']['color'] );
             // done set disabled colors
             
         // DONE FUNCTION: updateName( void ) void
@@ -969,8 +969,8 @@
             // done update file disabled
             
             // mouse over -> background color, color highlight
-            $( '#' + self.buttonOptions['updateFileButtonId'] ).css( 'background-color', parent.sharesoft.colors['buttonHighlightBackgroundColor']['color'] );
-            $( '#' + self.buttonOptions['updateFileButtonId'] ).css( 'color', parent.sharesoft.colors['buttonHighlightColor']['color'] );
+            $( '#' + self.buttonOptions['updateFileButtonId'] ).css( 'background-color', parent.pleisterman.colors['buttonHighlightBackgroundColor']['color'] );
+            $( '#' + self.buttonOptions['updateFileButtonId'] ).css( 'color', parent.pleisterman.colors['buttonHighlightColor']['color'] );
             // done mouse over -> background color, color highlight
             
         // DONE FUNCTION: buttonUpdateFileMouseIn( void ) void
@@ -986,8 +986,8 @@
             // done is current tabstop
 
             // mouse over -> background color, color highlight
-            $( '#' + self.buttonOptions['updateFileButtonId'] ).css( 'background-color', parent.sharesoft.colors['buttonBackgroundColor']['color'] );
-            $( '#' + self.buttonOptions['updateFileButtonId'] ).css( 'color', parent.sharesoft.colors['buttonColor']['color'] );
+            $( '#' + self.buttonOptions['updateFileButtonId'] ).css( 'background-color', parent.pleisterman.colors['buttonBackgroundColor']['color'] );
+            $( '#' + self.buttonOptions['updateFileButtonId'] ).css( 'color', parent.pleisterman.colors['buttonColor']['color'] );
             // done mouse over -> background color, color highlight
             
         // DONE FUNCTION: buttonUpdateFileMouseOut( void ) void
@@ -1011,8 +1011,8 @@
         // FUNCTION: buttonCloseMouseIn( void ) void
             
             // mouse over -> background color, color highlight
-            $( '#' + self.buttonOptions['closeButtonId'] ).css( 'background-color', parent.sharesoft.colors['buttonHighlightBackgroundColor']['color'] );
-            $( '#' + self.buttonOptions['closeButtonId'] ).css( 'color', parent.sharesoft.colors['buttonHighlightColor']['color'] );
+            $( '#' + self.buttonOptions['closeButtonId'] ).css( 'background-color', parent.pleisterman.colors['buttonHighlightBackgroundColor']['color'] );
+            $( '#' + self.buttonOptions['closeButtonId'] ).css( 'color', parent.pleisterman.colors['buttonHighlightColor']['color'] );
             // done mouse over -> background color, color highlight
             
         // DONE FUNCTION: buttonCloseMouseIn( void ) void
@@ -1028,8 +1028,8 @@
             // done is current tabstop
             
             // mouse over -> background color, color highlight
-            $( '#' + self.buttonOptions['closeButtonId'] ).css( 'background-color', parent.sharesoft.colors['buttonBackgroundColor']['color'] );
-            $( '#' + self.buttonOptions['closeButtonId'] ).css( 'color', parent.sharesoft.colors['buttonColor']['color'] );
+            $( '#' + self.buttonOptions['closeButtonId'] ).css( 'background-color', parent.pleisterman.colors['buttonBackgroundColor']['color'] );
+            $( '#' + self.buttonOptions['closeButtonId'] ).css( 'color', parent.pleisterman.colors['buttonColor']['color'] );
             // done mouse over -> background color, color highlight
             
         // DONE FUNCTION: buttonCloseMouseOut( void ) void
@@ -1054,7 +1054,7 @@
                 // set focus
                 $( '#' + self.nameOptions['id'] ).focus();
                 // get error
-                parent.sharesoft.getError( 'nameEmpty', self.options['errorCallback'] );
+                parent.pleisterman.getError( 'nameEmpty', self.options['errorCallback'] );
                 self.enableUpdateName( false );
                 return false;
             }
@@ -1077,9 +1077,9 @@
             // enabled
             if( enable ){
                 // insert button background color default
-                $( '#' + self.buttonOptions['insertButtonId'] ).css( 'background-color', parent.sharesoft.colors['buttonBackgroundColor']['color'] );
+                $( '#' + self.buttonOptions['insertButtonId'] ).css( 'background-color', parent.pleisterman.colors['buttonBackgroundColor']['color'] );
                 // insert button color default
-                $( '#' + self.buttonOptions['insertButtonId'] ).css( 'color', parent.sharesoft.colors['buttonColor']['color'] );
+                $( '#' + self.buttonOptions['insertButtonId'] ).css( 'color', parent.pleisterman.colors['buttonColor']['color'] );
 
                 // create options
                 var tabstopOptions = {
@@ -1093,9 +1093,9 @@
             }
             else {
                 // insert button background color disabled
-                $( '#' + self.buttonOptions['insertButtonId'] ).css( 'background-color', parent.sharesoft.colors['buttonDisabledBackgroundColor']['color'] );
+                $( '#' + self.buttonOptions['insertButtonId'] ).css( 'background-color', parent.pleisterman.colors['buttonDisabledBackgroundColor']['color'] );
                 // insert button color disabled
-                $( '#' + self.buttonOptions['insertButtonId'] ).css( 'color', parent.sharesoft.colors['buttonDisabledColor']['color'] );
+                $( '#' + self.buttonOptions['insertButtonId'] ).css( 'color', parent.pleisterman.colors['buttonDisabledColor']['color'] );
 
                 // create options
                 var tabstopOptions = {
@@ -1120,9 +1120,9 @@
             // enabled
             if( enable ){
                 // update name button background color default
-                $( '#' + self.buttonOptions['updateNameButtonId'] ).css( 'background-color', parent.sharesoft.colors['buttonBackgroundColor']['color'] );
+                $( '#' + self.buttonOptions['updateNameButtonId'] ).css( 'background-color', parent.pleisterman.colors['buttonBackgroundColor']['color'] );
                 // update name button color default
-                $( '#' + self.buttonOptions['updateNameButtonId'] ).css( 'color', parent.sharesoft.colors['buttonColor']['color'] );
+                $( '#' + self.buttonOptions['updateNameButtonId'] ).css( 'color', parent.pleisterman.colors['buttonColor']['color'] );
 
                 // create options
                 var tabstopOptions = {
@@ -1136,9 +1136,9 @@
             }
             else {
                 // update name button background color disabled
-                $( '#' + self.buttonOptions['updateNameButtonId'] ).css( 'background-color', parent.sharesoft.colors['buttonDisabledBackgroundColor']['color'] );
+                $( '#' + self.buttonOptions['updateNameButtonId'] ).css( 'background-color', parent.pleisterman.colors['buttonDisabledBackgroundColor']['color'] );
                 // update name button color disabled
-                $( '#' + self.buttonOptions['updateNameButtonId'] ).css( 'color', parent.sharesoft.colors['buttonDisabledColor']['color'] );
+                $( '#' + self.buttonOptions['updateNameButtonId'] ).css( 'color', parent.pleisterman.colors['buttonDisabledColor']['color'] );
 
                 // set tabstop on close button
                 jsProject.callEvent( 'selectTabStop', self.buttonOptions['closeButtonId'] );
@@ -1239,5 +1239,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: dataModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

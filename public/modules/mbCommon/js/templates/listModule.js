@@ -13,22 +13,22 @@
  *                  selections controlled by the listSelectionsModule      
  *                  rows conrolled by the listRowsModule
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: listModule( json: listOptions, function: callback ) void 
     
-    sharesoft.listModule = function( listOptions, listCallback ) {
+    pleisterman.listModule = function( listOptions, listCallback ) {
         // PRIVATE:
         
         // MEMBERS
@@ -86,7 +86,7 @@
         // FUNCTION: addModules( void ) void
             
             // header
-            self.header = new sharesoft.listHeaderModule( listOptions, 
+            self.header = new pleisterman.listHeaderModule( listOptions, 
                                                                    self.headerCallback );
             // done header
             
@@ -94,7 +94,7 @@
             self.addContentHtml();
             
             // add rows
-            self.rows = new sharesoft.listRowsModule( self.listOptions, self.rowsCallback );
+            self.rows = new pleisterman.listRowsModule( self.listOptions, self.rowsCallback );
             // done rows
 
         // DONE FUNCTION: addModules( void ) void
@@ -194,5 +194,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: listModule( json: listOptions, function: callback ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

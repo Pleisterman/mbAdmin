@@ -9,29 +9,29 @@
  *          displays a datepicker for a list selectionsDateModule
  *          sets caller date and calls a callback on return
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: listSelectionsDatePickerModule( void ) void 
     
-    sharesoft.listSelectionsDatePickerModule = function( ) {
+    pleisterman.listSelectionsDatePickerModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
         var self = this;                                                // object: self
         self.MODULE = 'listSelectionsDatePickerModule';                 // string:  MODULE
         self.debugOn = false;                                           // boolean: debug
-        self.imageUrl = sharesoft.getSetting( 'imageUrl' );             // string: image dir
+        self.imageUrl = pleisterman.getSetting( 'imageUrl' );             // string: image dir
         self.overlayOptions = {                                         // json: overlay options 
             'id'                    :   'mainOverlay'                   // string: element id
         };                                                              // done json: overlay options
@@ -39,9 +39,9 @@
             'id'                    :   self.MODULE + 'Container',      // string: element id
             'element'               :   'div',                          // string: html element type 
             'position'              :   'absolute',                     // css position
-            'backgroundColor'       :   sharesoft.colors['panelBackgroundColor']['color'],  // css color: background color
+            'backgroundColor'       :   pleisterman.colors['panelBackgroundColor']['color'],  // css color: background color
             'border'                :   true,                           // boolean: has border
-            'borderColor'           :   sharesoft.colors['panelBorderColor']['color'],      // css color: border color
+            'borderColor'           :   pleisterman.colors['panelBorderColor']['color'],      // css color: border color
             'borderWidth'           :   '0.1em',                        // css bordser width
             'borderStyle'           :   'groove',                       // css border style
             'borderRadius'          :   '0.1em',                        // css border radius
@@ -56,12 +56,12 @@
             'marginTop'             :   '0.2em',                        // css margin top 
             'marginLeft'            :   '0.2em',                        // css margin left
             'marginRight'           :   '0.2em',                        // css margin right 
-            'backgroundColor'       :   sharesoft.colors['buttonBackgroundColor']['color'], // css color: background color
+            'backgroundColor'       :   pleisterman.colors['buttonBackgroundColor']['color'], // css color: background color
             'backgroundRepeat'      :   'no-repeat',                    // css background repeat
             'backgroundPosition'    :   'center center',                // css background position        
             'border'                :   true,                           // boolean: has border
             'borderWidth'           :   '0.1em',                        // css border width
-            'borderColor'           :   sharesoft.colors['buttonBorderColor']['color'], // css color: border color
+            'borderColor'           :   pleisterman.colors['buttonBorderColor']['color'], // css color: border color
             'borderStyle'           :   'solid',                        // css border style
             'borderRadius'          :   '0.1em',                        // css border radius
             'cursor'                :   'pointer'                       // css cursor
@@ -78,8 +78,8 @@
             'fontSize'              :   '1.0em',                        // css relative font size
             'fontWeight'            :   'bold',                         // css border style
             'borderRadius'          :   '0.1em',                        // css border radius
-            'backgroundColor'       :   sharesoft.colors['panelHighlightBackgroundColor']['color'], // css color: background color
-            'color'                 :   sharesoft.colors['panelHighlightColor']['color']            // css color: color
+            'backgroundColor'       :   pleisterman.colors['panelHighlightBackgroundColor']['color'], // css color: background color
+            'color'                 :   pleisterman.colors['panelHighlightColor']['color']            // css color: color
         };                                                              // done json: header options
         self.selectionOptions = {                                       // json: selection options
             'id'                    :   self.MODULE + 'Selection',      // string: element id
@@ -87,55 +87,55 @@
         };                                                              // done json: selection options
         self.weekHeaderOptions = {                                      // json: week header options
             'element'               :   'td',                           // string html element type 
-            'text'                  :   sharesoft.translations['weekText'],                 // string: text 
-            'fontSize'              :   sharesoft.getSetting( 'dataEditInputFontSize' ),    // css font size
-            'fontWeight'            :   sharesoft.getSetting( 'dataEditInputFontWeight' ),  // css font weight
+            'text'                  :   pleisterman.translations['weekText'],                 // string: text 
+            'fontSize'              :   pleisterman.getSetting( 'dataEditInputFontSize' ),    // css font size
+            'fontWeight'            :   pleisterman.getSetting( 'dataEditInputFontWeight' ),  // css font weight
             'padding'               :   '0.3em',                        // css padding 
             'textAlign'             :   'center',                       // css text align  
-            'color'                 :   sharesoft.colors['panelColor']['color'],    // css color: color
+            'color'                 :   pleisterman.colors['panelColor']['color'],    // css color: color
         };                                                              // done json: week header options
         self.dayNamesOptions = {                                        // json: day names options
             'element'               :   'td',                           // string html element type 
-            'fontSize'              :   sharesoft.getSetting( 'dataEditInputFontSize' ),   // css font size
-            'fontWeight'            :   sharesoft.getSetting( 'dataEditInputFontWeight' ), // css font weight
+            'fontSize'              :   pleisterman.getSetting( 'dataEditInputFontSize' ),   // css font size
+            'fontWeight'            :   pleisterman.getSetting( 'dataEditInputFontWeight' ), // css font weight
             'minimumWidth'          :   '3.5em',                        // css minimum width
             'textAlign'             :   'center',                       // css text align
             'padding'               :   3,                              // css padding 
-            'color'                 :   sharesoft.colors['panelColor']['color'],            // css color: color
+            'color'                 :   pleisterman.colors['panelColor']['color'],            // css color: color
             'border'                :   true,                           // boolean: has border
             'borderWidth'           :   1,                              // css border width 
-            'borderColor'           :   sharesoft.colors['panelBorderColor']['color'],      // css color: border color
+            'borderColor'           :   pleisterman.colors['panelBorderColor']['color'],      // css color: border color
             'borderStyle'           :   'solid',                        // css border style
             'borderRadius'          :   5                               // css border radius
         };                                                              // done json: day names options
         self.weekNumberOptions = {                                      // json: week number options
             'element'               :   'td',                           // string: html element type 
             'text'                  :   '&nbsp;',                       // string: text
-            'fontSize'              :   sharesoft.getSetting( 'dataEditInputFontSize' ),    // css font size
-            'fontWeight'            :   sharesoft.getSetting( 'dataEditInputFontWeight' ),  // css font weight
+            'fontSize'              :   pleisterman.getSetting( 'dataEditInputFontSize' ),    // css font size
+            'fontWeight'            :   pleisterman.getSetting( 'dataEditInputFontWeight' ),  // css font weight
             'minimumWidth'          :   25,                             // css minimum width 
             'textAlign'             :   'center',                       // css text align
             'padding'               :   3,                              // css padding 
-            'color'                 :   sharesoft.colors['panelColor']['color'], // css color: color
+            'color'                 :   pleisterman.colors['panelColor']['color'], // css color: color
             'border'                :   true,                           // boolean: has border
             'borderWidth'           :   1,                              // css border width 
-            'borderColor'           :   sharesoft.colors['panelBorderColor']['color'],  // css color: border color
+            'borderColor'           :   pleisterman.colors['panelBorderColor']['color'],  // css color: border color
             'borderStyle'           :   'solid',                        // css border style
             'borderRadius'          :   5                               // css border radius   
         };                                                              // done json: week number options     
         self.dayOptions = {                                             // json: day options
             'element'               :   'td',                           // string: html element type 
             'text'                  :   '&nbsp;',                       // string: text
-            'fontSize'              :   sharesoft.getSetting( 'dataEditInputFontSize' ),    // css font size   
-            'fontWeight'            :   sharesoft.getSetting( 'dataEditInputFontWeight' ),  // css font weight
+            'fontSize'              :   pleisterman.getSetting( 'dataEditInputFontSize' ),    // css font size   
+            'fontWeight'            :   pleisterman.getSetting( 'dataEditInputFontWeight' ),  // css font weight
             'minimumWidth'          :   25,                             // css minimum width 
             'textAlign'             :   'center',                       // css text align
             'padding'               :   3,                              // css padding 
-            'backgroundColor'       :   sharesoft.colors['buttonBackgroundColor']['color'], // css color: background color
-            'color'                 :   sharesoft.colors['buttonColor']['color'],           // css color: color
+            'backgroundColor'       :   pleisterman.colors['buttonBackgroundColor']['color'], // css color: background color
+            'color'                 :   pleisterman.colors['buttonColor']['color'],           // css color: color
             'border'                :   true,                           // boolean: has border
             'borderWidth'           :   1,                              // css border width 
-            'borderColor'           :   sharesoft.colors['panelBorderColor']['color'], // css color: border color
+            'borderColor'           :   pleisterman.colors['panelBorderColor']['color'], // css color: border color
             'borderStyle'           :   'solid',                        // css border style
             'borderRadius'          :   5                               // css border radius
         };                                                              // done json: day options
@@ -167,7 +167,7 @@
             // debug info
             self.debug( 'construct' );
             
-            // add the extensions to sharesoft
+            // add the extensions to pleisterman
             self.addApplicationsExtensions();
 
             // event subscription
@@ -179,7 +179,7 @@
         // FUNCTION: addApplicationsExtensions( void ) void
             
             // add show data datepicker
-            sharesoft.showSelectionsDatePicker = self.show;
+            pleisterman.showSelectionsDatePicker = self.show;
             
         // DONE FUNCTION: addApplicationsExtensions( void ) void
         };
@@ -301,7 +301,7 @@
             // add week header
             headerHtml += jsProject.jsonToElementHtml( self.weekHeaderOptions );
             // get day names
-            var dayNames = sharesoft.translations['dayNamesShort'].split( ',' );
+            var dayNames = pleisterman.translations['dayNamesShort'].split( ',' );
             // fill day headers
             for( i = 0; i < dayNames.length; i++ ){
                 // set day header text
@@ -420,8 +420,8 @@
         // FUNCTION: downOver( event: event ) void
             
             // mouse in -> color and background color highlight
-            $( '#' + self.MODULE + 'ButtonDown' ).css( 'background-color', sharesoft.colors['buttonHighlightBackgroundColor']['color'] );
-            $( '#' + self.MODULE + 'ButtonDown' ).css( 'color', sharesoft.colors['buttonHighlightColor']['color'] );
+            $( '#' + self.MODULE + 'ButtonDown' ).css( 'background-color', pleisterman.colors['buttonHighlightBackgroundColor']['color'] );
+            $( '#' + self.MODULE + 'ButtonDown' ).css( 'color', pleisterman.colors['buttonHighlightColor']['color'] );
             // done mouse in -> color and background color highlight
             
         // DONE FUNCTION: downOver( event: event ) void
@@ -430,8 +430,8 @@
         // FUNCTION: downOut( event: event ) void
             
             // mouse out -> color and background color default
-            $( '#' + self.MODULE + 'ButtonDown' ).css( 'background-color', sharesoft.colors['buttonBackgroundColor']['color'] );
-            $( '#' + self.MODULE + 'ButtonDown' ).css( 'color', sharesoft.colors['buttonColor']['color'] );
+            $( '#' + self.MODULE + 'ButtonDown' ).css( 'background-color', pleisterman.colors['buttonBackgroundColor']['color'] );
+            $( '#' + self.MODULE + 'ButtonDown' ).css( 'color', pleisterman.colors['buttonColor']['color'] );
             // done mouse out -> color and background color default
             
         // DONE FUNCTION: downOut( event: event ) void
@@ -458,8 +458,8 @@
         // FUNCTION: upOver( event: event ) void
             
             // mouse ib -> color and background color highlight
-            $( '#' + self.MODULE + 'ButtonUp' ).css( 'background-color', sharesoft.colors['buttonHighlightBackgroundColor']['color'] );
-            $( '#' + self.MODULE + 'ButtonUp' ).css( 'color', sharesoft.colors['buttonHighlightColor']['color'] );
+            $( '#' + self.MODULE + 'ButtonUp' ).css( 'background-color', pleisterman.colors['buttonHighlightBackgroundColor']['color'] );
+            $( '#' + self.MODULE + 'ButtonUp' ).css( 'color', pleisterman.colors['buttonHighlightColor']['color'] );
             // done mouse in -> color and background color highlight
             
         // DONE FUNCTION: upOver( event: event ) void
@@ -468,8 +468,8 @@
         // FUNCTION: upOut( event: event ) void
             
             // mouse out -> color and background color default
-            $( '#' + self.MODULE + 'ButtonUp' ).css( 'background-color', sharesoft.colors['buttonBackgroundColor']['color'] );
-            $( '#' + self.MODULE + 'ButtonUp' ).css( 'color', sharesoft.colors['buttonColor']['color'] );
+            $( '#' + self.MODULE + 'ButtonUp' ).css( 'background-color', pleisterman.colors['buttonBackgroundColor']['color'] );
+            $( '#' + self.MODULE + 'ButtonUp' ).css( 'color', pleisterman.colors['buttonColor']['color'] );
             // done mouse out -> color and background color default
             
         // DONE FUNCTION: upOut( event: event ) void
@@ -503,8 +503,8 @@
             // done today or not a day
             
             // mouse in -> color and background color highlight
-            $( '#' + element.id ).css( 'background-color', sharesoft.colors['buttonHighlightBackgroundColor']['color'] );
-            $( '#' + element.id ).css( 'color', sharesoft.colors['buttonHighlightColor']['color'] );
+            $( '#' + element.id ).css( 'background-color', pleisterman.colors['buttonHighlightBackgroundColor']['color'] );
+            $( '#' + element.id ).css( 'color', pleisterman.colors['buttonHighlightColor']['color'] );
             // done mouse in -> color and background color highlight
             
         // DONE FUNCTION: dayOver( event: event, html element: element ) void
@@ -520,8 +520,8 @@
             // done today or not a day
             
             // mouse out -> color and background color default
-            $( '#' + element.id ).css( 'background-color', sharesoft.colors['buttonBackgroundColor']['color'] );
-            $( '#' + element.id ).css( 'color', sharesoft.colors['buttonColor']['color'] );
+            $( '#' + element.id ).css( 'background-color', pleisterman.colors['buttonBackgroundColor']['color'] );
+            $( '#' + element.id ).css( 'color', pleisterman.colors['buttonColor']['color'] );
             // done mouse out -> color and background color default
             
         // DONE FUNCTION: dayOut( event: event, html element: element ) void
@@ -645,7 +645,7 @@
             $( '#' + self.MODULE + 'Week' + weekRow ).html( loopWeek );
             
             // get month names
-            var monthNames = sharesoft.translations['monthNames'].split( ',' );
+            var monthNames = pleisterman.translations['monthNames'].split( ',' );
             
             // create header text
             var html = monthNames[self.datePickerDate['month'] - 1]; 
@@ -727,8 +727,8 @@
                     self.datePickerDate['month'] === callerDate['month'] && 
                     loopDay === callerDate['day'] ){
                     // show highlight
-                    dayElement.css( 'background-color', sharesoft.colors['buttonSelectedBackgroundColor']['color'] );
-                    dayElement.css( 'color', sharesoft.colors['buttonSelectedColor']['color'] );
+                    dayElement.css( 'background-color', pleisterman.colors['buttonSelectedBackgroundColor']['color'] );
+                    dayElement.css( 'color', pleisterman.colors['buttonSelectedColor']['color'] );
                     dayElement.css( 'cursor', 'default' );
                     // done show highlight
                     
@@ -740,8 +740,8 @@
                 // other day
                 else{
                     // any day
-                    dayElement.css( 'background-color', sharesoft.colors['buttonBackgroundColor']['color'] );
-                    dayElement.css( 'color', sharesoft.colors['buttonColor']['color'] );
+                    dayElement.css( 'background-color', pleisterman.colors['buttonBackgroundColor']['color'] );
+                    dayElement.css( 'color', pleisterman.colors['buttonColor']['color'] );
                     dayElement.css( 'cursor', 'pointer' );
                     // done any day
                 }
@@ -761,7 +761,7 @@
             for( var i = 0; i < 6; i++ ){
                 if( i <= dayRow ){
                     // add borders for visible week rows 
-                    $( '#' + self.MODULE + 'Week' + i ).css( 'border-color', sharesoft.colors['panelBorderColor']['color'] );
+                    $( '#' + self.MODULE + 'Week' + i ).css( 'border-color', pleisterman.colors['panelBorderColor']['color'] );
                 }
                 else{
                     // remove borders for empty week rows
@@ -845,5 +845,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: listSelectionsDatePickerModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

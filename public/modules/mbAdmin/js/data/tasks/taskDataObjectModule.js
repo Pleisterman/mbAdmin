@@ -13,23 +13,23 @@
  *      it handles the data checks before updates and inserts
  *      it handles the callback errors
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  *  
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: taskDataObjectModule( void ) void
     
-    sharesoft.taskDataObjectModule = function( ) {
+    pleisterman.taskDataObjectModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -47,7 +47,7 @@
                 'displayOptions'    :   {                   // json: display options
                     'firstLetterCapital'  :   true,         // boolean: first letter is capital
                     'label'         :   {                   // json: label
-                        'text'          :   sharesoft.translations['description'] // string: label TRANSLATION: description
+                        'text'          :   pleisterman.translations['description'] // string: label TRANSLATION: description
                     },                                      // done json: label
                     'emptyError'    :   true                // boolean empty error
                 },                                          // done json: display options
@@ -62,7 +62,7 @@
                 'type'          :    'textarea',            // string: display type: textarea
                 'displayOptions'    :   {                   // json: display options
                     'label'             :   {               // json: label
-                        'text'          :   sharesoft.translations['longDescription'] // string: label TRANSLATION: longDescription
+                        'text'          :   pleisterman.translations['longDescription'] // string: label TRANSLATION: longDescription
                     }                                       // done json: label
                 },                                          // done json: display options
                 'value'                 :    '',            // string: value
@@ -73,7 +73,7 @@
                 'type'                  :   'select',       // string: display type: select
                 'displayOptions'        :   {               // json: display options
                     'label'             :   {               // json: label
-                        'text'          :   sharesoft.translations['project'] // string: label TRANSLATION: project
+                        'text'          :   pleisterman.translations['project'] // string: label TRANSLATION: project
                     }                                       // done json: label
                 },                                          // done json: display options
                 'value'                 :   null,                       // integer: projectid
@@ -88,7 +88,7 @@
                 'type'                  :   'date',         // string: display type: date
                 'displayOptions'        :   {               // json: display options
                     'label'             :   {               // json: label
-                        'text'          :   sharesoft.translations['date'] // string: label TRANSLATION: date
+                        'text'          :   pleisterman.translations['date'] // string: label TRANSLATION: date
                     }                                       // done json: label
                 },                                          // done json: display options
                 'optional'              :   false,          // boolean: optional
@@ -102,7 +102,7 @@
                 'displayOptions'        :   {               // json: display options
                     'type'              :   'time',         // display: time
                     'label'             :   {               // json: label
-                        'text'          :   sharesoft.translations['startTime'] // string: label TRANSLATION: startTime
+                        'text'          :   pleisterman.translations['startTime'] // string: label TRANSLATION: startTime
                     }                                       // done json: label
                 },                                          // done json: display options
                 'value'                 :   '',             // string: value
@@ -115,7 +115,7 @@
                 'displayOptions'    :   {                   // json: display options
                     'type'              :   'time',         // display type: time
                     'label'             :   {               // json: label
-                        'text'          :   sharesoft.translations['endTime'] // string: label TRANSLATION: endTime
+                        'text'          :   pleisterman.translations['endTime'] // string: label TRANSLATION: endTime
                     }                                       // done json: label
                 },                                          // done json: display options
                 'value'         :   '',                     // string: value
@@ -127,7 +127,7 @@
                 'type'              :   'documents',        // string: display type: documents 
                 'displayOptions'    :   {                   // json: display options
                     'label'             :   {               // json: label
-                        'text'          :   sharesoft.translations['documents'] // string: label TRANSLATION: documents
+                        'text'          :   pleisterman.translations['documents'] // string: label TRANSLATION: documents
                     }                                       // done json: label
                 },                                          // done json: display options
                 'selectModule'      :   null,               // module: select module
@@ -217,19 +217,19 @@
             documentsObject['value'] = id;
             
             // show busy screen
-            sharesoft.startBusyProcess();
+            pleisterman.startBusyProcess();
 
             // construct data object
             var data = { 
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'subject'           :   'tasks',
                 'what'              :   'rowById',
                 'selection'         :   id 
             };
             // done construct data object
              
-            // AJAX: /sharesoft/read
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/read', sharesoft.token, data, self.getDataCallback );
+            // AJAX: /pleisterman/read
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/read', pleisterman.token, data, self.getDataCallback );
 
         // DONE FUNCTION: getData( callback, string: id ) void
         };
@@ -239,7 +239,7 @@
             // check result
             if( self.hasCallbackErrors( result ) ){
                 // hide busy screen
-                sharesoft.endBusyProcess();
+                pleisterman.endBusyProcess();
                 // done with error
                 return;
             }
@@ -261,7 +261,7 @@
             // done loop through result    
 
             // hide busy screen
-            sharesoft.endBusyProcess();
+            pleisterman.endBusyProcess();
             
             // call the callback
             self.callerOptions['callback']();
@@ -280,7 +280,7 @@
             self.callerOptions['reloadCallback'] = reloadCallback;
             
             // show busy screen
-            sharesoft.startBusyProcess();
+            pleisterman.startBusyProcess();
 
             // unset data error
             jsProject.setValue( 'hasError', 'data', false );
@@ -291,7 +291,7 @@
             // check data
             if( self.hasDataErrors() ){
                 // hide busy screen
-                sharesoft.endBusyProcess();
+                pleisterman.endBusyProcess();
                 // done with error
                 return;
             }
@@ -319,7 +319,7 @@
 
             // construct data object
             var data = { 
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'subject'           :   'tasks',
                 'what'              :   'rowById',
                 'id'                :   id,
@@ -327,8 +327,8 @@
             };
             // done construct data object
              
-            // AJAX: /sharesoft/update
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/update', sharesoft.token, data, self.updateCallback );
+            // AJAX: /pleisterman/update
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/update', pleisterman.token, data, self.updateCallback );
 
         // DONE FUNCTION: update( function: updateCallback, function: reloadCallback ) void
         };
@@ -338,7 +338,7 @@
             // check for errors
             if( self.hasCallbackErrors( result ) ){
                 // end busy
-                sharesoft.endBusyProcess();
+                pleisterman.endBusyProcess();
                 // done with error
                 return;
             }
@@ -369,7 +369,7 @@
             self.callerOptions['updateCallback']();
             
             // end busy
-            sharesoft.endBusyProcess();
+            pleisterman.endBusyProcess();
             
             // refresh project list
             jsProject.callEvent( 'refreshList', 'projects' );
@@ -385,7 +385,7 @@
             self.callerOptions['callback'] = callback;
             
             // show busy screen
-            sharesoft.startBusyProcess();
+            pleisterman.startBusyProcess();
             
             // unset data error
             jsProject.setValue( 'hasError', 'data', false );
@@ -396,7 +396,7 @@
             // check data
             if( self.hasDataErrors() ){
                 // hide busy screen
-                sharesoft.endBusyProcess();
+                pleisterman.endBusyProcess();
                 // done with error
                 return;
             }
@@ -418,15 +418,15 @@
 
             // construct data object
             var data = { 
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'subject'           :   'tasks',
                 'what'              :   'row',
                 'values'            :   values 
             };  
             // done construct data object
              
-            // AJAX: /sharesoft/insert
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/insert', sharesoft.token, data, self.insertCallback );
+            // AJAX: /pleisterman/insert
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/insert', pleisterman.token, data, self.insertCallback );
             
         // DONE FUNCTION: insert( function: callback ) void
         };
@@ -436,7 +436,7 @@
             // check for errors
             if( self.hasCallbackErrors( result ) ){
                 // end busy
-                sharesoft.endBusyProcess();
+                pleisterman.endBusyProcess();
                 // done with error
                 return;
             }
@@ -476,7 +476,7 @@
             documentsObject['value'] = result['id'];
 
             // end busy
-            sharesoft.endBusyProcess();
+            pleisterman.endBusyProcess();
 
             // call update callback
             self.callerOptions['callback']( result['id'] );
@@ -525,7 +525,7 @@
         // FUNCTION: hasCallbackErrors( json: result ) boolean
 
             // global check result
-            if( sharesoft.hasAjaxResultErrors( result ) ){
+            if( pleisterman.hasAjaxResultErrors( result ) ){
                 // done with error
                 return true;
             }
@@ -539,7 +539,7 @@
                 // dataOutOfDate
                 if( result['error'] === 'dataOutOfDate' ){
                     // show out of date dialog
-                    sharesoft.showOutOfDateDialog( self.callerOptions['reloadCallback'] );
+                    pleisterman.showOutOfDateDialog( self.callerOptions['reloadCallback'] );
                     // done with error
                     return true;
                 }
@@ -550,7 +550,7 @@
                     // get start time object from data object
                     var startTimeObject = jsProject.getJsonValue( self.dataObject, ['id=startTime'] );  
                     // get error with start time object errorfunction
-                    sharesoft.getError( 'invalidTime', startTimeObject['errorFunction'] );
+                    pleisterman.getError( 'invalidTime', startTimeObject['errorFunction'] );
                 }
                 // done task start time invalid
 
@@ -559,7 +559,7 @@
                     // get end time object from data object
                     var endTimeObject = jsProject.getJsonValue( self.dataObject, ['id=endTime'] );  
                     // get error with end time object errorfunction
-                    sharesoft.getError( 'invalidTime', endTimeObject['errorFunction'] );
+                    pleisterman.getError( 'invalidTime', endTimeObject['errorFunction'] );
                 }
                 // done task end time invalid
                 
@@ -568,7 +568,7 @@
                     // get start time object from data object
                     var startTimeObject = jsProject.getJsonValue( self.dataObject, ['id=startTime'] );  
                     // get error with start time object errorfunction
-                    sharesoft.getError( 'tasksTimeExists', startTimeObject['errorFunction'] );
+                    pleisterman.getError( 'tasksTimeExists', startTimeObject['errorFunction'] );
                 }
                 // done task time exists
 
@@ -629,5 +629,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: taskDataObjectModule( void ) void
-})( sharesoft );
+})( pleisterman );
 // done create module function

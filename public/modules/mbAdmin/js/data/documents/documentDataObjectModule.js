@@ -13,23 +13,23 @@
  *      it handles the data checks before updates and inserts
  *      it handles the callback errors
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  *  
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: contactDataObjectModule( void ) void 
     
-    sharesoft.documentDataObjectModule = function( ) {
+    pleisterman.documentDataObjectModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -47,7 +47,7 @@
                 'displayOptions'    :   {                   // json: display options
                     'firstLetterCapital'  :   true,         // boolean: first letter is capital
                     'label'         :   {                   // json: label
-                        'text'          :   sharesoft.translations['name'] // string: label TRANSLATION: name
+                        'text'          :   pleisterman.translations['name'] // string: label TRANSLATION: name
                     },                                      // done json: label
                     'emptyError'    :   true                // boolean: empty error
                 },                                          // done json: display options
@@ -112,18 +112,18 @@
             self.callerOptions['callback'] = callback;
             
             // show busy screen
-            sharesoft.startBusyProcess();
+            pleisterman.startBusyProcess();
 
             // construct data object
             var data = { 
-                'workDirectory'    :   sharesoft.workDirectory,
+                'workDirectory'    :   pleisterman.workDirectory,
                 'subject'           :   'documents',
                 'what'              :   'rowById',
                 'selection'         :   id };
             // done construct data object
              
             // make the ajax call
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/read', sharesoft.token, data, self.getDataCallback );
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/read', pleisterman.token, data, self.getDataCallback );
 
         // DONE FUNCTION: getData( function: callback, string: id ) void
         };
@@ -132,15 +132,15 @@
 
             // check critical errors
             if( result['criticalError'] ){
-                sharesoft.showCriticalError( result['criticalError'] );
-                sharesoft.endBusyProcess();
+                pleisterman.showCriticalError( result['criticalError'] );
+                pleisterman.endBusyProcess();
                 return;
             }
             // done check critical errors
 
             if( result['idNotFound'] ){
                 self.debug( 'id not found' );
-                sharesoft.endBusyProcess();
+                pleisterman.endBusyProcess();
                 return;
             }
             
@@ -160,7 +160,7 @@
             // done find id object in result   
 
             // hide busy screen
-            sharesoft.endBusyProcess();
+            pleisterman.endBusyProcess();
             
             // call the callback
             self.callerOptions['callback']( );
@@ -176,7 +176,7 @@
             self.callerOptions['callback'] = callback;
             
             // show busy screen
-            sharesoft.startBusyProcess();
+            pleisterman.startBusyProcess();
             
             // create values object
             var values = {
@@ -203,7 +203,7 @@
 
             // construct data object
             var data = { 
-                'workDirectory'    :   sharesoft.workDirectory,
+                'workDirectory'    :   pleisterman.workDirectory,
                 'subject'           :   'documents',
                 'what'              :   'name',
                 'id'                :   id,
@@ -212,7 +212,7 @@
             // done construct data object
              
             // make the ajax call
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/update', sharesoft.token, data, self.updateNameCallback );
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/update', pleisterman.token, data, self.updateNameCallback );
 
         // DONE FUNCTION: updateName( string: name, function: callback ) void
         };
@@ -239,7 +239,7 @@
             // done check for errors
 
             // end busy
-            sharesoft.endBusyProcess();
+            pleisterman.endBusyProcess();
 
             // call update callback
             self.callerOptions['callback']( result );
@@ -255,7 +255,7 @@
             self.callerOptions['callback'] = callback;
             
             // show busy screen
-            sharesoft.startBusyProcess();
+            pleisterman.startBusyProcess();
             
             // create values object
             var values = {
@@ -272,7 +272,7 @@
 
             // construct data object
             var data = { 
-                'workDirectory'    :   sharesoft.workDirectory,
+                'workDirectory'    :   pleisterman.workDirectory,
                 'subject'           :   'documents',
                 'what'              :   'row',
                 'values'            :   values 
@@ -280,7 +280,7 @@
             // done construct data object
              
             // make the ajax call
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/insert', sharesoft.token, data, self.insertCallback );
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/insert', pleisterman.token, data, self.insertCallback );
 
         // DONE FUNCTION: insert( function: callback ) void
         };
@@ -311,7 +311,7 @@
             // done check for errors
 
             // end busy
-            sharesoft.endBusyProcess();
+            pleisterman.endBusyProcess();
 
             // call update callback
             self.callerOptions['callback']( result );
@@ -382,5 +382,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: documentDataObjectModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

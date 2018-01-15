@@ -8,23 +8,23 @@
  *  Purpose: 
  *          this module controls dataObject for projects for the export
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  *  
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: exportProjectsDataObjectModule( void ) void
     
-    sharesoft.exportProjectsDataObjectModule = function( ) {
+    pleisterman.exportProjectsDataObjectModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -74,5 +74,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: exportProjectsDataObjectModule( void ) void
-})( sharesoft );
+})( pleisterman );
 // done create module function

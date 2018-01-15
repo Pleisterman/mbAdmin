@@ -13,22 +13,22 @@
  *          the selections can be opened and closed
  *          the selection can be set
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: listSelectionsModule( void ) void 
     
-    sharesoft.listSelectionsModule = function( ) {
+    pleisterman.listSelectionsModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -45,18 +45,18 @@
             'left'                  :   0,                          // css left
             'styleHeight'           :   '100%',                     // css style height
             'styleWidth'            :   '100%',                     // css style width
-            'zIndex'                :   sharesoft.getSetting( 'zIndexListSelectionsOverlay' ).toString(), // css z-index
+            'zIndex'                :   pleisterman.getSetting( 'zIndexListSelectionsOverlay' ).toString(), // css z-index
             'backgroundColor'       :   'transparent'               // css color: background color
         };                                                          // done json: overlay options
         self.containerOptions = {                                   // json: container options
             'id'                    :   'listSelectionsContainer',  // string: element id
             'element'               :   'div',                      // string: html element type 
-            'text'                  :   sharesoft.translations['selections'],   // string: text
+            'text'                  :   pleisterman.translations['selections'],   // string: text
             'position'              :   'absolute',                 // css position
-            'backgroundColor'       :   sharesoft.colors['commonBackgroundColor']['color'], // css color: background color
-            'color'                 :   sharesoft.colors['panelColor']['color'],            // css color: color
+            'backgroundColor'       :   pleisterman.colors['commonBackgroundColor']['color'], // css color: background color
+            'color'                 :   pleisterman.colors['panelColor']['color'],            // css color: color
             'border'                :   true,                       // boolean: has border
-            'borderColor'           :   sharesoft.colors['panelBorderColor']['color'], // css border color
+            'borderColor'           :   pleisterman.colors['panelBorderColor']['color'], // css border color
             'borderWidth'           :   '0.1em',                    // relative size
             'borderStyle'           :   'groove',                   // css border style
             'borderRadius'          :   '0.1em',                    // css border radius
@@ -67,7 +67,7 @@
             'id'                    :   'listSelectionsRowsContainer',  // string: element id
             'element'               :   'div',                      // string: html element type 
             'border'                :   true,                       // boolean: has border
-            'borderColor'           :   sharesoft.colors['panelBorderColor']['color'], // css border color
+            'borderColor'           :   pleisterman.colors['panelBorderColor']['color'], // css border color
             'borderWidth'           :   '1px',                      // css border width
             'borderStyle'           :   'groove',                   // css border style
             'borderRadius'          :   '0.1em',                    // css border radius
@@ -75,11 +75,11 @@
         };                                                          // done json: rows container options        
         self.rowOptions = {                                         // json row options
             'element'               :   'div',                      // string: html element type 
-            'backgroundColor'       :   sharesoft.colors['panelBackgroundColor']['color'],  // css color: background color
-            'color'                 :   sharesoft.colors['panelColor']['color'],            // css color: color
+            'backgroundColor'       :   pleisterman.colors['panelBackgroundColor']['color'],  // css color: background color
+            'color'                 :   pleisterman.colors['panelColor']['color'],            // css color: color
             'borderBottom'          :   true,                       // boolean: has border bottom
             'borderTop'             :   true,                       // boolean: has border top
-            'borderColor'           :   sharesoft.colors['panelBorderColor']['color'],      // css border color
+            'borderColor'           :   pleisterman.colors['panelBorderColor']['color'],      // css border color
             'borderWidth'           :   '0.1em',                    // css border width
             'borderStyle'           :   'groove',                   // css border style
             'borderRadius'          :   '0.1em',                    // css border radius
@@ -112,7 +112,7 @@
             // add html
             self.addHtml();
 
-            // add the extensions to sharesoft
+            // add the extensions to pleisterman
             self.addApplicationsExtensions();
 
             // event subscription
@@ -124,7 +124,7 @@
         // FUNCTION: addApplicationsExtensions( void ) void
             
             // add show list selections
-            sharesoft.showListSelections = self.show;
+            pleisterman.showListSelections = self.show;
             
         // DONE FUNCTION: addApplicationsExtensions( void ) void
         };
@@ -237,7 +237,7 @@
                     // create row id
                     self.rowOptions['id'] = 'listSelection_' + selections[i];
                     // create row text
-                    self.rowOptions['text'] = sharesoft.translations[selections[i]];
+                    self.rowOptions['text'] = pleisterman.translations[selections[i]];
                     // add row html to container
                     $( '#' + self.rowsContainerOptions['id'] ).append( jsProject.jsonToElementHtml( self.rowOptions ) );
                 }                
@@ -289,16 +289,16 @@
         self.listSelectionMouseOver = function( element ){
         // FUNCTION: listSelectionMouseOver( html element: element ) void
             
-            $( '#' + element.id ).css( 'background-color', sharesoft.colors['panelHighlightBackgroundColor']['color'] );
-            $( '#' + element.id ).css( 'color', sharesoft.colors['panelHighlightColor']['color'] );
+            $( '#' + element.id ).css( 'background-color', pleisterman.colors['panelHighlightBackgroundColor']['color'] );
+            $( '#' + element.id ).css( 'color', pleisterman.colors['panelHighlightColor']['color'] );
             
         // DONE FUNCTION: listSelectionMouseOver( html element: element ) void
         };
         self.listSelectionMouseOut = function( element ){
         // FUNCTION: listSelectionMouseOut( html element: element ) void
             
-            $( '#' + element.id ).css( 'background-color', sharesoft.colors['panelBackgroundColor']['color'] );
-            $( '#' + element.id ).css( 'color', sharesoft.colors['panelColor']['color'] );
+            $( '#' + element.id ).css( 'background-color', pleisterman.colors['panelBackgroundColor']['color'] );
+            $( '#' + element.id ).css( 'color', pleisterman.colors['panelColor']['color'] );
             
         // DONE FUNCTION: listSelectionMouseOut( html element: element ) void
         };
@@ -387,5 +387,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: listSelectionsModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

@@ -7,24 +7,24 @@
  * 
  *  Purpose: 
  *       this module creates a container for the lists on the left side
- *       of the screen of the application sharesoft.
+ *       of the screen of the application pleisterman.
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: listsContainerModule( void ) void 
     
-    sharesoft.listsContainerModule = function( ) {
+    pleisterman.listsContainerModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -93,7 +93,7 @@
         // FUNCTION: listOrderUp( string: listId ) void
             
             // get current order
-            var listOrder = sharesoft.options['listOrder']['value'].split( ',' );
+            var listOrder = pleisterman.options['listOrder']['value'].split( ',' );
             // get container html element 
             var listsContainer = document.getElementById( "listsContainer" );
             // get the list html element
@@ -114,7 +114,7 @@
             // done reorder the listOrder array    
             
             // set the option
-            sharesoft.setOption( 'listOrder', listOrder.join() );
+            pleisterman.setOption( 'listOrder', listOrder.join() );
             
             // call the event to set the list order buttons of the lists
             jsProject.callEvent( 'showListOrder' );
@@ -145,5 +145,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: listsContainerModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

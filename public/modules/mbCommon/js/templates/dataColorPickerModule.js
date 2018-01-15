@@ -9,22 +9,22 @@
  *          displays a colorpicker for a dataEditColorModule
  *          sets caller date and calls a callback on return
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: dataColorPickerModule( void ) void 
     
-    sharesoft.dataColorPickerModule = function( ) {
+    pleisterman.dataColorPickerModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -42,7 +42,7 @@
             'styleHeight'           :   '16.0em',                       // css style height
             'backgroundColor'       :   'rgb(0,0,0 )',                  // css color: background color
             'border'                :   true,                           // boolean: has border
-            'borderColor'           :   sharesoft.colors['buttonBorderColor']['color'], // css color: border color
+            'borderColor'           :   pleisterman.colors['buttonBorderColor']['color'], // css color: border color
             'borderWidth'           :   '0.1em',                        // css border width
             'borderStyle'           :   'groove',                       // css border style
             'borderRadius'          :   '0.2em',                        // css border radius
@@ -53,9 +53,9 @@
             'element'               :   'div',                          // string: html element type 
             'position'              :   'absolute',                     // css position
             'border'                :   false,                          // boolean: has border
-            'color'                 :   sharesoft.colors['buttonBackgroundColor']['color'], // css color: color
-            'backgroundColor'       :   sharesoft.colors['buttonColor']['color'],           // css color: backgrtound color
-            'borderColor'           :   sharesoft.colors['buttonBorderColor']['color'],     // css color: border color
+            'color'                 :   pleisterman.colors['buttonBackgroundColor']['color'], // css color: color
+            'backgroundColor'       :   pleisterman.colors['buttonColor']['color'],           // css color: backgrtound color
+            'borderColor'           :   pleisterman.colors['buttonBorderColor']['color'],     // css color: border color
             'borderWidth'           :   '0.1em',                        // css border width
             'borderStyle'           :   'solid',                        // css border style
             'borderRadius'          :   '0.1em',                        // css border radius
@@ -81,9 +81,9 @@
             'type'                  :   'text',                         // string input type
             'display'               :   'inline-block',                 // css display 
             'verticalAlign'         :   'middle',                       // css verical align
-            'fontFamily'            :   sharesoft.options['fontFamily']['value'],           // css font family  
-            'fontSize'              :   sharesoft.getSetting( 'dataEditInputFontSize' ),    // css font size
-            'fontWeight'            :   sharesoft.getSetting( 'dataEditInputFontWeight' ),  // css font weight
+            'fontFamily'            :   pleisterman.options['fontFamily']['value'],           // css font family  
+            'fontSize'              :   pleisterman.getSetting( 'dataEditInputFontSize' ),    // css font size
+            'fontWeight'            :   pleisterman.getSetting( 'dataEditInputFontWeight' ),  // css font weight
             'styleWidth'            :   '8.0em',                        // css style width   
             'styleHeight'           :   '1.4em',                        // css style height
             'padding'               :   '0.2em'                         // rcss padding
@@ -131,7 +131,7 @@
             'position'              :   'absolute',                     // css position
             'backgroundColor'       :   'rgb(255,255,255)',             // css color: background color
             'border'                :   true,                           // boolean: has border
-            'borderColor'           :   sharesoft.colors['buttonBorderColor']['color'], // css color: border color
+            'borderColor'           :   pleisterman.colors['buttonBorderColor']['color'], // css color: border color
             'borderWidth'           :   1,                              // css border width
             'borderStyle'           :   'solid',                        // css border style
             'borderRadius'          :   2                               // css border radius
@@ -143,31 +143,31 @@
         self.buttonContainerOptions = {                                 // json: button container options
             'id'                    :   self.MODULE + 'ButtonContainer',// string: element id
             'element'               :   'div',                          // string: html element type 
-            'backgroundColor'       :   sharesoft.colors['panelHighlightBackgroundColor']['color'], // css color: background color
+            'backgroundColor'       :   pleisterman.colors['panelHighlightBackgroundColor']['color'], // css color: background color
             'styleHeight'           :   '2.9em',                        // css style height
             'marginTop'             :   '13.0em',                       // css margin top
             'borderTop'             :   true,                           // boolean: has border top
             'borderWidth'           :   '0.1em',                        // relative size
-            'borderColor'           :   sharesoft.colors['panelBorderColor']['color'],              // css color: border color
+            'borderColor'           :   pleisterman.colors['panelBorderColor']['color'],              // css color: border color
             'borderStyle'           :   'groove'                        // css bordeer style
         };                                                              // doen json: button container options
         self.buttonOptions = {                                          // json: button options
             'element'               :   'div',                          // string: html element type 
             'display'               :   'inline-block',                 // css display 
-            'color'                 :   sharesoft.colors['buttonColor']['color'],           // css color: color
-            'backgroundColor'       :   sharesoft.colors['buttonBackgroundColor']['color'], // css color: background color
-            'fontSize'              :   sharesoft.getSetting( 'buttonFontSize' ),           // css font size
-            'fontWeight'            :   sharesoft.getSetting( 'buttonFontWeight' ),         // css font weight
-            'padding'               :   sharesoft.getSetting( 'buttonPadding' ),            // css padding
+            'color'                 :   pleisterman.colors['buttonColor']['color'],           // css color: color
+            'backgroundColor'       :   pleisterman.colors['buttonBackgroundColor']['color'], // css color: background color
+            'fontSize'              :   pleisterman.getSetting( 'buttonFontSize' ),           // css font size
+            'fontWeight'            :   pleisterman.getSetting( 'buttonFontWeight' ),         // css font weight
+            'padding'               :   pleisterman.getSetting( 'buttonPadding' ),            // css padding
             'minimumWidth'          :   '6.0em',                        // css minimum width
             'marginLeft'            :   '1.5em',                        // css margin left
             'marginBottom'          :   '0.0em',                        // css margin bottom
             'marginTop'             :   '0.4em',                        // css margin top
             'border'                :   true,                           // add border option
-            'borderWidth'           :   sharesoft.getSetting( 'buttonBorderWidth' ),        // css border width
-            'borderColor'           :   sharesoft.colors['buttonBorderColor']['color'],     // css color: border color    
-            'borderStyle'           :   sharesoft.getSetting( 'buttonBorderStyle' ),        // css border style
-            'borderRadius'          :   sharesoft.getSetting( 'buttonBorderRadius' ),       // css border radius
+            'borderWidth'           :   pleisterman.getSetting( 'buttonBorderWidth' ),        // css border width
+            'borderColor'           :   pleisterman.colors['buttonBorderColor']['color'],     // css color: border color    
+            'borderStyle'           :   pleisterman.getSetting( 'buttonBorderStyle' ),        // css border style
+            'borderRadius'          :   pleisterman.getSetting( 'buttonBorderRadius' ),       // css border radius
             'cursor'                :   'pointer',                      // css cursor            
             'textAlign'             :   'center'                        // css text align
         };                                                              // done json: button options
@@ -202,7 +202,7 @@
             // debug info
             self.debug( 'construct' );
             
-            // add the extensions to sharesoft
+            // add the extensions to pleisterman
             self.addApplicationsExtensions();
             
         // DONE FUNCTION: construct( void ) void
@@ -211,7 +211,7 @@
         // FUNCTION: addApplicationsExtensions( void ) void
             
             // add show data colorPicker extension
-            sharesoft.showDataColorPicker = self.show;
+            pleisterman.showDataColorPicker = self.show;
             
         // DONE FUNCTION: addApplicationsExtensions( void ) void
         };
@@ -303,12 +303,12 @@
                 'focusId'   :   self.hexValueInputOptions['id'],
                 'keys'      :   [
                     {
-                        'keyCode'   :   sharesoft.getSetting( 'keyCodes' )['enter'],
+                        'keyCode'   :   pleisterman.getSetting( 'keyCodes' )['enter'],
                         'type'      :   'default',
                         'function'  :   self.chooseColor
                     },
                     {
-                        'keyCode'   :   sharesoft.getSetting( 'keyCodes' )['escape'],
+                        'keyCode'   :   pleisterman.getSetting( 'keyCodes' )['escape'],
                         'type'      :   'tabStop',
                         'function'  :   self.close
                     }
@@ -335,7 +335,7 @@
                 'canFocus'  :   false,
                 'keys'      :   [
                     {
-                        'keyCode'   :   sharesoft.getSetting( 'keyCodes' )['space'],
+                        'keyCode'   :   pleisterman.getSetting( 'keyCodes' )['space'],
                         'type'      :   'tabStop',
                         'function'  :   self.chooseColor
                     }
@@ -362,7 +362,7 @@
                 'canFocus'  :   false,
                 'keys'      :   [
                     {
-                        'keyCode'   :   sharesoft.getSetting( 'keyCodes' )['space'],
+                        'keyCode'   :   pleisterman.getSetting( 'keyCodes' )['space'],
                         'type'      :   'tabStop',
                         'function'  :   self.close
                     }
@@ -428,14 +428,14 @@
             
             // add ok button
             self.buttonOptions['id'] = self.MODULE + 'ButtonOk';
-            self.buttonOptions['text'] =  sharesoft.translations['ok'];
+            self.buttonOptions['text'] =  pleisterman.translations['ok'];
             // add button html
             $( '#' + self.buttonContainerOptions['id'] ).append( jsProject.jsonToElementHtml( self.buttonOptions ) );
             // done add button
             
             // add cancel button
             self.buttonOptions['id'] = self.MODULE + 'ButtonCancel';
-            self.buttonOptions['text'] =  sharesoft.translations['cancel'];
+            self.buttonOptions['text'] =  pleisterman.translations['cancel'];
             // add button html
             $( '#' + self.buttonContainerOptions['id'] ).append( jsProject.jsonToElementHtml( self.buttonOptions ) );
             // done add button
@@ -546,7 +546,7 @@
         // FUNCTION: hexChange( event: event ) void
             
             // is enter key
-            if( event.keyCode !== sharesoft.getSetting( 'keyCodes')['enter'] ){
+            if( event.keyCode !== pleisterman.getSetting( 'keyCodes')['enter'] ){
                 // keep default behavior
                 return;
             
@@ -766,9 +766,9 @@
             // debug info
             self.debug(  'mouseIn:  ' + buttonId );
             // mouse over -> background color, color highlight
-            $( '#' + buttonId ).css( 'background-color', sharesoft.colors['buttonHighlightBackgroundColor']['color'] );
+            $( '#' + buttonId ).css( 'background-color', pleisterman.colors['buttonHighlightBackgroundColor']['color'] );
             // mouse over -> color, color highlight
-            $( '#' + buttonId ).css( 'color', sharesoft.colors['buttonHighlightColor']['color'] );
+            $( '#' + buttonId ).css( 'color', pleisterman.colors['buttonHighlightColor']['color'] );
             
         // DONE FUNCTION: construct( string: buttonId ) void
         };
@@ -785,9 +785,9 @@
             // done is current tabstop
 
             // mouse out -> background color, color default
-            $( '#' + buttonId ).css( 'background-color', sharesoft.colors['buttonBackgroundColor']['color'] );
+            $( '#' + buttonId ).css( 'background-color', pleisterman.colors['buttonBackgroundColor']['color'] );
             // done mouse out -> color, color default
-            $( '#' + buttonId ).css( 'color', sharesoft.colors['buttonColor']['color'] );
+            $( '#' + buttonId ).css( 'color', pleisterman.colors['buttonColor']['color'] );
             
         // DONE FUNCTION: buttonMouseOut( string: buttonId ) void
         };
@@ -1283,5 +1283,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: documentUploadModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

@@ -8,27 +8,27 @@
  *  Purpose: 
  *      this module controls the test data in options
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
  *  Purpose:  
  *          this module creates 
  *          a menu layer 
  *          an options menu in this layer
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
 */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: optionsMenuLayerModule( string: menuButtonId ) void
     
-    sharesoft.optionsMenuLayerModule = function( menuButtonId ) {
+    pleisterman.optionsMenuLayerModule = function( menuButtonId ) {
         // PRIVATE:
         
         // MEMBERS
@@ -45,7 +45,7 @@
             'colors'    : {},                                   // json: colors
             'dataTest'  : {}                                    // json: dataTest
         };                                                      // done json: menu items
-        self.imageUrl = sharesoft.getSetting( 'imageUrl' );     // string: image dir
+        self.imageUrl = pleisterman.getSetting( 'imageUrl' );     // string: image dir
         self.layerOptions = {                                   // json: layer options
             'id'                    :   self.MODULE + 'Layer',  // string: element id
             'element'               :   'div',                  // string: html element type 
@@ -56,8 +56,8 @@
             'left'                  :   0,                      // css left
             'styleHeight'           :   '100%',                 // css style height
             'styleWidth'            :   '100%',                 // css style width
-            'backgroundColor'       :   sharesoft.colors['overlayBackgroundColor']['color'], // css color: bakground color
-            'zIndex'                :   sharesoft.getSetting( 'zIndexMenus' ).toString()     // css z-index   
+            'backgroundColor'       :   pleisterman.colors['overlayBackgroundColor']['color'], // css color: bakground color
+            'zIndex'                :   pleisterman.getSetting( 'zIndexMenus' ).toString()     // css z-index   
         };                                                      // done json: layer options
         self.menuOptions = {                                    // json: menu options
             'id'                    :   self.MODULE + 'Menu',   // string: element id
@@ -67,25 +67,25 @@
             'topOffset'             :   4,                      // integer: top offset
             'overflowX'             :   'visible',              // css overflow-x
             'overflowY'             :   'auto',                 // css overflow-y
-            'backgroundColor'       :   sharesoft.colors['panelBackgroundColor']['color'],  // css color: bakground color
-            'padding'               :   sharesoft.getSetting( 'topMenuPadding' ),           // css pdding
+            'backgroundColor'       :   pleisterman.colors['panelBackgroundColor']['color'],  // css color: bakground color
+            'padding'               :   pleisterman.getSetting( 'topMenuPadding' ),           // css pdding
             'border'                :   true,                   // boolean: had border
-            'borderWidth'           :   sharesoft.getSetting( 'topMenuBorderWidth' ),       // css border width
-            'borderColor'           :   sharesoft.colors['panelBorderColor']['color'],      // css border color
-            'borderStyle'           :   sharesoft.getSetting( 'topMenuBorderStyle' ),       // css border style
-            'borderRadius'          :   sharesoft.getSetting( 'topMenuBorderRadius' ),      // css border radius
-            'zIndex'                :   sharesoft.getSetting( 'zIndexMenus' ).toString(),   // css z-index
+            'borderWidth'           :   pleisterman.getSetting( 'topMenuBorderWidth' ),       // css border width
+            'borderColor'           :   pleisterman.colors['panelBorderColor']['color'],      // css border color
+            'borderStyle'           :   pleisterman.getSetting( 'topMenuBorderStyle' ),       // css border style
+            'borderRadius'          :   pleisterman.getSetting( 'topMenuBorderRadius' ),      // css border radius
+            'zIndex'                :   pleisterman.getSetting( 'zIndexMenus' ).toString(),   // css z-index
             'eventLayer'            :   'mainOverlay'           // string event layer id
         };                                                      // done json: menu options
         self.languageSeparatorOptions = {                       // json: language separator options    
             'element'               :   'span',                 // string: html element type 
-            'text'                  :   sharesoft.translations['language'] + ':', // string: text
+            'text'                  :   pleisterman.translations['language'] + ':', // string: text
             'display'               :   'block',                // css display
             'textAlign'             :   'left',                 // css text align
             'backgroundColor'       :   'transparent',          // css color: background color
-            'color'                 :   sharesoft.colors['panelColor']['color'],            // css color: color
-            'fontSize'              :   sharesoft.getSetting( 'menuItemFontSize' ),         // css font size
-            'fontWeight'            :   sharesoft.getSetting( 'menuItemFontWeight' ),       // css font weight
+            'color'                 :   pleisterman.colors['panelColor']['color'],            // css color: color
+            'fontSize'              :   pleisterman.getSetting( 'menuItemFontSize' ),         // css font size
+            'fontWeight'            :   pleisterman.getSetting( 'menuItemFontWeight' ),       // css font weight
             'paddingTop'            :   '0.4em',                // css padding top
             'marginLeft'            :   '2.0em',                // css margin left
             'marginRight'           :   '0.2em',                // css margin right
@@ -119,15 +119,15 @@
             self.addMenuLanguageItems();
             
             // add modules
-            self.colorsModule = new sharesoft.colorsModule();
+            self.colorsModule = new pleisterman.colorsModule();
             // done add modules
             
             // add modules
-            self.fontModule = new sharesoft.fontModule();
+            self.fontModule = new pleisterman.fontModule();
             // done add modules
             
             // add modules
-            self.testModule = new sharesoft.testModule();
+            self.testModule = new pleisterman.testModule();
             // done add modules
              
            // add the events
@@ -159,17 +159,17 @@
                 switch ( index ){
                     case 'listOrder' : {
                         // list order visible    
-                        if( sharesoft.options['showListOrder']['value'] === 'true' ){
+                        if( pleisterman.options['showListOrder']['value'] === 'true' ){
                             // set text
-                            text = sharesoft.translations['hideListOrder'];
+                            text = pleisterman.translations['hideListOrder'];
                             // create menu item
-                            value['menuItem'] = new sharesoft.menuItemModule( index, index, text, self.menuOptions['id'] );
+                            value['menuItem'] = new pleisterman.menuItemModule( index, index, text, self.menuOptions['id'] );
                         }   
                         else {
                             // set text
-                            text = sharesoft.translations['showListOrder'];
+                            text = pleisterman.translations['showListOrder'];
                             // create menu item module
-                            value['menuItem'] = new sharesoft.menuItemModule( index, index, text, self.menuOptions['id'] );
+                            value['menuItem'] = new pleisterman.menuItemModule( index, index, text, self.menuOptions['id'] );
                         }
                         // done list order visible    
                         
@@ -178,18 +178,18 @@
                     }
                     case 'font' : {
                         // set text
-                        text = sharesoft.translations['font'];
+                        text = pleisterman.translations['font'];
                         // create menu item module
-                        value['menuItem'] = new sharesoft.menuItemModule( index, index, text, self.menuOptions['id'] );
+                        value['menuItem'] = new pleisterman.menuItemModule( index, index, text, self.menuOptions['id'] );
                         
                         // done
                         break;
                     }
                     case 'colors' : {
                         // set text
-                        text = sharesoft.translations['colors'];
+                        text = pleisterman.translations['colors'];
                         // create menu item module
-                        value['menuItem'] = new sharesoft.menuItemModule( index, index, text, self.menuOptions['id'] );
+                        value['menuItem'] = new pleisterman.menuItemModule( index, index, text, self.menuOptions['id'] );
                         
                         // done
                         break;
@@ -198,7 +198,7 @@
                         // set text
                         text = 'test';
                         // create menu item module
-                        value['menuItem'] = new sharesoft.menuItemModule( index, index, text, self.menuOptions['id'] );
+                        value['menuItem'] = new pleisterman.menuItemModule( index, index, text, self.menuOptions['id'] );
                         
                         // done
                         break;
@@ -227,9 +227,9 @@
             
             // loop over languages
             var i = 0;
-            $.each( sharesoft.languages, function( index, language ) {
+            $.each( pleisterman.languages, function( index, language ) {
                 // not selected language
-                if( parseInt( language['id'] ) !== parseInt( sharesoft.selectedLanguageId ) ){
+                if( parseInt( language['id'] ) !== parseInt( pleisterman.selectedLanguageId ) ){
                     // set id
                     var id = language['id'] + '_language';
                     // create text
@@ -237,7 +237,7 @@
                     // create menu item object
                     self.menuItems[id] = {}; 
                         // create menu item module
-                    self.menuItems[id]['menuItem'] = new sharesoft.menuItemModule( id, language['id'], text, self.menuOptions['id'] );
+                    self.menuItems[id]['menuItem'] = new pleisterman.menuItemModule( id, language['id'], text, self.menuOptions['id'] );
                     i++;
                 }
                 // done not selected language
@@ -295,9 +295,9 @@
         // FUNCTION: itemMouseIn( html element: element ) void
             
             // mouse over -> background color highlight
-            $( '#' + element.id ).css( 'background-color', sharesoft.colors['buttonHighlightBackgroundColor']['color'] );
+            $( '#' + element.id ).css( 'background-color', pleisterman.colors['buttonHighlightBackgroundColor']['color'] );
             // mouse over -> background color highlight
-            $( '#' + element.id ).css( 'color', sharesoft.colors['buttonHighlightColor']['color'] );
+            $( '#' + element.id ).css( 'color', pleisterman.colors['buttonHighlightColor']['color'] );
             
         // DONE FUNCTION: itemMouseIn( html element: element ) void
         };
@@ -312,9 +312,9 @@
             // done check if selected item is current element
             
             // mouse out -> background color default
-            $( '#' + element.id ).css( 'background-color', sharesoft.colors['buttonBackgroundColor']['color'] );
+            $( '#' + element.id ).css( 'background-color', pleisterman.colors['buttonBackgroundColor']['color'] );
             // mouse out -> color default
-            $( '#' + element.id ).css( 'color', sharesoft.colors['buttonColor']['color'] );
+            $( '#' + element.id ).css( 'color', pleisterman.colors['buttonColor']['color'] );
             
         // DONE FUNCTION: itemMouseOut( html element: element ) void
         };
@@ -322,9 +322,9 @@
         // FUNCTION: itemSelect( string: element id ) void
             
             // mouse over -> background color highlight
-            $( '#' + id ).css( 'background-color', sharesoft.colors['buttonHighlightBackgroundColor']['color'] );
+            $( '#' + id ).css( 'background-color', pleisterman.colors['buttonHighlightBackgroundColor']['color'] );
             // mouse over -> background color highlight
-            $( '#' + id ).css( 'color', sharesoft.colors['buttonHighlightColor']['color'] );
+            $( '#' + id ).css( 'color', pleisterman.colors['buttonHighlightColor']['color'] );
             
         // DONE FUNCTION: itemSelect( string: element id ) void
         };
@@ -332,9 +332,9 @@
         // FUNCTION: itemDeSelect( string: element id ) void
             
             // mouse over -> background color highlight
-            $( '#' + id ).css( 'background-color', sharesoft.colors['buttonBackgroundColor']['color'] );
+            $( '#' + id ).css( 'background-color', pleisterman.colors['buttonBackgroundColor']['color'] );
             // mouse over -> background color highlight
-            $( '#' + id ).css( 'color', sharesoft.colors['buttonColor']['color'] );
+            $( '#' + id ).css( 'color', pleisterman.colors['buttonColor']['color'] );
             
         // DONE FUNCTION: itemDeSelect( string: element id ) void
         };
@@ -347,9 +347,9 @@
             self.debug( 'itemClick id: ' + element.id );
 
             // mouse out -> background color default
-            $( '#' + element.id ).css( 'background-color', sharesoft.colors['buttonBackgroundColor']['color'] );
+            $( '#' + element.id ).css( 'background-color', pleisterman.colors['buttonBackgroundColor']['color'] );
             // mouse out -> color default
-            $( '#' + element.id ).css( 'color', sharesoft.colors['buttonColor']['color'] );
+            $( '#' + element.id ).css( 'color', pleisterman.colors['buttonColor']['color'] );
             
             // get the id
             self.itemPress( element.id );
@@ -419,7 +419,7 @@
             // construct data object
             var values = { 'value' : languageId };
             var data = { 
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'subject'           :   'options',
                 'name'              :   'languageId',
                 'values'            :   values 
@@ -427,7 +427,7 @@
             // done construct data object
             
             // make the ajax call
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/update', sharesoft.token, data, self.changeLanguageCallback );
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/update', pleisterman.token, data, self.changeLanguageCallback );
             
             
         // DONE FUNCTION: changeLanguage( string: language id ) void
@@ -437,13 +437,13 @@
             
             // check critical errors
             if( result['criticalError'] ){
-                sharesoft.showCriticalError( result['criticalError'] );
+                pleisterman.showCriticalError( result['criticalError'] );
                 return;
             }
             // done check critical errors
             
             // reopen 
-            window.location.replace( '/' + sharesoft.baseDirectory + '/' + sharesoft.workDirectory );
+            window.location.replace( '/' + pleisterman.baseDirectory + '/' + pleisterman.workDirectory );
             
         // DONE FUNCTION: changeLanguageCallback( json: result ) void
         };;
@@ -451,18 +451,18 @@
         // FUNCTION: listOrderClick( void ) void
             
             // debug info
-            self.debug( 'listOrderClick show: ' + sharesoft.options['showListOrder']['value']);
+            self.debug( 'listOrderClick show: ' + pleisterman.options['showListOrder']['value']);
             
             // change text of menuItem and set option
             var text = '';            
             var id = self.menuItems['listOrder']['menuItem'].getId();
-            if( sharesoft.options['showListOrder']['value'] === 'true' ){
-                sharesoft.setOption( 'showListOrder', 'false' );
-                text = sharesoft.translations['showListOrder'];
+            if( pleisterman.options['showListOrder']['value'] === 'true' ){
+                pleisterman.setOption( 'showListOrder', 'false' );
+                text = pleisterman.translations['showListOrder'];
             }
             else {
-                sharesoft.setOption( 'showListOrder', 'true' );
-                text = sharesoft.translations['hideListOrder'];
+                pleisterman.setOption( 'showListOrder', 'true' );
+                text = pleisterman.translations['hideListOrder'];
             }
             self.menuItems['listOrder']['menuItem'].setText( text );
             // done change text of menuItem and set option
@@ -490,12 +490,12 @@
                     'deSelect'  :   self.itemDeSelect,
                     'keys'      :   [
                         {
-                            'keyCode'   :   sharesoft.getSetting( 'keyCodes' )['space'],
+                            'keyCode'   :   pleisterman.getSetting( 'keyCodes' )['space'],
                             'type'      :   'tabStop',
                             'function'  :   self.itemPress
                         },
                         {
-                            'keyCode'   :   sharesoft.getSetting( 'keyCodes' )['escape'],
+                            'keyCode'   :   pleisterman.getSetting( 'keyCodes' )['escape'],
                             'type'      :   'tabStop',
                             'function'  :   self.hide
                         }
@@ -584,8 +584,8 @@
             // reset items colors
             $.each( self.menuItems, function( index, value ) {
                 var id = self.menuItems[index]['menuItem'].getId();
-                $( '#' + id ).css( 'background-color', sharesoft.colors['buttonBackgroundColor']['color'] );
-                $( '#' + id ).css( 'color', sharesoft.colors['buttonColor']['color'] );
+                $( '#' + id ).css( 'background-color', pleisterman.colors['buttonBackgroundColor']['color'] );
+                $( '#' + id ).css( 'color', pleisterman.colors['buttonColor']['color'] );
             });  
             // done reset items colors
             
@@ -604,15 +604,15 @@
             self.debug( 'update colors' );
             
             // update menu colors
-            self.menuOptions['backgroundColor'] = sharesoft.colors['panelBackgroundColor']['color'];
-            $( '#' + self.menuOptions['id'] ).css( 'background-color', sharesoft.colors['panelBackgroundColor']['color'] );
-            self.menuOptions['borderColor'] = sharesoft.colors['panelBorderColor']['color'];
-            $( '#' + self.menuOptions['id'] ).css( 'border-color', sharesoft.colors['panelBorderColor']['color'] );
+            self.menuOptions['backgroundColor'] = pleisterman.colors['panelBackgroundColor']['color'];
+            $( '#' + self.menuOptions['id'] ).css( 'background-color', pleisterman.colors['panelBackgroundColor']['color'] );
+            self.menuOptions['borderColor'] = pleisterman.colors['panelBorderColor']['color'];
+            $( '#' + self.menuOptions['id'] ).css( 'border-color', pleisterman.colors['panelBorderColor']['color'] );
             // done update menu colors
             
             // update menu colors
-            self.languageSeparatorOptions['color'] = sharesoft.colors['panelColor']['color'];
-            $( '#' + self.languageSeparatorOptions['id'] ).css( 'color', sharesoft.colors['panelColor']['color'] );
+            self.languageSeparatorOptions['color'] = pleisterman.colors['panelColor']['color'];
+            $( '#' + self.languageSeparatorOptions['id'] ).css( 'color', pleisterman.colors['panelColor']['color'] );
             // done update menu colors
 
             // loop over items
@@ -620,8 +620,8 @@
                 // get id
                 var menuItemId = self.menuItems[index]['menuItem'].getId();
                 // set colors
-                $( '#' + menuItemId ).css( 'background-color', sharesoft.colors['buttonBackgroundColor']['color'] );
-                $( '#' + menuItemId ).css( 'color', sharesoft.colors['buttonColor']['color'] );
+                $( '#' + menuItemId ).css( 'background-color', pleisterman.colors['buttonBackgroundColor']['color'] );
+                $( '#' + menuItemId ).css( 'color', pleisterman.colors['buttonColor']['color'] );
                 // done set colors
             });
             // done loop over items
@@ -657,5 +657,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: optionsMenuLayerModule( string: menuButtonId ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

@@ -11,23 +11,23 @@
  *          An open projects list wil always be loaded and cashed 
  *          Closed projects wil be loaded and cashed when needed
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  *  
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: projectsListModule( void ) void 
     
-    sharesoft.projectsListModule = function( ) {
+    pleisterman.projectsListModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -57,14 +57,14 @@
             
             // construct data object
             var data = { 
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'subject'           :   'projects',
                 'what'              :   'lastUsed'
             };
             // done construct data object
 
             // ajax
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/read', sharesoft.token, data, self.loadCallback );
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/read', pleisterman.token, data, self.loadCallback );
             
         // DONE FUNCTION: load( function: callback ) void
         };
@@ -74,8 +74,8 @@
             //self.debug( 'loadcallback result: row count: ' + result['rows'].length );
             // check critical errors
             if( result['criticalError'] ){
-                sharesoft.showCriticalError( result['criticalError'] );
-                sharesoft.endBusyProcess();
+                pleisterman.showCriticalError( result['criticalError'] );
+                pleisterman.endBusyProcess();
                 // error return
                 return;
             }
@@ -120,5 +120,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: projectsListModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

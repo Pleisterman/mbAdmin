@@ -20,23 +20,23 @@
  *          cancel
  *      it connects to the header functions of the list
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  *  
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: ridesModule( void ) void
     
-    sharesoft.ridesModule = function( ) {
+    pleisterman.ridesModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -54,7 +54,7 @@
         };                                          // done json: list options
         self.listSelectionsOptions = {              // json: list selections options
             'id'                    :   self.id,    // string: id
-            'currentSelection'      :   sharesoft.options['ridesListSelection']['value'], // integer: OPTION: ridesListSelection
+            'currentSelection'      :   pleisterman.options['ridesListSelection']['value'], // integer: OPTION: ridesListSelection
             'selections'            :   [           // json array{ string, string,..]: selections
                 'lastUsed',                         // string: lastUsed
                 'dayList'                           // string: dayList
@@ -74,7 +74,7 @@
             self.debug( 'construct' );
             
             // create dataObjectModule
-            self.dataObjectModule = new sharesoft.rideDataObjectModule();
+            self.dataObjectModule = new pleisterman.rideDataObjectModule();
             // get dataObject
             self.dataObject = self.dataObjectModule.getDataObject();
 
@@ -88,9 +88,9 @@
             self.addDateChangeCallback();
 
             // create the ridesList module
-            self.ridesList = new sharesoft.ridesListSelectModule();
+            self.ridesList = new pleisterman.ridesListSelectModule();
             // create the list
-            self.list = new sharesoft.listModule( self.listOptions, self.listCallback );
+            self.list = new pleisterman.listModule( self.listOptions, self.listCallback );
             
             // add documents select module
             self.addDocumentsSelect();
@@ -161,7 +161,7 @@
             self.debug( 'load' );
             
             // header is open
-            if( sharesoft.options['ridesHeaderOpen']['value'] === 'true' ){
+            if( pleisterman.options['ridesHeaderOpen']['value'] === 'true' ){
                 // debug info
                 self.debug( 'header is open' );
                 
@@ -209,18 +209,18 @@
                 // action: open list selection 
                 case 'openListSelection' : {
                     // add current selection    
-                    self.listSelectionsOptions['currentSelection'] = sharesoft.options['ridesListSelection']['value'];
+                    self.listSelectionsOptions['currentSelection'] = pleisterman.options['ridesListSelection']['value'];
                     // show selections  
-                    sharesoft.showListSelections( selection, self.listSelectionsOptions, self.listSelectionsCallback ); 
+                    pleisterman.showListSelections( selection, self.listSelectionsOptions, self.listSelectionsCallback ); 
                     // done
                     break;
                 }
                 // action: header 
                 case 'header' : {
                     // header is open / closed    
-                    if( sharesoft.options['ridesHeaderOpen']['value'] === 'true' ){
+                    if( pleisterman.options['ridesHeaderOpen']['value'] === 'true' ){
                         // was open now closed
-                        sharesoft.setOption( 'ridesHeaderOpen', 'false' );
+                        pleisterman.setOption( 'ridesHeaderOpen', 'false' );
                     }
                     else {
                         // open the selection list
@@ -278,9 +278,9 @@
         // FUNCTION openList( void ) void 
             
             // header was not open
-            if( sharesoft.options['ridesHeaderOpen']['value'] !== 'true' ){
+            if( pleisterman.options['ridesHeaderOpen']['value'] !== 'true' ){
                 // was closed now open
-                sharesoft.setOption( 'ridesHeaderOpen', 'true' );
+                pleisterman.setOption( 'ridesHeaderOpen', 'true' );
                 // current selection = daylist
                 if( self.listSelectionsOptions['currentSelection'] === 'dayList' ){
                     // get date object from dataObject
@@ -315,12 +315,12 @@
         // FUNCTION: openInitialSelection( void ) void
             
             // open subject is rides
-            if( sharesoft.options['openSubject']['value'] === 'rides' ){
+            if( pleisterman.options['openSubject']['value'] === 'rides' ){
                 // subject row id exists
-                if( sharesoft.options['openSubjectRowId']['value'] !== undefined && sharesoft.options['openSubjectRowId']['value'] ){
+                if( pleisterman.options['openSubjectRowId']['value'] !== undefined && pleisterman.options['openSubjectRowId']['value'] ){
                      
                     // get selected row
-                    self.getRow( sharesoft.options['openSubjectRowId']['value'] );
+                    self.getRow( pleisterman.options['openSubjectRowId']['value'] );
                 }
                 // done subject row id exists
             }
@@ -335,11 +335,11 @@
             self.debug( 'returned selection: ' + selection );
             
             // remember selection
-            sharesoft.setOption( 'ridesListSelection', selection );
+            pleisterman.setOption( 'ridesListSelection', selection );
             // set list selection
             self.listSelectionsOptions['currentSelection'] = selection;
             // remember header open
-            sharesoft.setOption( 'ridesHeaderOpen', 'true' );
+            pleisterman.setOption( 'ridesHeaderOpen', 'true' );
             
             // selection = day list
             if( selection === 'dayList' ){
@@ -435,13 +435,13 @@
             self.debug( 'fillList: ' + rows.length );
             
             // header open show data 
-            if( sharesoft.options['ridesHeaderOpen']['value'] ){
+            if( pleisterman.options['ridesHeaderOpen']['value'] ){
                 // open list content
                 self.list.openContent( true );
             
                 // create options
                 var options = {
-                    'headerText'    :   sharesoft.translations[self.listSelectionsOptions['currentSelection']],
+                    'headerText'    :   pleisterman.translations[self.listSelectionsOptions['currentSelection']],
                     'rows'          :   rows,
                     'selection'     :   self.listSelectionsOptions['currentSelection'],
                     'date'          :   self.listSelectionsOptions['date']
@@ -470,7 +470,7 @@
                 // done create message options
                 
                 // show the message
-                sharesoft.showMessage( 'dataChanged', options );
+                pleisterman.showMessage( 'dataChanged', options );
             }
             else {
                 // data unchanged get row
@@ -486,7 +486,7 @@
             // debug info
             self.debug( 'reload' );
             // reload 
-            self.getRow( sharesoft.options['openSubjectRowId']['value'] );
+            self.getRow( pleisterman.options['openSubjectRowId']['value'] );
 
         // DONE FUNCTION: reloadRow( void ) void
         };
@@ -528,7 +528,7 @@
             // set edit mode
             self.editMode = 'select';
             // unset open subject
-            sharesoft.setOption( 'openSubject', null );            
+            pleisterman.setOption( 'openSubject', null );            
             // call cancel event
             jsProject.callEvent( 'cancel' );
         
@@ -544,9 +544,9 @@
             self.openList();
 
             // set open subject
-            sharesoft.setOption( 'openSubject', 'rides' );
+            pleisterman.setOption( 'openSubject', 'rides' );
             // set open id
-            sharesoft.setOption( 'openSubjectRowId', id );
+            pleisterman.setOption( 'openSubjectRowId', id );
             // get data
             self.dataObjectModule.getData( self.showData, id );
 
@@ -567,7 +567,7 @@
                 // done create message options
                 
                 // show the message
-                sharesoft.showMessage( 'dataChanged', options );
+                pleisterman.showMessage( 'dataChanged', options );
             }
             else {
                 // new row
@@ -694,9 +694,9 @@
             // cancel edit state
             self.cancelEdit();
             // set open subject
-            sharesoft.setOption( 'openSubject', 'rides' );
+            pleisterman.setOption( 'openSubject', 'rides' );
             // set open id
-            sharesoft.setOption( 'openSubjectRowId', id );
+            pleisterman.setOption( 'openSubjectRowId', id );
             // refresh data display
             self.showData();
             
@@ -708,7 +708,7 @@
             // debug info
             self.debug( 'refreshDayList' + date );
             // remember selection
-            sharesoft.setOption( 'ridesListSelection', 'dayList' );
+            pleisterman.setOption( 'ridesListSelection', 'dayList' );
             // set list select seleciton
             self.listSelectionsOptions['currentSelection'] = 'dayList';
             // set llist selections date value
@@ -724,7 +724,7 @@
             // mode is insert
             if( self.editMode === 'insert' ){
                 // set vehicle id
-                options['vehicleId'] = sharesoft.options['vehiclesLastSelection']['value'];
+                options['vehicleId'] = pleisterman.options['vehiclesLastSelection']['value'];
             }
             else {
                 // get vehicleId from data object
@@ -771,5 +771,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: ridesModule( void ) void
-})( sharesoft );
+})( pleisterman );
 // done create module function

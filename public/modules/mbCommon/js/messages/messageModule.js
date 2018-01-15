@@ -8,22 +8,22 @@
  *  Purpose: 
  *          this module handles cashing and ajax calls to get messages
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: messageModule( void ) void 
     
-    sharesoft.messageModule = function( ) {
+    pleisterman.messageModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -42,7 +42,7 @@
             // debug info
             self.debug( 'construct' );
 
-            // add the extensions to sharesoft
+            // add the extensions to pleisterman
             self.addApplicationsExtensions();
             
         // DONE FUNCTION: construct( void ) void
@@ -50,8 +50,8 @@
         self.addApplicationsExtensions = function(){
         // FUNCTION: addApplicationsExtensions( void ) void
             
-            // add the get message extension to sharesoft
-            sharesoft.getMessage = self.getMessage;
+            // add the get message extension to pleisterman
+            pleisterman.getMessage = self.getMessage;
             
         // DONE FUNCTION: addApplicationsExtensions( void ) void
         };
@@ -81,15 +81,15 @@
                 
                 // create ajax data
                 var data = { 
-                    'workDirectory'     :   sharesoft.workDirectory,
+                    'workDirectory'     :   pleisterman.workDirectory,
                     'type'              :   'message',    
                     'messageId'         :   messageId,
-                    'languageId'        :   sharesoft.selectedLanguageId 
+                    'languageId'        :   pleisterman.selectedLanguageId 
                 };
                 // done create ajax data
                 
                 // ajax
-                jsProject.post( '/' + sharesoft.baseDirectory + '/getString', data, self.getStringCallback );
+                jsProject.post( '/' + pleisterman.baseDirectory + '/getString', data, self.getStringCallback );
             }
             
         // DONE FUNCTION: getMessage( string: messageId, function: callback ) void
@@ -126,7 +126,7 @@
         // FUNCTION: hasAjaxResultErrors( json: result ) boolean
         
             // global check result
-            if( sharesoft.hasAjaxResultErrors( result ) ){
+            if( pleisterman.hasAjaxResultErrors( result ) ){
                 // done with error
                 return true;
             }
@@ -174,5 +174,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: messageModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

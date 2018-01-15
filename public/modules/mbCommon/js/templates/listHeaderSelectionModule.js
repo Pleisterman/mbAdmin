@@ -9,22 +9,22 @@
  *          this module creates the list open selections button for the listHeaders
  *          the module displays a button 
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: listHeaderSelectionModule( string: id, function: callback ) void 
     
-    sharesoft.listHeaderSelectionModule = function( id, callback ) {
+    pleisterman.listHeaderSelectionModule = function( id, callback ) {
         // PRIVATE:
         
         // MEMBERS
@@ -33,13 +33,13 @@
         self.debugOn = false;                                           // boolean: debug on
         self.id = id;                                                   // string: element id
         self.callback = callback;                                       // function: callback
-        self.imageUrl = sharesoft.getSetting( 'imageUrl' );             // string: image dir
+        self.imageUrl = pleisterman.getSetting( 'imageUrl' );             // string: image dir
         self.parentOptions = {                                          // json: parent options
             'id'                    :   'listHeader' + self.id          // string: element id
         };                                                              // done json: parent options
         self.buttonOptions = {                                          // json button options
             'id'                    :   'openSelectionsButton' + self.id,   // string: element id   
-            'title'                 :   sharesoft.translations[self.id + 'OpenSelections'], // string: title
+            'title'                 :   pleisterman.translations[self.id + 'OpenSelections'], // string: title
             'element'               :   'div',                          // string: html element type 
             'display'               :   'inline-block',                 // css display
             'verticalAlign'         :   'middle',                       // css vertical align
@@ -48,11 +48,11 @@
             'styleWidth'            :   '1.8em',                        // css style width
             'styleHeight'           :   '1.8em',                        // css style height
             'backgroundSize'        :   '1.8em 1.8em',                  // css background size
-            'backgroundColor'       :   sharesoft.colors['buttonBackgroundColor']['color'], // css color: background color
+            'backgroundColor'       :   pleisterman.colors['buttonBackgroundColor']['color'], // css color: background color
             'backgroundPosition'    :   'center center',                // css background position
             'backgroundRepeat'      :   'no-repeat',                    // css background repeat
             'border'                :   true,                           // boolean: has border
-            'borderColor'           :   sharesoft.colors['buttonBorderColor']['color'], // css color: border color
+            'borderColor'           :   pleisterman.colors['buttonBorderColor']['color'], // css color: border color
             'borderWidth'           :   '0.1em',                        // css border width 
             'borderStyle'           :   'solid',                        // css border style 
             'cursor'                :   'pointer',                      // css cursor            
@@ -109,9 +109,9 @@
         // FUNCTION: mouseIn( html element: element ) void
             
             // mouse over -> background color highlight
-            $( '#' + self.buttonOptions['id'] ).css( 'background-color', sharesoft.colors['buttonHighlightBackgroundColor']['color'] );
+            $( '#' + self.buttonOptions['id'] ).css( 'background-color', pleisterman.colors['buttonHighlightBackgroundColor']['color'] );
             // mouse over -> color highlight
-            $( '#' + self.buttonOptions['id'] ).css( 'color', sharesoft.colors['buttonHighlightColor']['color'] );
+            $( '#' + self.buttonOptions['id'] ).css( 'color', pleisterman.colors['buttonHighlightColor']['color'] );
 
         // DONE FUNCTION: mouseIn( html element: element ) void
         };
@@ -125,9 +125,9 @@
             // done selected
             
             // mouse out -> background color default
-            $( '#' + self.buttonOptions['id'] ).css( 'background-color', sharesoft.colors['buttonBackgroundColor']['color'] );
+            $( '#' + self.buttonOptions['id'] ).css( 'background-color', pleisterman.colors['buttonBackgroundColor']['color'] );
             // mouse out -> color default
-            $( '#' + self.buttonOptions['id'] ).css( 'color', sharesoft.colors['buttonColor']['color'] );
+            $( '#' + self.buttonOptions['id'] ).css( 'color', pleisterman.colors['buttonColor']['color'] );
 
         // DONE FUNCTION: mouseOut( void ) void
         };
@@ -147,7 +147,7 @@
             
             // debug info
             self.debug( 'update colors' );
-            $( '#' + self.buttonOptions['id'] ).css( 'background-color', sharesoft.colors['buttonBackgroundColor']['color'] );
+            $( '#' + self.buttonOptions['id'] ).css( 'background-color', pleisterman.colors['buttonBackgroundColor']['color'] );
 
         // DONE FUNCTION: updateColors( void ) void
         };
@@ -185,5 +185,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: listHeaderSelectionModule( string: id, function: callback ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

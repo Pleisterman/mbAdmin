@@ -9,7 +9,7 @@
  *  Author: Pleisterman
  *  Web: www.pleisterman.nl 
  *  Mail: info@pleisterman.nl 
- *  GitHub: PleistermanNL 
+ *  GitHub: Pleisterman 
  * 
  * Purpose: this class creates an csv file according to a provided
  *          dataArray

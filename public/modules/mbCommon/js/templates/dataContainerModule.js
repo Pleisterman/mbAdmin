@@ -9,22 +9,22 @@
  *          this module controls the data container for the 
  *          data
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: dataContainerModule( void ) void
     
-    sharesoft.dataContainerModule = function( ) {
+    pleisterman.dataContainerModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -33,24 +33,24 @@
         self.debugOn = false;                                           // boolean: debug
         self.layoutId = 'layout';                                       // string: element id
         self.dataId = '';                                               // string: data id
-        self.imageUrl = sharesoft.getSetting( 'imageUrl' );             // string: image directory url
+        self.imageUrl = pleisterman.getSetting( 'imageUrl' );             // string: image directory url
         self.containerOptions = {                                       // json: container options     
             'id'                    :   self.MODULE + 'Container',      // string: element id
             'element'               :   'div',                          // string: html element type 
             'text'                  :   '',                             // string: text    
             'position'              :   'absolute',                     // css position
             'display'               :   'none',                         // css display style
-            'backgroundColor'       :   sharesoft.colors['editBackgroundColor']['color'], // css color: COLOR: editBackgroundColor
-            'zIndex'                :   sharesoft.getSetting( 'zIndexData' ).toString()   // integer: SETTING: zIndexData    
+            'backgroundColor'       :   pleisterman.colors['editBackgroundColor']['color'], // css color: COLOR: editBackgroundColor
+            'zIndex'                :   pleisterman.getSetting( 'zIndexData' ).toString()   // integer: SETTING: zIndexData    
         };                                                              // done json: container options  
         self.headerOptions = {                                          // json: headerOptions options  
             'id'                    :   self.MODULE + 'Header',         // string: element id
             'element'               :   'div',                          // string: html element type 
             'text'                  :   '&nbsp;',                       // string: text    
             'overflow-x'            :   'hidden',                       // css overflow
-            'backgroundColor'       :   sharesoft.colors['panelHighlightBackgroundColor']['color'],   // css color: COLOR: panelHighlightBackgroundColor
+            'backgroundColor'       :   pleisterman.colors['panelHighlightBackgroundColor']['color'],   // css color: COLOR: panelHighlightBackgroundColor
             'borderWidth'           :   '0.1em',                        // css border width
-            'borderColor'           :   sharesoft.colors['panelBorderColor']['color'], // css color: COLOR: panelBorderColor
+            'borderColor'           :   pleisterman.colors['panelBorderColor']['color'], // css color: COLOR: panelBorderColor
             'borderStyle'           :   'solid',                        // css border style
             'borderBottom'          :   true,                           // boolean: has border bottom
             'paddingLeft'           :   '3.8em',                        // css padding left
@@ -65,11 +65,11 @@
             'readOnly'              :   true,                           // boolean: readonly 
             'fontSize'              :   '1.1em',                        // css font size
             'fontWeight'            :   'bold',                         // css font weight
-            'color'                 :   sharesoft.colors['panelHighlightColor']['color'],             // css color: COLOR: panelHighlightColor
+            'color'                 :   pleisterman.colors['panelHighlightColor']['color'],             // css color: COLOR: panelHighlightColor
             'backgroundColor'       :   'transparent',                  // css color: background color
             'border'                :   true,                           // boolean: has border bottom
             'borderWidth'           :   '0.0em',                        // css border width
-            'borderColor'           :   sharesoft.colors['panelBorderColor']['color'], // css color: COLOR: panelBorderColor
+            'borderColor'           :   pleisterman.colors['panelBorderColor']['color'], // css color: COLOR: panelBorderColor
             'borderStyle'           :   'solid',                        // css border style
         };                                                              // done json: headerTextOptions options  
         self.contentOptions = {                                         // json: content options
@@ -82,14 +82,14 @@
         self.buttonContainerOptions = {                                 // json: button container options        
             'id'                    :   self.MODULE + 'ButtonContainer',// string: element id
             'element'               :   'div',                          // string: html element type 
-            'backgroundColor'       :   sharesoft.colors['panelHighlightBackgroundColor']['color'], // css color: COLOR: panelHighlightBackgroundColor
+            'backgroundColor'       :   pleisterman.colors['panelHighlightBackgroundColor']['color'], // css color: COLOR: panelHighlightBackgroundColor
             'marginRight'           :   0,                              // css margin right   
-            'marginLeftInLetters'   :   sharesoft.getSetting( 'dataButtonsMarginLeftInLetters' ), // integer: dataButtonsMarginLeftInLetters           
+            'marginLeftInLetters'   :   pleisterman.getSetting( 'dataButtonsMarginLeftInLetters' ), // integer: dataButtonsMarginLeftInLetters           
             'minimumWidth'          :   220,                            // css minimum width
             'borderTop'             :   true,                           // boolean: has border top
             'borderBottom'          :   true,                           // boolean: has border bottom
             'borderWidth'           :   '0.1em',                        // css border width
-            'borderColor'           :   sharesoft.colors['panelBorderColor']['color'], // css color: COLOR: panelBorderColor
+            'borderColor'           :   pleisterman.colors['panelBorderColor']['color'], // css color: COLOR: panelBorderColor
             'borderStyle'           :   'groove'                        // css border style 
         };                                                              // done json: button container options
         self.buttonOptions = {                                          // json: buttonOptions
@@ -98,20 +98,20 @@
             'cancelId'              :   self.MODULE + 'cancelButton',   // string: cancel button id    
             'element'               :   'div',                          // string html element type 
             'display'               :   'inline-block',                 // css display style
-            'color'                 :   sharesoft.colors['buttonColor']['color'],             // css color: COLOR: buttonColor
-            'backgroundColor'       :   sharesoft.colors['buttonBackgroundColor']['color'],   // css color: COLOR: buttonBackgroundColor
-            'fontSize'              :   sharesoft.getSetting( 'buttonFontSize' ),             // css font size: SETTING: buttonFontSize 
-            'fontWeight'            :   sharesoft.getSetting( 'buttonFontWeight' ),           // css font weight: SETTING: buttonFontWeight
-            'padding'               :   sharesoft.getSetting( 'buttonPadding' ),              // css padding: SETTING: buttonPadding
+            'color'                 :   pleisterman.colors['buttonColor']['color'],             // css color: COLOR: buttonColor
+            'backgroundColor'       :   pleisterman.colors['buttonBackgroundColor']['color'],   // css color: COLOR: buttonBackgroundColor
+            'fontSize'              :   pleisterman.getSetting( 'buttonFontSize' ),             // css font size: SETTING: buttonFontSize 
+            'fontWeight'            :   pleisterman.getSetting( 'buttonFontWeight' ),           // css font weight: SETTING: buttonFontWeight
+            'padding'               :   pleisterman.getSetting( 'buttonPadding' ),              // css padding: SETTING: buttonPadding
             'minimumWidth'          :   '12.0em',                       // css minimum width
             'marginLeft'            :   12,                             // css margin left
             'marginBottom'          :   4,                              // css margin bottom
             'marginTop'             :   8,                              // css margin top
             'border'                :   true,                           // boolean: has border option
-            'borderWidth'           :   sharesoft.getSetting( 'buttonBorderWidth' ),          // css font size: SETTING: buttonBorderWidth
-            'borderColor'           :   sharesoft.colors['buttonBorderColor']['color'],       // css color: COLOR: buttonBorderColor
-            'borderStyle'           :   sharesoft.getSetting( 'buttonBorderStyle' ),          // css font size: SETTING: buttonBorderStyle
-            'borderRadius'          :   sharesoft.getSetting( 'buttonBorderRadius' ),         // css font size: SETTING: buttonBorderRadius
+            'borderWidth'           :   pleisterman.getSetting( 'buttonBorderWidth' ),          // css font size: SETTING: buttonBorderWidth
+            'borderColor'           :   pleisterman.colors['buttonBorderColor']['color'],       // css color: COLOR: buttonBorderColor
+            'borderStyle'           :   pleisterman.getSetting( 'buttonBorderStyle' ),          // css font size: SETTING: buttonBorderStyle
+            'borderRadius'          :   pleisterman.getSetting( 'buttonBorderRadius' ),         // css font size: SETTING: buttonBorderRadius
             'cursor'                :   'pointer',                      // css cursor            
             'textAlign'             :   'center'                        // css text align
         };                                                              // done json: button options                
@@ -123,17 +123,17 @@
             'isVisible'             :   false,                          // boolean: is visible
             'showPeriod'            :   1200,                           // integer: miliseconds
             'containerMinimumWidth' :   120,                            // integer: minimum width
-            'color'                 :   sharesoft.colors['commonColor']['color'],                 // css color: COLOR: commonColor
-            'backgroundColor'       :   sharesoft.colors['dialogBackgroundColor']['color'],       // css color: COLOR: dialogBackgroundColor
-            'errorColor'            :   sharesoft.colors['errorDialogColor']['color'],            // css color: COLOR: errorDialogColor
-            'errorBackgroundColor'  :   sharesoft.colors['errorDialogBackgroundColor']['color'],  // css color: COLOR: errorDialogBackgroundColor
+            'color'                 :   pleisterman.colors['commonColor']['color'],                 // css color: COLOR: commonColor
+            'backgroundColor'       :   pleisterman.colors['dialogBackgroundColor']['color'],       // css color: COLOR: dialogBackgroundColor
+            'errorColor'            :   pleisterman.colors['errorDialogColor']['color'],            // css color: COLOR: errorDialogColor
+            'errorBackgroundColor'  :   pleisterman.colors['errorDialogBackgroundColor']['color'],  // css color: COLOR: errorDialogBackgroundColor
             'padding'               :   '0.8em',                        // css padding
             'fontSize'              :   '1.1em',                        // css font size
             'fontWeight'            :   'bold',                         // css font weight
             'border'                :   true,                           // boolean: has border
             'borderWidth'           :   '0.1em',                        // css border width
             'borderStyle'           :   'solid',                        // css border style
-            'borderColor'           :    sharesoft.colors['errorDialogBorderColor']['color'],     // css color: COLOR: errorDialogBorderColor        
+            'borderColor'           :    pleisterman.colors['errorDialogBorderColor']['color'],     // css color: COLOR: errorDialogBorderColor        
             'borderRadius'          :   '0.1em',                        // css border radius
             'textAlign'             :   'center'                        // css text align
         };                                                              // done json: message options 
@@ -147,8 +147,8 @@
             'styleHeight'           :   '100%',                         // css style height
             'display'               :   'none',                         // css display style
             'overflow'              :   'visible',                      // css overflow
-            'zIndex'                :   sharesoft.getSetting( 'zIndexDataEditOverlay' ).toString(),   // css font size: SETTING: zIndexDataEditOverlay
-            'backgroundColor'       :   sharesoft.colors['overlayBackgroundColor']['color']           // css color: COLOR: overlayBackgroundColor     
+            'zIndex'                :   pleisterman.getSetting( 'zIndexDataEditOverlay' ).toString(),   // css font size: SETTING: zIndexDataEditOverlay
+            'backgroundColor'       :   pleisterman.colors['overlayBackgroundColor']['color']           // css color: COLOR: overlayBackgroundColor     
         };                                                              // done json: overlay options 
         self.dataEditModule = null;                                     // module: dataEditModule 
         self.mode = '';                                                 // string: mode
@@ -193,7 +193,7 @@
             jsProject.subscribeToEvent( 'updateColors', self.updateColors );
             
             // add edit module
-            self.dataEditModul = new sharesoft.dataEditModule( self.contentOptions['id'] );
+            self.dataEditModul = new pleisterman.dataEditModule( self.contentOptions['id'] );
 
         // DONE FUNCTION: construct( void ) void
         };
@@ -231,21 +231,21 @@
             // set insert id 
             self.buttonOptions['id'] = self.buttonOptions['insertId'];
             // set insert text
-            self.buttonOptions['text'] = sharesoft.translations['insert'];
+            self.buttonOptions['text'] = pleisterman.translations['insert'];
             // add insert html
             $( '#' + self.buttonContainerOptions['id'] ).append( jsProject.jsonToElementHtml( self.buttonOptions ) );
             
             // set update id 
             self.buttonOptions['id'] = self.buttonOptions['updateId'];
             // set update text
-            self.buttonOptions['text'] = sharesoft.translations['update'];
+            self.buttonOptions['text'] = pleisterman.translations['update'];
             // add update html
             $( '#' + self.buttonContainerOptions['id'] ).append( jsProject.jsonToElementHtml( self.buttonOptions ) );
 
             // set cancel id 
             self.buttonOptions['id'] = self.buttonOptions['cancelId'];
             // set cancel text
-            self.buttonOptions['text'] = sharesoft.translations['cancel'];
+            self.buttonOptions['text'] = pleisterman.translations['cancel'];
             // add cancel html
             $( '#' + self.buttonContainerOptions['id'] ).append( jsProject.jsonToElementHtml( self.buttonOptions ) );
 
@@ -291,14 +291,14 @@
             // is current tabstop
             if( jsProject.getValue( 'selected', 'tabStops' ) === elementId || self.mouseOverButtonId === elementId ){
                 // mouse over -> background color, color highlight
-                $( '#' + elementId ).css( 'background-color', sharesoft.colors['buttonHighlightBackgroundColor']['color'] );
-                $( '#' + elementId ).css( 'color', sharesoft.colors['buttonHighlightColor']['color'] );
+                $( '#' + elementId ).css( 'background-color', pleisterman.colors['buttonHighlightBackgroundColor']['color'] );
+                $( '#' + elementId ).css( 'color', pleisterman.colors['buttonHighlightColor']['color'] );
                 // done mouse over -> background color, color highlight
             }
             else {
                 // mouse out -> background color, color default
-                $( '#' + elementId ).css( 'background-color', sharesoft.colors['buttonBackgroundColor']['color'] );
-                $( '#' + elementId ).css( 'color', sharesoft.colors['buttonColor']['color'] );
+                $( '#' + elementId ).css( 'background-color', pleisterman.colors['buttonBackgroundColor']['color'] );
+                $( '#' + elementId ).css( 'color', pleisterman.colors['buttonColor']['color'] );
                 // done mouse out -> background color, color default
             }
             // done is current tabstop
@@ -312,8 +312,8 @@
             self.mouseOverButtonId = elementId;
             
             // mouse over -> background color, color highlight
-            $( '#' + elementId ).css( 'background-color', sharesoft.colors['buttonHighlightBackgroundColor']['color'] );
-            $( '#' + elementId ).css( 'color', sharesoft.colors['buttonHighlightColor']['color'] );
+            $( '#' + elementId ).css( 'background-color', pleisterman.colors['buttonHighlightBackgroundColor']['color'] );
+            $( '#' + elementId ).css( 'color', pleisterman.colors['buttonHighlightColor']['color'] );
             // done mouse over -> background color, color highlight
             
         // DONE FUNCTION: buttonMouseIn( string: elementId ) void
@@ -332,8 +332,8 @@
             self.mouseOverButtonId = elementId;
             
             // mouse out -> background color, color default
-            $( '#' + elementId ).css( 'background-color', sharesoft.colors['buttonBackgroundColor']['color'] );
-            $( '#' + elementId ).css( 'color', sharesoft.colors['buttonColor']['color'] );
+            $( '#' + elementId ).css( 'background-color', pleisterman.colors['buttonBackgroundColor']['color'] );
+            $( '#' + elementId ).css( 'color', pleisterman.colors['buttonColor']['color'] );
             // done mouse out -> background color, color default
             
         // DONE FUNCTION: buttonMouseOut( string: elementId ) void
@@ -398,7 +398,7 @@
             self.dataId = jsProject.getValue( 'id', 'data' );    
             
             // set the title
-            $( '#' + self.headerTextOptions['id'] ).val( sharesoft.translations[self.dataId + 'TitleNew'] );
+            $( '#' + self.headerTextOptions['id'] ).val( pleisterman.translations[self.dataId + 'TitleNew'] );
 
             // hide update button
             $( '#' + self.buttonOptions['updateId'] ).hide();
@@ -445,7 +445,7 @@
             // done set data header text
             
             // set the title
-            var title = sharesoft.translations[self.dataId + 'TitleEdit'];
+            var title = pleisterman.translations[self.dataId + 'TitleEdit'];
             title += ':   ';
             title += dataHeaderText;
             $( '#' + self.headerTextOptions['id'] ).val( title );
@@ -487,7 +487,7 @@
                     'deSelect'  :   self.buttonMouseOut,
                     'keys'      :   [
                         {
-                            'keyCode'   :   sharesoft.getSetting( 'keyCodes' )['space'],
+                            'keyCode'   :   pleisterman.getSetting( 'keyCodes' )['space'],
                             'type'      :   'tabStop',
                             'function'  :   self.update
                         }
@@ -507,7 +507,7 @@
                     'deSelect'  :   self.buttonMouseOut,
                     'keys'      :   [
                         {
-                            'keyCode'   :   sharesoft.getSetting( 'keyCodes' )['space'],
+                            'keyCode'   :   pleisterman.getSetting( 'keyCodes' )['space'],
                             'type'      :   'tabStop',
                             'function'  :   self.insert
                         }
@@ -529,12 +529,12 @@
                 'deSelect'  :   self.buttonMouseOut,
                 'keys'      :   [
                     {
-                        'keyCode'   :   sharesoft.getSetting( 'keyCodes' )['space'],
+                        'keyCode'   :   pleisterman.getSetting( 'keyCodes' )['space'],
                         'type'      :   'tabStop',
                         'function'  :   self.cancel
                     },
                     {
-                        'keyCode'   :   sharesoft.getSetting( 'keyCodes' )['escape'],
+                        'keyCode'   :   pleisterman.getSetting( 'keyCodes' )['escape'],
                         'type'      :   'default',
                         'function'  :   self.cancel
                     }
@@ -567,7 +567,7 @@
             // done get data header text
 
             // set the title
-            var title = sharesoft.translations[self.dataId + 'TitleEdit'];
+            var title = pleisterman.translations[self.dataId + 'TitleEdit'];
             title += ':   ';
                 title += dataHeaderText;
             $( '#' + self.headerTextOptions['id'] ).val( title );
@@ -581,7 +581,7 @@
             // debug info
             self.debug( 'showEditMessage' + messageId );
             // get the message
-            sharesoft.getMessage( messageId, self.showMessage );
+            pleisterman.getMessage( messageId, self.showMessage );
             
         // DONE FUNCTION: getMessage( string: messageId ) void
         };
@@ -639,7 +639,7 @@
             // debug info
             self.debug( 'showEditError' + errorId );
             // get the message
-            sharesoft.getError( errorId, self.showError );
+            pleisterman.getError( errorId, self.showError );
             
         // DONE FUNCTION: getError( string: errorId ) void
         };
@@ -772,7 +772,7 @@
             // get width
             var width = $( '#right' ).width();
             // get font width
-            var fontWidth = sharesoft.options['fontSize']['value']; 
+            var fontWidth = pleisterman.options['fontSize']['value']; 
 
             // calculate total button width
             var totalButtonWidth = 4;
@@ -873,26 +873,26 @@
             // debug info
             self.debug( 'update colors' );
             // container
-            $( '#' + self.containerOptions['id'] ).css( 'background-color', sharesoft.colors['editBackgroundColor']['color'] );
+            $( '#' + self.containerOptions['id'] ).css( 'background-color', pleisterman.colors['editBackgroundColor']['color'] );
             
             // header
-            $( '#' + self.headerOptions['id'] ).css( 'background-color', sharesoft.colors['panelHighlightBackgroundColor']['color'] );
-            $( '#' + self.headerOptions['id'] ).css( 'color', sharesoft.colors['panelHighlightColor']['color'] );
-            $( '#' + self.headerOptions['id'] ).css( 'border-color', sharesoft.colors['panelBorderColor']['color'] );
+            $( '#' + self.headerOptions['id'] ).css( 'background-color', pleisterman.colors['panelHighlightBackgroundColor']['color'] );
+            $( '#' + self.headerOptions['id'] ).css( 'color', pleisterman.colors['panelHighlightColor']['color'] );
+            $( '#' + self.headerOptions['id'] ).css( 'border-color', pleisterman.colors['panelBorderColor']['color'] );
             // done header
 
             // button container
-            $( '#' + self.buttonContainerOptions['id'] ).css( 'background-color', sharesoft.colors['panelHighlightBackgroundColor']['color'] );
-            $( '#' + self.buttonContainerOptions['id'] ).css( 'border-color', sharesoft.colors['panelBorderColor']['color'] );
+            $( '#' + self.buttonContainerOptions['id'] ).css( 'background-color', pleisterman.colors['panelHighlightBackgroundColor']['color'] );
+            $( '#' + self.buttonContainerOptions['id'] ).css( 'border-color', pleisterman.colors['panelBorderColor']['color'] );
             // done  button container
 
             // buttons
             self.updateButtonColors();
             
             // message
-            $( '#' + self.messageOptions['id'] ).css( 'color', sharesoft.colors['commonColor']['color'] );
-            $( '#' + self.messageOptions['id'] ).css( 'background-color', sharesoft.colors['dialogBackgroundColor']['color'] );
-            $( '#' + self.messageOptions['id'] ).css( 'border-color', sharesoft.colors['errorDialogBorderColor']['color'] );
+            $( '#' + self.messageOptions['id'] ).css( 'color', pleisterman.colors['commonColor']['color'] );
+            $( '#' + self.messageOptions['id'] ).css( 'background-color', pleisterman.colors['dialogBackgroundColor']['color'] );
+            $( '#' + self.messageOptions['id'] ).css( 'border-color', pleisterman.colors['errorDialogBorderColor']['color'] );
             // message
 
         // DONE FUNCTION: updateColors( void ) void
@@ -903,9 +903,9 @@
             // mode = insert
             if( self.mode === 'insert' ){
                 // insert button
-                $( '#' +  self.buttonOptions['insertId'] ).css( 'background-color', sharesoft.colors['buttonBackgroundColor']['color'] );
-                $( '#' +  self.buttonOptions['insertId'] ).css( 'border-color', sharesoft.colors['buttonBorderColor']['color'] );
-                $( '#' +  self.buttonOptions['insertId'] ).css( 'color', sharesoft.colors['buttonColor']['color'] );
+                $( '#' +  self.buttonOptions['insertId'] ).css( 'background-color', pleisterman.colors['buttonBackgroundColor']['color'] );
+                $( '#' +  self.buttonOptions['insertId'] ).css( 'border-color', pleisterman.colors['buttonBorderColor']['color'] );
+                $( '#' +  self.buttonOptions['insertId'] ).css( 'color', pleisterman.colors['buttonColor']['color'] );
                 // done insert button
             }
             // done mode = insert
@@ -913,17 +913,17 @@
             // mode = edit
             if( self.mode === 'edit' ){
                 // update button
-                $( '#' +  self.buttonOptions['updateId'] ).css( 'background-color', sharesoft.colors['buttonBackgroundColor']['color'] );
-                $( '#' +  self.buttonOptions['updateId'] ).css( 'border-color', sharesoft.colors['buttonBorderColor']['color'] );
-                $( '#' +  self.buttonOptions['updateId'] ).css( 'color', sharesoft.colors['buttonColor']['color'] );
+                $( '#' +  self.buttonOptions['updateId'] ).css( 'background-color', pleisterman.colors['buttonBackgroundColor']['color'] );
+                $( '#' +  self.buttonOptions['updateId'] ).css( 'border-color', pleisterman.colors['buttonBorderColor']['color'] );
+                $( '#' +  self.buttonOptions['updateId'] ).css( 'color', pleisterman.colors['buttonColor']['color'] );
                 // done update button
             }
             // done mode = insert
 
             // cancel button
-            $( '#' +  self.buttonOptions['cancelId'] ).css( 'background-color', sharesoft.colors['buttonBackgroundColor']['color'] );
-            $( '#' +  self.buttonOptions['cancelId'] ).css( 'border-color', sharesoft.colors['buttonBorderColor']['color'] );
-            $( '#' +  self.buttonOptions['cancelId'] ).css( 'color', sharesoft.colors['buttonColor']['color'] );
+            $( '#' +  self.buttonOptions['cancelId'] ).css( 'background-color', pleisterman.colors['buttonBackgroundColor']['color'] );
+            $( '#' +  self.buttonOptions['cancelId'] ).css( 'border-color', pleisterman.colors['buttonBorderColor']['color'] );
+            $( '#' +  self.buttonOptions['cancelId'] ).css( 'color', pleisterman.colors['buttonColor']['color'] );
             // done cancel button
 
         // DONE FUNCTION: updateButtonColors( void ) void
@@ -952,5 +952,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: dataContainerModule( void ) void
-})( sharesoft );
+})( pleisterman );
 // done create module function

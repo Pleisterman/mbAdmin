@@ -12,22 +12,22 @@
  *          the module keeps track of the number of processes called
  *          and will only clear when all processes are done
  *           
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: busyScreenModule( void ) void 
     
-    sharesoft.busyScreenModule = function( ) {
+    pleisterman.busyScreenModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -44,15 +44,15 @@
             'left'              :   0,                              // css left
             'styleWidth'        :   '100%',                         // css style width 
             'styleHeight'       :   '100%',                         // css style height 
-            'backgroundColor'   :   sharesoft.colors['busyBackgroundColor']['color'],   // css color: background color
-            'zIndex'            :   sharesoft.getSetting( 'zIndexBusyDiv' ).toString()  // css z-index
+            'backgroundColor'   :   pleisterman.colors['busyBackgroundColor']['color'],   // css color: background color
+            'zIndex'            :   pleisterman.getSetting( 'zIndexBusyDiv' ).toString()  // css z-index
         };                                                          // done json: screen options
         self.textOptions = {                                        // json: text options
             'id'                :   'busyText',                     // string: element id
             'element'           :   'div',                          // string: html element type   
-            'text'              :   sharesoft.translations['busy'], // string: text
+            'text'              :   pleisterman.translations['busy'], // string: text
             'position'          :   'absolute',                     // css position
-            'color'             :   sharesoft.colors['busyColor']['color'], // css color: color
+            'color'             :   pleisterman.colors['busyColor']['color'], // css color: color
             'fontSize'          :   '1.6em',                        // css font size
             'lineHeight'        :   '1.6em',                        // css line height
             'letterSpacing'     :   10,                             // css letter spacing
@@ -75,7 +75,7 @@
             // add html
             self.addHtml();
             
-            // add the extensions to sharesoft
+            // add the extensions to pleisterman
             self.addApplicationsExtensions();
 
             // subscribe to events
@@ -87,11 +87,11 @@
         // FUNCTION: addApplicationsExtensions( void ) void
         
             // add start busy screen
-            sharesoft.startBusyProcess = self.startBusyProcess;
+            pleisterman.startBusyProcess = self.startBusyProcess;
             // add is busy
-            sharesoft.isBusy = self.isBusy;
+            pleisterman.isBusy = self.isBusy;
             // add end busy screen
-            sharesoft.endBusyProcess = self.endBusyProcess;
+            pleisterman.endBusyProcess = self.endBusyProcess;
             
         // DONE FUNCTION: addApplicationsExtensions( void ) void
         };
@@ -202,5 +202,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: busyScreenModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

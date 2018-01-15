@@ -8,22 +8,22 @@
  *  Purpose: 
  *      Displays an image upload
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: dataEditImageUploadModule( string: contentId, json: values ) void 
     
-    sharesoft.dataEditImageUploadModule = function( contentId, values  ) {
+    pleisterman.dataEditImageUploadModule = function( contentId, values  ) {
         // PRIVATE:
         
         // MEMBERS
@@ -37,12 +37,12 @@
             'element'               :   'div',                          // string: html element type 
             'position'              :   'relative',                     // css position
             'display'               :   'table',                        // css display
-            'padding'               :   sharesoft.getSetting( 'dataEditItemPadding' ),          // css padding
-            'marginTop'             :   sharesoft.getSetting( 'dataEditItemMarginTop' ),        // css margin top
-            'marginLeft'            :   sharesoft.getSetting( 'dataEditItemMarginLeft' ),       // css margin left
-            'backgroundColor'       :   sharesoft.colors['dataItemBackgroundColor']['color'],   // css color: background color
+            'padding'               :   pleisterman.getSetting( 'dataEditItemPadding' ),          // css padding
+            'marginTop'             :   pleisterman.getSetting( 'dataEditItemMarginTop' ),        // css margin top
+            'marginLeft'            :   pleisterman.getSetting( 'dataEditItemMarginLeft' ),       // css margin left
+            'backgroundColor'       :   pleisterman.colors['dataItemBackgroundColor']['color'],   // css color: background color
             'rememberBackgroundColor':  '',                             // css color: remember background color
-            'borderRadius'          :   sharesoft.getSetting( 'dataEditBorderRadius' ),         // css border radius
+            'borderRadius'          :   pleisterman.getSetting( 'dataEditBorderRadius' ),         // css border radius
             'mouseOver'             :   false,                          // boolean: mouse over
             'cursor'                :   'pointer'                       // css cursor
         };                                                              // done json: item container options
@@ -56,11 +56,11 @@
             'element'               :   'div',                          // string: html element type
             'display'               :   'inline-block',                 // css display
             'verticalAlign'         :   'top',                          // css vertical align
-            'fontSize'              :   sharesoft.getSetting( 'dataEditLabelFontSize' ),        // css font size
-            'fontWeight'            :   sharesoft.getSetting( 'dataEditLabelFontWeight' ),      // css font weight
-            'marginTop'             :   sharesoft.getSetting( 'dataEditLabelMarginTop' ),       // css margin top    
-            'marginRight'           :   sharesoft.getSetting( 'dataEditLabelMarginRight' ),     // css margin height
-            'styleWidth'            :   sharesoft.getSetting( 'dataEditLabelWidth' ),           // css style width
+            'fontSize'              :   pleisterman.getSetting( 'dataEditLabelFontSize' ),        // css font size
+            'fontWeight'            :   pleisterman.getSetting( 'dataEditLabelFontWeight' ),      // css font weight
+            'marginTop'             :   pleisterman.getSetting( 'dataEditLabelMarginTop' ),       // css margin top    
+            'marginRight'           :   pleisterman.getSetting( 'dataEditLabelMarginRight' ),     // css margin height
+            'styleWidth'            :   pleisterman.getSetting( 'dataEditLabelWidth' ),           // css style width
             'rememberColor'         :   '',                             // css color: rememeber color
             'rememberFontWeight'    :   ''                              // css font weight: remember font weight  
         };                                                              // done json: label options
@@ -71,9 +71,9 @@
             'verticalAlign'         :   'middle',                       // css verical align
             'minimumWidth'          :   '35em',                         // css minimum width
             'paddingTop'            :   '0.6em',                        // css padding top
-            'backgroundColor'       :   sharesoft.colors['editBackgroundColor']['color'], // css color: background color
+            'backgroundColor'       :   pleisterman.colors['editBackgroundColor']['color'], // css color: background color
             'border'                :   true,                           // boolean: has border
-            'borderColor'           :   sharesoft.colors['panelBorderColor']['color'],              // css color: border color
+            'borderColor'           :   pleisterman.colors['panelBorderColor']['color'],              // css color: border color
             'borderWidth'           :   '0.1em',                        // css border width
             'borderStyle'           :   'solid',                        // css border style
         };                                                              // done json: input and button container options
@@ -88,11 +88,11 @@
             'id'                    :   'previewHeader' + self.values['id'], // string: element id
             'element'               :   'div',                          // string: html element type 
             'display'               :   'block',                        // css display
-            'text'                  :   sharesoft.translations['preview'], // string: text
+            'text'                  :   pleisterman.translations['preview'], // string: text
             'textAlign'             :   'center',                       // css verical align
             'minimumHeight'         :   '1.1em',                        // css minimum height
             'marginTop'             :   '0.1em',                        // css margin top
-            'color'                 :   sharesoft.colors['panelHighlightColor']['color'], // css color: color
+            'color'                 :   pleisterman.colors['panelHighlightColor']['color'], // css color: color
             'fontSize'              :   '1.0em',                        // css font size
             'fontWeight'            :   'normal',                       // css font weight
             'marginBottom'          :   '0.2em',                        // css margin bottom
@@ -101,10 +101,10 @@
             'marginLeft'            :   '3.5em',                        // css margin left
             'paddingTop'            :   '0.4em',                        // css padding bottom
             'border'                :   true,                           // boolean: has border
-            'borderColor'           :   sharesoft.colors['panelBorderColor']['color'], // css color: border color
+            'borderColor'           :   pleisterman.colors['panelBorderColor']['color'], // css color: border color
             'borderWidth'           :   '0.1em',                        // css border width
             'borderStyle'           :   'solid',                        // css border style
-            'backgroundColor'       :   sharesoft.colors['panelHighlightBackgroundColor']['color'] // css color: background color
+            'backgroundColor'       :   pleisterman.colors['panelHighlightBackgroundColor']['color'] // css color: background color
         };                                                              // done json: preview header options
         self.previewOptions = {                                         // json: preview options
             'id'                    :   'preview' + self.values['id'],  // string: element id
@@ -120,7 +120,7 @@
             'backgroundColor'       :   'black',                        // css color: background color
             'border'                :   true,                           // boolean: has border
             'borderWidth'           :   '0.1em',                        // css border width    
-            'borderColor'           :   sharesoft.colors['commonBorderColor']['color'], // css color: border color
+            'borderColor'           :   pleisterman.colors['commonBorderColor']['color'], // css color: border color
             'borderStyle'           :   'solid',                        // css border style
             'borderRadius'          :   '0.1em',                        // css border radius
             'mouseOver'             :   false,                          // boolean: mouse over
@@ -171,18 +171,18 @@
             'display'               :   'block',                        // css display
             'verticalAlign'         :   'top',                          // css verical align
             'marginTop'             :   '3.5em',                        // css margin top
-            'backgroundColor'       :   sharesoft.colors['panelBackgroundColor']['color'], // css color: background color
+            'backgroundColor'       :   pleisterman.colors['panelBackgroundColor']['color'], // css color: background color
             'open'                  :   false                           // boolean: open
         };                                                              // done json: full view container options
         self.fullViewHeaderOptions = {                                  // json: full view header options
             'id'                    :   'fullViewHeader' + self.values['id'], // string: element id
             'element'               :   'div',                          // string: html element type 
             'display'               :   'block',                        // css display
-            'text'                  :   sharesoft.translations['originalFileName'], // string: text
+            'text'                  :   pleisterman.translations['originalFileName'], // string: text
             'textAlign'             :   'center',                       // css verical align
             'minimumHeight'         :   '1.1em',                        // css minimum height
             'marginTop'             :   '0.1em',                        // css margin top
-            'color'                 :   sharesoft.colors['panelHighlightColor']['color'], // css color: color
+            'color'                 :   pleisterman.colors['panelHighlightColor']['color'], // css color: color
             'fontSize'              :   '1.0em',                        // css font size
             'fontWeight'            :   'normal',                       // css font weight
             'marginBottom'          :   '0.2em',                        // css margin bottom
@@ -190,10 +190,10 @@
             'paddingBottom'         :   '0.4em',                        // css padding bottom
             'paddingTop'            :   '0.4em',                        // css padding top
             'border'                :   true,                           // boolean: has border
-            'borderColor'           :   sharesoft.colors['panelBorderColor']['color'],  // css color: border color
+            'borderColor'           :   pleisterman.colors['panelBorderColor']['color'],  // css color: border color
             'borderWidth'           :   '0.1em',                        // css border width
             'borderStyle'           :   'solid',                        // css border style
-            'backgroundColor'       :   sharesoft.colors['panelHighlightBackgroundColor']['color'] // css color: background color
+            'backgroundColor'       :   pleisterman.colors['panelHighlightBackgroundColor']['color'] // css color: background color
         };                                                              // done json: full view header options
         self.fullViewOptions = {                                        // json: full view options
             'id'                    :   'fullView' + self.values['id'], // string: element id
@@ -205,7 +205,7 @@
             'backgroundColor'       :   'black',                        // css color: background color
             'border'                :   true,                           // boolean: has border
             'borderWidth'           :   '0.1em',                        // css border width    
-            'borderColor'           :   sharesoft.colors['commonBorderColor']['color'], // css color: border color
+            'borderColor'           :   pleisterman.colors['commonBorderColor']['color'], // css color: border color
             'borderStyle'           :   'solid',                        // css border style
             'borderRadius'          :   '0.1em',                        // css border radius
             'mouseOver'             :   false,                          // boolean: mouse over
@@ -255,7 +255,7 @@
         // FUNCTION: addApplicationsExtensions( void ) void
             
             // get document upload options
-            sharesoft.getImageUploadOptions = self.getUploadOptions;
+            pleisterman.getImageUploadOptions = self.getUploadOptions;
             
         // DONE FUNCTION: addApplicationsExtensions( void ) void
         };
@@ -318,11 +318,11 @@
         // FUNCTION: setSelectedDisplay( void ) void
             
             // input mouse in -> color highlight
-            $( '#' + self.inputOptions['id'] ).css( 'color', sharesoft.colors['editColor']['color'] );
+            $( '#' + self.inputOptions['id'] ).css( 'color', pleisterman.colors['editColor']['color'] );
             // set item background color selected
-            $( '#' + self.itemContainerOptions['id'] ).css( 'background-color', sharesoft.colors['buttonHighlightBackgroundColor']['color'] );
+            $( '#' + self.itemContainerOptions['id'] ).css( 'background-color', pleisterman.colors['buttonHighlightBackgroundColor']['color'] );
             // set label color selected
-            $( '#' + self.labelOptions['id'] ).css( 'color', sharesoft.colors['buttonHighlightColor']['color'] );
+            $( '#' + self.labelOptions['id'] ).css( 'color', pleisterman.colors['buttonHighlightColor']['color'] );
             // set label font weight selected
             $( '#' + self.labelOptions['id'] ).css( 'font-weight', 'bold' );
             
@@ -462,13 +462,13 @@
                 // create info
                 var imageInfo = '';
                 // add file name
-                imageInfo += sharesoft.translations['fileName'] + ': ' + self.values['fileName'];
+                imageInfo += pleisterman.translations['fileName'] + ': ' + self.values['fileName'];
                 imageInfo += '\n';
                 // add width
-                imageInfo += sharesoft.translations['width'] + ': ' + self.values['imageWidth'];
+                imageInfo += pleisterman.translations['width'] + ': ' + self.values['imageWidth'];
                 imageInfo += '\n';
                 // add height
-                imageInfo += sharesoft.translations['height'] + ': ' + self.values['imageHeight'];
+                imageInfo += pleisterman.translations['height'] + ': ' + self.values['imageHeight'];
                 imageInfo += '\n';
                 // done create info
                 
@@ -477,7 +477,7 @@
             }   
             else {
                 // create info
-                var imageInfo = sharesoft.translations['noImageUploaded'];
+                var imageInfo = pleisterman.translations['noImageUploaded'];
                 // set image info
                 $( '#' + self.previewInfoOptions['id'] ).val( imageInfo );
             }
@@ -594,12 +594,12 @@
                 'canFocus'  :   false,
                 'keys'      :   [
                     {
-                        'keyCode'   :   sharesoft.getSetting( 'keyCodes' )['space'],
+                        'keyCode'   :   pleisterman.getSetting( 'keyCodes' )['space'],
                         'type'      :   'tabStop',
                         'function'  :   self.showFullView
                     },
                     {
-                        'keyCode'   :   sharesoft.getSetting( 'keyCodes' )['escape'],
+                        'keyCode'   :   pleisterman.getSetting( 'keyCodes' )['escape'],
                         'type'      :   'tabStop',
                         'function'  :   self.hideFullView
                     }
@@ -624,7 +624,7 @@
                 'canFocus'  :   false,
                 'keys'      :   [
                     {
-                        'keyCode'   :   sharesoft.getSetting( 'keyCodes' )['space'],
+                        'keyCode'   :   pleisterman.getSetting( 'keyCodes' )['space'],
                         'type'      :   'tabStop',
                         'function'  :   self.inputClick
                     }
@@ -719,15 +719,15 @@
             // preview mouse over or has focus
             if( self.previewOptions['mouseOver'] || self.previewOptions['hasFocus'] ){
                 // mouse in -> background color, color highlight
-                $( '#' + self.previewHeaderOptions['id'] ).css( 'background-color', sharesoft.colors['buttonHighlightBackgroundColor']['color'] );
+                $( '#' + self.previewHeaderOptions['id'] ).css( 'background-color', pleisterman.colors['buttonHighlightBackgroundColor']['color'] );
                 // mouse in -> color, color highlight
-                $( '#' + self.previewHeaderOptions['id'] ).css( 'color', sharesoft.colors['buttonHighlightColor']['color'] );
+                $( '#' + self.previewHeaderOptions['id'] ).css( 'color', pleisterman.colors['buttonHighlightColor']['color'] );
             }
             else {
                 // mouse out -> background color, color default
-                $( '#' + self.previewHeaderOptions['id'] ).css( 'background-color', sharesoft.colors['panelHighlightBackgroundColor']['color'] );
+                $( '#' + self.previewHeaderOptions['id'] ).css( 'background-color', pleisterman.colors['panelHighlightBackgroundColor']['color'] );
                 // mouse out -> color, color default
-                $( '#' + self.previewHeaderOptions['id'] ).css( 'color', sharesoft.colors['panelHighlightColor']['color'] );
+                $( '#' + self.previewHeaderOptions['id'] ).css( 'color', pleisterman.colors['panelHighlightColor']['color'] );
             }
             // done input mouse over or has focus
             
@@ -892,22 +892,22 @@
         // FUNCTION: updateButtonsDisplay( void ) void
         
             // set background color
-            $( '#' + self.inputOptions['id'] ).css( 'background-color', sharesoft.colors['buttonHighlightBackgroundColor']['color'] );            
+            $( '#' + self.inputOptions['id'] ).css( 'background-color', pleisterman.colors['buttonHighlightBackgroundColor']['color'] );            
             // set color
-            $( '#' + self.inputOptions['id'] ).css( 'color', sharesoft.colors['buttonHighlightColor']['color'] );            
+            $( '#' + self.inputOptions['id'] ).css( 'color', pleisterman.colors['buttonHighlightColor']['color'] );            
 
             // input mouse over or has focus
             if( self.inputOptions['mouseOver'] || self.inputOptions['hasFocus'] ){
                 // mouse out -> background color, color default
-                $( '#' + self.inputOptions['id'] ).css( 'background-color', sharesoft.colors['buttonHighlightBackgroundColor']['color'] );
+                $( '#' + self.inputOptions['id'] ).css( 'background-color', pleisterman.colors['buttonHighlightBackgroundColor']['color'] );
                 // mouse out -> color, color default
-                $( '#' + self.inputOptions['id'] ).css( 'color', sharesoft.colors['buttonHighlightColor']['color'] );
+                $( '#' + self.inputOptions['id'] ).css( 'color', pleisterman.colors['buttonHighlightColor']['color'] );
             }
             else {
                 // mouse out -> background color, color default
                 $( '#' + self.inputOptions['id'] ).css( 'background-color', 'transparent' );
                 // mouse out -> color, color default
-                $( '#' + self.inputOptions['id'] ).css( 'color', sharesoft.colors['commonColor']['color'] );
+                $( '#' + self.inputOptions['id'] ).css( 'color', pleisterman.colors['commonColor']['color'] );
             }
             // done input mouse over or has focus
             
@@ -926,9 +926,9 @@
             // debug info
             self.debug( 'update colors' );
             // set background color
-            $( '#' + self.inputOptions['id'] ).css( 'background-color', sharesoft.colors['editBackgroundColor']['color'] );
+            $( '#' + self.inputOptions['id'] ).css( 'background-color', pleisterman.colors['editBackgroundColor']['color'] );
             // set color
-            $( '#' + self.inputOptions['id'] ).css( 'color', sharesoft.colors['editColor']['color'] );
+            $( '#' + self.inputOptions['id'] ).css( 'color', pleisterman.colors['editColor']['color'] );
             
         // DONE FUNCTION: updateColors( void ) void
         };
@@ -986,5 +986,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: dataEditImageUploadModule( string: contentId, json: values ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

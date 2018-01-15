@@ -22,23 +22,23 @@
  *          cancel
  *      it connects to the header functions of the list
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  *  
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: contactsModule( void ) void 
     
-    sharesoft.contactsModule = function( ) {
+    pleisterman.contactsModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -66,7 +66,7 @@
             self.debug( 'construct' );
             
             // create dataObjectModule
-            self.dataObjectModule = new sharesoft.contactDataObjectModule();
+            self.dataObjectModule = new pleisterman.contactDataObjectModule();
             // get dataObject
             self.dataObject = self.dataObjectModule.getDataObject();
             
@@ -77,15 +77,15 @@
             // done create select module options
 
             // create the select module
-            self.selectModule = new sharesoft.contactsSelectModule( options ); 
+            self.selectModule = new pleisterman.contactsSelectModule( options ); 
             
             // add the module to global values
             jsProject.setValue( 'contactsSelectModule', 'select', self.selectModule );
             
             // create the contactsListModule
-            self.contactsList = new sharesoft.contactsListModule();
+            self.contactsList = new pleisterman.contactsListModule();
             // create a new listModule
-            self.list = new sharesoft.listModule( self.listOptions, self.listCallback );
+            self.list = new pleisterman.listModule( self.listOptions, self.listCallback );
             
             // add contact projects module
             self.addContactProjects();
@@ -104,7 +104,7 @@
             // get contactProjects object from dataObject
             var contactProjectsObject = jsProject.getJsonValue( self.dataObject, ['id=contactProjects'] );            
             // add contactProjects module
-            contactProjectsObject['module'] =  new sharesoft.contactProjectsModule();            
+            contactProjectsObject['module'] =  new pleisterman.contactProjectsModule();            
             
         // DONE FUNCTION addContactProjects( void ) void
         };
@@ -138,7 +138,7 @@
             self.selectModule.load( callback );
             
             // header open
-            if( sharesoft.options['contactsHeaderOpen']['value'] === 'true' ){
+            if( pleisterman.options['contactsHeaderOpen']['value'] === 'true' ){
                 // debug info
                 self.debug( 'header is open' );
                 // load the list data
@@ -157,7 +157,7 @@
             // if id is self.id
             if( listId === self.id ){
                 // header open
-                if( sharesoft.options['contactsHeaderOpen']['value'] === 'true' ){
+                if( pleisterman.options['contactsHeaderOpen']['value'] === 'true' ){
                     // debug info
                     self.debug( 'header is open' );
                     // load the list data
@@ -187,9 +187,9 @@
                 // action: header 
                 case 'header' : {
                     // header is open / closed    
-                    if( sharesoft.options['contactsHeaderOpen']['value'] === 'true' ){
+                    if( pleisterman.options['contactsHeaderOpen']['value'] === 'true' ){
                         // was open now closed
-                        sharesoft.setOption( 'contactsHeaderOpen', 'false' );
+                        pleisterman.setOption( 'contactsHeaderOpen', 'false' );
                     }
                     else {
                         // open the selection list
@@ -226,9 +226,9 @@
         // FUNCTION openList( void ) void 
             
             // header was not open
-            if( sharesoft.options['contactsHeaderOpen']['value'] !== 'true' ){
+            if( pleisterman.options['contactsHeaderOpen']['value'] !== 'true' ){
                 // was closed now open
-                sharesoft.setOption( 'contactsHeaderOpen', 'true' );
+                pleisterman.setOption( 'contactsHeaderOpen', 'true' );
                 // load the list
                 self.contactsList.load( self.fillList );
             }
@@ -240,16 +240,16 @@
         // FUNCTION: openInitialSelection( void ) void
 
             // open subject is contacts
-            if( sharesoft.options['openSubject']['value'] === 'contacts' ){
+            if( pleisterman.options['openSubject']['value'] === 'contacts' ){
                 
                 // open the selection list
                 self.openList();
 
                 // subject row id exists
-                if( sharesoft.options['openSubjectRowId']['value'] !== undefined && sharesoft.options['openSubjectRowId']['value']    ){
+                if( pleisterman.options['openSubjectRowId']['value'] !== undefined && pleisterman.options['openSubjectRowId']['value']    ){
                      
                     // get selected row
-                    self.getRow( sharesoft.options['openSubjectRowId']['value'] );
+                    self.getRow( pleisterman.options['openSubjectRowId']['value'] );
                 }
                 // done subject row id exists
             }
@@ -264,13 +264,13 @@
             self.debug( 'self.fillList: ');
 
             // header open show data 
-            if( sharesoft.options['contactsHeaderOpen']['value'] === 'true' ){
+            if( pleisterman.options['contactsHeaderOpen']['value'] === 'true' ){
                 // open list content
                 self.list.openContent( true );
 
                 // create options
                 var options = {
-                    'headerText'    :   sharesoft.translations['lastUsedContacts'],
+                    'headerText'    :   pleisterman.translations['lastUsedContacts'],
                     'rows'          :   rows
                 };
                 // done create options
@@ -297,7 +297,7 @@
                 // done create message options
                 
                 // show the message
-                sharesoft.showMessage( 'dataChanged', options );
+                pleisterman.showMessage( 'dataChanged', options );
             }
             else {
                 // data unchanged get row
@@ -312,7 +312,7 @@
             // debug info
             self.debug( 'reload' );
             // reload 
-            self.getRow( sharesoft.options['openSubjectRowId']['value'] );
+            self.getRow( pleisterman.options['openSubjectRowId']['value'] );
 
         // DONE FUNCTION: reloadRow( void ) void
         };
@@ -352,7 +352,7 @@
             // set edit mode
             self.editMode = 'select';
             // unset open subject
-            sharesoft.setOption( 'openSubject', null );            
+            pleisterman.setOption( 'openSubject', null );            
             // call cancel event
             jsProject.callEvent( 'cancel' );
         
@@ -368,9 +368,9 @@
             self.openList();
 
             // set open subject
-            sharesoft.setOption( 'openSubject', 'contacts' );
+            pleisterman.setOption( 'openSubject', 'contacts' );
             // set open id
-            sharesoft.setOption( 'openSubjectRowId', id );
+            pleisterman.setOption( 'openSubjectRowId', id );
             // get data
             self.dataObjectModule.getData( self.showData, id );
 
@@ -391,7 +391,7 @@
                 // done create message options
                 
                 // show the message
-                sharesoft.showMessage( 'dataChanged', options );
+                pleisterman.showMessage( 'dataChanged', options );
             }
             else {
                 // new row
@@ -490,9 +490,9 @@
             // cancel edit state
             self.cancelEdit();
             // set open subject
-            sharesoft.setOption( 'openSubject', 'contacts' );
+            pleisterman.setOption( 'openSubject', 'contacts' );
             // set open id
-            sharesoft.setOption( 'openSubjectRowId', id );
+            pleisterman.setOption( 'openSubjectRowId', id );
 
             // refresh data display
             self.showData();
@@ -528,5 +528,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: contactsModule( void ) void
-})( sharesoft );
+})( pleisterman );
 // done create module function

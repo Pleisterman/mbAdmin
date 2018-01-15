@@ -8,23 +8,23 @@
  *  Purpose: 
  *      this module controls selection of rides.
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  *  
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
     
     // MODULE: ridesListSelectModule( void ) void
     
-    sharesoft.ridesListSelectModule = function( ) {
+    pleisterman.ridesListSelectModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -54,15 +54,15 @@
             
             // construct data object
             var data = { 
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'subject'           :   'rides',
                 'what'              :   listSelection,
                 'selection'         :   selection
             };
             // done construct data object
 
-            // AJAX: /sharesoft/read
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/read', sharesoft.token, data, self.loadCallback );
+            // AJAX: /pleisterman/read
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/read', pleisterman.token, data, self.loadCallback );
             
         // DONE FUNCTION: loadList( string: listSelection, json: selection, function: callback ) void
         };
@@ -91,7 +91,7 @@
         // FUNCTION: hasCallbackErrors( json: result ) boolean
 
             // global check result
-            if( sharesoft.hasAjaxResultErrors( result ) ){
+            if( pleisterman.hasAjaxResultErrors( result ) ){
                 // done with error
                 return;
             }
@@ -130,5 +130,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: ridesListSelectModule( void ) void
-})( sharesoft );
+})( pleisterman );
 // done create module function

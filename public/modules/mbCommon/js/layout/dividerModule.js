@@ -10,22 +10,22 @@
  *          the divider is used to give the user control of the layout.
  *          this divider is a vertical divider that controls the width of two divs.
  *           
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: dividerModule( void ) void 
     
-    sharesoft.dividerModule = function( ) {
+    pleisterman.dividerModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -45,14 +45,14 @@
             'position'              :   'absolute',                 // css position
             'overflow'              :   'hidden',                   // css overflow 
             'styleWidth'            :   '0.7em',                    // css style width
-            'zIndex'                :   sharesoft.getSetting( 'zIndexDivider' ).toString(), // css z-index
+            'zIndex'                :   pleisterman.getSetting( 'zIndexDivider' ).toString(), // css z-index
             'cursor'                :   'col-resize',               // css cursor    
-            'backgroundColor'       :   sharesoft.colors['panelBackgroundColor']['color'],
+            'backgroundColor'       :   pleisterman.colors['panelBackgroundColor']['color'],
             'eventLayer'            :   'main',                     // string event layer id
             'borderRight'           :   true,                       // boolean: has border rigth
             'borderLeft'            :   true,                       // boolean: has border left
             'borderWidth'           :   '1px',                      // css border width
-            'borderColor'           :   sharesoft.colors['buttonBackgroundColor']['color'], // css border color
+            'borderColor'           :   pleisterman.colors['buttonBackgroundColor']['color'], // css border color
             'borderStyle'           :   'groove',                   // css border style
         };                                                          // done json: divider options
         self.dragAreaOptions = {                                    // json: drag area options
@@ -60,7 +60,7 @@
             'element'               :   'div',                      // string: html element type 
             'display'               :   'none',                     // css display style
             'position'              :   'absolute',                 // css position
-            'zIndex'                :   sharesoft.getSetting( 'zIndexDividerDragArea' ).toString(), // css z-index
+            'zIndex'                :   pleisterman.getSetting( 'zIndexDividerDragArea' ).toString(), // css z-index
             'backgroundColor'       :   'transparent',              // css color: background color
             'cursor'                :   'col-resize',               // css cursor    
             'offset'                :   120,                        // integer: offset
@@ -69,7 +69,7 @@
         self.dividerDragButtonOptions = {                           // json: drag button options
             'id'                :   'dividerDragButton',            // string: element id
             'element'           :   'div',                          // string: html element type 
-            'backgroundColor'   :   sharesoft.colors['buttonHighlightBackgroundColor']['color'], // css color: background color
+            'backgroundColor'   :   pleisterman.colors['buttonHighlightBackgroundColor']['color'], // css color: background color
             'borderRadius'      :   '0.2em',                        // css border radius
             'styleHeight'       :   '80%',                          // css style height
             'styleWidth'        :   '40%',                          // css style width
@@ -79,7 +79,7 @@
         self.dividerJumpButtonOptions = {                           // json: jump button options
             'element'           :   'div',                          // string: html element type 
             'jumpPosition'      :   200,                            // integer: jump position
-            'backgroundColor'   :   sharesoft.colors['buttonHighlightBackgroundColor']['color'], // css color: background color
+            'backgroundColor'   :   pleisterman.colors['buttonHighlightBackgroundColor']['color'], // css color: background color
             'borderRadius'      :   '0.2em',                        // css border radius
             'styleHeight'       :   '9%',                           // csss style height
             'styleWidth'        :   '70%',                          // css style width
@@ -197,8 +197,8 @@
         
             self.debug( ' jump select' );
             // mouse over -> background color highlight
-            $( '#dividerJumpButtonTop' ).css( 'background-color', sharesoft.colors['buttonBackgroundColor']['color'] );
-            $( '#dividerJumpButtonBottom' ).css( 'background-color', sharesoft.colors['buttonBackgroundColor']['color'] );
+            $( '#dividerJumpButtonTop' ).css( 'background-color', pleisterman.colors['buttonBackgroundColor']['color'] );
+            $( '#dividerJumpButtonBottom' ).css( 'background-color', pleisterman.colors['buttonBackgroundColor']['color'] );
             
         // DONE FUNCTION: jumpButtonSelect( void ) void
         };
@@ -208,8 +208,8 @@
             self.debug( ' jump deselects' );
 
             // mouse out -> background color default
-            $( '#dividerJumpButtonTop' ).css( 'background-color', sharesoft.colors['buttonHighlightBackgroundColor']['color'] );
-            $( '#dividerJumpButtonBottom' ).css( 'background-color', sharesoft.colors['buttonHighlightBackgroundColor']['color'] );
+            $( '#dividerJumpButtonTop' ).css( 'background-color', pleisterman.colors['buttonHighlightBackgroundColor']['color'] );
+            $( '#dividerJumpButtonBottom' ).css( 'background-color', pleisterman.colors['buttonHighlightBackgroundColor']['color'] );
             
         // DONE FUNCTION: jumpButtonDeSelect( void ) void
         };
@@ -228,14 +228,14 @@
             var newPosition = 0;
             
             // current position = minmium position
-            if( currentPosition <= sharesoft.getSetting( 'dividerMinimumPosition' ) ){
+            if( currentPosition <= pleisterman.getSetting( 'dividerMinimumPosition' ) ){
                 newPosition = self.dividerJumpButtonOptions['jumpPosition'];
                 // done current position = minmium position
             }
             else {
                 // current position > minimum    
                 self.dividerJumpButtonOptions['jumpPosition'] = currentPosition;
-                newPosition = sharesoft.getSetting( 'dividerMinimumPosition' );
+                newPosition = pleisterman.getSetting( 'dividerMinimumPosition' );
                 // done current position > minimum    
             }
             self.debug( newPosition );
@@ -250,7 +250,7 @@
         // FUNCTION: select( html element ) void
         
             // mouse over -> background color highlight
-            $( '#' + element.id ).css( 'background-color', sharesoft.colors['buttonBackgroundColor']['color'] );
+            $( '#' + element.id ).css( 'background-color', pleisterman.colors['buttonBackgroundColor']['color'] );
             
         // DONE FUNCTION: select( html element ) void
         };
@@ -258,7 +258,7 @@
         // FUNCTION: deSelect( html element ) void
         
             // mouse out -> background color default
-            $( '#' + element.id ).css( 'background-color', sharesoft.colors['buttonHighlightBackgroundColor']['color'] );
+            $( '#' + element.id ).css( 'background-color', pleisterman.colors['buttonHighlightBackgroundColor']['color'] );
             
             
         // DONE FUNCTION: deSelect( html element ) void
@@ -293,7 +293,7 @@
             $( '#' + self.dragAreaOptions['id'] ).hide();
             
             // set didvider position value
-            sharesoft.setOption( 'dividerPosition',  jsProject.getValue( 'position', 'divider' ) );
+            pleisterman.setOption( 'dividerPosition',  jsProject.getValue( 'position', 'divider' ) );
 
         // DONE FUNCTION: endDrag( void ) void
         };
@@ -309,8 +309,8 @@
             var currentPosition = jsProject.getValue( 'position', 'divider' );
             // calculate new position
             var newPosition = currentPosition + change;
-            if( newPosition < sharesoft.getSetting( 'dividerMinimumPosition' ) ){
-                newPosition = sharesoft.getSetting( 'dividerMinimumPosition' );
+            if( newPosition < pleisterman.getSetting( 'dividerMinimumPosition' ) ){
+                newPosition = pleisterman.getSetting( 'dividerMinimumPosition' );
             }
             // done calculate new position
             
@@ -335,8 +335,8 @@
             var currentPosition = jsProject.getValue( 'position', 'divider' );
             // calculate new position
             var newPosition = currentPosition - self.moveOptions['change'];
-            if( newPosition < sharesoft.getSetting( 'dividerMinimumPosition' ) ){
-                newPosition = sharesoft.getSetting( 'dividerMinimumPosition' );
+            if( newPosition < pleisterman.getSetting( 'dividerMinimumPosition' ) ){
+                newPosition = pleisterman.getSetting( 'dividerMinimumPosition' );
             }
             // done calculate new position
             // set position
@@ -450,5 +450,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: dividerModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

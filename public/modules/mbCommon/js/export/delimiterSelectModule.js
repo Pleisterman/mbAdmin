@@ -8,23 +8,23 @@
  * 
  * Last revision: 01-01-2017
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  *  
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: delimiterSelectModule( json: options ) void
     
-    sharesoft.delimiterSelectModule = function( options ) {
+    pleisterman.delimiterSelectModule = function( options ) {
         // PRIVATE:
         
         // MEMBERS
@@ -36,17 +36,17 @@
             {                                                   // json: id
                 'id'            :   'comma',                    // string: id
                 'delimiter'     :   ',',                        // string: delimiter
-                'text'          :   sharesoft.translations['comma'] // string: TRANSLATION: comma
+                'text'          :   pleisterman.translations['comma'] // string: TRANSLATION: comma
             },                                                  // done json: id
             {                                                   // json: tab
                 'id'            :   'tab',                      // string: id
                 'delimiter'     :   '   ',                      // string: delimiter
-                'text'          :   sharesoft.translations['tab'] // string: TRANSLATION: tab
+                'text'          :   pleisterman.translations['tab'] // string: TRANSLATION: tab
             },                                                  // done json: tab
             {                                                   // json: semicolon
                 'id'            :   'semicolon',                // string: id
                 'delimiter'     :   ';',                        // string: delimiter
-                'text'          :   sharesoft.translations['semicolon'] // string: TRANSLATION: semicolon
+                'text'          :   pleisterman.translations['semicolon'] // string: TRANSLATION: semicolon
             }                                                   // done json: semicolon
         ];                                                      // done json: delimiters
         // DONE MEMBERS     
@@ -133,5 +133,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: delimiterSelectModule( json: options ) void
-})( sharesoft );
+})( pleisterman );
 // done create module function

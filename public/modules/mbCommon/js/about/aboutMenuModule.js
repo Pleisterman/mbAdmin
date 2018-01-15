@@ -10,22 +10,22 @@
  * 
  *  Last Revision:  04-01-2017
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
 */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: aboutMenuModule( void ) void
     
-    sharesoft.aboutMenuModule = function( ) {
+    pleisterman.aboutMenuModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -44,10 +44,10 @@
             self.debug( 'construct' );
             
             // add menu button
-            self.menuButton = new sharesoft.aboutMenuButtonModule( self.menuButtonCallback );
+            self.menuButton = new pleisterman.aboutMenuButtonModule( self.menuButtonCallback );
             
             // add menu layer
-            self.menuLayer = new sharesoft.aboutMenuLayerModule( self.menuButton.getId() );
+            self.menuLayer = new pleisterman.aboutMenuLayerModule( self.menuButton.getId() );
             
         // DONE FUNCTION: construct( void ) void
         };
@@ -85,5 +85,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: aboutMenuModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

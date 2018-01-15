@@ -8,22 +8,22 @@
  *  Purpose: 
  *          this module creates a menuItem for the popUpMenuModule
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: menuItemModule( string: id, var: value, string: text, string: menuId ) void 
     
-    sharesoft.menuItemModule = function( id, value, text, menuId ) {
+    pleisterman.menuItemModule = function( id, value, text, menuId ) {
         // PRIVATE:
         
         // MEMBERS
@@ -39,28 +39,28 @@
             'element'               :   'div',                          // string html element type 
             'overflow'              :   'visible',                      // css overflow style
             'textAlign'             :   'left',                         // css text align
-            'marginTop'             :   sharesoft.getSetting( 'menuItemTopMargin' ),        // css margin top
-            'backgroundColor'       :   sharesoft.colors['buttonBackgroundColor']['color'], // css color: background color
-            'color'                 :   sharesoft.colors['buttonColor']['color'],           // css color: color
+            'marginTop'             :   pleisterman.getSetting( 'menuItemTopMargin' ),        // css margin top
+            'backgroundColor'       :   pleisterman.colors['buttonBackgroundColor']['color'], // css color: background color
+            'color'                 :   pleisterman.colors['buttonColor']['color'],           // css color: color
             'border'                :   true,                           // add border option
-            'borderWidth'           :   sharesoft.getSetting( 'menuItemBorderWidth' ),  // css border width
-            'borderColor'           :   sharesoft.colors['panelBorderColor']['color'],  // css color: border color
-            'borderStyle'           :   sharesoft.getSetting( 'menuItemBorderStyle' ),  // css border style
-            'borderRadius'          :   sharesoft.getSetting( 'menuItemBorderRadius' ), // css border radius
+            'borderWidth'           :   pleisterman.getSetting( 'menuItemBorderWidth' ),  // css border width
+            'borderColor'           :   pleisterman.colors['panelBorderColor']['color'],  // css color: border color
+            'borderStyle'           :   pleisterman.getSetting( 'menuItemBorderStyle' ),  // css border style
+            'borderRadius'          :   pleisterman.getSetting( 'menuItemBorderRadius' ), // css border radius
             'cursor'                :   'pointer',                      // css cursor            
-            'marginLeft'            :   sharesoft.getSetting( 'menuItemMarginLeft' ),   // css margin left
-            'marginRight'           :   sharesoft.getSetting( 'menuItemMarginRight' )   // css margin right
+            'marginLeft'            :   pleisterman.getSetting( 'menuItemMarginLeft' ),   // css margin left
+            'marginRight'           :   pleisterman.getSetting( 'menuItemMarginRight' )   // css margin right
         };                                                              // done json: menu item options
         self.menuItemTextOptions = {                                    // json: menu item text options
             'id'                    :   'menuItemText_' + self.menuId + '_' + self.id,   // string
             'text'                  :   '' + self.text + '',            // string
             'element'               :   'div',                          // string html element type 
             'display'               :   'block',                        // css display style
-            'fontSize'              :   sharesoft.getSetting( 'menuItemFontSize' ),     // css fot size
-            'fontWeight'            :   sharesoft.getSetting( 'menuItemFontWeight' ),   // css font weight
-            'padding'               :   sharesoft.getSetting( 'menuItemPadding' ),      // css padding
-            'paddingLeft'           :   sharesoft.getSetting( 'menuItemPaddingLeft' ),  // css padding left
-            'paddingRight'          :   sharesoft.getSetting( 'menuItemPaddingRight' )  // css padding right
+            'fontSize'              :   pleisterman.getSetting( 'menuItemFontSize' ),     // css fot size
+            'fontWeight'            :   pleisterman.getSetting( 'menuItemFontWeight' ),   // css font weight
+            'padding'               :   pleisterman.getSetting( 'menuItemPadding' ),      // css padding
+            'paddingLeft'           :   pleisterman.getSetting( 'menuItemPaddingLeft' ),  // css padding left
+            'paddingRight'          :   pleisterman.getSetting( 'menuItemPaddingRight' )  // css padding right
         };                                                              // done json: menu item text options
         // DONE MEMBERS     
         
@@ -131,5 +131,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: menuItemModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

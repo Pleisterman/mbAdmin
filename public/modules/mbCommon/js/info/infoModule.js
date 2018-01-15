@@ -8,22 +8,22 @@
  *  Purpose: 
  *          this module handles communication for the about info
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: infoModule( void ) void 
     
-    sharesoft.infoModule = function( ) {
+    pleisterman.infoModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -52,7 +52,7 @@
             // module !exists 
             if( !self.infoDialogModule ){
                 // create module
-                self.infoDialogModule = new sharesoft.infoDialogModule( self.getText );
+                self.infoDialogModule = new pleisterman.infoDialogModule( self.getText );
             }
             // done module !exists
             
@@ -69,15 +69,15 @@
             
             // create ajax data
             var data = { 
-                'userDirectory'     :   sharesoft.userDirectory,
+                'userDirectory'     :   pleisterman.userDirectory,
                 'type'              :   'info',    
                 'infoId'            :   'applicationInfoText',
-                'languageId'        :   sharesoft.selectedLanguageId 
+                'languageId'        :   pleisterman.selectedLanguageId 
             };
             // done create ajax data
 
             // ajax
-            jsProject.post( '/' + sharesoft.baseDirectory + '/getString', data, self.getTextCallback );
+            jsProject.post( '/' + pleisterman.baseDirectory + '/getString', data, self.getTextCallback );
             
             
         // DONE FUNCTION: getText( function: callback ) void
@@ -122,5 +122,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: infoModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

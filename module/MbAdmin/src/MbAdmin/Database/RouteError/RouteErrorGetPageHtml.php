@@ -9,7 +9,7 @@
  *  Author: Pleisterman
  *  Web: www.pleisterman.nl 
  *  Mail: info@pleisterman.nl 
- *  GitHub: PleistermanNL 
+ *  GitHub: Pleisterman 
  * 
  * Purpose: 
  *      this class gets the page html for the route error page

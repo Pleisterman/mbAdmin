@@ -8,22 +8,22 @@
  *  Purpose: 
  *       this module controls documents select
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
     
     // MODULE: documentsSelectModule( void ) void
     
-    sharesoft.documentsSelectModule = function( ) {
+    pleisterman.documentsSelectModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -62,11 +62,11 @@
             self.callerOptions['callback'] = callback;
             
             // show busy screen
-            sharesoft.startBusyProcess();
+            pleisterman.startBusyProcess();
 
             // construct data object
             var data = { 
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'subject'           :   'documents',
                 'what'              :   'selectData',
                 'selection'         :   options
@@ -74,7 +74,7 @@
             // done construct data object
              
             // make the ajax call
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/read', sharesoft.token, data, self.getSelectDataCallback );
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/read', pleisterman.token, data, self.getSelectDataCallback );
             
         // DONE FUNCTION: getSelectData( json: options, function: callback ) void
         };
@@ -83,14 +83,14 @@
 
             // check critical errors
             if( result['criticalError'] ){
-                sharesoft.showCriticalError( result['criticalError'] );
-                sharesoft.endBusyProcess();
+                pleisterman.showCriticalError( result['criticalError'] );
+                pleisterman.endBusyProcess();
                 return;
             }
             // done check critical errors
 
             // hide busy screen
-            sharesoft.endBusyProcess();
+            pleisterman.endBusyProcess();
             
             // call the callback
             self.callerOptions['callback']( result );
@@ -127,5 +127,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: dataFunctionsModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

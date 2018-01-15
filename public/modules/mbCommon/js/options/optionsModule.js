@@ -8,27 +8,27 @@
  * 
  *  Last Revision:  16-01-2017
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
  *  Purpose:  
  *          this module controls the options for the application
  *          the function set opton is added to the application
  *          an option menu is created
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
 */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: optionsModule( void ) void
     
-    sharesoft.optionsModule = function( ) {
+    pleisterman.optionsModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -48,7 +48,7 @@
             // add menu
             self.addMenu();
             
-            // add the extensions to sharesoft
+            // add the extensions to pleisterman
             self.addApplicationsExtensions();
             
         // DONE FUNCTION: construct( void ) void
@@ -57,7 +57,7 @@
         // FUNCTION: construct( void ) void
             
             // add set option function to application
-            sharesoft.setOption = self.setOption;
+            pleisterman.setOption = self.setOption;
             
         // DONE FUNCTION: addApplicationsExtensions( void ) void
         };
@@ -65,7 +65,7 @@
         // FUNCTION: addMenu( void ) void
             
             // add menu
-            self.menu = new sharesoft.optionsMenuModule();
+            self.menu = new pleisterman.optionsMenuModule();
             
         // DONE FUNCTION: addMenu( void ) void
         };
@@ -76,12 +76,12 @@
             self.debug( 'setOption: ' + name + ' value: ' + value );
             
             // set the js value
-            sharesoft.options[name]['value'] = value;
+            pleisterman.options[name]['value'] = value;
             
             // construct data object
             var values = { 'value' : value };
             var data = { 
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'subject'           :   'options',
                 'name'              :   name,
                 'values'            :   values 
@@ -89,7 +89,7 @@
             // done construct data object
             
             // make the ajax call
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/update', sharesoft.token, data, self.setOptionCallback );
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/update', pleisterman.token, data, self.setOptionCallback );
             
         // DONE FUNCTION: etOption( string: namem var: value ) void
         };
@@ -97,7 +97,7 @@
         // FUNCTION: setOptionCallback( json: result ) void
             
             // global check result
-            if( sharesoft.hasAjaxResultErrors( result ) ){
+            if( pleisterman.hasAjaxResultErrors( result ) ){
                 // done with error
                 return;
             }
@@ -129,5 +129,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: optionsModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

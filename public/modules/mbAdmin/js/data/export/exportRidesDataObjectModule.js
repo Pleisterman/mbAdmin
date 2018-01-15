@@ -8,23 +8,23 @@
  *  Purpose: 
  *      this module controls dataObject for rides for the export
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  *  
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: exportRidesDataObjectModule( module: delimiterSelectModule, module: exportRidesTotalsSelectModule ) void
     
-    sharesoft.exportRidesDataObjectModule = function( delimiterSelectModule, exportRidesTotalsSelectModule ) {
+    pleisterman.exportRidesDataObjectModule = function( delimiterSelectModule, exportRidesTotalsSelectModule ) {
         // PRIVATE:
         
         // MEMBERS
@@ -37,7 +37,7 @@
                 'type'              :   'date',         // string: display type
                 'displayOptions'    :   {               // json: display options
                     'label'             :   {           // json: label
-                        'text'          :   sharesoft.translations['from'] // string: TRANSLATION: from
+                        'text'          :   pleisterman.translations['from'] // string: TRANSLATION: from
                     }                                   // done json: label
                 },                                      // done json: display options
                 'optional'          :   false,          // boolean: optional
@@ -48,7 +48,7 @@
                 'type'              :   'date',         // string: display type
                 'displayOptions'    :   {               // json: display options
                     'label'             :   {           // json: label
-                        'text'          :   sharesoft.translations['till'] // string: TRANSLATION: till
+                        'text'          :   pleisterman.translations['till'] // string: TRANSLATION: till
                     }                                   // done json: label
                 },                                      // done json: display options
                 'optional'      :   false,              // boolean: optional
@@ -59,7 +59,7 @@
                 'type'              :   'select',       // string: display type
                 'displayOptions'    :   {               // json: display options
                     'label'             :   {           // json: label
-                        'text'          :   sharesoft.translations['delimiter'] // string: TRANSLATION: delimiter
+                        'text'          :   pleisterman.translations['delimiter'] // string: TRANSLATION: delimiter
                     }                                   // done json: label
                 },                                      // done json: display options
                 'value'             :   'comma',        // string: value
@@ -72,10 +72,10 @@
                 'type'          :   'checkbox',         // string: display type
                 'displayOptions'    :   {               // json: display options
                     'label'             :   {           // json: label
-                        'text'          :   sharesoft.translations['AddExportHeaders'] // string: TRANSLATION: AddExportHeaders
+                        'text'          :   pleisterman.translations['AddExportHeaders'] // string: TRANSLATION: AddExportHeaders
                     }                                   // done json: label
                 },                                      // done json: display options
-                'value'             :   sharesoft.options['exportRidesAddHeaders']['value'], // string: OPTION: exportRidesAddHeaders
+                'value'             :   pleisterman.options['exportRidesAddHeaders']['value'], // string: OPTION: exportRidesAddHeaders
                 'changeFunction'    :  null             // function: change function
             },                                          // done json: addHeaders
             {                                           // json: addTotals
@@ -83,7 +83,7 @@
                 'type'          :   'select',           // string: display type
                 'displayOptions'    :   {               // json: display options
                     'label'             :   {           // djson: label
-                        'text'          :   sharesoft.translations['addTotals'] // string: TRANSLATION: addTotals
+                        'text'          :   pleisterman.translations['addTotals'] // string: TRANSLATION: addTotals
                     }                                   // done json: label
                 },                                      // done json: display options
                 'value'         :   'comma',            // string: value
@@ -145,14 +145,14 @@
             self.callerOptions['callback'] = callback;
             
             // show busy screen
-            sharesoft.startBusyProcess();
+            pleisterman.startBusyProcess();
 
             // get data from display
             jsProject.callEvent( 'displaySetData' );
             
             // create json: selection
             var selection = {
-                'languageId'    : sharesoft.selectedLanguageId
+                'languageId'    : pleisterman.selectedLanguageId
             };
             // done create json: selection
             
@@ -175,7 +175,7 @@
             
             // construct jaon: data
             var data = { 
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'subject'           :   'rides',
                 'what'              :   'exportPeriodList',
                 'exportType'        :   exportType,
@@ -183,8 +183,8 @@
             };
             // done construct jaon: data
              
-            // AJAX: /sharesoft/export
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/export', sharesoft.token, data, self.exportCallback );
+            // AJAX: /pleisterman/export
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/export', pleisterman.token, data, self.exportCallback );
             
         // DONE FUNCTION: export( string: exportType, function: callback ) void
         };
@@ -194,14 +194,14 @@
             // check for errors
             if( self.hasCallbackErrors( result ) ){
                 // end busy
-                sharesoft.endBusyProcess();
+                pleisterman.endBusyProcess();
                 // done with error
                 return;
             }
             // done check for errors
         
             // hide busy screen
-            sharesoft.endBusyProcess();
+            pleisterman.endBusyProcess();
             
             // call callback
             self.callerOptions['callback']( result );
@@ -212,7 +212,7 @@
         // FUNCTION: hasCallbackErrors( json: result ) boolean
             
             // global check result
-            if( sharesoft.hasAjaxResultErrors( result ) ){
+            if( pleisterman.hasAjaxResultErrors( result ) ){
                 // done with error
                 return;
             }
@@ -239,7 +239,7 @@
         // FUNCTION: changeHeaderOption( string: value ) void
             
             // set option
-            sharesoft.setOption( 'exportRidesAddHeaders', value );
+            pleisterman.setOption( 'exportRidesAddHeaders', value );
             
         // DONE FUNCTION: changeHeaderOption( string: value ) void
         };
@@ -275,5 +275,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: exportRidesDataObjectModule( module: delimiterSelectModule, module: exportRidesTotalsSelectModule ) void
-})( sharesoft );
+})( pleisterman );
 // done create module function

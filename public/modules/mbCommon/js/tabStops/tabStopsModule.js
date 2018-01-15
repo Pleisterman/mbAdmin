@@ -8,22 +8,22 @@
  *  Purpose: 
  *          this module handles the tabstops
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: tabStopsModule( void ) void 
     
-    sharesoft.tabStopsModule = function( ) {
+    pleisterman.tabStopsModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -446,7 +446,7 @@
             // done active element !exists or no elements
             
             // application is busy
-            if( sharesoft.isBusy !== undefined && sharesoft.isBusy() ){
+            if( pleisterman.isBusy !== undefined && pleisterman.isBusy() ){
                 self.debug( 'tabstopsModule app is busy' );
                 // done no action
                 return;
@@ -454,7 +454,7 @@
             // done application is busy
             
             // tab pressed
-            if( event.keyCode === sharesoft.getSetting( 'keyCodes')['tab'] ){
+            if( event.keyCode === pleisterman.getSetting( 'keyCodes')['tab'] ){
                 // prevent default
                 event.preventDefault();
                 // stop propagation
@@ -745,5 +745,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: tabStopsModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

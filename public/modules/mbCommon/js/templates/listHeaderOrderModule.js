@@ -7,28 +7,28 @@
  * 
  *  Purpose: 
  *          this module creates the list up buttons for the listHeaders
- *          of the application sharesoft
+ *          of the application pleisterman
  *          the module displays a button or an image depending on
  *          the position of the list
  *          the first list cannot move up so an image is dispayed
  *          for the other lists an up button is displayed
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: listHeaderOrderModule( string: id ) void 
     
-    sharesoft.listHeaderOrderModule = function( id ) {
+    pleisterman.listHeaderOrderModule = function( id ) {
         // PRIVATE:
         
         // MEMBERS
@@ -36,7 +36,7 @@
         self.MODULE = 'listHeaderOrderModule';                          // string: MODULE
         self.debugOn = false;                                           // boolean: debug on
         self.id = id;                                                   // string: element id
-        self.imageUrl = sharesoft.getSetting( 'imageUrl' );             // string: image dir
+        self.imageUrl = pleisterman.getSetting( 'imageUrl' );             // string: image dir
         self.parentOptions = {                                          // json: parent options
             'id'                    :   'listHeader' + self.id          // string: element id
         };                                                              // done json: parent options
@@ -49,11 +49,11 @@
             'styleWidth'            :   '1.8em',                        // css style width
             'styleHeight'           :   '1.8em',                        // css style height
             'backgroundSize'        :   '1.8em 1.8em',                  // css background size
-            'backgroundColor'       :   sharesoft.colors['buttonBackgroundColor']['color'], // css color: background color
+            'backgroundColor'       :   pleisterman.colors['buttonBackgroundColor']['color'], // css color: background color
             'backgroundPosition'    :   'center center',                // css background position
             'backgroundRepeat'      :   'no-repeat',                    // css background repeat
             'border'                :   true,                           // boolean: has border
-            'borderColor'           :   sharesoft.colors['buttonBorderColor']['color'], // css color: border color
+            'borderColor'           :   pleisterman.colors['buttonBorderColor']['color'], // css color: border color
             'borderWidth'           :   '0.1em',                        // css border width 
             'borderStyle'           :   'solid',                        // css border style 
             'selected'              :   false                           // boolean: selected
@@ -69,7 +69,7 @@
             self.debug( 'construct: listOrder: ' + self.id );
             
             // calculate order the list
-            var listOrder = sharesoft.options['listOrder']['value'].split( ',' );
+            var listOrder = pleisterman.options['listOrder']['value'].split( ',' );
             if( listOrder.length > 0 && self.id !== listOrder[0] ){
                 self.order = listOrder.indexOf( self.id );
             }
@@ -100,7 +100,7 @@
         // FUNCTION: addHtml( void ) void
             
             // is visible
-            if( sharesoft.options['showListOrder']['value'] === 'true' ){
+            if( pleisterman.options['showListOrder']['value'] === 'true' ){
                 self.buttonOptions['display'] = 'inline-block;';
             }
             else {
@@ -117,7 +117,7 @@
             else {
                 self.buttonOptions['imageUrl'] = 'url(' + self.imageUrl + 'listUp.png' + ')';
                 self.buttonOptions['cursor'] = 'pointer';
-                self.buttonOptions['title'] = sharesoft.translations[self.id + 'listUp'];
+                self.buttonOptions['title'] = pleisterman.translations[self.id + 'listUp'];
             }
             // done is first
             
@@ -146,9 +146,9 @@
             // done first list no action
             
             // mouse over -> background color highlight
-            $( '#' + element.id ).css( 'background-color', sharesoft.colors['buttonHighlightBackgroundColor']['color'] );
+            $( '#' + element.id ).css( 'background-color', pleisterman.colors['buttonHighlightBackgroundColor']['color'] );
             // mouse over -> color highlight
-            $( '#' + element.id ).css( 'color', sharesoft.colors['buttonHighlightColor']['color'] );
+            $( '#' + element.id ).css( 'color', pleisterman.colors['buttonHighlightColor']['color'] );
 
         // DONE FUNCTION: mouseIn( html element: element ) void
         };
@@ -162,9 +162,9 @@
             // done first list no action
             
             // mouse out -> background color default
-            $( '#' + element.id ).css( 'background-color', sharesoft.colors['buttonBackgroundColor']['color'] );
+            $( '#' + element.id ).css( 'background-color', pleisterman.colors['buttonBackgroundColor']['color'] );
             // mouse out -> color default
-            $( '#' + element.id ).css( 'color', sharesoft.colors['buttonColor']['color'] );
+            $( '#' + element.id ).css( 'color', pleisterman.colors['buttonColor']['color'] );
 
         // DONE FUNCTION: mouseOut( void ) void
         };
@@ -190,9 +190,9 @@
         // FUNCTION: showListOrder( void ) void
             
             // order visible
-            if( sharesoft.options['showListOrder']['value'] === 'true' ){
+            if( pleisterman.options['showListOrder']['value'] === 'true' ){
                 // calculate order the list
-                var listOrder = sharesoft.options['listOrder']['value'].split( ',' );
+                var listOrder = pleisterman.options['listOrder']['value'].split( ',' );
                 if( listOrder.length > 0 ){
                     self.order = listOrder.indexOf( self.id );
                 }
@@ -204,9 +204,9 @@
                     $( '#' + self.buttonOptions['id'] ).css( 'background-image', 'url(' + self.imageUrl + 'listUpFirst.png' + ')' );                    
                     $( '#' + self.buttonOptions['id'] ).css( 'cursor', 'default' );
                     // mouse out -> background color default
-                    $( '#' + self.buttonOptions['id'] ).css( 'background-color', sharesoft.colors['buttonBackgroundColor']['color'] );
+                    $( '#' + self.buttonOptions['id'] ).css( 'background-color', pleisterman.colors['buttonBackgroundColor']['color'] );
                     // mouse out -> color default
-                    $( '#' + self.buttonOptions['id'] ).css( 'color', sharesoft.colors['buttonColor']['color'] );
+                    $( '#' + self.buttonOptions['id'] ).css( 'color', pleisterman.colors['buttonColor']['color'] );
                 }
                 else {
                     // display the list up image
@@ -231,7 +231,7 @@
             
             // debug info
             self.debug( 'update colors' );
-            $( '#' + self.buttonOptions['id'] ).css( 'background-color', sharesoft.colors['buttonBackgroundColor']['color'] );
+            $( '#' + self.buttonOptions['id'] ).css( 'background-color', pleisterman.colors['buttonBackgroundColor']['color'] );
 
         // DONE FUNCTION: updateColors( void ) void
         };
@@ -274,5 +274,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: listHeaderOrderModule( string: id ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

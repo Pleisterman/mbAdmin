@@ -9,27 +9,27 @@
  *          this module creates a button for opening 
  *          the user menu
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
  *  Purpose:  
  *          this module creates 
  *          a menu layer 
  *          an options menu in this layer
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
 */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: userMenuButtonModule( function: callback ) void
     
-    sharesoft.userMenuButtonModule = function( callback ) {
+    pleisterman.userMenuButtonModule = function( callback ) {
         // PRIVATE:
         
         // MEMBERS
@@ -37,25 +37,25 @@
         self.MODULE = 'userMenuButtonModule';                           // string: MODULE
         self.debugOn = false;                                           // boolean: debug
         self.callback = callback;                                       // function: callback
-        self.imageUrl = sharesoft.getSetting( 'imageUrl' ); 
-        self.imageUrl = sharesoft.getSetting( 'imageUrl' );             // string: image dir
+        self.imageUrl = pleisterman.getSetting( 'imageUrl' ); 
+        self.imageUrl = pleisterman.getSetting( 'imageUrl' );             // string: image dir
         self.menuButtonOptions = {                                      // json: menu button options
             'id'                    :   self.MODULE + 'MenuButton',     // string: element id
             'parentId'              :   'topRight',                     // string: parent element id
             'element'               :   'div',                          // string: html element type 
             'position'              :   'absolute',                     // css position
             'backgroundColor'       :   'transparent',                  // css color: background color
-            'selectedBackgroundColor' : sharesoft.colors['panelHighlightBackgroundColor']['color'], // css color: selected background color
-            'marginTop'             :   sharesoft.getSetting( 'topMenuButtonsMarginTop' ),          // css margin top
+            'selectedBackgroundColor' : pleisterman.colors['panelHighlightBackgroundColor']['color'], // css color: selected background color
+            'marginTop'             :   pleisterman.getSetting( 'topMenuButtonsMarginTop' ),          // css margin top
             'marginLeft'            :   '12.0em',                       // css margin left
-            'color'                 :   sharesoft.colors['panelColor']['color'],                    // css color: color
-            'selectedColor'         :   sharesoft.colors['panelHighlightColor']['color'],           // css color: selected color
+            'color'                 :   pleisterman.colors['panelColor']['color'],                    // css color: color
+            'selectedColor'         :   pleisterman.colors['panelHighlightColor']['color'],           // css color: selected color
             'imageUrl'              :   'url( ' + self.imageUrl + 'user.png )',                     // string: image file
             'backgroundRepeat'      :   'no-repeat',                    // css background repeat
             'backgroundPosition'    :   '0.2em center',                 // css background positiob
-            'padding'               :   sharesoft.getSetting( 'topMenuButtonsPadding' ),            // css padding
-            'backgroundSize'        :   sharesoft.getSetting( 'topMenuButtonsImageSize' ) +         // css background size
-                                        ' ' + sharesoft.getSetting( 'topMenuButtonsImageSize' ), 
+            'padding'               :   pleisterman.getSetting( 'topMenuButtonsPadding' ),            // css padding
+            'backgroundSize'        :   pleisterman.getSetting( 'topMenuButtonsImageSize' ) +         // css background size
+                                        ' ' + pleisterman.getSetting( 'topMenuButtonsImageSize' ), 
             'cursor'                :   'pointer',                      // css cursor            
             'borderRadius'          :   '0.4em'                         // css border radius        
         };                                                              // done json: menu button options
@@ -66,12 +66,12 @@
             'backgroundColor'       :   'transparent',                  // css background color
             'size'                  :   '15',                           // string: size
             'readOnly'              :   true,                           // boolean: readonly
-            'paddingLeft'           :   sharesoft.getSetting( 'topMenuButtonsTextPaddingLeft' ),    // css padding left
-            'fontSize'              :   sharesoft.getSetting( 'topMenuButtonsFontSize' ),           // css font size
-            'fontWeight'            :   sharesoft.getSetting( 'topMenuButtonsFontWeight' ),         // css font weight
+            'paddingLeft'           :   pleisterman.getSetting( 'topMenuButtonsTextPaddingLeft' ),    // css padding left
+            'fontSize'              :   pleisterman.getSetting( 'topMenuButtonsFontSize' ),           // css font size
+            'fontWeight'            :   pleisterman.getSetting( 'topMenuButtonsFontWeight' ),         // css font weight
             'border'                :   true,                           // boolean: has border bottom
             'borderWidth'           :   '0.0em',                        // css border width
-            'borderColor'           :   sharesoft.colors['panelBorderColor']['color'], // css color: COLOR: panelBorderColor
+            'borderColor'           :   pleisterman.colors['panelBorderColor']['color'], // css color: COLOR: panelBorderColor
             'borderStyle'           :   'solid',                        // css border style
         };                                                              // done json: menu text options    
         // DONE MEMBERS
@@ -130,7 +130,7 @@
                 'deSelect'  :   self.mouseOut,
                 'keys'      :   [
                     {
-                        'keyCode'   :   sharesoft.getSetting( 'keyCodes' )['space'],
+                        'keyCode'   :   pleisterman.getSetting( 'keyCodes' )['space'],
                         'type'      :   'tabStop',
                         'function'  :   self.click
                     }
@@ -184,10 +184,10 @@
         // FUNCTION: setUserName( string: userName ) void
             
             // set userName
-            sharesoft.userName = userName;
+            pleisterman.userName = userName;
             
             // set button text
-            $( '#' + self.menuButtonTextOptions['id'] ).val( sharesoft.translations['hello'] + ' ' + sharesoft.userName );
+            $( '#' + self.menuButtonTextOptions['id'] ).val( pleisterman.translations['hello'] + ' ' + pleisterman.userName );
             
         // DONE FUNCTION: setUserName( string: userName ) void
         };
@@ -198,10 +198,10 @@
             self.debug( 'update colors' );
             
             // update menu button colors
-            self.menuButtonOptions['selectedBackgroundColor'] = sharesoft.colors['panelHighlightBackgroundColor']['color'];
-            self.menuButtonOptions['color'] = sharesoft.colors['panelColor']['color'];
-            $( '#' + self.menuButtonOptions['id'] ).css( 'color', sharesoft.colors['panelColor']['color'] );
-            self.menuButtonOptions['selectedColor'] = sharesoft.colors['panelHighlightColor']['color'];
+            self.menuButtonOptions['selectedBackgroundColor'] = pleisterman.colors['panelHighlightBackgroundColor']['color'];
+            self.menuButtonOptions['color'] = pleisterman.colors['panelColor']['color'];
+            $( '#' + self.menuButtonOptions['id'] ).css( 'color', pleisterman.colors['panelColor']['color'] );
+            self.menuButtonOptions['selectedColor'] = pleisterman.colors['panelHighlightColor']['color'];
             // done update menu button colors
             
             
@@ -241,5 +241,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: userMenuButtonModule( function: callback ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

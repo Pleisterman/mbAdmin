@@ -8,22 +8,22 @@
  *  Purpose: 
  *          this module controls selection of costs for the list. 
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
     
     // MODULE: costsListSelectModule( void ) 
     
-    sharesoft.costsListSelectModule = function( ) {
+    pleisterman.costsListSelectModule = function( ) {
     
         // PRIVATE:
         var self = this;                                    // object: self
@@ -52,15 +52,15 @@
             
             // construct options object
             var options = { 
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'subject'           :   'costs',
                 'what'              :   listSelection,
                 'selection'         :   selection
             };
             // done construct options object
 
-            // AJAX: /sharesoft/read
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/read', sharesoft.token, options, self.loadCallback );
+            // AJAX: /pleisterman/read
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/read', pleisterman.token, options, self.loadCallback );
         
         // FUNCTION: FUNCTION: loadList( string: listSelection, string: selection, function: callback ) void
         };
@@ -70,9 +70,9 @@
             // check critical errors
             if( result['criticalError'] ){
                 // show error
-                sharesoft.showCriticalError( result['criticalError'] ); // ERROR: criticalError
+                pleisterman.showCriticalError( result['criticalError'] ); // ERROR: criticalError
                 // end busy proces
-                sharesoft.endBusyProcess();
+                pleisterman.endBusyProcess();
                 // done with error
                 return;
             }
@@ -117,5 +117,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: costsListSelectModule( void ) 
-})( sharesoft );
+})( pleisterman );
 // done create module function

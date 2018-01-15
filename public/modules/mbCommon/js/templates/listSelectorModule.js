@@ -13,29 +13,29 @@
  *          the selections can be opened and closed
  *          the selection can be set
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: listSelectorModule( void ) void 
     
-    sharesoft.listSelectorModule = function( ) {
+    pleisterman.listSelectorModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
         var self = this;                                                // object: self
         self.MODULE = 'listSelectorModule';                             // string:  MODULE
         self.debugOn = false;                                           // boolean: debug
-        self.imageUrl = sharesoft.getSetting( 'imageUrl' );             // string: image url
+        self.imageUrl = pleisterman.getSetting( 'imageUrl' );             // string: image url
         self.overlayOptions = {                                         // json: overlay options 
             'id'                    :   self.MODULE + 'Overlay',        // string: element id
             'element'               :   'div',                          // string html: element type 
@@ -46,17 +46,17 @@
             'left'                  :   0,                              // css left
             'styleHeight'           :   '100%',                         // css style height
             'styleWidth'            :   '100%',                         // css style width
-            'zIndex'                :   sharesoft.getSetting( 'zIndexListSelectionsOverlay' ).toString(), // css z-index
+            'zIndex'                :   pleisterman.getSetting( 'zIndexListSelectionsOverlay' ).toString(), // css z-index
             'backgroundColor'       :   'transparent'                   // css color: background color
         };                                                              // done json: overlay options
         self.containerOptions = {                                       // json: container options
             'id'                    :   self.MODULE + 'Container',      // string: element id
             'element'               :   'div',                          // string: html element type 
             'position'              :   'absolute',                     // css position
-            'backgroundColor'       :   sharesoft.colors['commonBackgroundColor']['color'], // css color: background color
-            'color'                 :   sharesoft.colors['panelColor']['color'],            // css color: color
+            'backgroundColor'       :   pleisterman.colors['commonBackgroundColor']['color'], // css color: background color
+            'color'                 :   pleisterman.colors['panelColor']['color'],            // css color: color
             'border'                :   true,                           // boolean: has border
-            'borderColor'           :   sharesoft.colors['panelBorderColor']['color'],
+            'borderColor'           :   pleisterman.colors['panelBorderColor']['color'],
             'borderWidth'           :   '0.1em',                        // css border width
             'borderStyle'           :   'groove',                       // css border style
             'borderRadius'          :   '0.1em',                        // css border radius
@@ -66,20 +66,20 @@
         self.headerOptions = {                                          // json: header options
             'id'                    :   self.MODULE + 'Header',         // string: element id
             'element'               :   'div',                          // string: html element type 
-            'backgroundColor'       :   sharesoft.colors['commonBackgroundColor']['color'] // css color: background color
+            'backgroundColor'       :   pleisterman.colors['commonBackgroundColor']['color'] // css color: background color
         };                                                              // done json: header options
         self.headerTextOptions = {                                      // json: header text options
             'id'                    :   self.MODULE + 'HeaderText',     // string: element id
             'element'               :   'div',                          // string: html element type 
-            'color'                 :   sharesoft.colors['panelColor']['color'] // css color: color
+            'color'                 :   pleisterman.colors['panelColor']['color'] // css color: color
         };                                                              // done json: header text options            
         self.headerOpenTabOptions = {                                   // json: header opem tab options
             'id'                    :   self.MODULE + 'HeaderOpenTab',  // string
             'element'               :   'div',                          // string html element type 
             'display'               :   'inline-block',                 // css display
-            'text'                  :   sharesoft.translations['openNoun'], // string: text
-            'backgroundColor'       :   sharesoft.colors['panelHighlightBackgroundColor']['color'], // css color: background color
-            'color'                 :   sharesoft.colors['panelColor']['color'],                    // css color: color
+            'text'                  :   pleisterman.translations['openNoun'], // string: text
+            'backgroundColor'       :   pleisterman.colors['panelHighlightBackgroundColor']['color'], // css color: background color
+            'color'                 :   pleisterman.colors['panelColor']['color'],                    // css color: color
             'padding'               :   '0.4em 1.4em',                  // css padding
             'borderRadius'          :   '0.1em 0.1em 0em 0.0em',        // css border radius
             'marginLeft'            :   '0.2em',                        // css margin left
@@ -90,9 +90,9 @@
             'id'                    :   self.MODULE + 'HeaderClosedTab',// string: element id
             'element'               :   'div',                          // string: html element type 
             'display'               :   'inline-block',                 // css display
-            'text'                  :   sharesoft.translations['closed'],                   // string: text
-            'backgroundColor'       :   sharesoft.colors['panelBackgroundColor']['color'],  // css color: background color
-            'color'                 :   sharesoft.colors['panelColor']['color'],            // css color: color
+            'text'                  :   pleisterman.translations['closed'],                   // string: text
+            'backgroundColor'       :   pleisterman.colors['panelBackgroundColor']['color'],  // css color: background color
+            'color'                 :   pleisterman.colors['panelColor']['color'],            // css color: color
             'padding'               :   '0.4em 1.4em',                  // css padding
             'borderRadius'          :   '0.1em 0.1em 0em 0.0em',        // css border radius
             'marginTop'             :   '0.8em',                        // css margin top
@@ -106,7 +106,7 @@
             'overflowX'             :   'hidden',                       // css overflow-x
             'overflowY'             :   'auto',                         // css overflow-y
             'border'                :   true,                           // boolean: has border
-            'borderColor'           :   sharesoft.colors['panelBorderColor']['color'], // css color: border color
+            'borderColor'           :   pleisterman.colors['panelBorderColor']['color'], // css color: border color
             'borderWidth'           :   '1px',                          // css border width
             'borderStyle'           :   'groove',                       // css border style
             'borderRadius'          :   '0.1em',                        // css border radius
@@ -120,7 +120,7 @@
             'overflowX'             :   'hidden',                       // css overflow-x
             'overflowY'             :   'auto',                         // css overflow-y
             'border'                :   true,                           // boolean: has border
-            'borderColor'           :   sharesoft.colors['panelBorderColor']['color'], // css color: border color
+            'borderColor'           :   pleisterman.colors['panelBorderColor']['color'], // css color: border color
             'borderWidth'           :   '1px',                          // css border width
             'borderStyle'           :   'groove',                       // css border style
             'borderRadius'          :   '0.1em',                        // css border radius
@@ -128,13 +128,13 @@
         };                                                              // done json: closed rows container options
         self.rowOptions = {                                             // json: row options
             'element'               :   'div',                          // string html: element type
-            'backgroundColor'       :   sharesoft.colors['panelBackgroundColor']['color'],  // css color: background color
-            'color'                 :   sharesoft.colors['panelColor']['color'],            // css color: color
+            'backgroundColor'       :   pleisterman.colors['panelBackgroundColor']['color'],  // css color: background color
+            'color'                 :   pleisterman.colors['panelColor']['color'],            // css color: color
             'backgroundRepeat'      :   'no-repeat',                    // css background repeat
             'backgroundPosition'    :   '4px center',                   // css background position
             'borderBottom'          :   true,                           // boolean: has border bottom
             'borderTop'             :   true,                           // boolean: has border top
-            'borderColor'           :   sharesoft.colors['panelBorderColor']['color'], // css color: border color
+            'borderColor'           :   pleisterman.colors['panelBorderColor']['color'], // css color: border color
             'borderWidth'           :   '0.1em',                        // css border width
             'borderStyle'           :   'groove',                       // css border style
             'borderRadius'          :   '0.1em',                        // css border radius
@@ -149,13 +149,13 @@
             'size'                  :   '60',                           // string: size
             'readOnly'              :   true,                           // boolean: readonly
             'paddingTop'            :   '0.2em',                        // css padding top
-            'color'                 :   sharesoft.colors['editColor']['color'],     // css color: color
-            'fontSize'              :   sharesoft.getSetting( 'listRowFontSize' ),  // css font size
-            'fontWeight'            :   sharesoft.getSetting( 'listRowFontWeight' ),// css font weight
+            'color'                 :   pleisterman.colors['editColor']['color'],     // css color: color
+            'fontSize'              :   pleisterman.getSetting( 'listRowFontSize' ),  // css font size
+            'fontWeight'            :   pleisterman.getSetting( 'listRowFontWeight' ),// css font weight
             'paddingLeft'           :   '3.2em',                        // css padding left
             'border'                :   true,                           // boolean: has border bottom
             'borderWidth'           :   '0.0em',                        // css border width
-            'borderColor'           :   sharesoft.colors['panelBorderColor']['color'], // css color: COLOR: panelBorderColor
+            'borderColor'           :   pleisterman.colors['panelBorderColor']['color'], // css color: COLOR: panelBorderColor
             'borderStyle'           :   'solid',                        // css border style
         };                                                              // done json: row text options      
         self.displayOptions = {                                         // json: display options
@@ -182,7 +182,7 @@
             // add html
             self.addHtml();
 
-            // add the extensions to sharesoft
+            // add the extensions to pleisterman
             self.addApplicationsExtensions();
 
             // event subscription
@@ -194,7 +194,7 @@
         // FUNCTION: addApplicationsExtensions( void ) void
             
             // add show list selections
-            sharesoft.showListSelector = self.show;
+            pleisterman.showListSelector = self.show;
             
         // DONE FUNCTION: addApplicationsExtensions( void ) void
         };
@@ -263,8 +263,8 @@
             if( self.currentTab === 'open' ){
                 return;
             }
-            $( '#' + self.headerOpenTabOptions['id'] ).css( 'background-color', sharesoft.colors['panelHighlightBackgroundColor']['color'] );
-            $( '#' + self.headerOpenTabOptions['id'] ).css( 'color', sharesoft.colors['panelHighlightColor']['color'] );
+            $( '#' + self.headerOpenTabOptions['id'] ).css( 'background-color', pleisterman.colors['panelHighlightBackgroundColor']['color'] );
+            $( '#' + self.headerOpenTabOptions['id'] ).css( 'color', pleisterman.colors['panelHighlightColor']['color'] );
             
         // DONE FUNCTION: openTabMouseIn( void ) void
         };
@@ -274,8 +274,8 @@
             if( self.currentTab === 'open' ){
                 return;
             }
-            $( '#' + self.headerOpenTabOptions['id'] ).css( 'background-color', sharesoft.colors['panelBackgroundColor']['color'] );
-            $( '#' + self.headerOpenTabOptions['id'] ).css( 'color', sharesoft.colors['panelColor']['color'] );
+            $( '#' + self.headerOpenTabOptions['id'] ).css( 'background-color', pleisterman.colors['panelBackgroundColor']['color'] );
+            $( '#' + self.headerOpenTabOptions['id'] ).css( 'color', pleisterman.colors['panelColor']['color'] );
             
         // DONE FUNCTION: openTabMouseOut( void ) void
         };
@@ -299,8 +299,8 @@
             if( self.currentTab === 'closed' ){
                 return;
             }
-            $( '#' + self.headerClosedTabOptions['id'] ).css( 'background-color', sharesoft.colors['panelHighlightBackgroundColor']['color'] );
-            $( '#' + self.headerClosedTabOptions['id'] ).css( 'color', sharesoft.colors['panelHighlightColor']['color'] );
+            $( '#' + self.headerClosedTabOptions['id'] ).css( 'background-color', pleisterman.colors['panelHighlightBackgroundColor']['color'] );
+            $( '#' + self.headerClosedTabOptions['id'] ).css( 'color', pleisterman.colors['panelHighlightColor']['color'] );
             
         // DONE FUNCTION: closedTabMouseIn( void ) void
         };
@@ -310,8 +310,8 @@
            if( self.currentTab === 'closed' ){
                 return;
             }
-            $( '#' + self.headerClosedTabOptions['id'] ).css( 'background-color', sharesoft.colors['panelBackgroundColor']['color'] );
-            $( '#' + self.headerClosedTabOptions['id'] ).css( 'color', sharesoft.colors['panelColor']['color'] );
+            $( '#' + self.headerClosedTabOptions['id'] ).css( 'background-color', pleisterman.colors['panelBackgroundColor']['color'] );
+            $( '#' + self.headerClosedTabOptions['id'] ).css( 'color', pleisterman.colors['panelColor']['color'] );
             
         // DONE FUNCTION: closedTabMouseOut( void ) void
         };
@@ -391,18 +391,18 @@
             if( self.currentTab === 'open' ){
                 
                 // set colors
-                $( '#' + self.headerOpenTabOptions['id'] ).css( 'background-color', sharesoft.colors['panelHighlightBackgroundColor']['color'] );
-                $( '#' + self.headerOpenTabOptions['id'] ).css( 'color', sharesoft.colors['panelHighlightColor']['color'] );
-                $( '#' + self.headerClosedTabOptions['id'] ).css( 'background-color', sharesoft.colors['panelBackgroundColor']['color'] );
-                $( '#' + self.headerClosedTabOptions['id'] ).css( 'color', sharesoft.colors['panelColor']['color'] );
+                $( '#' + self.headerOpenTabOptions['id'] ).css( 'background-color', pleisterman.colors['panelHighlightBackgroundColor']['color'] );
+                $( '#' + self.headerOpenTabOptions['id'] ).css( 'color', pleisterman.colors['panelHighlightColor']['color'] );
+                $( '#' + self.headerClosedTabOptions['id'] ).css( 'background-color', pleisterman.colors['panelBackgroundColor']['color'] );
+                $( '#' + self.headerClosedTabOptions['id'] ).css( 'color', pleisterman.colors['panelColor']['color'] );
                 // done set colors
             }
             else {
                 // set colors
-                $( '#' + self.headerClosedTabOptions['id'] ).css( 'background-color', sharesoft.colors['panelHighlightBackgroundColor']['color'] );
-                $( '#' + self.headerClosedTabOptions['id'] ).css( 'color', sharesoft.colors['panelHighlightColor']['color'] );
-                $( '#' + self.headerOpenTabOptions['id'] ).css( 'background-color', sharesoft.colors['panelBackgroundColor']['color'] );
-                $( '#' + self.headerOpenTabOptions['id'] ).css( 'color', sharesoft.colors['panelColor']['color'] );
+                $( '#' + self.headerClosedTabOptions['id'] ).css( 'background-color', pleisterman.colors['panelHighlightBackgroundColor']['color'] );
+                $( '#' + self.headerClosedTabOptions['id'] ).css( 'color', pleisterman.colors['panelHighlightColor']['color'] );
+                $( '#' + self.headerOpenTabOptions['id'] ).css( 'background-color', pleisterman.colors['panelBackgroundColor']['color'] );
+                $( '#' + self.headerOpenTabOptions['id'] ).css( 'color', pleisterman.colors['panelColor']['color'] );
                 // done set colors
             }
             // done current tab = 'open' / 'closed'
@@ -428,7 +428,7 @@
                 // add text 
                 $( '#' + id ).html( jsProject.jsonToElementHtml( self.rowTextOptions ) );
                 // set val
-                $( '#' + self.rowTextOptions['id'] ).val( sharesoft.translations['noRows'] );
+                $( '#' + self.rowTextOptions['id'] ).val( pleisterman.translations['noRows'] );
                 
             }
             // done no rows
@@ -506,16 +506,16 @@
         self.rowMouseOver = function( element ){
         // FUNCTION: rowMouseOver( html element: element ) void
             
-            $( '#' + element.id ).css( 'background-color', sharesoft.colors['panelHighlightBackgroundColor']['color'] );
-            $( '#' + element.id ).css( 'color', sharesoft.colors['panelHighlightColor']['color'] );
+            $( '#' + element.id ).css( 'background-color', pleisterman.colors['panelHighlightBackgroundColor']['color'] );
+            $( '#' + element.id ).css( 'color', pleisterman.colors['panelHighlightColor']['color'] );
             
         // DONE FUNCTION: rowMouseOver( element: element ) void
         };
         self.rowMouseOut = function( element ){
         // FUNCTION: rowMouseOut( html element: element ) void
             
-            $( '#' + element.id ).css( 'background-color', sharesoft.colors['panelBackgroundColor']['color'] );
-            $( '#' + element.id ).css( 'color', sharesoft.colors['panelColor']['color'] );
+            $( '#' + element.id ).css( 'background-color', pleisterman.colors['panelBackgroundColor']['color'] );
+            $( '#' + element.id ).css( 'color', pleisterman.colors['panelColor']['color'] );
             
         // DONE FUNCTION: rowMouseOut( html element: element ) void
         };
@@ -609,5 +609,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: listSelectionsModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

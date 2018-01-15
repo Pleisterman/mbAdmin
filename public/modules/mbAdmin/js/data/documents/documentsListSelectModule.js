@@ -8,22 +8,22 @@
  *  Purpose: 
  *          this module controls selection of tasks for the list. 
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
     
     // MODULE: documentsListSelectModule( void ) 
     
-    sharesoft.documentsListSelectModule = function( callback ) {
+    pleisterman.documentsListSelectModule = function( callback ) {
     
         // PRIVATE:
         var self = this;                                        // object: self
@@ -57,9 +57,9 @@
             self.debug( 'show' );
             
             // add current selection    
-            self.listSelectionsOptions['currentSelection'] = sharesoft.options['documentsListSelection']['value'];
+            self.listSelectionsOptions['currentSelection'] = pleisterman.options['documentsListSelection']['value'];
             // show selections  
-            sharesoft.showListSelections( selection, self.listSelectionsOptions, self.listSelectionsCallback ); 
+            pleisterman.showListSelections( selection, self.listSelectionsOptions, self.listSelectionsCallback ); 
             
         // DONE FUNCTION: show( void ) void    
         };
@@ -71,15 +71,15 @@
             
             // construct options object
             var options = { 
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'subject'           :   'documents',
                 'what'              :   self.listSelectionsOptions['currentSelection'],
                 'selection'         :   self.listSelectionsOptions['searchText']
             };
             // done construct options object
 
-            // AJAX: /sharesoft/read
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/read', sharesoft.token, options, self.loadCallback );
+            // AJAX: /pleisterman/read
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/read', pleisterman.token, options, self.loadCallback );
         
         // FUNCTION: FUNCTION: loadList( string: listSelection, string: selection, function: callback ) void
         };
@@ -89,9 +89,9 @@
             // check critical errors
             if( result['criticalError'] ){
                 // show error
-                sharesoft.showCriticalError( result['criticalError'] ); // ERROR: criticalError
+                pleisterman.showCriticalError( result['criticalError'] ); // ERROR: criticalError
                 // end busy proces
-                sharesoft.endBusyProcess();
+                pleisterman.endBusyProcess();
                 // done with error
                 return;
             }
@@ -100,7 +100,7 @@
             for( var i = 0; i< result['rows'].length; i++ ){
                 result['rows'][i]['text'] = result['rows'][i]['name'];
                 result['rows'][i]['text'] += ' ';
-                result['rows'][i]['text'] += sharesoft.translations[result['rows'][i]['subject']];
+                result['rows'][i]['text'] += pleisterman.translations[result['rows'][i]['subject']];
             }
 
             // has callback
@@ -144,5 +144,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: documentsListSelectModule( void ) 
-})( sharesoft );
+})( pleisterman );
 // done create module function

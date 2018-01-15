@@ -8,22 +8,22 @@
  *  Purpose: 
  *      this module controls the colors 
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: colorsModule( void ) void
     
-    sharesoft.colorsModule = function( ) {
+    pleisterman.colorsModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -38,7 +38,7 @@
                 'type'                  :   'select',       // string: type
                 'displayOptions'        :   {               // json: display options
                     'label'             :   {               // json: label
-                        'text'          :   sharesoft.translations['colorScheme'] // string: label TRANSLATION: colorScheme
+                        'text'          :   pleisterman.translations['colorScheme'] // string: label TRANSLATION: colorScheme
                     },                                      // done json: label
                     'input'             :       {           // json: input
                         'styleWidth'    :   '10.0em'        // css width
@@ -61,7 +61,7 @@
                         'styleWidth'    :   '10.0em'        // css style width
                     }                                       // done json: input
                 },                                          // done json: display options
-                'value'                 :  sharesoft.translations['selectScheme'], 
+                'value'                 :  pleisterman.translations['selectScheme'], 
                 'callback'              :  null             // function: callback    
             },                                              // done json: colorSchemeSelectButton
             {                                               // json: colorSchemeSaveButton
@@ -72,7 +72,7 @@
                         'styleWidth'    :   '10.0em'        // css style width
                     }                                       // done json: input
                 },                                          // done json: display options
-                'value'         :  sharesoft.translations['saveScheme'],
+                'value'         :  pleisterman.translations['saveScheme'],
                 'callback'      :  null                     // function: callback
             }                                               // done json: colorSchemeSaveButton
         ];                                                  // done json: dataObject
@@ -116,7 +116,7 @@
             var firstChar = null;
             
             // loop over colors
-            $.each( sharesoft.colors, function( index, colorRow ) {
+            $.each( pleisterman.colors, function( index, colorRow ) {
                 // color can change
                 if( colorRow['canChange'] !== 'false' ){
                     
@@ -200,7 +200,7 @@
         // FUNCTION: addColorSchemeSelect( void ) void
             
             // create the select module
-            self.colorSchemeSelect = new sharesoft.colorSchemeSelectModule();
+            self.colorSchemeSelect = new pleisterman.colorSchemeSelectModule();
             
             // find object in data object
             $.each( self.dataObject, function( objectIndex, objectValue ) {
@@ -245,7 +245,7 @@
             self.debug( 'selectColorScheme' );
         
             // show busy screen
-            sharesoft.startBusyProcess();
+            pleisterman.startBusyProcess();
 
             var id = null;
             // find object in data object
@@ -299,7 +299,7 @@
                 
             // construct data object
             var data = { 
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'subject'           :   'colors',
                 'what'              :   'list',
                 'values'            :   values 
@@ -307,7 +307,7 @@
             // done construct data object
              
             // make the ajax call
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/update', sharesoft.token, data, self.updateCallback );
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/update', pleisterman.token, data, self.updateCallback );
             
         // DONE FUNCTION: getSchemeColorsCallback( json: colors ) void
         };
@@ -317,7 +317,7 @@
             // debug info
             self.debug( 'saveColorScheme' );
             // start busy
-            sharesoft.startBusyProcess();
+            pleisterman.startBusyProcess();
             
             // get the data from the inputs
             jsProject.callEvent( 'editSetData' );
@@ -356,7 +356,7 @@
             
             // construct data object
             var data = { 
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'subject'           :   'colorSchemes',
                 'what'              :   'colors',
                 'values'            :   values,
@@ -365,7 +365,7 @@
             // done construct data object
              
             // make the ajax call
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/update', sharesoft.token, data, self.saveColorSchemeCallback );
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/update', pleisterman.token, data, self.saveColorSchemeCallback );
             
         // DONE FUNCTION: saveColorScheme( void ) void
         };
@@ -375,14 +375,14 @@
             // check for errors
             if( self.hasAjaxResultErrors( result ) ){
                 // end busy
-                sharesoft.endBusyProcess();
+                pleisterman.endBusyProcess();
                 // done with error
                 return;
             }
             // done check for errors
 
             // end busy
-            sharesoft.endBusyProcess();
+            pleisterman.endBusyProcess();
 
             // show update message    
             jsProject.callEvent( 'showEditMessage', 'dataUpdated' );
@@ -393,7 +393,7 @@
         // FUNCTION: openInitialSelection( void ) void
             
             // show font if selected
-            if( sharesoft.options['openSubject']['value'] === self.id ){
+            if( pleisterman.options['openSubject']['value'] === self.id ){
                 // show
                 self.colorSchemeSelect.load( self.show );
             }
@@ -408,7 +408,7 @@
             self.debug( 'prepareShow' );  
             
             // call global prepare data show
-            sharesoft.prepareDataShow( self.colorSchemeSelect.load, self.show );
+            pleisterman.prepareDataShow( self.colorSchemeSelect.load, self.show );
             
         // DONE FUNCTION: prepareShow( void ) void
         };
@@ -422,7 +422,7 @@
             jsProject.callEvent( 'cancel' );
 
             // set open subject option
-            sharesoft.setOption( 'openSubject', self.id );
+            pleisterman.setOption( 'openSubject', self.id );
 
             // set data values
             jsProject.setValue( 'changed', 'data', false );    
@@ -460,7 +460,7 @@
             // debug info
             self.debug( 'update' );
             // start busy   
-            sharesoft.startBusyProcess();
+            pleisterman.startBusyProcess();
             
             // get the data from the inputs
             jsProject.callEvent( 'editSetData' );
@@ -487,7 +487,7 @@
                 
             // construct data object
             var data = { 
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'subject'           :  'colors',
                 'what'              :  'list',
                 'values'            :  values 
@@ -495,7 +495,7 @@
             // done construct data object
              
             // make the ajax call
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/update', sharesoft.token, data, self.updateCallback );
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/update', pleisterman.token, data, self.updateCallback );
             
         // DONE FUNCTION: update( void ) void
         };
@@ -505,7 +505,7 @@
             // check for errors
             if( self.hasAjaxResultErrors( result ) ){
                 // end busy
-                sharesoft.endBusyProcess();
+                pleisterman.endBusyProcess();
                 // done with error
                 return;
             }
@@ -522,7 +522,7 @@
                 // is color
                 if( data['value'] !== undefined && data['type'] === 'color' ){
                     // set value
-                    sharesoft.colors[data['name']]['color'] = data['value'];
+                    pleisterman.colors[data['name']]['color'] = data['value'];
                 }
                 // done is color
             });
@@ -532,7 +532,7 @@
             jsProject.callEvent( 'updateColors' );
 
             // end busy proces
-            sharesoft.endBusyProcess();
+            pleisterman.endBusyProcess();
             
             // get scroll position
             self.contentScrollPosition = $( '#dataContent' ).scrollTop();
@@ -556,7 +556,7 @@
             // reset data changed
             jsProject.setValue( 'changed', 'data', false );
             // unset open subject
-            sharesoft.setOption( 'openSubject', null );            
+            pleisterman.setOption( 'openSubject', null );            
             // call cancel event
             jsProject.callEvent( 'cancel' );
             
@@ -566,7 +566,7 @@
         // FUNCTION: hasAjaxResultErrors( json: result ) boolean
         
             // global check result
-            if( sharesoft.hasAjaxResultErrors( result ) ){
+            if( pleisterman.hasAjaxResultErrors( result ) ){
                 // done with error
                 return true;
             }
@@ -619,5 +619,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: colorsModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

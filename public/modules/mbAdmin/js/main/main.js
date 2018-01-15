@@ -3,19 +3,19 @@
  * 
  *  File: /MbAdmin/js/main.js
  * 
- * Purpose: this module is the container class for the application sharesoft
+ * Purpose: this module is the container class for the application pleisterman
  *          all modules are linked to this module and can be accessed through the functions
  *          linked to this module.
  *          this module requires the jsProject modules  
  * 
  *  Last Revision: 16-01-2017
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  *  
@@ -24,15 +24,15 @@
 // create module function
 ( function() {
 
-    // MODULE: sharesoft( void ) void 
+    // MODULE: pleisterman( void ) void 
     
-    // create the sharesoft object
-    window.sharesoft = new function(){};
+    // create the pleisterman object
+    window.pleisterman = new function(){};
     // PRIVATE:
 
     // MEMBERS
-    var self = window.sharesoft;                        // object: self
-    self.MODULE = 'sharesoft';                          // string: module
+    var self = window.pleisterman;                        // object: self
+    self.MODULE = 'pleisterman';                          // string: module
     self.valuesModule               =   null;           // module: valuesModule
     self.settingsModule             =   null;           // module: settingsModule
     self.functionsModule            =   null;           // module: functionsModule
@@ -88,38 +88,38 @@
         jsProject.debugOn( self.debugOn, self.debuggerOptions );
 
         // create member modules
-        self.settingsModule             = new sharesoft.settingsModule();
-        self.valuesModule               = new sharesoft.valuesModule();
-        self.tabStopsModule             = new sharesoft.tabStopsModule();
-        self.listSelectionsModule       = new sharesoft.listSelectionsModule();
-        self.listSelectorModule         = new sharesoft.listSelectorModule();
-        self.listSelectionsDatePickerModule = new sharesoft.listSelectionsDatePickerModule();
-        self.documentUploadModule       = new sharesoft.documentUploadModule();
-        self.dataColorPickerModule      = new sharesoft.dataColorPickerModule();
-        self.dataDatePickerModule       = new sharesoft.dataDatePickerModule();
-        self.dividerModule              = new sharesoft.dividerModule();
-        self.layoutModule               = new sharesoft.layoutModule();
-        self.messageModule              = new sharesoft.messageModule();
-        self.messageDialogModule        = new sharesoft.messageDialogModule();
-        self.errorModule                = new sharesoft.errorModule();
-        self.errorDialogModule          = new sharesoft.errorDialogModule();
-        self.dataOutOfDateDialogModule  = new sharesoft.dataOutOfDateDialogModule();
-        self.brandModule                = new sharesoft.brandModule();
-        self.optionsModule              = new sharesoft.optionsModule();
-        self.busyScreenModule           = new sharesoft.busyScreenModule();
-        self.listsContainerModule       = new sharesoft.listsContainerModule();
-        self.dataContainerModule        = new sharesoft.dataContainerModule();
-        self.dataErrorModule            = new sharesoft.dataErrorModule();
-        self.introModule                = new sharesoft.introModule();
-        self.dataLabelModule            = new sharesoft.dataLabelModule();
-        self.exportContainerModule      = new sharesoft.exportContainerModule();
-        self.userModule                 = new sharesoft.userModule();
-        self.dataFunctionsModule        = new sharesoft.dataFunctionsModule();
-        self.aboutModule                = new sharesoft.aboutModule();
-        self.dataModule                 = new sharesoft.dataModule();
+        self.settingsModule             = new pleisterman.settingsModule();
+        self.valuesModule               = new pleisterman.valuesModule();
+        self.tabStopsModule             = new pleisterman.tabStopsModule();
+        self.listSelectionsModule       = new pleisterman.listSelectionsModule();
+        self.listSelectorModule         = new pleisterman.listSelectorModule();
+        self.listSelectionsDatePickerModule = new pleisterman.listSelectionsDatePickerModule();
+        self.documentUploadModule       = new pleisterman.documentUploadModule();
+        self.dataColorPickerModule      = new pleisterman.dataColorPickerModule();
+        self.dataDatePickerModule       = new pleisterman.dataDatePickerModule();
+        self.dividerModule              = new pleisterman.dividerModule();
+        self.layoutModule               = new pleisterman.layoutModule();
+        self.messageModule              = new pleisterman.messageModule();
+        self.messageDialogModule        = new pleisterman.messageDialogModule();
+        self.errorModule                = new pleisterman.errorModule();
+        self.errorDialogModule          = new pleisterman.errorDialogModule();
+        self.dataOutOfDateDialogModule  = new pleisterman.dataOutOfDateDialogModule();
+        self.brandModule                = new pleisterman.brandModule();
+        self.optionsModule              = new pleisterman.optionsModule();
+        self.busyScreenModule           = new pleisterman.busyScreenModule();
+        self.listsContainerModule       = new pleisterman.listsContainerModule();
+        self.dataContainerModule        = new pleisterman.dataContainerModule();
+        self.dataErrorModule            = new pleisterman.dataErrorModule();
+        self.introModule                = new pleisterman.introModule();
+        self.dataLabelModule            = new pleisterman.dataLabelModule();
+        self.exportContainerModule      = new pleisterman.exportContainerModule();
+        self.userModule                 = new pleisterman.userModule();
+        self.dataFunctionsModule        = new pleisterman.dataFunctionsModule();
+        self.aboutModule                = new pleisterman.aboutModule();
+        self.dataModule                 = new pleisterman.dataModule();
 
         // show busy screen
-       sharesoft.startBusyProcess();
+       pleisterman.startBusyProcess();
 
         // set the layout
         jsProject.callEvent( 'sceneChange' );
@@ -128,7 +128,7 @@
         self.introModule.start( self.afterIntro );
         
         // debug info
-        jsProject.debug( 'sharesoft ok: ' );
+        jsProject.debug( 'pleisterman ok: ' );
         // done debug info
 
     // DONE FUNCTION: start( void ) void
@@ -149,7 +149,7 @@
         }
         // DONE PUBLIC
     };
-    // DONE MODULE: sharesoft( void ) void 
+    // DONE MODULE: pleisterman( void ) void 
 })();
 // done create module function
  

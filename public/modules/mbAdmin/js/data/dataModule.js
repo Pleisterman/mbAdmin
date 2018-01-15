@@ -8,22 +8,22 @@
  *  Purpose: 
  *       this module controls common data funtions
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
     
     // MODULE: dataModule( void ) 
     
-    sharesoft.dataModule = function( ) {
+    pleisterman.dataModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -68,22 +68,22 @@
         // FUNCTION: addSelectModules( void ) void
 
             // create vehicle select module
-            self.vatSelectModule = new sharesoft.vatSelectModule(); 
+            self.vatSelectModule = new pleisterman.vatSelectModule(); 
             jsProject.setValue( 'vatSelectModule', 'select', self.vatSelectModule );
             // done create project select module
             
             // create project select module
-            self.projectsSelectModule = new sharesoft.projectsSelectModule(); 
+            self.projectsSelectModule = new pleisterman.projectsSelectModule(); 
             jsProject.setValue( 'projectsSelectModule', 'select', self.projectsSelectModule );
             // done create project select module
             
             // create vehicle select module
-            self.vehiclesSelectModule = new sharesoft.vehiclesSelectModule(); 
+            self.vehiclesSelectModule = new pleisterman.vehiclesSelectModule(); 
             jsProject.setValue( 'vehiclesSelectModule', 'select', self.vehiclesSelectModule );
             // done create project select module
             
             // create document select module
-            self.documentsSelectModule = new sharesoft.documentsSelectModule(); 
+            self.documentsSelectModule = new pleisterman.documentsSelectModule(); 
             jsProject.setValue( 'documentsSelectModule', 'select', self.documentsSelectModule );
             // done create project select module
             
@@ -93,14 +93,14 @@
         // FUNCTION: addDataModules( void ) void
 
             // create the modules in the list order from the options
-            var listOrder = sharesoft.options['listOrder']['value'].split( ',' );
+            var listOrder = pleisterman.options['listOrder']['value'].split( ',' );
             
             // create modules
             for( var i = 0; i < listOrder.length; i++ ){
                 switch( listOrder[i] ){
                     case 'vat' : {
                         // create new vehicles module    
-                        self.dataModules[i] = new sharesoft.vatModule();
+                        self.dataModules[i] = new pleisterman.vatModule();
                         // set select module
                         self.dataModules[i].setSelectModule( self.vatSelectModule );
                         // done 
@@ -108,7 +108,7 @@
                     }
                     case 'projects' : {
                         // create new projects module    
-                        self.dataModules[i] = new sharesoft.projectsModule();
+                        self.dataModules[i] = new pleisterman.projectsModule();
                         // set select module
                         self.dataModules[i].setSelectModule( self.projectsSelectModule );
                         // done 
@@ -116,13 +116,13 @@
                     }
                     case 'contacts' : {
                         // create new contacts mdule    
-                        self.dataModules[i] = new sharesoft.contactsModule();
+                        self.dataModules[i] = new pleisterman.contactsModule();
                         // done 
                         break;
                     }
                     case 'vehicles' : {
                         // create new vehicles module    
-                        self.dataModules[i] = new sharesoft.vehiclesModule();
+                        self.dataModules[i] = new pleisterman.vehiclesModule();
                         // set select module
                         self.dataModules[i].setSelectModule( self.vehiclesSelectModule );
                         // done 
@@ -130,25 +130,25 @@
                     }
                     case 'tasks' : {
                         // create new tasks module    
-                        self.dataModules[i] = new sharesoft.tasksModule();
+                        self.dataModules[i] = new pleisterman.tasksModule();
                         // done 
                         break;
                     }
                     case 'costs' : {
                         // create new costs module    
-                        self.dataModules[i] = new sharesoft.costsModule();
+                        self.dataModules[i] = new pleisterman.costsModule();
                         // done 
                         break;
                     }
                     case 'rides' : {
                         // create new rides medule   
-                        self.dataModules[i] = new sharesoft.ridesModule();
+                        self.dataModules[i] = new pleisterman.ridesModule();
                         // done 
                         break;
                     }
                     case 'documents' : {
                         // create new documents module    
-                        self.dataModules[i] = new sharesoft.documentsModule();
+                        self.dataModules[i] = new pleisterman.documentsModule();
                         // set select module
                         self.dataModules[i].setSelectModule( self.documentsSelectModule );
                         // done 
@@ -156,7 +156,7 @@
                     }
                     case 'export' : {
                         // create new export module
-                        self.dataModules[i] = new sharesoft.exportModule();
+                        self.dataModules[i] = new pleisterman.exportModule();
                         // done 
                         break;
                     }
@@ -179,7 +179,7 @@
             self.debug( 'loadData' );
 
             // show busy screen
-            sharesoft.startBusyProcess();
+            pleisterman.startBusyProcess();
             
             // create the load count
             self.loadCount = self.dataModules.length;
@@ -216,7 +216,7 @@
             self.debug( 'load ready' );
 
             // end busy proces
-            sharesoft.endBusyProcess();
+            pleisterman.endBusyProcess();
             
             // activate tabstops
             jsProject.callEvent( 'activateTabStopsLayer', 'main' );
@@ -249,5 +249,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: dataFunctionsModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

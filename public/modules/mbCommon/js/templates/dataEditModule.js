@@ -7,23 +7,23 @@
  *                      
  *  Last Revision: 01-01-2017
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  *  
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: dataEditModule( string: contentId ) void
     
-    sharesoft.dataEditModule = function( contentId ) {
+    pleisterman.dataEditModule = function( contentId ) {
         // PRIVATE:
         
         // MEMBERS
@@ -107,7 +107,7 @@
                     // case: text
                     case 'text' :  {
                         // create text 
-                        var input = new sharesoft.dataEditTextModule( self.contentId, values, true );
+                        var input = new pleisterman.dataEditTextModule( self.contentId, values, true );
                         // remember object
                         self.inputModules.push( input );
                         // done
@@ -116,7 +116,7 @@
                     // case: textarea
                     case 'textarea' :  {
                         // create text area 
-                        var input = new sharesoft.dataEditTextAreaModule( self.contentId, values, true );
+                        var input = new pleisterman.dataEditTextAreaModule( self.contentId, values, true );
                         // remember object
                         self.inputModules.push( input );
                         // done
@@ -125,7 +125,7 @@
                     // case: checkbox
                     case 'checkbox' :  {
                         // create checkbox 
-                        var input = new sharesoft.dataEditCheckboxModule( self.contentId, values, true );
+                        var input = new pleisterman.dataEditCheckboxModule( self.contentId, values, true );
                         // remember object
                         self.inputModules.push( input );
                         // done
@@ -134,7 +134,7 @@
                     // case: button
                     case 'button' :  {
                         // create button 
-                        var input = new sharesoft.dataEditButtonModule( self.contentId, values, true );
+                        var input = new pleisterman.dataEditButtonModule( self.contentId, values, true );
                         // remember object
                         self.inputModules.push( input );
                         // done
@@ -143,7 +143,7 @@
                     // case: date
                     case 'date' :  {
                         // create date 
-                        var input = new sharesoft.dataEditDateModule( self.contentId, values, true  );
+                        var input = new pleisterman.dataEditDateModule( self.contentId, values, true  );
                         // remember object
                         self.inputModules.push( input );
                         // done
@@ -154,7 +154,7 @@
                         // mode is edit, not used during insert
                         if( self.mode === 'edit' ){    
                             // create documents 
-                            var input = new sharesoft.dataEditDocumentsModule( self.contentId, values  );
+                            var input = new pleisterman.dataEditDocumentsModule( self.contentId, values  );
                             // remember object
                             self.inputModules.push( input );
                         }
@@ -166,7 +166,7 @@
                     // case: color
                     case 'color' :  {
                         // create color
-                        var input = new sharesoft.dataEditColorModule( self.contentId, values, true  );
+                        var input = new pleisterman.dataEditColorModule( self.contentId, values, true  );
                         // remember object
                         self.inputModules.push( input );
                         // done
@@ -175,7 +175,7 @@
                     // case: list
                     case 'list' :  {
                         // create list
-                        var input = new sharesoft.dataEditListModule( self.contentId, values, true );
+                        var input = new pleisterman.dataEditListModule( self.contentId, values, true );
                         // remember object
                         self.inputModules.push( input );
                         // done
@@ -184,7 +184,7 @@
                     // case: select
                     case 'select' :  {
                         // create select
-                        var input = new sharesoft.dataEditSelectModule( self.contentId, values, true  );
+                        var input = new pleisterman.dataEditSelectModule( self.contentId, values, true  );
                         // remember object
                         self.inputModules.push( input );
                         // done
@@ -193,7 +193,7 @@
                     // case: imageSelect
                     case 'imageSelect' :  {
                         // create select
-                        var input = new sharesoft.dataEditSelectImageModule( self.contentId, values, true  );
+                        var input = new pleisterman.dataEditSelectImageModule( self.contentId, values, true  );
                         // remember object
                         self.inputModules.push( input );
                         // done
@@ -202,7 +202,7 @@
                     // case: spinner
                     case 'spinner' :  {
                         // create spinner
-                        var input = new sharesoft.dataEditSpinnerModule( self.contentId, values, true  );
+                        var input = new pleisterman.dataEditSpinnerModule( self.contentId, values, true  );
                         // remember object
                         self.inputModules.push( input );
                         // done
@@ -213,7 +213,7 @@
                         // mode is edit, not used during insert
                         if( self.mode === 'edit' ){    
                             // create documents 
-                            var input = new sharesoft.dataEditImageUploadModule( self.contentId, values  );
+                            var input = new pleisterman.dataEditImageUploadModule( self.contentId, values  );
                             // remember object
                             self.inputModules.push( input );
                         }
@@ -227,7 +227,7 @@
                         // mode = edit, not used during insert   
                         if( self.mode === 'edit' ){    
                             // create linkList
-                            var input = new sharesoft.dataEditLinkListModule( self.contentId, values  );
+                            var input = new pleisterman.dataEditLinkListModule( self.contentId, values  );
                             // add linkList
                             self.inputModules.push( input );
                         }                        
@@ -237,7 +237,7 @@
                     // case: password strength
                     case 'passwordStrength' :  {
                         // create linkList
-                        var input = new sharesoft.dataEditPasswordStrengthModule( self.contentId, values  );
+                        var input = new pleisterman.dataEditPasswordStrengthModule( self.contentId, values  );
                         // add linkList
                         self.inputModules.push( input );
                         // done 
@@ -325,5 +325,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: dataEditModule( string: contentId ) void
-})( sharesoft );
+})( pleisterman );
 // done create module function

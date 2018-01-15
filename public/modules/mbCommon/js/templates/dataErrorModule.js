@@ -7,23 +7,23 @@
  *                      
  *  Last Revision: 01-01-2017
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  *  
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: dataErrorModule( void ) void
     
-    sharesoft.dataErrorModule = function( ) {
+    pleisterman.dataErrorModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -38,17 +38,17 @@
             'display'               :   'none',                     // css displat style
             'visible'               :   false,                      // boolean
             'border'                :   true,                       // px
-            'borderColor'           :   sharesoft.colors['errorDialogBorderColor']['color'],
+            'borderColor'           :   pleisterman.colors['errorDialogBorderColor']['color'],
             'borderWidth'           :   1,                          // px
             'borderStyle'           :   'solid',                    // css border style
-            'zIndex'                :   sharesoft.getSetting( 'zIndexDataError' ).toString(),
+            'zIndex'                :   pleisterman.getSetting( 'zIndexDataError' ).toString(),
             'borderRadius'          :   5
         };         
         self.errorOptions = {
             'id'                    :   'dataErrorContainer',       // string
             'element'               :   'div',                      // string html element type 
-            'backgroundColor'       :   sharesoft.colors['errorDialogBackgroundColor']['color'],
-            'color'                 :   sharesoft.colors['errorColor']['color'],
+            'backgroundColor'       :   pleisterman.colors['errorDialogBackgroundColor']['color'],
+            'color'                 :   pleisterman.colors['errorColor']['color'],
             'padding'               :   6
         };
         self.displayOptions = {
@@ -77,7 +77,7 @@
             // add html
             self.addHtml();
             
-            // add the extensions to sharesoft
+            // add the extensions to pleisterman
             self.addApplicationsExtensions();
             
             // add event subscriptions
@@ -89,9 +89,9 @@
         // FUNCTION: addApplicationsExtensions( void ) void
             
             // create the get error
-            sharesoft.showDataError = self.getError;
+            pleisterman.showDataError = self.getError;
             // create hide data error
-            sharesoft.hideDataError = self.hide;
+            pleisterman.hideDataError = self.hide;
             
         // DONE FUNCTION: addApplicationsExtensions( void ) void
         };
@@ -121,7 +121,7 @@
             
             // remember caller
             self.callerOptions['id'] = elementId;
-            sharesoft.getError( errorId, self.show );
+            pleisterman.getError( errorId, self.show );
             
         // DONE FUNCTION: getError( void ) void
         };
@@ -219,5 +219,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: dataErrorModule( void ) void
-})( sharesoft );
+})( pleisterman );
 // done create module function

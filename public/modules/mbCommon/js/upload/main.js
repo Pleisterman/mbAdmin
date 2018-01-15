@@ -11,12 +11,12 @@
  *          linked to this module.
  *          this module requires the jsProject modules  
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
@@ -24,14 +24,14 @@
 // create module function
 ( function() {
         
-    // MODULE: sharesoft( void ) void 
+    // MODULE: pleisterman( void ) void 
         
-    // create the sharesoft object
-    window.sharesoft = new function(){};
+    // create the pleisterman object
+    window.pleisterman = new function(){};
 
     // PRIVATE 
-    var self = window.sharesoft;
-    self.MODULE = 'sharesoft';
+    var self = window.pleisterman;
+    self.MODULE = 'pleisterman';
     
     self.debugOn = false;                                           // boolean: debugOn
     self.debuggerOptions = {                                        // json: debugger options
@@ -42,9 +42,9 @@
         'height'    : 80                                            // integer: height
     };                                                              // done json: debugger options
     self.documentCssOptions = {                                     // json: document css options
-        'font-size'                 :   parent.sharesoft.options['fontSize']['value'] + 'px',   // css font size
-        'font-family'               :   parent.sharesoft.options['fontFamily']['value'],        // css font fmily
-        'color'                     :   parent.sharesoft.colors['commonColor']['color']         // css color: color
+        'font-size'                 :   parent.pleisterman.options['fontSize']['value'] + 'px',   // css font size
+        'font-family'               :   parent.pleisterman.options['fontFamily']['value'],        // css font fmily
+        'color'                     :   parent.pleisterman.colors['commonColor']['color']         // css color: color
     };                                                              // done json: document css options
     self.errorOptions = {                                           // json: error options
         'parentId'              :   'errorContainer',               // string: parent element id
@@ -52,7 +52,7 @@
         'element'               :   'div',                          // string: html element type
         'minimumHeight'         :   '1.0em',                        // css minimum width
         'backgroundColor'       :   'transparent',                  // css color: background color
-        'color'                 :   parent.sharesoft.colors['errorColor']['color'], // css color: color
+        'color'                 :   parent.pleisterman.colors['errorColor']['color'], // css color: color
         'marginTop'             :   '0.6em',                        // css margin top
         'marginBottom'          :   '0.6em',                        // css margin bottom
         'marginLeft'            :   '2.0em',                        // css margin left
@@ -65,7 +65,7 @@
         'element'               :   'div',                          // string: html element type
         'minimumHeight'         :   '1.0em',                        // css minimum height
         'backgroundColor'       :   'transparent',                  // css color: background color
-        'color'                 :   parent.sharesoft.colors['editColor']['color'], // css color: color
+        'color'                 :   parent.pleisterman.colors['editColor']['color'], // css color: color
         'marginTop'             :   '0.6em',                        // css margin top
         'marginBottom'          :   '0.6em',                        // css margin bottom
         'marginLeft'            :   '2.0em',                        // css margin left
@@ -90,25 +90,25 @@
         jsProject.debugOn( self.debugOn, self.debuggerOptions );
         
         // create settings module
-        self.settingsModule = new sharesoft.settingsModule( );
+        self.settingsModule = new pleisterman.settingsModule( );
         // create values module
-        self.valuesModule = new sharesoft.valuesModule( );
+        self.valuesModule = new pleisterman.valuesModule( );
         // create tab stops module
-        self.tabStopsModule = new sharesoft.tabStopsModule( );
+        self.tabStopsModule = new pleisterman.tabStopsModule( );
         
         // set document css
         self.setDocumentCss();
         
         // get caller options
-        self.callerOptions = parent.sharesoft.getDocumentUploadOptions();
+        self.callerOptions = parent.pleisterman.getDocumentUploadOptions();
 
         // upload succes
         if( $( '#resultSucces' ).val() ){
             if( self.callerOptions['mode'] === 'insert' ){
-                parent.sharesoft.getMessage( 'documentInserted', self.messageCallback ); 
+                parent.pleisterman.getMessage( 'documentInserted', self.messageCallback ); 
             }
             if( self.callerOptions['mode'] === 'update' ){
-                parent.sharesoft.getMessage( 'documentUpdated', self.messageCallback ); 
+                parent.pleisterman.getMessage( 'documentUpdated', self.messageCallback ); 
             }
             
             self.callerOptions['callback']( self.callerOptions['documentId'] );
@@ -170,7 +170,7 @@
         // done create data module options
         
         // create data module
-        self.dataModule = new sharesoft.dataModule( options );
+        self.dataModule = new pleisterman.dataModule( options );
         
     // DONE FUNCTION: createDataModule( void ) void
     };
@@ -178,7 +178,7 @@
     // FUNCTION: createDocumentDataObject( void ) void
             
         // create document data object module 
-        self.documentDataObjectModule = new parent.sharesoft.documentDataObjectModule();
+        self.documentDataObjectModule = new parent.pleisterman.documentDataObjectModule();
         // get data object
         self.documentDataObject = self.documentDataObjectModule.getDataObject();
         
@@ -259,7 +259,7 @@
         // has error
         if( $( '#resultError' ).val() ){
             // get error
-            parent.sharesoft.getError(  $( '#resultError' ).val(), self.errorCallback );
+            parent.pleisterman.getError(  $( '#resultError' ).val(), self.errorCallback );
             // show error
             $( '#' + self.errorOptions['parentId'] ).show();
             
@@ -404,7 +404,7 @@
         }
         self.callerOptions['callback']( self.callerOptions['documentId'] );
             
-        parent.sharesoft.getMessage( 'dataUpdated', self.messageCallback );    
+        parent.pleisterman.getMessage( 'dataUpdated', self.messageCallback );    
         
     // DONE FUNCTION: updateNameCallback( json: result ) void
     };
@@ -434,7 +434,7 @@
         $( '#workDirectory' ).val( self.callerOptions['workDirectory'] );
         $( '#subject' ).val( self.callerOptions['subject'] );
         $( '#subjectId' ).val( self.callerOptions['subjectId'] );
-        $( '#token' ).val( parent.sharesoft.token );
+        $( '#token' ).val( parent.pleisterman.token );
         // done set submit values
     
         // submit
@@ -464,7 +464,7 @@
         // done no error
         
         // set backgroundColor
-        $( '#' + self.errorOptions['id'] ).css( 'background-color', parent.sharesoft.colors['errorDialogBackgroundColor']['color'] );
+        $( '#' + self.errorOptions['id'] ).css( 'background-color', parent.pleisterman.colors['errorDialogBackgroundColor']['color'] );
         // set error html
         $( '#' + self.errorOptions['id'] ).html( error );
         // show error 
@@ -480,7 +480,7 @@
         // debug info
         self.debug( 'messageCallback message: ' + message );
         // set backgroundColor
-        $( '#' + self.messageOptions['id'] ).css( 'background-color', parent.sharesoft.colors['messageBackgroundColor']['color'] );
+        $( '#' + self.messageOptions['id'] ).css( 'background-color', parent.pleisterman.colors['messageBackgroundColor']['color'] );
         // set message html
         $( '#' + self.messageOptions['id'] ).html( message );
         // show message 
@@ -496,7 +496,7 @@
         // check critical errors
         if( result['criticalError'] ){
             // show critical error
-            parent.sharesoft.showCriticalError( result['criticalError'] );
+            parent.pleisterman.showCriticalError( result['criticalError'] );
             // done with error
             return true;
         }
@@ -539,7 +539,7 @@
             // done document already deleted
             
             // show error message
-            parent.sharesoft.getError( result['error'], self.errorCallback );
+            parent.pleisterman.getError( result['error'], self.errorCallback );
 
             // done with error
             return true;
@@ -555,7 +555,7 @@
     // FUNCTION: close( void ) void
             
         // hide upload
-        parent.sharesoft.hideDocumentUpload( );
+        parent.pleisterman.hideDocumentUpload( );
 
     // DONE FUNCTION: close( void ) void
     };

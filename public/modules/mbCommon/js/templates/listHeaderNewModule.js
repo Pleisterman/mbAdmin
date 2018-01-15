@@ -9,22 +9,22 @@
  *          this module creates the list new buttons for the listHeaders
  *          the module displays a button 
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: listHeaderNewModule( string: id, function: callback ) void 
     
-    sharesoft.listHeaderNewModule = function( id, callback ) {
+    pleisterman.listHeaderNewModule = function( id, callback ) {
         // PRIVATE:
         
         // MEMBERS
@@ -33,13 +33,13 @@
         self.debugOn = false;                                           // boolean: debug on
         self.id = id;                                                   // string: element id
         self.callback = callback;                                       // function: callback
-        self.imageUrl = sharesoft.getSetting( 'imageUrl' );             // string: image dir
+        self.imageUrl = pleisterman.getSetting( 'imageUrl' );             // string: image dir
         self.parentOptions = {                                          // json: parent options
             'id'                    :   'listHeader' + self.id          // string: element id
         };                                                              // done json: parent options
         self.buttonOptions = {                                          // json button options
             'id'                    :   'listNewButton' + self.id,      // string: element id
-            'title'                 :   sharesoft.translations[self.id + 'listNew'], // string: title
+            'title'                 :   pleisterman.translations[self.id + 'listNew'], // string: title
             'element'               :   'div',                          // string: html element type 
             'display'               :   'inline-block',                 // css display
             'verticalAlign'         :   'middle',                       // css vertical align
@@ -48,11 +48,11 @@
             'styleWidth'            :   '1.8em',                        // css style width
             'styleHeight'           :   '1.8em',                        // css style height
             'backgroundSize'        :   '1.8em 1.8em',                  // css background size
-            'backgroundColor'       :   sharesoft.colors['buttonBackgroundColor']['color'], // css color: background color
+            'backgroundColor'       :   pleisterman.colors['buttonBackgroundColor']['color'], // css color: background color
             'backgroundPosition'    :   'center center',                // css background positiob
             'backgroundRepeat'      :   'no-repeat',                    // css background repeat
             'border'                :   true,                           // boolean: has border
-            'borderColor'           :   sharesoft.colors['buttonBorderColor']['color'], // css color: border color
+            'borderColor'           :   pleisterman.colors['buttonBorderColor']['color'], // css color: border color
             'borderWidth'           :   '0.1em',                        // css border width 
             'borderStyle'           :   'solid',                        // css border style 
             'cursor'                :   'pointer',                      // css cursor            
@@ -109,9 +109,9 @@
         // FUNCTION: mouseIn( html element: element ) void
             
             // mouse over -> background color highlight
-            $( '#' + element.id ).css( 'background-color', sharesoft.colors['buttonHighlightBackgroundColor']['color'] );
+            $( '#' + element.id ).css( 'background-color', pleisterman.colors['buttonHighlightBackgroundColor']['color'] );
             // mouse over -> color highlight
-            $( '#' +element.id ).css( 'color', sharesoft.colors['buttonHighlightColor']['color'] );
+            $( '#' +element.id ).css( 'color', pleisterman.colors['buttonHighlightColor']['color'] );
             
         // DONE FUNCTION: mouseIn( html element: element ) void
         };
@@ -119,9 +119,9 @@
         // FUNCTION: mouseOut( html element: element ) void
             
             // mouse out -> background color default
-            $( '#' + element.id ).css( 'background-color', sharesoft.colors['buttonBackgroundColor']['color'] );
+            $( '#' + element.id ).css( 'background-color', pleisterman.colors['buttonBackgroundColor']['color'] );
             // mouse out -> color default
-            $( '#' + element.id ).css( 'color', sharesoft.colors['buttonColor']['color'] );
+            $( '#' + element.id ).css( 'color', pleisterman.colors['buttonColor']['color'] );
             
         // DONE FUNCTION: mouseOut( html element: element ) void
         };
@@ -141,7 +141,7 @@
         // FUNCTION: updateColors( event: event ) void
             
             self.debug( 'update colors' );
-            $( '#' + self.buttonOptions['id'] ).css( 'background-color', sharesoft.colors['buttonBackgroundColor']['color'] );
+            $( '#' + self.buttonOptions['id'] ).css( 'background-color', pleisterman.colors['buttonBackgroundColor']['color'] );
             
         // DONE FUNCTION: updateColors( void ) void
         };
@@ -179,5 +179,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: listHeaderNewModule( string: id, function: callback ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

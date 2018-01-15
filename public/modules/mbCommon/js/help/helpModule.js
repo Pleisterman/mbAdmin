@@ -9,22 +9,22 @@
  *          this module handles the functions
  *          for the help screens
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: helpModule( void ) void 
     
-    sharesoft.helpModule = function( ) {
+    pleisterman.helpModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -54,7 +54,7 @@
             // module !exists 
             if( !self.helpDialogModule ){
                 // create module
-                self.helpDialogModule = new sharesoft.helpDialogModule( self.getSubject );
+                self.helpDialogModule = new pleisterman.helpDialogModule( self.getSubject );
             }
             // done module !exists
             
@@ -72,18 +72,18 @@
             self.callback = callback;
 
             // show busy screen
-            sharesoft.startBusyProcess();
+            pleisterman.startBusyProcess();
             
             // create ajax data
             var data = { 
                 'type'              :   'help',    
                 'subjectId'         :   subjectId,
-                'languageId'        :   sharesoft.selectedLanguageId 
+                'languageId'        :   pleisterman.selectedLanguageId 
             };
             // done create ajax data
 
             // ajax
-            jsProject.post( '/' + sharesoft.baseDirectory + '/getString', data, self.getSubjectCallback );
+            jsProject.post( '/' + pleisterman.baseDirectory + '/getString', data, self.getSubjectCallback );
             
         // DONE FUNCTION: getSubject( string: seubjectId, string: text ) void
         };
@@ -91,9 +91,9 @@
         // FUNCTION: getSubjectCallback( json: result ) void
             
             // global check result
-            if( sharesoft.hasAjaxResultErrors( result ) ){
+            if( pleisterman.hasAjaxResultErrors( result ) ){
                 // end busy
-                sharesoft.endBusyProcess();
+                pleisterman.endBusyProcess();
                 // done with error
                 return true;
             }
@@ -103,7 +103,7 @@
             self.callback( self.subjectId, result['string'] );
             
             // end busy
-            sharesoft.endBusyProcess();
+            pleisterman.endBusyProcess();
             
         // DONE FUNCTION: getSubjectCallback( json: result ) void
         };
@@ -136,5 +136,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: helpModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

@@ -8,23 +8,23 @@
  *  Purpose: 
  *          this module controls the flow for the documents data
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  *  
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: documentsModule( void ) void 
     
-    sharesoft.documentsModule = function( ) {
+    pleisterman.documentsModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -51,15 +51,15 @@
             self.debug( 'construct' );
 
             // create dataObject module
-            self.dataObjectModule = new sharesoft.documentDataObjectModule();
+            self.dataObjectModule = new pleisterman.documentDataObjectModule();
             // get data object
             self.dataObject = self.dataObjectModule.getDataObject();
             
             // create the list select module
-            self.listSelect = new sharesoft.documentsListSelectModule( self.fillList );
+            self.listSelect = new pleisterman.documentsListSelectModule( self.fillList );
             
             // create the list
-            self.list = new sharesoft.listModule( self.listOptions, self.listCallback );
+            self.list = new pleisterman.listModule( self.listOptions, self.listCallback );
             // done create list
             
             // event subscription
@@ -92,7 +92,7 @@
             self.debug( 'load' );
             
             // header is open
-            if( sharesoft.options['documentsHeaderOpen']['value'] === 'true' ){
+            if( pleisterman.options['documentsHeaderOpen']['value'] === 'true' ){
                 // debug info
                 self.debug( 'header is open' );
                 
@@ -124,9 +124,9 @@
                 // action: header 
                 case 'header' : {
                     // header is open OPTION: documentsHeaderOpen    
-                    if( sharesoft.options['documentsHeaderOpen']['value'] === 'true' ){
+                    if( pleisterman.options['documentsHeaderOpen']['value'] === 'true' ){
                         // remember close
-                        sharesoft.setOption( 'documentsHeaderOpen', 'false' );
+                        pleisterman.setOption( 'documentsHeaderOpen', 'false' );
                     }
                     else {
                         // open the selection list
@@ -155,9 +155,9 @@
         // FUNCTION openList( void ) void 
             
             // header was not open
-            if( sharesoft.options['documentsHeaderOpen']['value'] !== 'true' ){
+            if( pleisterman.options['documentsHeaderOpen']['value'] !== 'true' ){
                 // was closed now open
-                sharesoft.setOption( 'documentsHeaderOpen', 'true' );
+                pleisterman.setOption( 'documentsHeaderOpen', 'true' );
                                 
                 // load the list data
                 self.listSelect.loadList( );
@@ -168,13 +168,13 @@
         };
         self.openInitialSelection = function(){
             // open subject is rides
-            if( sharesoft.options['openSubject']['value'] === 'documents' ){
+            if( pleisterman.options['openSubject']['value'] === 'documents' ){
                 // subject row id exists
-                if( sharesoft.options['openSubjectRowId']['value'] !== undefined &&
-                    sharesoft.options['openSubjectRowId']['value'] ){
+                if( pleisterman.options['openSubjectRowId']['value'] !== undefined &&
+                    pleisterman.options['openSubjectRowId']['value'] ){
                      
                     // get selected row
-                    self.display( sharesoft.options['openSubjectRowId']['value'] );
+                    self.display( pleisterman.options['openSubjectRowId']['value'] );
                 }
                 // done subject row id exists
             }
@@ -187,15 +187,15 @@
             self.debug( 'self.fillList: ' + rows.length );
 
             // header open show data 
-            if( sharesoft.options['documentsHeaderOpen']['value'] === 'true' ){
+            if( pleisterman.options['documentsHeaderOpen']['value'] === 'true' ){
                 // open list content
                 self.list.openContent( true );
             
                 // create options
                 var options = {
-                    'headerText'    :   sharesoft.translations['lastUsed'],
+                    'headerText'    :   pleisterman.translations['lastUsed'],
                     'rows'          :   rows,
-                    'selection'     :   sharesoft.options['documentsListSelection']['value'],
+                    'selection'     :   pleisterman.options['documentsListSelection']['value'],
                     'searchText'    :   ''
                 };
                 // done create options
@@ -220,7 +220,7 @@
                 // done create message options
                 
                 // show the message
-                sharesoft.showMessage( 'dataChanged', options );
+                pleisterman.showMessage( 'dataChanged', options );
             }
             else {
                 // data unchanged get row
@@ -251,9 +251,9 @@
             jsProject.callEvent( 'cancel' );    
 
             // set open subject
-            sharesoft.setOption( 'openSubject', 'documents' );
+            pleisterman.setOption( 'openSubject', 'documents' );
             // set open id
-            sharesoft.setOption( 'openSubjectRowId', id );
+            pleisterman.setOption( 'openSubjectRowId', id );
             // display
             
             // set data !changed 
@@ -302,5 +302,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: documentsModule( void ) void
-})( sharesoft );
+})( pleisterman );
 // done create module function

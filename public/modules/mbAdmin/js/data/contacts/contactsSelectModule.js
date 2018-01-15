@@ -11,26 +11,26 @@
  *      An open contacts list wil always be loaded and cashed 
  *      Closed contacts wil be loaded and cashed when needed
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
  *  Purpose:  
  *      contains the basic html code for the header
  *      of the website
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
 */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: contactsSelectModule( json: options ) void
     
-    sharesoft.contactsSelectModule = function( options ) {
+    pleisterman.contactsSelectModule = function( options ) {
         // PRIVATE:
         
         // MEMBERS
@@ -81,11 +81,11 @@
             self.debug( 'loadOpen' );
 
             // show busy screen
-            sharesoft.startBusyProcess();
+            pleisterman.startBusyProcess();
 
             // construct data object
             var data = { 
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'subject'           :   'contacts',
                 'what'              :   'list',
                 'selection'         :   'open',
@@ -94,7 +94,7 @@
             // done construct data object
 
             // ajax
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/read', sharesoft.token, data, self.loadOpenCallback );
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/read', pleisterman.token, data, self.loadOpenCallback );
             
         // DONE FUNCTION: loadOpen( void ) void
         };
@@ -103,8 +103,8 @@
             
             // check critical errors
             if( result['criticalError'] ){
-                sharesoft.showCriticalError( result['criticalError'] );
-                sharesoft.endBusyProcess();
+                pleisterman.showCriticalError( result['criticalError'] );
+                pleisterman.endBusyProcess();
                 // error return
                 return;
             }
@@ -126,7 +126,7 @@
             // data changed
             
             // end busy 
-            sharesoft.endBusyProcess();
+            pleisterman.endBusyProcess();
 
             // call the callback    
             self.callback();
@@ -140,11 +140,11 @@
             self.debug( 'load closed' );
             
             // show busy screen
-            sharesoft.startBusyProcess();
+            pleisterman.startBusyProcess();
 
             // construct data object
             var data = { 
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'subject'           :   'contacts',
                 'what'              :   'list',
                 'selection'         :   'closed',
@@ -153,7 +153,7 @@
             // done construct data object
 
             // ajax
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/read', sharesoft.token, data, self.loadClosedCallback );
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/read', pleisterman.token, data, self.loadClosedCallback );
             
         // DONE FUNCTION: loadClosed( void ) void
         };
@@ -162,8 +162,8 @@
             
             // check critical errors
             if( result['criticalError'] ){
-                sharesoft.showCriticalError( result['criticalError'] );
-                sharesoft.endBusyProcess();
+                pleisterman.showCriticalError( result['criticalError'] );
+                pleisterman.endBusyProcess();
                 // error return
                 return;
             }
@@ -185,7 +185,7 @@
             // data changed
             
             // end busy 
-            sharesoft.endBusyProcess();
+            pleisterman.endBusyProcess();
 
             self.callback();
             
@@ -210,13 +210,13 @@
         // FUNCTION: lisSelectorLoadCallback( void ) void
             
             // sort contacts
-            self.openData['rows'].sort( sharesoft.orderByText );
+            self.openData['rows'].sort( pleisterman.orderByText );
 
             // create selector options
             var options = {
                 'id'                    :   'contacts',
                 'elementId'             :   self.callerOptions['elementId'],
-                'headerText'            :   sharesoft.translations['contacts'],
+                'headerText'            :   pleisterman.translations['contacts'],
                 'rows'                  :   self.openData['rows'],
                 'filterChangeCallback'  :   self.listFilterChangeCallback,
                 'selectCallback'        :   self.listSelectCallback
@@ -224,7 +224,7 @@
             // done create selector options
             
             // open selector
-            sharesoft.showListSelector( options );
+            pleisterman.showListSelector( options );
             
         // DONE FUNCTION: lisSelectorLoadCallback( void ) void
         };
@@ -285,11 +285,11 @@
             self.callerOptions['callback'] = callback;
             
             // show busy screen
-            sharesoft.startBusyProcess();
+            pleisterman.startBusyProcess();
 
             // construct data object
             var data = { 
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'subject'           :   'contacts',
                 'what'              :   'selectData',
                 'selection'         :   id,
@@ -298,7 +298,7 @@
             // done construct data object
              
             // make the ajax call
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/read', sharesoft.token, data, self.getSelectDataCallback );
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/read', pleisterman.token, data, self.getSelectDataCallback );
             
         // DONE FUNCTION: getSelectData( integer: id, function: callback ) void
         };
@@ -307,8 +307,8 @@
             
             // check critical errors
             if( result['criticalError'] ){
-                sharesoft.showCriticalError( result['criticalError'] );
-                sharesoft.endBusyProcess();
+                pleisterman.showCriticalError( result['criticalError'] );
+                pleisterman.endBusyProcess();
                 return;
             }
             // done check critical errors
@@ -330,7 +330,7 @@
             // data changed
             
             // hide busy screen
-            sharesoft.endBusyProcess();
+            pleisterman.endBusyProcess();
             
             // call the callback
             self.callerOptions['callback']( result );
@@ -376,5 +376,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: contactsSelectModule( json: options ) void
-})( sharesoft );
+})( pleisterman );
 // done create module function

@@ -11,22 +11,22 @@
  *              getPasswordStrength
  *           to the application.
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: passwordCheckModule( void ) void
     
-    sharesoft.passwordCheckModule = function( ) {
+    pleisterman.passwordCheckModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -42,7 +42,7 @@
             // debug info
             self.debug( 'construct' );
             
-            // add the extensions to sharesoft
+            // add the extensions to pleisterman
             self.addApplicationsExtensions();
             
         // DONE FUNCTION: construct( void ) void
@@ -51,13 +51,13 @@
         // FUNCTION: addApplicationsExtensions( void ) void
             
             // add validate password
-            sharesoft.validatePassword = self.validatePassword;
+            pleisterman.validatePassword = self.validatePassword;
             
             // add get password strength color
-            sharesoft.getPasswordStrengthColor = self.getPasswordStrengthColor;
+            pleisterman.getPasswordStrengthColor = self.getPasswordStrengthColor;
             
             // add get password strength valid
-            sharesoft.getPasswordStrengthValid = self.getPasswordStrengthValid;
+            pleisterman.getPasswordStrengthValid = self.getPasswordStrengthValid;
             
         // DONE FUNCTION: userCheckNewPassword( void ) void
         };
@@ -72,7 +72,7 @@
                 // debug info
                 self.debug( 'password is empty' );
                 // show error
-                sharesoft.getError( 'passwordEmpty', errorCallback );
+                pleisterman.getError( 'passwordEmpty', errorCallback );
                 // done with error
                 return false;
             }
@@ -83,18 +83,18 @@
                 // debug info
                 self.debug( 'password is not password repeat' );
                 // show error
-                sharesoft.getError( 'passwordsNotEqual', errorCallback );
+                pleisterman.getError( 'passwordsNotEqual', errorCallback );
                 // done invalid
                 return false;
             }
             // done password not password repeat
             
             // password to short
-            if( password.length < sharesoft.minimumPasswordLength ){
+            if( password.length < pleisterman.minimumPasswordLength ){
                 // debug info
                 self.debug( 'password is not password repeat' );
                 // show error
-                sharesoft.getError( 'passwordToShort', errorCallback );
+                pleisterman.getError( 'passwordToShort', errorCallback );
                 // done invalid
                 return false;
             }
@@ -103,7 +103,7 @@
             // check entropy
             if( !self.checkEntropy( password ) ){
                 // show error
-                sharesoft.getError( 'passwordEntropyFailed', errorCallback );
+                pleisterman.getError( 'passwordEntropyFailed', errorCallback );
                 // done invalid
                 return false;
             }
@@ -125,7 +125,7 @@
             // check entropy
 
             // password to short
-            if( password.length < sharesoft.minimumPasswordLength ){
+            if( password.length < pleisterman.minimumPasswordLength ){
                 // done
                 return 'red';
             }
@@ -141,7 +141,7 @@
             // done strength = 0
             
             // strength >= minimum strength
-            if( self.calculatePaswordStrength( password ) >= sharesoft.minimumPasswordStrength ){
+            if( self.calculatePaswordStrength( password ) >= pleisterman.minimumPasswordStrength ){
                 // done valid
                 return 'green';
             }
@@ -149,7 +149,7 @@
 
 
             // calculate ratio
-            var ratio = ( strength / sharesoft.minimumPasswordStrength ) * 4;
+            var ratio = ( strength / pleisterman.minimumPasswordStrength ) * 4;
             
             // ratio < 1
             if( ratio < 1 ){
@@ -189,14 +189,14 @@
             // check entropy
 
             // password to short
-            if( password.length < sharesoft.minimumPasswordLength ){
+            if( password.length < pleisterman.minimumPasswordLength ){
                 // done invalid
                 return false;
             }
             // done to short
 
             // strength < minimum strength
-            if( self.calculatePaswordStrength( password ) < sharesoft.minimumPasswordStrength ){
+            if( self.calculatePaswordStrength( password ) < pleisterman.minimumPasswordStrength ){
                 // done invalid
                 return false;
             }
@@ -221,7 +221,7 @@
             // done length > 7
             
             // length > minimum length + 1 
-            if( password.length > sharesoft.minimumPasswordLength + 1 ){
+            if( password.length > pleisterman.minimumPasswordLength + 1 ){
                 // strength += 1
                 strength++;
             }
@@ -301,5 +301,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: passwordCheckModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

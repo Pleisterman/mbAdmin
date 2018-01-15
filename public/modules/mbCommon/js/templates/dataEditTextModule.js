@@ -12,22 +12,22 @@
  *          on updates
  *          checks for default focus
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: dataEditTextModule( string: contentId, json: values, boolean: isEdit ) void 
     
-    sharesoft.dataEditTextModule = function( contentId, values, isEdit ) {
+    pleisterman.dataEditTextModule = function( contentId, values, isEdit ) {
         // PRIVATE:
         
         // MEMBERS
@@ -42,12 +42,12 @@
             'element'               :   'div',                          // string: html element type 
             'position'              :   'relative',                     // css position
             'display'               :   'table',                        // css display
-            'padding'               :   sharesoft.getSetting( 'dataEditItemPadding' ),          // css padding
-            'marginTop'             :   sharesoft.getSetting( 'dataEditItemMarginTop' ),        // css margin top
-            'marginLeft'            :   sharesoft.getSetting( 'dataEditItemMarginLeft' ),       // css margin left
-            'backgroundColor'       :   sharesoft.colors['dataItemBackgroundColor']['color'],   // css color: background color
+            'padding'               :   pleisterman.getSetting( 'dataEditItemPadding' ),          // css padding
+            'marginTop'             :   pleisterman.getSetting( 'dataEditItemMarginTop' ),        // css margin top
+            'marginLeft'            :   pleisterman.getSetting( 'dataEditItemMarginLeft' ),       // css margin left
+            'backgroundColor'       :   pleisterman.colors['dataItemBackgroundColor']['color'],   // css color: background color
             'rememberBackgroundColor':  '',                             // css color: remember background color
-            'borderRadius'          :   sharesoft.getSetting( 'dataEditBorderRadius' ),         // css border radius
+            'borderRadius'          :   pleisterman.getSetting( 'dataEditBorderRadius' ),         // css border radius
             'mouseOver'             :   false,                          // boolean: mouse over
             'cursor'                :   'pointer'                       // css cursor
         };                                                              // done json: item container options
@@ -61,11 +61,11 @@
             'element'               :   'div',                          // string: html element type
             'display'               :   'inline-block',                 // css display
             'verticalAlign'         :   'top',                          // css vertical align
-            'fontSize'              :   sharesoft.getSetting( 'dataEditLabelFontSize' ),        // css font size
-            'fontWeight'            :   sharesoft.getSetting( 'dataEditLabelFontWeight' ),      // css font weight
-            'marginTop'             :   sharesoft.getSetting( 'dataEditLabelMarginTop' ),       // css margin top    
-            'marginRight'           :   sharesoft.getSetting( 'dataEditLabelMarginRight' ),     // css margin right
-            'styleWidth'            :   sharesoft.getSetting( 'dataEditLabelWidth' ),           // css style width
+            'fontSize'              :   pleisterman.getSetting( 'dataEditLabelFontSize' ),        // css font size
+            'fontWeight'            :   pleisterman.getSetting( 'dataEditLabelFontWeight' ),      // css font weight
+            'marginTop'             :   pleisterman.getSetting( 'dataEditLabelMarginTop' ),       // css margin top    
+            'marginRight'           :   pleisterman.getSetting( 'dataEditLabelMarginRight' ),     // css margin right
+            'styleWidth'            :   pleisterman.getSetting( 'dataEditLabelWidth' ),           // css style width
             'rememberColor'         :   '',                             // css color: rememeber color
             'rememberFontWeight'    :   ''                              // css font weight: remember font weight  
         };                                                              // done json: label options
@@ -77,12 +77,12 @@
             'styleWidth'            :   '35em',                         // css style width
             'textAlign'             :   'left',                         // css text align
             'verticalAlign'         :   'middle',                       // css verical align
-            'marginTop'             :   sharesoft.getSetting( 'dataEditLabelMarginTop' ),       // css margin top
-            'backgroundColor'       :   sharesoft.colors['editBackgroundColor']['color'],       // css color: background color
-            'fontFamily'            :   sharesoft.options['fontFamily']['value'],               // css font family
-            'fontSize'              :   sharesoft.getSetting( 'dataEditInputFontSize' ),        // css font size
-            'fontWeight'            :   sharesoft.getSetting( 'dataEditInputFontWeight' ),      // css font weight
-            'color'                 :   sharesoft.colors['editColor']['color'],                 // css color: color
+            'marginTop'             :   pleisterman.getSetting( 'dataEditLabelMarginTop' ),       // css margin top
+            'backgroundColor'       :   pleisterman.colors['editBackgroundColor']['color'],       // css color: background color
+            'fontFamily'            :   pleisterman.options['fontFamily']['value'],               // css font family
+            'fontSize'              :   pleisterman.getSetting( 'dataEditInputFontSize' ),        // css font size
+            'fontWeight'            :   pleisterman.getSetting( 'dataEditInputFontWeight' ),      // css font weight
+            'color'                 :   pleisterman.colors['editColor']['color'],                 // css color: color
             'border'                :   true,                           // boolean: has border    
             'borderStyle'           :   'solid',                        // css border style
             'borderWidth'           :   '0.1em',                        // css border width
@@ -105,11 +105,11 @@
             'display'               :   'none',                         // css display
             'text'                  :   '',                             // string: text
             'zIndex'                :   '2',                            // css z-index
-            'styleWidth'            :   sharesoft.getSetting( 'dataEditLabelWidth' ),               // css style width
-            'backgroundColor'       :   sharesoft.colors['errorDialogBackgroundColor']['color'],    // css color: background color    
-            'color'                 :   sharesoft.colors['errorColor']['color'],                    // css color: color
+            'styleWidth'            :   pleisterman.getSetting( 'dataEditLabelWidth' ),               // css style width
+            'backgroundColor'       :   pleisterman.colors['errorDialogBackgroundColor']['color'],    // css color: background color    
+            'color'                 :   pleisterman.colors['errorColor']['color'],                    // css color: color
             'border'                :   true,                           // boolean: has border
-            'borderColor'           :   sharesoft.colors['errorDialogBorderColor']['color'],        // css color: border color
+            'borderColor'           :   pleisterman.colors['errorDialogBorderColor']['color'],        // css color: border color
             'borderWidth'           :   '0.1em',                        // css border width
             'borderStyle'           :   'solid',                        // css border style
             'padding'               :   '0.2em',                        // css padding
@@ -259,11 +259,11 @@
         // FUNCTION: setSelectedDisplay( void ) void
             
             // input mouse in -> color highlight
-            $( '#' + self.inputOptions['id'] ).css( 'color', sharesoft.colors['buttonHighlightColor']['color'] );
+            $( '#' + self.inputOptions['id'] ).css( 'color', pleisterman.colors['buttonHighlightColor']['color'] );
             // set item background color selected
-            $( '#' + self.itemContainerOptions['id'] ).css( 'background-color', sharesoft.colors['buttonHighlightBackgroundColor']['color'] );
+            $( '#' + self.itemContainerOptions['id'] ).css( 'background-color', pleisterman.colors['buttonHighlightBackgroundColor']['color'] );
             // set label color selected
-            $( '#' + self.labelOptions['id'] ).css( 'color', sharesoft.colors['buttonHighlightColor']['color'] );
+            $( '#' + self.labelOptions['id'] ).css( 'color', pleisterman.colors['buttonHighlightColor']['color'] );
             // set label font weight selected
             $( '#' + self.labelOptions['id'] ).css( 'font-weight', 'bold' );
             
@@ -514,7 +514,7 @@
             if( self.values['displayOptions']['emptyError'] !== undefined &&
                 self.values['displayOptions']['emptyError'] ){
                 if( value === '' ){
-                    sharesoft.getError( 'inputEmpty', self.showError );
+                    pleisterman.getError( 'inputEmpty', self.showError );
                     return false;
                 }
             }
@@ -567,7 +567,7 @@
             // check syntax
             if( !jsProject.checkEmailSyntax( value ) ){
                 // show error
-                sharesoft.getError( 'invalidEmailAdress', self.showError );
+                pleisterman.getError( 'invalidEmailAdress', self.showError );
                 // set input focus
                 $( '#' + self.inputOptions['id'] ).focus();
                 // done with error
@@ -588,7 +588,7 @@
             // not a number
             if( isNaN( value ) ){
                 // show error
-                sharesoft.getError( 'notANumber', self.showError );
+                pleisterman.getError( 'notANumber', self.showError );
                 // set input focus
                 $( '#' + self.inputOptions['id'] ).focus();
                 // doen with error
@@ -641,7 +641,7 @@
             // check hours and minutes
             if( hoursInteger > 23 || isNaN( hoursInteger ) || minutesInteger > 59 || isNaN( minutesInteger ) ){
                 // show error
-                sharesoft.getError( 'invalidTime', self.showError );
+                pleisterman.getError( 'invalidTime', self.showError );
                 // set input focus
                 $( '#' + self.inputOptions['id'] ).focus();
                 // done with error
@@ -871,5 +871,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: dataEditTextModule( string: contentId, json: values, boolean: isEdit ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

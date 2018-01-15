@@ -8,22 +8,22 @@
  *  Purpose: 
  *          displays the intro 
  *           
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: introModule( void ) void 
     
-    sharesoft.introModule = function( ) {
+    pleisterman.introModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -31,7 +31,7 @@
         self.MODULE = 'introModule';                                    // string:  MODULE
         self.debugOn = false;                                           // boolean: debug
         self.callback = null;                                           // function: callback
-        self.imageUrl = sharesoft.getSetting( 'imageUrl' );             // string: image dir
+        self.imageUrl = pleisterman.getSetting( 'imageUrl' );             // string: image dir
         self.options = {                                                // jsom: options
             'showPeriod' : 500                                          // integer: show period
         };                                                              // done jsom: options
@@ -45,12 +45,12 @@
             'position'              :   'absolute',                     // css style position
             'styleWidth'            :   '44em',                         // css style width
             'styleHeight'           :   '22em',                         // css style height
-            'border'                :   sharesoft.getSetting( 'dialogBorder' ),             // boolean: has border
-            'borderWidth'           :   sharesoft.getSetting( 'dialogBorderWidth' ),        // css border width    
-            'borderColor'           :   sharesoft.colors['dialogBorderColor']['color'],     // css border color
-            'borderStyle'           :   sharesoft.getSetting( 'dialogBorderStyle' ),        // css border style
-            'borderRadius'          :   sharesoft.getSetting( 'dialogBorderRadius' ),       // css border radius
-            'backgroundColor'       :   sharesoft.colors['dialogBackgroundColor']['color']  // css background color
+            'border'                :   pleisterman.getSetting( 'dialogBorder' ),             // boolean: has border
+            'borderWidth'           :   pleisterman.getSetting( 'dialogBorderWidth' ),        // css border width    
+            'borderColor'           :   pleisterman.colors['dialogBorderColor']['color'],     // css border color
+            'borderStyle'           :   pleisterman.getSetting( 'dialogBorderStyle' ),        // css border style
+            'borderRadius'          :   pleisterman.getSetting( 'dialogBorderRadius' ),       // css border radius
+            'backgroundColor'       :   pleisterman.colors['dialogBackgroundColor']['color']  // css background color
         };                                                              // done json: dialog options
         self.headerContainerOptions = {                                 // json: header container options
             'id'                    :   'introDialogHeaderContainer',   // string: elment id
@@ -59,13 +59,13 @@
         self.headerOptions = {                                          // json: header options
             'id'                    :   'introDialogHeader',            // string: element id
             'element'               :   'div',                          // string: html element type 
-            'text'                  :   sharesoft.translations['introHeader'],              // string: text
-            'fontSize'              :   sharesoft.getSetting( 'dialogHeaderFontSize' ),     // css font size
-            'fontWeight'            :   sharesoft.getSetting( 'dialogHeaderFontWeight' ),   // css font weight
-            'color'                 :   sharesoft.colors['dialogHighlightColor']['color'],  // css color: color
-            'marginLeft'            :   sharesoft.getSetting( 'dialogHeaderMarginLeft' ),   // css margin left
-            'marginBottom'          :   sharesoft.getSetting( 'dialogHeaderMarginBottom' ), // css margin bottom
-            'padding'               :   sharesoft.getSetting( 'dialogHeaderPadding' )       // css padding
+            'text'                  :   pleisterman.translations['introHeader'],              // string: text
+            'fontSize'              :   pleisterman.getSetting( 'dialogHeaderFontSize' ),     // css font size
+            'fontWeight'            :   pleisterman.getSetting( 'dialogHeaderFontWeight' ),   // css font weight
+            'color'                 :   pleisterman.colors['dialogHighlightColor']['color'],  // css color: color
+            'marginLeft'            :   pleisterman.getSetting( 'dialogHeaderMarginLeft' ),   // css margin left
+            'marginBottom'          :   pleisterman.getSetting( 'dialogHeaderMarginBottom' ), // css margin bottom
+            'padding'               :   pleisterman.getSetting( 'dialogHeaderPadding' )       // css padding
         };                                                              // done json: header options
         self.textContainerOptions = {                                   // json text container options
             'id'                    :   'introDialogTextContainer',     // string: element id
@@ -238,5 +238,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: introModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

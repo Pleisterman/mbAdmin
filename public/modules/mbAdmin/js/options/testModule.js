@@ -8,26 +8,26 @@
  *  Purpose: 
  *      this module controls the test data in options
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
  *  Purpose:  
  *      contains the basic html code for the header
  *      of the website
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
 */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: testModule( void ) void
     
-    sharesoft.testModule = function( ) {
+    pleisterman.testModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -147,7 +147,7 @@
                 'okCallback' : self.messageCallback,
                 'okCallbackParameters' : 0
             };
-            sharesoft.showMessage( 'dataChanged', options );
+            pleisterman.showMessage( 'dataChanged', options );
             
         // DONE FUNCTION: openMessageDialog( void ) void
         };
@@ -161,21 +161,21 @@
         self.openOutOfDateDialog = function(){
         // FUNCTION: openOutOfDateDialog( void ) void
             
-            sharesoft.showOutOfDateDialog( null );
+            pleisterman.showOutOfDateDialog( null );
             
         // DONE FUNCTION: openOutOfDateDialog( void ) void
         };
         self.showErrorDialog = function(){
         // FUNCTION: showErrorDialog( void ) void
             
-            sharesoft.showError( 'documentAlreadyDeleted' );            
+            pleisterman.showError( 'documentAlreadyDeleted' );            
             
         // DONE FUNCTION: showErrorDialog( void ) void
         };
         self.showReLoginDialog = function(){
         // FUNCTION: showReLoginDialog( void ) void
             
-            sharesoft.showReLoginDialog( );            
+            pleisterman.showReLoginDialog( );            
             
         // DONE FUNCTION: showReLoginDialog( void ) void
         };
@@ -183,7 +183,7 @@
         // FUNCTION: openInitialSelection( void ) void
             
             // show font if selected
-            if( sharesoft.options['openSubject']['value'] === 'test' ){
+            if( pleisterman.options['openSubject']['value'] === 'test' ){
                 // show
                 self.show(); 
             }
@@ -198,7 +198,7 @@
             self.debug( 'prepareShow' );  
             
             // call global prepare data show
-            sharesoft.prepareDataShow( self.show );
+            pleisterman.prepareDataShow( self.show );
             
         // DONE FUNCTION: prepareShow( void ) void
         };
@@ -211,7 +211,7 @@
             // debug info    
             self.debug( 'open subject=' + self.id );
             // set open subject option
-            sharesoft.setOption( 'openSubject', self.id );
+            pleisterman.setOption( 'openSubject', self.id );
             
             // set data values
             jsProject.setValue( 'changed', 'data', false );    
@@ -227,7 +227,7 @@
             // call the edit event
             jsProject.callEvent( 'editOpen' );
             
-            //sharesoft.showDataError( 'text1', 'inputEmpty' );
+            //pleisterman.showDataError( 'text1', 'inputEmpty' );
             
         // DONE FUNCTION: show( void ) void
         };
@@ -253,7 +253,7 @@
             // reset data changed
             jsProject.setValue( 'changed', 'data', false );
             // unset open subject
-            sharesoft.setOption( 'openSubject', null );            
+            pleisterman.setOption( 'openSubject', null );            
             // call cancel event
             jsProject.callEvent( 'cancel' );
 
@@ -288,5 +288,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: testModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

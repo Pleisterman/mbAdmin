@@ -9,23 +9,23 @@
  *                      
  *  Last Revision: 12-01-2017
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2016 Sharesoft 
+ *  Copyright (C) 2016 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  *  
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: listRowsModule( json: options, function: callback ) void 
     
-    sharesoft.listRowsModule = function( options, callback ) {
+    pleisterman.listRowsModule = function( options, callback ) {
         // PRIVATE:
         
         // MEMBERS
@@ -35,7 +35,7 @@
         self.id = options['id'];                                        // string: id    
         self.callback = callback;                                       // function: callback
         self.options = options;                                         // json: options
-        self.imageUrl = sharesoft.getSetting( 'imageUrl' );               // string: image dir
+        self.imageUrl = pleisterman.getSetting( 'imageUrl' );               // string: image dir
         self.listRowsOptions = {                                        // json: list rows options
             'id'                    :   'listRows' + self.id,           // string: element id
             'element'               :   'div',                          // string: html element type
@@ -48,33 +48,33 @@
             'minimumWidth'              :   '10.0em',                   // css minimum width
             'styleHeight'               :   '1.1em',                    // css style height
             'marginTop'                 :   '0.1em',                    // css margin top
-            'color'                     :   sharesoft.colors['panelHighlightColor']['color'],     // css color: color
+            'color'                     :   pleisterman.colors['panelHighlightColor']['color'],     // css color: color
             'fontSize'                  :   '0.9em',                    // css font size
             'marginBottom'              :   '0.2em',                    // css margin bottom
             'paddingLeft'               :   '1.2em',                    // css padding left
             'padding'                   :   '0.2em',                    // css padding
             'paddingBottom'             :   '0.4em',                    // css padding top
             'borderBottom'              :   true,                       // boolean: has border
-            'borderColor'               :   sharesoft.colors['panelBorderColor']['color'],        // css color: border color
+            'borderColor'               :   pleisterman.colors['panelBorderColor']['color'],        // css color: border color
             'borderWidth'               :   '0.1em',                    // relative size 
             'borderStyle'               :   'solid',                    // relative size 
-            'backgroundColor'           :   sharesoft.colors['panelHighlightBackgroundColor']['color']
+            'backgroundColor'           :   pleisterman.colors['panelHighlightBackgroundColor']['color']
         };                                                              // done json: header options
         self.dateSelectionOptions = {                                   // json date selection options
             'id'                        :   'listRowsDateSelection' + self.id,  // string: element id
             'element'                   :   'div',                      // string: html element type
             'marginTop'                 :   '0.1em',                    // css margin top
-            'color'                     :   sharesoft.colors['panelHighlightColor']['color'], // css color: color
+            'color'                     :   pleisterman.colors['panelHighlightColor']['color'], // css color: color
             'fontSize'                  :   '0.9em',                    // css font sizer
             'marginBottom'              :   '0.2em',                    // css margin bottom
             'paddingLeft'               :   '4.2em',                    // css padding left
             'padding'                   :   '0.2em',                    // css padding
             'paddingBottom'             :   '0.4em',                    // css padding top
             'borderBottom'              :   true,                       // boolean, show border
-            'borderColor'               :   sharesoft.colors['panelBorderColor']['color'], // css color: border color
+            'borderColor'               :   pleisterman.colors['panelBorderColor']['color'], // css color: border color
             'borderWidth'               :   '0.1em',                    // css border width
             'borderStyle'               :   'solid',                    // css border style
-            'backgroundColor'           :   sharesoft.colors['panelHighlightBackgroundColor']['color']
+            'backgroundColor'           :   pleisterman.colors['panelHighlightBackgroundColor']['color']
         };                                                              // done json date selection options        
         self.rowOptions = {                                             // json: row options
             'element'               :   'div',                          // string: html element type 
@@ -84,9 +84,9 @@
             'borderTop'             :   true,                           // boolean: has border top
             'borderBottom'          :   true,                           // boolean: has borderr bottom
             'borderWidth'           :   '0.1em',                        // css border width
-            'borderColor'           :   sharesoft.colors['buttonBorderColor']['color'],  // css color: color
+            'borderColor'           :   pleisterman.colors['buttonBorderColor']['color'],  // css color: color
             'borderStyle'           :   'solid',                        // css border style
-            'backgroundColor'       :   sharesoft.colors['editBackgroundColor']['color'], // css color: background color
+            'backgroundColor'       :   pleisterman.colors['editBackgroundColor']['color'], // css color: background color
             'padding'               :   '0.4em',                        // css padding
             'paddingBottom'         :   '0.6em',                        // css padding bottom
             'backgroundRepeat'      :   'no-repeat',                    // css background repeat
@@ -101,13 +101,13 @@
             'size'                  :   '60',                           // string: size
             'readOnly'              :   true,                           // boolean: readonly
             'paddingTop'            :   '0.2em',                        // css padding top
-            'color'                 :   sharesoft.colors['editColor']['color'],       // css color: color
-            'fontSize'              :   sharesoft.getSetting( 'listRowFontSize' ),    // css font size
-            'fontWeight'            :   sharesoft.getSetting( 'listRowFontWeight' ),  // css font weight
+            'color'                 :   pleisterman.colors['editColor']['color'],       // css color: color
+            'fontSize'              :   pleisterman.getSetting( 'listRowFontSize' ),    // css font size
+            'fontWeight'            :   pleisterman.getSetting( 'listRowFontWeight' ),  // css font weight
             'paddingLeft'           :   '2.0em',                        // css padding left
             'border'                :   true,                           // boolean: has border bottom
             'borderWidth'           :   '0.0em',                        // css border width
-            'borderColor'           :   sharesoft.colors['panelBorderColor']['color'], // css color: COLOR: panelBorderColor
+            'borderColor'           :   pleisterman.colors['panelBorderColor']['color'], // css color: COLOR: panelBorderColor
             'borderStyle'           :   'solid',                        // css border style
         };                                                              // done json: row text options
         self.rowArray = null;                                           // json: row array
@@ -146,7 +146,7 @@
             if( self.options['hasDayList'] ){
                 // add selection to container
                 $( '#listContent' + self.id ).append( jsProject.jsonToElementHtml( self.dateSelectionOptions ) );
-                self.listRowsDateSelectorModule = new sharesoft.listRowsDateSelectorModule( self.dateSelectionOptions['id'], self.callback );
+                self.listRowsDateSelectorModule = new pleisterman.listRowsDateSelectorModule( self.dateSelectionOptions['id'], self.callback );
             }
 
             // add to container
@@ -217,7 +217,7 @@
             // add text 
             $( '#' + self.rowOptions['id'] ).html( jsProject.jsonToElementHtml( self.rowTextOptions ) );
             // set text
-            $( '#' + self.rowTextOptions['id'] ).val( sharesoft.translations['noRows'] );
+            $( '#' + self.rowTextOptions['id'] ).val( pleisterman.translations['noRows'] );
 
         // DONE FUNCTION: addNoRowsRow( void ) void
         };
@@ -265,8 +265,8 @@
             
             var idArray = element.id.split( '_' );  
             // mouse over -> background color, color highlight
-            $( '#listRow' + self.id + '_'  + idArray[idArray.length - 1] ).css( 'background-color', sharesoft.colors['panelHighlightBackgroundColor']['color'] );
-            $( '#listRow' + self.id + '_'  + idArray[idArray.length - 1] ).css( 'color', sharesoft.colors['panelHighlightColor']['color'] );
+            $( '#listRow' + self.id + '_'  + idArray[idArray.length - 1] ).css( 'background-color', pleisterman.colors['panelHighlightBackgroundColor']['color'] );
+            $( '#listRow' + self.id + '_'  + idArray[idArray.length - 1] ).css( 'color', pleisterman.colors['panelHighlightColor']['color'] );
 
         // DONE FUNCTION: rowMouseIn( event: event, html element: element ) void
         };
@@ -275,8 +275,8 @@
             
             var idArray = element.id.split( '_' );  
             // mouse over -> background, color
-            $( '#listRow' + self.id + '_'  + idArray[idArray.length - 1] ).css( 'background-color', sharesoft.colors['editBackgroundColor']['color'] );
-            $( '#listRow' + self.id + '_'  + idArray[idArray.length - 1] ).css( 'color', sharesoft.colors['editColor']['color'] );
+            $( '#listRow' + self.id + '_'  + idArray[idArray.length - 1] ).css( 'background-color', pleisterman.colors['editBackgroundColor']['color'] );
+            $( '#listRow' + self.id + '_'  + idArray[idArray.length - 1] ).css( 'color', pleisterman.colors['editColor']['color'] );
 
         // DONE FUNCTION: rowMouseOut( event: event, html element: element ) void
         };
@@ -340,20 +340,20 @@
             self.debug( 'update colors' );
             
             // header colors
-            $( '#' + self.headerOptions['id'] ).css( 'color', sharesoft.colors['panelHighlightColor']['color'] );
-            $( '#' + self.headerOptions['id'] ).css( 'background-color', sharesoft.colors['panelHighlightBackgroundColor']['color'] );
-            $( '#' + self.headerOptions['id'] ).css( 'border-color', sharesoft.colors['panelBorderColor']['color'] );
+            $( '#' + self.headerOptions['id'] ).css( 'color', pleisterman.colors['panelHighlightColor']['color'] );
+            $( '#' + self.headerOptions['id'] ).css( 'background-color', pleisterman.colors['panelHighlightBackgroundColor']['color'] );
+            $( '#' + self.headerOptions['id'] ).css( 'border-color', pleisterman.colors['panelBorderColor']['color'] );
             // done header colors
             
             // date selector colors
-            $( '#' + self.dateSelectionOptions['id'] ).css( 'color', sharesoft.colors['panelHighlightColor']['color'] );
-            $( '#' + self.dateSelectionOptions['id'] ).css( 'background-color', sharesoft.colors['panelHighlightBackgroundColor']['color'] );
-            $( '#' + self.dateSelectionOptions['id'] ).css( 'border-color', sharesoft.colors['panelBorderColor']['color'] );
+            $( '#' + self.dateSelectionOptions['id'] ).css( 'color', pleisterman.colors['panelHighlightColor']['color'] );
+            $( '#' + self.dateSelectionOptions['id'] ).css( 'background-color', pleisterman.colors['panelHighlightBackgroundColor']['color'] );
+            $( '#' + self.dateSelectionOptions['id'] ).css( 'border-color', pleisterman.colors['panelBorderColor']['color'] );
             // done date selector colors
            
             // no rows row color
-            $( '#' + 'listRow' + self.id + '_noRows' ).css( 'border-color', sharesoft.colors['buttonBorderColor']['color'] );
-            $( '#' + 'listRow' + self.id + '_noRows' ).css( 'background-color', sharesoft.colors['editBackgroundColor']['color'] );
+            $( '#' + 'listRow' + self.id + '_noRows' ).css( 'border-color', pleisterman.colors['buttonBorderColor']['color'] );
+            $( '#' + 'listRow' + self.id + '_noRows' ).css( 'background-color', pleisterman.colors['editBackgroundColor']['color'] );
             // done no rows row color
             
             // has rows
@@ -361,9 +361,9 @@
                 // loop over rows
                 $.each( self.rowArray, function( index, value ) {
                     // row colors
-                    $( '#listRow' + self.id + '_' + value['id'] ).css( 'border-color', sharesoft.colors['buttonBorderColor']['color'] );
-                    $( '#listRow' + self.id + '_' + value['id'] ).css( 'background-color', sharesoft.colors['editBackgroundColor']['color'] );
-                    $( '#listRowText' + self.id + '_'  + value['id'] ).css( 'color', sharesoft.colors['editColor']['color'] );
+                    $( '#listRow' + self.id + '_' + value['id'] ).css( 'border-color', pleisterman.colors['buttonBorderColor']['color'] );
+                    $( '#listRow' + self.id + '_' + value['id'] ).css( 'background-color', pleisterman.colors['editBackgroundColor']['color'] );
+                    $( '#listRowText' + self.id + '_'  + value['id'] ).css( 'color', pleisterman.colors['editColor']['color'] );
                     // done row colors
                 });
                 // done loop over rows
@@ -406,5 +406,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: listRowsModule( json: options, function: callback ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

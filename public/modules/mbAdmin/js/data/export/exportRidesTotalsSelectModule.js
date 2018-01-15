@@ -8,23 +8,23 @@
  *  Purpose: 
  *          this module controls user select add rides headers export of data 
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  *  
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: exportRidesTotalsSelectModule( json: options ) void
     
-    sharesoft.exportRidesTotalsSelectModule = function( options ) {
+    pleisterman.exportRidesTotalsSelectModule = function( options ) {
         // PRIVATE:
         
         // MEMBERS
@@ -35,11 +35,11 @@
         self.totals = [                             // json: totals
             {                                       // json: noTotals
                 'id'            :   'noTotals',     // string: id
-                'text'          :   sharesoft.translations['noTotals'] // string: TRANSLATION: noTotals
+                'text'          :   pleisterman.translations['noTotals'] // string: TRANSLATION: noTotals
             },                                      // done json: noTotals
             {                                       // json: endTotals
                 'id'            :   'endTotal',     // string: id
-                'text'          :   sharesoft.translations['endTotal'] // string: TRANSLATION: endTotal
+                'text'          :   pleisterman.translations['endTotal'] // string: TRANSLATION: endTotal
             }                                       // done json: endTotals
         ];                                          // done json: totals
         // DONE MEMBERS     
@@ -100,5 +100,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: exportRidesTotalsSelectModule( json: options ) void
-})( sharesoft );
+})( pleisterman );
 // done create module function

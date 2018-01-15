@@ -7,23 +7,23 @@
  *                      
  *  Last Revision: 04-01-2017
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  *  
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: listRowsDateSelectorModule( sring: parentId, function: callback ) void 
     
-    sharesoft.listRowsDateSelectorModule = function( parentId, callback ) {
+    pleisterman.listRowsDateSelectorModule = function( parentId, callback ) {
         // PRIVATE:
         
         // MEMBERS
@@ -33,7 +33,7 @@
         self.parentId = parentId;                                       // string: parent id
         self.callback = callback;                                       // function: callback
         self.options = null;                                            // json: options
-        self.imageUrl = sharesoft.getSetting( 'imageUrl' );             // string: inage dir    
+        self.imageUrl = pleisterman.getSetting( 'imageUrl' );             // string: inage dir    
         self.buttonOptions = {                                          // json: button options
             'previousId'            :   self.parentId + 'PreviousDayButton',                // string: element id
             'previousImage'         :   'url(' + self.imageUrl + 'buttonPrevious.png' + ')',// string: image file name
@@ -46,12 +46,12 @@
             'marginLeft'            :   '0.3em',                        // css margin left
             'styleWidth'            :   '1.8em',                        // css style width
             'styleHeight'           :   '1.8em',                        // css style height
-            'backgroundColor'       :   sharesoft.colors['buttonBackgroundColor']['color'], // css color: background color 
+            'backgroundColor'       :   pleisterman.colors['buttonBackgroundColor']['color'], // css color: background color 
             'backgroundSize'        :   '1.8em',                        // css background size
             'backgroundPosition'    :   'center center',                // css background position
             'backgroundRepeat'      :   'no-repeat',                    // css background repeat
             'border'                :   true,                           // boolean: has border
-            'borderColor'           :   sharesoft.colors['buttonBorderColor']['color'], // css color: border color 
+            'borderColor'           :   pleisterman.colors['buttonBorderColor']['color'], // css color: border color 
             'borderWidth'           :   '0.1em',                        // css border width
             'borderStyle'           :   'solid',                        // css border style
             'cursor'                :   'pointer'                       // css cursor            
@@ -67,10 +67,10 @@
             'marginTop'             :   '0.1em',                        // css margin top
             'paddingTop'            :   '0.2em',                        // css padding top
             'textAlign'             :   'center',                       // css text align
-            'color'                 :   sharesoft.colors['editColor']['color'],             // css color: color 
-            'backgroundColor'       :   sharesoft.colors['editBackgroundColor']['color'],   // css color: background color 
+            'color'                 :   pleisterman.colors['editColor']['color'],             // css color: color 
+            'backgroundColor'       :   pleisterman.colors['editBackgroundColor']['color'],   // css color: background color 
             'border'                :   true,                           // boolean: has border
-            'borderColor'           :   sharesoft.colors['buttonBorderColor']['color'], // css color: border color 
+            'borderColor'           :   pleisterman.colors['buttonBorderColor']['color'], // css color: border color 
             'borderWidth'           :   '0.1em',                        // css border width
             'borderStyle'           :   'solid',                        // css border style
             'cursor'                :   'pointer'                       // css cursor            
@@ -158,9 +158,9 @@
         // FUNCTION: buttonMouseIn( html element: element ) void
             
             // mouse over -> background color highlight
-            $( '#' + element.id ).css( 'background-color', sharesoft.colors['buttonHighlightBackgroundColor']['color'] );
+            $( '#' + element.id ).css( 'background-color', pleisterman.colors['buttonHighlightBackgroundColor']['color'] );
             // mouse over -> color highlight
-            $( '#' +element.id ).css( 'color', sharesoft.colors['buttonHighlightColor']['color'] );
+            $( '#' +element.id ).css( 'color', pleisterman.colors['buttonHighlightColor']['color'] );
 
         // DONE FUNCTION: buttonMouseIn( html element: element ) void
         };
@@ -168,9 +168,9 @@
         // FUNCTION: buttonMouseOut( html element: element ) void
             
             // mouse out -> background color default
-            $( '#' + element.id ).css( 'background-color', sharesoft.colors['buttonBackgroundColor']['color'] );
+            $( '#' + element.id ).css( 'background-color', pleisterman.colors['buttonBackgroundColor']['color'] );
             // mouse out -> color default
-            $( '#' + element.id ).css( 'color', sharesoft.colors['buttonColor']['color'] );
+            $( '#' + element.id ).css( 'color', pleisterman.colors['buttonColor']['color'] );
 
         // DONE FUNCTION: buttonMouseOut( html element: element ) void
         };
@@ -192,9 +192,9 @@
         // FUNCTION: dateDisplayMouseIn( html element: element ) void
             
             // mouse over -> background color highlight
-            $( '#' + element.id ).css( 'background-color', sharesoft.colors['panelHighlightBackgroundColor']['color'] );
+            $( '#' + element.id ).css( 'background-color', pleisterman.colors['panelHighlightBackgroundColor']['color'] );
             // mouse over -> color highlight
-            $( '#' + element.id ).css( 'color', sharesoft.colors['panelHighlightColor']['color'] );
+            $( '#' + element.id ).css( 'color', pleisterman.colors['panelHighlightColor']['color'] );
 
         // DONE FUNCTION: dateDisplayMouseIn( html element: element ) void
         };
@@ -202,9 +202,9 @@
         // FUNCTION: dateDisplayMouseOut( html element: element ) void
             
             // mouse out -> background color default
-            $( '#' + element.id ).css( 'background-color', sharesoft.colors['editBackgroundColor']['color'] );
+            $( '#' + element.id ).css( 'background-color', pleisterman.colors['editBackgroundColor']['color'] );
             // mouse out -> color default
-            $( '#' + element.id ).css( 'color', sharesoft.colors['buttonColor']['color'] );
+            $( '#' + element.id ).css( 'color', pleisterman.colors['buttonColor']['color'] );
 
         // DONE FUNCTION: dateDisplayMouseOut( html element: element ) void
         };
@@ -215,7 +215,7 @@
             // stop propagation
             event.stopPropagation();
             
-            sharesoft.showSelectionsDatePicker(  self.dateDisplayOptions['id'], self.date, self.dateSelectorCallback );
+            pleisterman.showSelectionsDatePicker(  self.dateDisplayOptions['id'], self.date, self.dateSelectorCallback );
 
         // DONE FUNCTION: openDateSelector( event: event ) void
         };
@@ -242,18 +242,18 @@
         // FUNCTION: updateColors( void ) void
             
             self.debug( 'update colors' );
-            $( '#' + self.buttonOptions['previousId'] ).css( 'background-color', sharesoft.colors['buttonBackgroundColor']['color'] );
-            $( '#' + self.buttonOptions['previousId'] ).css( 'border-color', sharesoft.colors['buttonBorderColor']['color'] );
-            $( '#' + self.buttonOptions['nextId'] ).css( 'background-color', sharesoft.colors['buttonBackgroundColor']['color'] );
-            $( '#' + self.buttonOptions['nextId'] ).css( 'border-color', sharesoft.colors['buttonBorderColor']['color'] );
-            self.buttonOptions['backgroundColor'] =  sharesoft.colors['buttonBackgroundColor']['color'];
-            self.buttonOptions['borderColor'] =  sharesoft.colors['buttonBorderColor']['color'];
-            $( '#' + self.dateDisplayOptions['id'] ).css( 'background-color', sharesoft.colors['editBackgroundColor']['color'] );
-            $( '#' + self.dateDisplayOptions['id'] ).css( 'border-color', sharesoft.colors['buttonBorderColor']['color'] );
-            $( '#' + self.dateDisplayOptions['id'] ).css( 'color', sharesoft.colors['editColor']['color'] );
-            self.dateDisplayOptions['backgroundColor'] =  sharesoft.colors['editBackgroundColor']['color'];
-            self.dateDisplayOptions['borderColor'] =  sharesoft.colors['buttonBorderColor']['color'];
-            self.dateDisplayOptions['color'] =  sharesoft.colors['editColor']['color'];
+            $( '#' + self.buttonOptions['previousId'] ).css( 'background-color', pleisterman.colors['buttonBackgroundColor']['color'] );
+            $( '#' + self.buttonOptions['previousId'] ).css( 'border-color', pleisterman.colors['buttonBorderColor']['color'] );
+            $( '#' + self.buttonOptions['nextId'] ).css( 'background-color', pleisterman.colors['buttonBackgroundColor']['color'] );
+            $( '#' + self.buttonOptions['nextId'] ).css( 'border-color', pleisterman.colors['buttonBorderColor']['color'] );
+            self.buttonOptions['backgroundColor'] =  pleisterman.colors['buttonBackgroundColor']['color'];
+            self.buttonOptions['borderColor'] =  pleisterman.colors['buttonBorderColor']['color'];
+            $( '#' + self.dateDisplayOptions['id'] ).css( 'background-color', pleisterman.colors['editBackgroundColor']['color'] );
+            $( '#' + self.dateDisplayOptions['id'] ).css( 'border-color', pleisterman.colors['buttonBorderColor']['color'] );
+            $( '#' + self.dateDisplayOptions['id'] ).css( 'color', pleisterman.colors['editColor']['color'] );
+            self.dateDisplayOptions['backgroundColor'] =  pleisterman.colors['editBackgroundColor']['color'];
+            self.dateDisplayOptions['borderColor'] =  pleisterman.colors['buttonBorderColor']['color'];
+            self.dateDisplayOptions['color'] =  pleisterman.colors['editColor']['color'];
 
         // DONE FUNCTION: updateColors( void ) void
         };
@@ -286,5 +286,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: listRowsDateSelectorModule( sring: parentId, function: callback ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

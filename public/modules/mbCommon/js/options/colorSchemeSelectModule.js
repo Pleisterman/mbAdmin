@@ -8,22 +8,22 @@
  *  Purpose: 
  *          this module creates the select for colorschemes 
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  */
 
 // create module function
-( function( sharesoft ){
+( function( pleisterman ){
 
     // MODULE: colorSchemeSelectModule( void ) void 
     
-    sharesoft.colorSchemeSelectModule = function( ) {
+    pleisterman.colorSchemeSelectModule = function( ) {
         // PRIVATE:
         
         // MEMBERS
@@ -75,18 +75,18 @@
             self.debug( 'loadColorSchemes' );
 
             // show busy screen
-            sharesoft.startBusyProcess();
+            pleisterman.startBusyProcess();
 
             // construct data object
             var data = { 
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'subject'           :   'colorSchemes',
                 'what'              :   'list'
             };
             // done construct data object
 
             // ajax
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/read', sharesoft.token, data, self.loadColorSchemesCallback );
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/read', pleisterman.token, data, self.loadColorSchemesCallback );
             
         // DONE FUNCTION: loadColorSchemes( void ) void
         };
@@ -94,9 +94,9 @@
         // FUNCTION: loadColorSchemesCallback( json: result ) void
             
             // global check result
-            if( sharesoft.hasAjaxResultErrors( result ) ){
+            if( pleisterman.hasAjaxResultErrors( result ) ){
                 // end busy proces
-                sharesoft.endBusyProcess();
+                pleisterman.endBusyProcess();
                 // done with error
                 return;
             }
@@ -106,7 +106,7 @@
             self.data['rows'] = result['rows'];
             
             // end busy 
-            sharesoft.endBusyProcess();
+            pleisterman.endBusyProcess();
             
             // callback exists
             if( self.callback ){
@@ -149,7 +149,7 @@
 
             // construct data object
             var data = { 
-                'workDirectory'     :   sharesoft.workDirectory,
+                'workDirectory'     :   pleisterman.workDirectory,
                 'subject'           :   'colorSchemes',
                 'what'              :   'colors',
                 'selection'         :   id
@@ -157,7 +157,7 @@
             // done construct data object
 
             // ajax
-            jsProject.securePost( '/' + sharesoft.baseDirectory + '/read', sharesoft.token, data, self.loadColorSchemeColorsCallback );
+            jsProject.securePost( '/' + pleisterman.baseDirectory + '/read', pleisterman.token, data, self.loadColorSchemeColorsCallback );
             
         // DONE FUNCTION: getSchemeColors( string: color scheme id, function: callback ) void
         };
@@ -165,9 +165,9 @@
         // FUNCTION: loadColorSchemeColorsCallback( json: result ) void
             
             // global check result
-            if( sharesoft.hasAjaxResultErrors( result ) ){
+            if( pleisterman.hasAjaxResultErrors( result ) ){
                 // end busy proces
-                sharesoft.endBusyProcess();
+                pleisterman.endBusyProcess();
                 // done with error
                 return;
             }
@@ -220,5 +220,5 @@
         // DONE PUBLIC
     };
     // DONE MODULE: colorSchemeSelectModule( void ) void 
-})( sharesoft );
+})( pleisterman );
 // done create module function

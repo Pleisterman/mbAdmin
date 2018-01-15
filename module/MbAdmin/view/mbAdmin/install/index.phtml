@@ -1,0 +1,63 @@
+<?php
+/* Author: Pleisterman
+ * Info: 
+ * Web: www.pleisterman.nl 
+ * Mail: info@pleisterman.nl 
+ * GitHub: Pleisterman 
+ * 
+ * Purpose: this file adds: inline javascript with variables: menu, languageMenus and selectedLanguageMenu,
+ *                          padding to the content of the html for the application Time Adminstration
+ * 
+ *          variables:
+ * 
+ *                  languages           array of strings, possible languages
+ *                  language            string, current language
+ *                  defaultLanguage     string, default language
+ *                  menu                string, selected menu
+    
+ * Last revision: 08-02-2016
+ * 
+ * NOTICE OF LICENSE
+ *
+ * Copyright (C) 2016  Pleisterman
+ * 
+ *    This program is free software: you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation, either version 3 of the License, or
+ *    (at your option) any later version.
+ * 
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+
+// create a string with a javascript array for the languages
+$languagesString = '[\'';
+$languagesString .= implode( '\',\'', $languages );
+$languagesString .= '\']';
+// done create a string with a javascript array for the languages
+
+// inline script
+// add javascript variables: menu, languageMenus and selectedLanguageMenu
+$this->inlineScript()->captureStart();
+echo <<<JS
+
+window.onload = function(){
+   timeAdministration.selectedLanguage = '$selectedLanguage'; 
+   timeAdministration.languages = $languagesString; 
+   timeAdministration.languageMenus = $languageMenus; 
+   timeAdministration.translations = $translations; 
+   timeAdministration.token = '$token'; 
+   timeAdministration.start();
+}
+    
+JS;
+$this->inlineScript()->captureEnd();
+// done inline script
+
+

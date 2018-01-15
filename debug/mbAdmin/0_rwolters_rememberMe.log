@@ -1,0 +1,98 @@
+2018-01-04T14:05:34+01:00 INFO (6): AuthentificationController construct config: mbAdmin work directory: rwolters
+2018-01-04T14:05:35+01:00 INFO (6): AuthentificationController rememberMe
+2018-01-04T14:05:35+01:00 INFO (6): AuthentificationCookieController getCookiesEnabled
+2018-01-04T14:05:35+01:00 INFO (6):
+2018-01-04T14:05:35+01:00 INFO (6): cookie
+2018-01-04T14:05:35+01:00 INFO (6):
+2018-01-04T14:05:35+01:00 INFO (6): ok
+GA1.1.530518997.1514925740
+GA1.1.1276726145.1514925740
+2018-01-04T14:05:35+01:00 INFO (6):
+2018-01-04T14:05:35+01:00 INFO (6): done cookie
+2018-01-04T14:05:35+01:00 INFO (6):
+2018-01-04T14:05:35+01:00 INFO (6): AuthentificationCookieController getCookiesEnabled cookies enabled
+2018-01-04T14:05:35+01:00 INFO (6): SettingsGetSetting
+2018-01-04T14:05:35+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:35+01:00 INFO (6):
+2018-01-04T14:05:35+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:35+01:00 INFO (6): statement:  SELECT a.value FROM settings a WHERE  a.name =  ? ;
+2018-01-04T14:05:35+01:00 INFO (6): statement values:
+2018-01-04T14:05:35+01:00 INFO (6): array (
+  0 => 'rememberMe',
+)
+2018-01-04T14:05:35+01:00 INFO (6): query succes.
+2018-01-04T14:05:35+01:00 INFO (6):
+2018-01-04T14:05:35+01:00 INFO (6): rows found: 1
+2018-01-04T14:05:35+01:00 INFO (6): SettingsGetSetting
+2018-01-04T14:05:35+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:35+01:00 INFO (6):
+2018-01-04T14:05:35+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:35+01:00 INFO (6): statement:  SELECT a.value FROM settings a WHERE  a.name =  ? ;
+2018-01-04T14:05:35+01:00 INFO (6): statement values:
+2018-01-04T14:05:35+01:00 INFO (6): array (
+  0 => 'algorithm',
+)
+2018-01-04T14:05:35+01:00 INFO (6): query succes.
+2018-01-04T14:05:35+01:00 INFO (6):
+2018-01-04T14:05:35+01:00 INFO (6): rows found: 1
+2018-01-04T14:05:35+01:00 INFO (6): SettingsGetSetting
+2018-01-04T14:05:35+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:35+01:00 INFO (6):
+2018-01-04T14:05:35+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:35+01:00 INFO (6): statement:  SELECT a.value FROM settings a WHERE  a.name =  ? ;
+2018-01-04T14:05:35+01:00 INFO (6): statement values:
+2018-01-04T14:05:35+01:00 INFO (6): array (
+  0 => 'rememberMeBlocked',
+)
+2018-01-04T14:05:35+01:00 INFO (6): query succes.
+2018-01-04T14:05:35+01:00 INFO (6):
+2018-01-04T14:05:35+01:00 INFO (6): rows found: 1
+2018-01-04T14:05:35+01:00 INFO (6): AuthentificationValidateRememberMe
+2018-01-04T14:05:35+01:00 INFO (6): PublicTokensController construct
+2018-01-04T14:05:35+01:00 INFO (6): AlgorithmsController algorithmExists
+2018-01-04T14:05:35+01:00 INFO (6): AlgorithmsController algorithm: sha256 exists
+2018-01-04T14:05:35+01:00 INFO (6): RememberMeTokensController construct
+2018-01-04T14:05:35+01:00 INFO (6): RememberMeTokensClean
+2018-01-04T14:05:35+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:35+01:00 INFO (6):
+2018-01-04T14:05:35+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:35+01:00 INFO (6): statement: DELETE FROM rememberMeTokens WHERE expires < ?
+2018-01-04T14:05:35+01:00 INFO (6): statement values:
+2018-01-04T14:05:35+01:00 INFO (6): array (
+  0 => '20180104140535',
+)
+2018-01-04T14:05:35+01:00 INFO (6): query succes.
+2018-01-04T14:05:35+01:00 INFO (6):
+2018-01-04T14:05:35+01:00 INFO (6): RememberMeTokensValidate
+2018-01-04T14:05:35+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:35+01:00 INFO (6):
+2018-01-04T14:05:35+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:35+01:00 INFO (6): statement:  SELECT COUNT(*) AS count FROM rememberMeTokens a WHERE  token =  ?  AND expires >=  ? ;
+2018-01-04T14:05:35+01:00 INFO (6): statement values:
+2018-01-04T14:05:35+01:00 INFO (6): array (
+  0 => '.jaejw2J6KK)z}8XsRkm~A8^&lt;!&lt;u.k&amp;shACi5^w&amp;YC)RTzD5Vfr[L^5&gt;AH2clZrN[cA2y3Xw,h&lt;yFTqoTxq99qL~[rf6nzDR&lt;2LX,WX*&lt;PG]fejptG0s0P4XWjECmL5@0t,.&gt;$&lt;Ky.&lt;Zf(E32^NwP).h}h.t1P*]7P~3AcnbAEqk~i7mLazIy],Eo^vp0@!(&amp;(kZFYfpP|N{|ST3&amp;!kCRD]zvR,H[2qxl(v&lt;EAl*nrf]3!MXSthC]BbE]g(Euk@@',
+  1 => '20180104140535',
+)
+2018-01-04T14:05:35+01:00 INFO (6): query succes.
+2018-01-04T14:05:35+01:00 INFO (6):
+2018-01-04T14:05:35+01:00 INFO (6): rows found: 1
+2018-01-04T14:05:35+01:00 INFO (6): RememberMeTokensController valid rememberMe token
+2018-01-04T14:05:35+01:00 INFO (6): JsonWebTokensController construct
+2018-01-04T14:05:35+01:00 INFO (6): JsonWebTokensController validate
+2018-01-04T14:05:35+01:00 INFO (6): JsonWebTokensGetTokenFromCookie workDirectory: rwolters
+2018-01-04T14:05:35+01:00 INFO (6): TokenGenerator construct
+2018-01-04T14:05:35+01:00 INFO (6): TokenGeneratorGetToken length: 256
+2018-01-04T14:05:35+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:35+01:00 INFO (6):
+2018-01-04T14:05:35+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:35+01:00 INFO (6): statement: INSERT INTO publicTokens( token , expires )  VALUES ( ? , ?)
+2018-01-04T14:05:35+01:00 INFO (6): statement values:
+2018-01-04T14:05:35+01:00 INFO (6): array (
+  0 => 'LaO1n5a&gt;8UY)4sQMLvtFxaY!(5S$vbU3b@xYPtPIw~BsJRG{,}k!jUNEr]8(a!{*F]@hV](KmY]OR,kg!Xxk}{,8x5(7Y&gt;&lt;I,o&amp;qqQzMFqA[3P3NvMj,],ir.,e0QSXIpW&amp;EqlpMTEr71WJl9X6)q&gt;Xm]pPQsZ^4Sn7XisL0YzbyM0]0Cx&gt;([@O84$V|E$(2c07$c7M3~sAz@S^^AQTlLeyER.hykqaa!F~KyJrks8s(&amp;EmwjH{)(9j9N$)O9!.]',
+  1 => '20180104220535',
+)
+2018-01-04T14:05:35+01:00 INFO (6): query succes.
+2018-01-04T14:05:35+01:00 INFO (6):
+2018-01-04T14:05:35+01:00 INFO (6): getLastGeneratedValue succes. l: 15567
+2018-01-04T14:05:35+01:00 INFO (6): return response procesId: 0
+2018-01-04T14:05:35+01:00 INFO (6): succes

@@ -1,0 +1,239 @@
+2018-01-04T14:05:40+01:00 INFO (6): AuthentificationController construct config: mbAdmin work directory: rwolters
+2018-01-04T14:05:40+01:00 INFO (6): AuthentificationController login
+2018-01-04T14:05:40+01:00 INFO (6): AuthentificationCookieController getCookiesEnabled
+2018-01-04T14:05:40+01:00 INFO (6):
+2018-01-04T14:05:40+01:00 INFO (6): cookie
+2018-01-04T14:05:40+01:00 INFO (6):
+2018-01-04T14:05:40+01:00 INFO (6): ok
+5t*xkCec^a1kkILQ@uR[j[pj^&lt;p*rJ*DfoO2((f@[imJ}in*)OY[F2NSSk.72,TPyz1Y8vxaNmu~gKg!E&lt;mMnqCl|b$8.A9CJd&gt;Gcn!OyX0FYdwB[x|MZhSfP!9(wBrXO3}IL&amp;65@|zohScRYB0@wOms~fDf)&lt;f{jOJRm$NEtYlGSSw8Rv]JqfW1JA,PyolO4TjDjG1e&amp;FGQ)fNIb4vP@FOWThOZ.s{^RkUzFlc1]vp8yXpOGmamQrIXeV5Xsh9t
+GA1.1.530518997.1514925740
+GA1.1.1276726145.1514925740
+2018-01-04T14:05:40+01:00 INFO (6):
+2018-01-04T14:05:40+01:00 INFO (6): done cookie
+2018-01-04T14:05:40+01:00 INFO (6):
+2018-01-04T14:05:40+01:00 INFO (6): AuthentificationCookieController getCookiesEnabled cookies enabled
+2018-01-04T14:05:40+01:00 INFO (6): SettingsGetSetting
+2018-01-04T14:05:40+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:40+01:00 INFO (6):
+2018-01-04T14:05:40+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:40+01:00 INFO (6): statement:  SELECT a.value FROM settings a WHERE  a.name =  ? ;
+2018-01-04T14:05:40+01:00 INFO (6): statement values:
+2018-01-04T14:05:40+01:00 INFO (6): array (
+  0 => 'loginDelayed',
+)
+2018-01-04T14:05:40+01:00 INFO (6): query succes.
+2018-01-04T14:05:40+01:00 INFO (6):
+2018-01-04T14:05:40+01:00 INFO (6): rows found: 1
+2018-01-04T14:05:40+01:00 INFO (6): SettingsGetSetting
+2018-01-04T14:05:40+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:40+01:00 INFO (6):
+2018-01-04T14:05:40+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:40+01:00 INFO (6): statement:  SELECT a.value FROM settings a WHERE  a.name =  ? ;
+2018-01-04T14:05:40+01:00 INFO (6): statement values:
+2018-01-04T14:05:40+01:00 INFO (6): array (
+  0 => 'nextLogin',
+)
+2018-01-04T14:05:40+01:00 INFO (6): query succes.
+2018-01-04T14:05:40+01:00 INFO (6):
+2018-01-04T14:05:40+01:00 INFO (6): rows found: 1
+2018-01-04T14:05:40+01:00 INFO (6): SettingsGetSetting
+2018-01-04T14:05:40+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:40+01:00 INFO (6):
+2018-01-04T14:05:40+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:40+01:00 INFO (6): statement:  SELECT a.value FROM settings a WHERE  a.name =  ? ;
+2018-01-04T14:05:40+01:00 INFO (6): statement values:
+2018-01-04T14:05:40+01:00 INFO (6): array (
+  0 => 'algorithm',
+)
+2018-01-04T14:05:40+01:00 INFO (6): query succes.
+2018-01-04T14:05:40+01:00 INFO (6):
+2018-01-04T14:05:40+01:00 INFO (6): rows found: 1
+2018-01-04T14:05:40+01:00 INFO (6): AuthentificationLogin
+2018-01-04T14:05:40+01:00 INFO (6): PublicTokensController construct
+2018-01-04T14:05:40+01:00 INFO (6): AuthentificationCheckLoginDelay
+2018-01-04T14:05:40+01:00 INFO (6): AlgorithmsController algorithmExists
+2018-01-04T14:05:40+01:00 INFO (6): AlgorithmsController algorithm: sha256 exists
+2018-01-04T14:05:40+01:00 INFO (6): LoginTokensController construct
+2018-01-04T14:05:40+01:00 INFO (6): LoginTokensCleanUp
+2018-01-04T14:05:40+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:40+01:00 INFO (6):
+2018-01-04T14:05:40+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:40+01:00 INFO (6): statement: DELETE FROM loginTokens WHERE expires < ?
+2018-01-04T14:05:40+01:00 INFO (6): statement values:
+2018-01-04T14:05:40+01:00 INFO (6): array (
+  0 => '20180104140540',
+)
+2018-01-04T14:05:40+01:00 INFO (6): query succes.
+2018-01-04T14:05:40+01:00 INFO (6):
+2018-01-04T14:05:40+01:00 INFO (6): LoginTokensValidate
+2018-01-04T14:05:40+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:40+01:00 INFO (6):
+2018-01-04T14:05:40+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:40+01:00 INFO (6): statement:  SELECT COUNT(*) AS count FROM loginTokens a WHERE  token =  ?  AND expires >=  ? ;
+2018-01-04T14:05:40+01:00 INFO (6): statement values:
+2018-01-04T14:05:40+01:00 INFO (6): array (
+  0 => '~!(,.C$Qb&amp;1(qLxxPQ&lt;&lt;y2F7ii34)9mhK&gt;4SmiSx&amp;Leko~kGZLUv|n8tTDtjpLJpvH|CP}zBMv9IJAVB$FB3J&amp;qe&amp;SMg,}@*3[Oyik&gt;$y9PzgN$eWl}lI4,h6ROi6!NBLae$(.8!ezsn4yQ2r!2PhA8&gt;Mttywo~mC7x{En3ttj.I.h~,(zSc,4Px&gt;[*gL3P[iTzLjpOXW6ob{s!HS{FPo4jks&lt;)&lt;EFGq3JsOZXGXM.999OCKu7V6]{QQmHa~c!nb',
+  1 => '20180104140540',
+)
+2018-01-04T14:05:40+01:00 INFO (6): query succes.
+2018-01-04T14:05:40+01:00 INFO (6):
+2018-01-04T14:05:40+01:00 INFO (6): rows found: 1
+2018-01-04T14:05:40+01:00 INFO (6): LoginTokensValidate token is valid
+2018-01-04T14:05:40+01:00 INFO (6): UserGetLoginKeys
+2018-01-04T14:05:40+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:40+01:00 INFO (6):
+2018-01-04T14:05:40+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:40+01:00 INFO (6): statement:  SELECT a.nameKey , a.passwordKey FROM user a;
+2018-01-04T14:05:40+01:00 INFO (6): statement values:
+2018-01-04T14:05:40+01:00 INFO (6): array (
+)
+2018-01-04T14:05:40+01:00 INFO (6): query succes.
+2018-01-04T14:05:40+01:00 INFO (6):
+2018-01-04T14:05:40+01:00 INFO (6): rows found: 1
+2018-01-04T14:05:40+01:00 INFO (6): UserGetLoginData
+2018-01-04T14:05:40+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:40+01:00 INFO (6):
+2018-01-04T14:05:40+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:40+01:00 INFO (6): statement:  SELECT a.loginName , a.password , a.passwordToken , a.cookieToken FROM user a;
+2018-01-04T14:05:40+01:00 INFO (6): statement values:
+2018-01-04T14:05:40+01:00 INFO (6): array (
+)
+2018-01-04T14:05:40+01:00 INFO (6): query succes.
+2018-01-04T14:05:40+01:00 INFO (6):
+2018-01-04T14:05:40+01:00 INFO (6): rows found: 1
+2018-01-04T14:05:40+01:00 INFO (6): AuthentificationLogin getLoginData cookieToken: 5t*xkCec^a1kkILQ@uR[j[pj^&lt;p*rJ*DfoO2((f@[imJ}in*)OY[F2NSSk.72,TPyz1Y8vxaNmu~gKg!E&lt;mMnqCl|b$8.A9CJd&gt;Gcn!OyX0FYdwB[x|MZhSfP!9(wBrXO3}IL&amp;65@|zohScRYB0@wOms~fDf)&lt;f{jOJRm$NEtYlGSSw8Rv]JqfW1JA,PyolO4TjDjG1e&amp;FGQ)fNIb4vP@FOWThOZ.s{^RkUzFlc1]vp8yXpOGmamQrIXeV5Xsh9t
+2018-01-04T14:05:40+01:00 INFO (6): AuthentificationLoginCookie validateLoginCookie cookieKey: 5t*xkCec^a1kkILQ@uR[j[pj^&lt;p*rJ*DfoO2((f@[imJ}in*)OY[F2NSSk.72,TPyz1Y8vxaNmu~gKg!E&lt;mMnqCl|b$8.A9CJd&gt;Gcn!OyX0FYdwB[x|MZhSfP!9(wBrXO3}IL&amp;65@|zohScRYB0@wOms~fDf)&lt;f{jOJRm$NEtYlGSSw8Rv]JqfW1JA,PyolO4TjDjG1e&amp;FGQ)fNIb4vP@FOWThOZ.s{^RkUzFlc1]vp8yXpOGmamQrIXeV5Xsh9t
+2018-01-04T14:05:40+01:00 INFO (6): cookie: 5t*xkCec^a1kkILQ@uR[j[pj^&lt;p*rJ*DfoO2((f@[imJ}in*)OY[F2NSSk.72,TPyz1Y8vxaNmu~gKg!E&lt;mMnqCl|b$8.A9CJd&gt;Gcn!OyX0FYdwB[x|MZhSfP!9(wBrXO3}IL&amp;65@|zohScRYB0@wOms~fDf)&lt;f{jOJRm$NEtYlGSSw8Rv]JqfW1JA,PyolO4TjDjG1e&amp;FGQ)fNIb4vP@FOWThOZ.s{^RkUzFlc1]vp8yXpOGmamQrIXeV5Xsh9t
+2018-01-04T14:05:40+01:00 INFO (6): AuthentificationCheckUserCredentials
+2018-01-04T14:05:40+01:00 INFO (6): AuthentificationDecodeXor encoded string: G-5x5@U&FG /kH[B`LTNhTyAMPPaZdXVb{FTZBJGTDbtV\ulCbZ]rTW}pWy{BHKMttrV^GTOU}uQ{SeyAMPLb^	OCpFOQviKFa}XFo[]BcE key: w)KZ8Fy!m0U)vdiNCKh{b@9&lt;nHt2Y&amp;pAzDxv2B[ftzbj,3&gt;!dB,Tv|ULcB7z}5R7t3w](P0wY[bhk73mTTRv~&gt;ou]Uq[s9EY&amp;lB2~)ocPf,oqVI6k50fA]xfO{}b!8Ce
+2018-01-04T14:05:40+01:00 INFO (6): AuthentificationDecodeXor encoded string: O}NrLTwxNtJAMPVq^qAMPEA
+aKAMPFjZdFYyhH`eT~ZZAjLTrq{GTF[hsXBAMPAMPh]Wd`iw
+bJEHjtkR`iKhyriJ\rrRWlwuIW`b	LSuS~q[O	J	A~} key: {3gja&amp;R&lt;WXnTj8&amp;!vQ~Q&amp;e6a(*Ak9$&amp;fJzDfy(YHh@Et^zza8J&lt;RQ[&gt;$,(f{HSxb&amp;&amp;H,}wD8@IW$*B2jehJTKr0@IkH7YRIj0(|RRrwLWUiw@B)(lsUs^Q{o)0j)a^7]
+2018-01-04T14:05:40+01:00 INFO (6):
+2018-01-04T14:05:40+01:00 INFO (6): AuthentificationCheckUserCredentials passwordToken: GW)I(HEdYRckBe}DPv*Fo&lt;FbF4tu{8vyjGh)Eq!0W4|,ySC^SquHrU]cVOIhNer(9yOi~ewJe*zxe4K9vcPDcQ}|[wnhK.m7XT~&gt;Rhc@f2w,ZIJT1PCUPaN*c&gt;@oBSNV
+2018-01-04T14:05:40+01:00 INFO (6):
+2018-01-04T14:05:40+01:00 INFO (6):
+2018-01-04T14:05:40+01:00 INFO (6): AuthentificationCheckUserCredentials decodedPassword: 4Niethier!
+2018-01-04T14:05:40+01:00 INFO (6):
+2018-01-04T14:05:40+01:00 INFO (6):
+2018-01-04T14:05:40+01:00 INFO (6): AuthentificationCheckUserCredentials encodedPassword: 4e7bebcd55638b38efcc0edb991f429614922427aad93beea94a3b7a177bfedb
+2018-01-04T14:05:40+01:00 INFO (6):
+2018-01-04T14:05:40+01:00 INFO (6):
+2018-01-04T14:05:40+01:00 INFO (6): AuthentificationCheckUserCredentials user password: 4e7bebcd55638b38efcc0edb991f429614922427aad93beea94a3b7a177bfedb
+2018-01-04T14:05:40+01:00 INFO (6):
+2018-01-04T14:05:40+01:00 INFO (6): AuthentificationLoginSucces
+2018-01-04T14:05:40+01:00 INFO (6): SettingsSetSetting
+2018-01-04T14:05:40+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:40+01:00 INFO (6):
+2018-01-04T14:05:40+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:40+01:00 INFO (6): statement: UPDATE settings SET value = ?  , reason = ?  WHERE name =  ? ;
+2018-01-04T14:05:40+01:00 INFO (6): statement values:
+2018-01-04T14:05:40+01:00 INFO (6): array (
+  0 => false,
+  1 => 'Login succes ',
+  2 => 'loginDelayed',
+)
+2018-01-04T14:05:40+01:00 INFO (6): query succes.
+2018-01-04T14:05:40+01:00 INFO (6):
+2018-01-04T14:05:40+01:00 INFO (6): SettingsSetSetting
+2018-01-04T14:05:40+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:40+01:00 INFO (6):
+2018-01-04T14:05:40+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:40+01:00 INFO (6): statement: UPDATE settings SET value = ?  , reason = ?  WHERE name =  ? ;
+2018-01-04T14:05:40+01:00 INFO (6): statement values:
+2018-01-04T14:05:40+01:00 INFO (6): array (
+  0 => 0,
+  1 => 'Login succes',
+  2 => 'undelayedLogins',
+)
+2018-01-04T14:05:41+01:00 INFO (6): query succes.
+2018-01-04T14:05:41+01:00 INFO (6):
+2018-01-04T14:05:41+01:00 INFO (6): SettingsSetSetting
+2018-01-04T14:05:41+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:41+01:00 INFO (6):
+2018-01-04T14:05:41+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:41+01:00 INFO (6): statement: UPDATE settings SET value = ?  , reason = ?  WHERE name =  ? ;
+2018-01-04T14:05:41+01:00 INFO (6): statement values:
+2018-01-04T14:05:41+01:00 INFO (6): array (
+  0 => false,
+  1 => 'Login succes',
+  2 => 'rememberMeBlocked',
+)
+2018-01-04T14:05:41+01:00 INFO (6): query succes.
+2018-01-04T14:05:41+01:00 INFO (6):
+2018-01-04T14:05:41+01:00 INFO (6): SettingsSetSetting
+2018-01-04T14:05:41+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:41+01:00 INFO (6):
+2018-01-04T14:05:41+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:41+01:00 INFO (6): statement: UPDATE settings SET value = ?  , reason = ?  WHERE name =  ? ;
+2018-01-04T14:05:41+01:00 INFO (6): statement values:
+2018-01-04T14:05:41+01:00 INFO (6): array (
+  0 => 'true',
+  1 => 'Set during login',
+  2 => 'rememberMe',
+)
+2018-01-04T14:05:41+01:00 INFO (6): query succes.
+2018-01-04T14:05:41+01:00 INFO (6):
+2018-01-04T14:05:41+01:00 INFO (6): JsonWebTokensController construct
+2018-01-04T14:05:41+01:00 INFO (6): JsonWebTokensCreateToken
+2018-01-04T14:05:41+01:00 INFO (6): TokenGenerator construct
+2018-01-04T14:05:41+01:00 INFO (6): TokenGeneratorGetToken length: 256
+2018-01-04T14:05:41+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:41+01:00 INFO (6):
+2018-01-04T14:05:41+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:41+01:00 INFO (6): statement: INSERT INTO JsonWebTokens( token , expires )  VALUES ( ? , ?)
+2018-01-04T14:05:41+01:00 INFO (6): statement values:
+2018-01-04T14:05:41+01:00 INFO (6): array (
+  0 => '}1wPo8b^(&lt;jazIiYEb]dPo)H&lt;Zr7@QUYTESFMFNcgE](*T6Q[[gmA,6HOsUt0hN[V&lt;|uL1AE*OqIsg2legb1qcBLD3)0lcFcXo*KqCxWaW2ly&lt;6yv,^,{!drMrh8owNO*,Bm)s&gt;p&amp;S&amp;2uo&amp;B[U83B58k)0d&lt;{5OgW2syJ&gt;hY5&gt;FsWkXEJaU3cDH2MpCpGWBNm)xO)&lt;YzE5]J)lu!gM7gASx~3pDwSjxhs]NA[71BhRlS@2.pydKZk7zRn0waH&lt;GY',
+  1 => '20180107140541',
+)
+2018-01-04T14:05:41+01:00 INFO (6): query succes.
+2018-01-04T14:05:41+01:00 INFO (6):
+2018-01-04T14:05:41+01:00 INFO (6): getLastGeneratedValue succes. l: 12605
+2018-01-04T14:05:41+01:00 INFO (6): JsonWebTokensCreateTokenHeader
+2018-01-04T14:05:41+01:00 INFO (6): JsonWebTokensJsonEncode
+2018-01-04T14:05:41+01:00 INFO (6): JsonWebTokensUrlsafeB64Encode
+2018-01-04T14:05:41+01:00 INFO (6): JsonWebTokensCreateTokenPayload
+2018-01-04T14:05:41+01:00 INFO (6): JsonWebTokensJsonEncode
+2018-01-04T14:05:41+01:00 INFO (6): JsonWebTokensUrlsafeB64Encode
+2018-01-04T14:05:41+01:00 INFO (6): JsonWebTokensCreateTokenSignature
+2018-01-04T14:05:41+01:00 INFO (6): JsonWebTokensUrlsafeB64Encode
+2018-01-04T14:05:41+01:00 INFO (6): JsonWebTokensSetTokenInCookie
+2018-01-04T14:05:41+01:00 INFO (6): SettingsGetSetting
+2018-01-04T14:05:41+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:41+01:00 INFO (6):
+2018-01-04T14:05:41+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:41+01:00 INFO (6): statement:  SELECT a.value FROM settings a WHERE  a.name =  ? ;
+2018-01-04T14:05:41+01:00 INFO (6): statement values:
+2018-01-04T14:05:41+01:00 INFO (6): array (
+  0 => 'rememberMe',
+)
+2018-01-04T14:05:41+01:00 INFO (6): query succes.
+2018-01-04T14:05:41+01:00 INFO (6):
+2018-01-04T14:05:41+01:00 INFO (6): rows found: 1
+2018-01-04T14:05:41+01:00 INFO (6): PageTokensController construct
+2018-01-04T14:05:41+01:00 INFO (6): TokenGenerator construct
+2018-01-04T14:05:41+01:00 INFO (6): TokenGeneratorGetToken length: 128
+2018-01-04T14:05:41+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:41+01:00 INFO (6):
+2018-01-04T14:05:41+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:41+01:00 INFO (6): statement: INSERT INTO pageTokens( token , expires )  VALUES ( ? , ?)
+2018-01-04T14:05:41+01:00 INFO (6): statement values:
+2018-01-04T14:05:41+01:00 INFO (6): array (
+  0 => '&amp;aYuWjYj5nDk&lt;Q9A1R|R)4x@LyO1Fen($rGj7f&amp;lGJ$zQyc7ZI17Cw&lt;,5Cv~1b3(ON&lt;J4iiY5[}AZAl5OshpRfVM[efQxkqhzcl.cvEakcknQk0hn1G4VeHds6}GQXJx',
+  1 => '20180104170541',
+)
+2018-01-04T14:05:41+01:00 INFO (6): query succes.
+2018-01-04T14:05:41+01:00 INFO (6):
+2018-01-04T14:05:41+01:00 INFO (6): getLastGeneratedValue succes. l: 14286
+2018-01-04T14:05:41+01:00 INFO (6): UserGetUserName
+2018-01-04T14:05:41+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:41+01:00 INFO (6):
+2018-01-04T14:05:41+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:41+01:00 INFO (6): statement:  SELECT a.name FROM user a;
+2018-01-04T14:05:41+01:00 INFO (6): statement values:
+2018-01-04T14:05:41+01:00 INFO (6): array (
+)
+2018-01-04T14:05:41+01:00 INFO (6): query succes.
+2018-01-04T14:05:41+01:00 INFO (6):
+2018-01-04T14:05:41+01:00 INFO (6): rows found: 1

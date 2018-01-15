@@ -1,0 +1,87 @@
+<?php
+/* Author: Pleisterman
+ * Info: 
+ * Web: www.pleisterman.nl 
+ * Mail: info@pleisterman.nl 
+ * GitHub: Pleisterman 
+ * 
+ * Purpose: this file adds: inline javascript with variables: languageMenus and selectedLanguageMenu,
+ *                          padding to the content of the html for the application Time Adminstration
+ * 
+ *          variables:
+ * 
+ *                  languages           array of strings, possible languages
+ *                  language            string, current language
+ *                  defaultLanguage     string, default language
+    
+ * Last revision: 09-02-2016
+ * 
+ * NOTICE OF LICENSE
+ *
+ * Copyright (C) 2016  Pleisterman
+ * 
+ *    This program is free software: you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation, either version 3 of the License, or
+ *    (at your option) any later version.
+ * 
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+echo '<form enctype="multipart/form-data" id="uploadForm" action="/mbAdmin/upload" target="_self" method="POST">';
+    echo '<div id="contentContainer"></div>';
+    echo '<div id="fileContainer"></div>';        
+    echo '<div id="errorContainer"></div>';
+    echo '<div id="messageContainer"></div>';
+    echo '<div id="buttonsContainer"></div>';
+    echo '<input name="mode" type="hidden" id="mode">';
+    echo '<input name="token" type="hidden" id="token">';
+    echo '<input name="workDirectory" type="hidden" id="workDirectory">';
+    echo '<input name="subject" type="hidden" id="subject">';
+    echo '<input name="subjectId" type="hidden" id="subjectId">';
+    echo '<input name="updated" type="hidden" id="updated">';
+    
+    // documentId
+    echo '<input type="hidden" name="documentId" id="documentId"';
+    if( isset( $documentId ) ){
+        echo ' value="' . $documentId . '" ';
+    }
+    echo '>';
+    // done documentId
+
+    // error result
+    echo '<input type="hidden" id="resultError"';
+    if( isset( $resultError ) ){
+        echo ' value="' . $resultError . '" ';
+    }
+    echo '>';
+    // done error result
+    
+    // succes
+    echo '<input type="hidden" id="resultSucces"';
+    if( isset( $resultSucces ) ){
+        echo ' value="' . $resultSucces . '" ';
+    }
+    echo '>';
+    // done  succes
+    
+echo '</form>';        
+
+// inline script
+// add javascript variables: menu, languageMenus and selectedLanguageMenu
+$this->inlineScript()->captureStart();
+echo <<<JS
+
+window.onload = function(){
+
+   sharesoft.start();
+}
+JS;
+$this->inlineScript()->captureEnd();
+// done inline script

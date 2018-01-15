@@ -1,0 +1,203 @@
+<?php
+/* 
+ *  Project: MbAdmin
+ * 
+ *  File: /MbAdmin/Controller/IndexController.php
+ * 
+ *  Last Revision:  19-01-2017
+ * 
+ *  Purpose: 
+ *          This controller handles the index route of the MbAdmin application
+ *          it creates the initial view and includes the nescecerry javascript files,
+ *          options, translations, colors
+ * 
+ *  Author: Sharesoft
+ *  Web: www.sharesoft.nl 
+ *  Mail: info@sharesoft.nl 
+ *  GitHub: SharesoftNL 
+ * 
+ *  Copyright (C) 2017 Sharesoft 
+ *  GNU General Public License 3+ 
+ *  see <http://www.gnu.org/licenses/>
+ * 
+ *  Zend Framework (http://framework.zend.com/)
+ *
+ *  @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
+ *  @license   http://framework.zend.com/license/new-bsd New BSD License
+ */
+
+$options = array(
+    'nl'    => array(
+        'defaultTitle'          =>  'MiniBuilder Admin',
+        'defaultKeywords'       =>  'Sharesoft', 'Software', 'Ontwikkeling',
+        'defaultDescription'    =>  'Welkom bij Sharesoft MiniBuilder Admin.'
+    ),
+    'en'    => array(
+        'defaultTitle'          =>  'MiniBuilder Admin',
+        'defaultKeywords'       =>  'Sharesoft', 'Software', 'Development',
+        'defaultDescription'    =>  'Welcome at Sharesoft MiniBuilder Admin.'
+    )
+);
+
+// doctype 
+echo $this->doctype() . PHP_EOL;
+
+
+// open html tag
+if( isset( $language ) ){
+    echo '<html lang="' . substr( $language, 0, 2 ) . '">' . PHP_EOL;
+}
+else {
+    echo '<html lang="nl">' . PHP_EOL;
+}
+// done open html tag
+
+    // head
+    echo '<head>' . PHP_EOL;
+
+        // charset
+        echo '<meta charset="utf-8">' . PHP_EOL; 
+
+        // favicon
+        echo '<link href="/img/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">' . PHP_EOL;
+        
+        
+            // meta attributes
+            $this->headMeta()->appendName( 'viewport', 'width=device-width, initial-scale=1.0' );
+
+            // document title
+            if( isset( $this->documentTitle ) ){
+                echo $this->headTitle( $documentTitle )->setSeparator(' - ')->setAutoEscape( false ) . PHP_EOL;
+            }
+            else {
+                // language exists and !nl
+                if( !isset( $language ) || $language == 'nl' ){
+                    // use default en option
+                    echo $this->headTitle( $options['en']['defaultTitle'] )->setSeparator(' - ')->setAutoEscape( false ) . PHP_EOL;
+                }
+                else {  
+                    // use default nl option
+                    echo $this->headTitle( $options['nl']['defaultTitle'] )->setSeparator(' - ')->setAutoEscape( false ) . PHP_EOL;
+                }
+            }
+            // done document title
+
+            // document description
+            if( isset( $this->documentDescription ) ){
+                // set description
+                $this->headMeta()->appendName( 'description',  $this->documentDescription ) . PHP_EOL;
+            }
+            else {
+                // language exists and !nl
+                if( !isset( $language ) || $language == 'nl' ){
+                    // use default en option
+                     $this->headMeta()->appendName( 'description', $options['en']['defaultTitle'] ) . PHP_EOL;
+                }
+                else {  
+                    // use default nl option
+                     $this->headMeta()->appendName( 'description', $options['nl']['defaultTitle'] ) . PHP_EOL;
+                }
+            }
+            // done document description
+
+            // keywords
+            if( isset(  $this->documentKeywords ) ){
+                // set keywords
+                $this->headMeta()->appendName( 'keywords', $this->documentKeywords );
+            }
+            else {
+                // language exists and !nl
+                if( !isset( $language ) || $language == 'nl' ){
+                    // use default en option
+                    $this->headMeta()->appendName( 'keywords', $options['en']['defaultKeywords'] );
+                }
+                else {  
+                    // use default nl option
+                    $this->headMeta()->appendName( 'keywords', $options['nl']['defaultKeywords'] );
+                }
+            }
+            // keywords
+
+            $this->headMeta()->appendHttpEquiv( 'X-UA-Compatible', 'IE=edge' );
+            
+        echo $this->headMeta();
+        // done meta attributes
+
+        // css
+        
+            // create third party links
+            if( isset( $this->thirdPartyCssFiles ) ){
+                foreach(  $this->thirdPartyCssFiles as $value ) {
+                    $this->headLink()->appendStylesheet( $value );
+                }
+            }
+            // done create third party links
+
+            // create application css links
+            if( isset( $this->cssFiles ) ){
+                foreach(  $this->cssFiles as $value ) {
+                    $this->headLink()->appendStylesheet( $value );
+                }
+            }
+            // done create application css links
+
+            // add the link to html
+            echo $this->headLink();
+        
+        // done css 
+        
+        
+    echo '</head>';
+    // done head
+
+
+    // body
+    echo '<body>';
+        if( isset( $this->navigation ) ){
+            echo $this->navigation;
+        }
+
+        // content
+        if( isset( $this->content ) ){
+            echo $this->content;
+        }
+
+        // js
+        
+            // create third party links
+            if( isset( $this->thirdPartyJsFiles ) ){
+                foreach(  $this->thirdPartyJsFiles as $value ) {
+                    $this->inlineScript()->appendFile( $value );
+                }
+            }
+            // done create third party links
+
+            // jsProject links
+            if( isset( $this->jsProjectFiles ) ){
+                foreach(  $this->jsProjectFiles as $value ) {
+                    $this->inlineScript()->appendFile( $value );
+                }
+            }
+            // jsProject links
+
+            // application links
+            if( isset( $this->applicationJsFiles ) ){
+                foreach(  $this->applicationJsFiles as $value ) {
+                    $this->inlineScript()->appendFile( $value );
+                }
+            }
+            // application links
+
+            // add the script
+            echo $this->inlineScript();
+            
+        // done js
+        
+        
+    echo '</body>';
+    // done body
+
+
+echo '</html>';
+// done html tag
+

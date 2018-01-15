@@ -1,0 +1,108 @@
+2018-01-04T14:05:42+01:00 INFO (6):  readController start
+2018-01-04T14:05:42+01:00 INFO (6): AuthentificationController construct config: mbAdmin work directory: rwolters
+2018-01-04T14:05:42+01:00 INFO (6): AuthentificationCookieController getCookiesEnabled
+2018-01-04T14:05:42+01:00 INFO (6):
+2018-01-04T14:05:42+01:00 INFO (6): cookie
+2018-01-04T14:05:42+01:00 INFO (6):
+2018-01-04T14:05:42+01:00 INFO (6): ok
+eyJ0eXAiOiJKV1QiLCJhbGciOiJzaGEyNTYifQ.eyJraWQiOiIxMjYwNSJ9.sH2ztlkkMPseH8R7NIdiThiovS_YIrcetiRwaJdrLd0
+GA1.1.530518997.1514925740
+GA1.1.1276726145.1514925740
+2018-01-04T14:05:42+01:00 INFO (6):
+2018-01-04T14:05:42+01:00 INFO (6): done cookie
+2018-01-04T14:05:42+01:00 INFO (6):
+2018-01-04T14:05:42+01:00 INFO (6): AuthentificationCookieController getCookiesEnabled cookies enabled
+2018-01-04T14:05:42+01:00 INFO (6): SettingsGetSetting
+2018-01-04T14:05:42+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:42+01:00 INFO (6):
+2018-01-04T14:05:42+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:42+01:00 INFO (6): statement:  SELECT a.value FROM settings a WHERE  a.name =  ? ;
+2018-01-04T14:05:42+01:00 INFO (6): statement values:
+2018-01-04T14:05:42+01:00 INFO (6): array (
+  0 => 'algorithm',
+)
+2018-01-04T14:05:42+01:00 INFO (6): query succes.
+2018-01-04T14:05:42+01:00 INFO (6):
+2018-01-04T14:05:42+01:00 INFO (6): rows found: 1
+2018-01-04T14:05:42+01:00 INFO (6): AuthentificationValidateLogin
+2018-01-04T14:05:42+01:00 INFO (6): AlgorithmsController algorithmExists
+2018-01-04T14:05:42+01:00 INFO (6): AlgorithmsController algorithm: sha256 exists
+2018-01-04T14:05:42+01:00 INFO (6): JsonWebTokensController construct
+2018-01-04T14:05:42+01:00 INFO (6): JsonWebTokensController validate
+2018-01-04T14:05:42+01:00 INFO (6): JsonWebTokensGetTokenFromCookie workDirectory: rwolters
+2018-01-04T14:05:42+01:00 INFO (6): JsonWebTokensGetPayloadTokenId
+2018-01-04T14:05:42+01:00 INFO (6): JsonWebTokensUrlsafeB64Decode
+2018-01-04T14:05:42+01:00 INFO (6): JsonWebTokensJsonDecode
+2018-01-04T14:05:42+01:00 INFO (6): JsonWebTokensGetPayloadTokenId key found  keyId: 12605
+2018-01-04T14:05:42+01:00 INFO (6): JsonWebTokensGetDatabaseToken
+2018-01-04T14:05:42+01:00 INFO (6): JsonWebTokensCleanUp
+2018-01-04T14:05:42+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:42+01:00 INFO (6):
+2018-01-04T14:05:42+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:42+01:00 INFO (6): statement: DELETE FROM JsonWebTokens WHERE expires < ?
+2018-01-04T14:05:42+01:00 INFO (6): statement values:
+2018-01-04T14:05:42+01:00 INFO (6): array (
+  0 => '20180104140542',
+)
+2018-01-04T14:05:42+01:00 INFO (6): query succes.
+2018-01-04T14:05:42+01:00 INFO (6):
+2018-01-04T14:05:42+01:00 INFO (6): MbCommonDataController getRowById table: JsonWebTokens id: 12605
+2018-01-04T14:05:42+01:00 INFO (6): MbCommonGetRowById table: JsonWebTokens id: 12605
+2018-01-04T14:05:42+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:42+01:00 INFO (6):
+2018-01-04T14:05:42+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:42+01:00 INFO (6): statement:  SELECT a.* FROM JsonWebTokens a WHERE  a.id =  ?  LIMIT 1;
+2018-01-04T14:05:42+01:00 INFO (6): statement values:
+2018-01-04T14:05:42+01:00 INFO (6): array (
+  0 => '12605',
+)
+2018-01-04T14:05:42+01:00 INFO (6): query succes.
+2018-01-04T14:05:42+01:00 INFO (6):
+2018-01-04T14:05:42+01:00 INFO (6): rows found: 1
+2018-01-04T14:05:42+01:00 INFO (6): JsonWebTokensValidate
+2018-01-04T14:05:42+01:00 INFO (6): JsonWebTokensSplitSegments
+2018-01-04T14:05:42+01:00 INFO (6): JsonWebTokensUrlsafeB64Decode
+2018-01-04T14:05:42+01:00 INFO (6): JsonWebTokensVerifySignature
+2018-01-04T14:05:42+01:00 INFO (6): JsonWebTokensVerifySignature validate through hash_equals.
+2018-01-04T14:05:42+01:00 INFO (6): JsonWebTokensVerifySignature hash is equal.
+2018-01-04T14:05:42+01:00 INFO (6): PageTokensController construct
+2018-01-04T14:05:42+01:00 INFO (6): PageTokensClean
+2018-01-04T14:05:42+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:42+01:00 INFO (6):
+2018-01-04T14:05:42+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:42+01:00 INFO (6): statement: DELETE FROM pageTokens WHERE expires < ?
+2018-01-04T14:05:42+01:00 INFO (6): statement values:
+2018-01-04T14:05:42+01:00 INFO (6): array (
+  0 => '20180104140542',
+)
+2018-01-04T14:05:42+01:00 INFO (6): query succes.
+2018-01-04T14:05:42+01:00 INFO (6):
+2018-01-04T14:05:42+01:00 INFO (6): PageTokensValidate
+2018-01-04T14:05:42+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:42+01:00 INFO (6):
+2018-01-04T14:05:42+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:42+01:00 INFO (6): statement:  SELECT COUNT(*) AS count FROM pageTokens a WHERE  token =  ?  AND expires >=  ? ;
+2018-01-04T14:05:42+01:00 INFO (6): statement values:
+2018-01-04T14:05:42+01:00 INFO (6): array (
+  0 => '&amp;aYuWjYj5nDk&lt;Q9A1R|R)4x@LyO1Fen($rGj7f&amp;lGJ$zQyc7ZI17Cw&lt;,5Cv~1b3(ON&lt;J4iiY5[}AZAl5OshpRfVM[efQxkqhzcl.cvEakcknQk0hn1G4VeHds6}GQXJx',
+  1 => '20180104140542',
+)
+2018-01-04T14:05:42+01:00 INFO (6): query succes.
+2018-01-04T14:05:42+01:00 INFO (6):
+2018-01-04T14:05:42+01:00 INFO (6): rows found: 1
+2018-01-04T14:05:42+01:00 INFO (6): PageTokensValidate token is valid
+2018-01-04T14:05:42+01:00 INFO (6): ReadController readData subject: documents
+2018-01-04T14:05:42+01:00 INFO (6):
+2018-01-04T14:05:42+01:00 INFO (6): DocumentsGetLastUsed
+2018-01-04T14:05:42+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:42+01:00 INFO (6):
+2018-01-04T14:05:42+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:42+01:00 INFO (6): statement:  SELECT a.id , a.subject , a.subjectId , a.name , a.fileName FROM documents a ORDER BY  used DESC LIMIT 5;
+2018-01-04T14:05:42+01:00 INFO (6): statement values:
+2018-01-04T14:05:42+01:00 INFO (6): array (
+)
+2018-01-04T14:05:42+01:00 INFO (6): query succes.
+2018-01-04T14:05:42+01:00 INFO (6):
+2018-01-04T14:05:42+01:00 INFO (6): rows found: 2
+2018-01-04T14:05:42+01:00 INFO (6): read data ok
+2018-01-04T14:05:42+01:00 INFO (6):  ReadController all ok

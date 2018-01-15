@@ -1,0 +1,152 @@
+2018-01-04T14:05:32+01:00 INFO (6): MbAdmin controller indexAction
+2018-01-04T14:05:32+01:00 INFO (6): AuthentificationController construct config: mbAdmin work directory: rwolters
+2018-01-04T14:05:32+01:00 INFO (6): OptionsGetOption
+2018-01-04T14:05:32+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:32+01:00 INFO (6):
+2018-01-04T14:05:32+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:32+01:00 INFO (6): statement:  SELECT a.id , a.value FROM options a WHERE  name =  ? ;
+2018-01-04T14:05:32+01:00 INFO (6): statement values:
+2018-01-04T14:05:32+01:00 INFO (6): array (
+  0 => 'languageId',
+)
+2018-01-04T14:05:32+01:00 INFO (6): query succes.
+2018-01-04T14:05:32+01:00 INFO (6):
+2018-01-04T14:05:32+01:00 INFO (6): rows found: 1
+2018-01-04T14:05:32+01:00 INFO (6): LanguageGetLanguageByName
+2018-01-04T14:05:32+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:32+01:00 INFO (6):
+2018-01-04T14:05:32+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:32+01:00 INFO (6): statement:  SELECT a.id , a.name , a.code FROM languages a WHERE  a.id =  ?  LIMIT 1;
+2018-01-04T14:05:32+01:00 INFO (6): statement values:
+2018-01-04T14:05:32+01:00 INFO (6): array (
+  0 => '1',
+)
+2018-01-04T14:05:32+01:00 INFO (6): query succes.
+2018-01-04T14:05:32+01:00 INFO (6):
+2018-01-04T14:05:32+01:00 INFO (6): rows found: 1
+2018-01-04T14:05:32+01:00 INFO (6): languageId: 1
+2018-01-04T14:05:32+01:00 INFO (6): workDirectory: rwolters
+2018-01-04T14:05:32+01:00 INFO (6): deviceDetector construct
+2018-01-04T14:05:32+01:00 INFO (6): deviceDetector mobile detect is constructed
+2018-01-04T14:05:32+01:00 INFO (6): get options
+2018-01-04T14:05:32+01:00 INFO (6): OptionsGetOptions
+2018-01-04T14:05:32+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:32+01:00 INFO (6):
+2018-01-04T14:05:32+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:32+01:00 INFO (6): statement:  SELECT a.id , a.name , a.value FROM options a;
+2018-01-04T14:05:32+01:00 INFO (6): statement values:
+2018-01-04T14:05:32+01:00 INFO (6): array (
+)
+2018-01-04T14:05:32+01:00 INFO (6): query succes.
+2018-01-04T14:05:32+01:00 INFO (6):
+2018-01-04T14:05:32+01:00 INFO (6): rows found: 38
+2018-01-04T14:05:32+01:00 INFO (6): get help subjects
+2018-01-04T14:05:32+01:00 INFO (6): HelpGetSubjects
+2018-01-04T14:05:32+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:32+01:00 INFO (6):
+2018-01-04T14:05:32+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:32+01:00 INFO (6): statement:  SELECT a.id , a.subjectId , a.translation FROM help a WHERE  a.languageId =  ?  AND a.isSubject =  ?  ORDER BY translation;
+2018-01-04T14:05:32+01:00 INFO (6): statement values:
+2018-01-04T14:05:32+01:00 INFO (6): array (
+  0 => '1',
+  1 => 'true',
+)
+2018-01-04T14:05:32+01:00 INFO (6): query succes.
+2018-01-04T14:05:32+01:00 INFO (6):
+2018-01-04T14:05:32+01:00 INFO (6): rows found: 4
+2018-01-04T14:05:32+01:00 INFO (6): get colors
+2018-01-04T14:05:32+01:00 INFO (6): ColorsGetColors
+2018-01-04T14:05:32+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:32+01:00 INFO (6):
+2018-01-04T14:05:32+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:32+01:00 INFO (6): statement:  SELECT a.id , a.name , a.color , a.canChange FROM colors a ORDER BY a.name ASC;
+2018-01-04T14:05:32+01:00 INFO (6): statement values:
+2018-01-04T14:05:32+01:00 INFO (6): array (
+)
+2018-01-04T14:05:32+01:00 INFO (6): query succes.
+2018-01-04T14:05:32+01:00 INFO (6):
+2018-01-04T14:05:32+01:00 INFO (6): rows found: 44
+2018-01-04T14:05:32+01:00 INFO (6): LanguageGetColorTranslations
+2018-01-04T14:05:32+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:32+01:00 INFO (6):
+2018-01-04T14:05:32+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:32+01:00 INFO (6): statement:  SELECT a.id , a.name , a.translation FROM colorNames a WHERE  a.languageId =  ? ;
+2018-01-04T14:05:32+01:00 INFO (6): statement values:
+2018-01-04T14:05:32+01:00 INFO (6): array (
+  0 => '1',
+)
+2018-01-04T14:05:32+01:00 INFO (6): query succes.
+2018-01-04T14:05:32+01:00 INFO (6):
+2018-01-04T14:05:32+01:00 INFO (6): rows found: 27
+2018-01-04T14:05:32+01:00 INFO (6): get languages
+2018-01-04T14:05:32+01:00 INFO (6): LanguageGetLanguages
+2018-01-04T14:05:32+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:32+01:00 INFO (6):
+2018-01-04T14:05:32+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:32+01:00 INFO (6): statement:  SELECT a.id , a.name , a.route FROM languages a;
+2018-01-04T14:05:32+01:00 INFO (6): statement values:
+2018-01-04T14:05:32+01:00 INFO (6): array (
+)
+2018-01-04T14:05:32+01:00 INFO (6): query succes.
+2018-01-04T14:05:32+01:00 INFO (6):
+2018-01-04T14:05:32+01:00 INFO (6): rows found: 3
+2018-01-04T14:05:32+01:00 INFO (6): get translations
+2018-01-04T14:05:32+01:00 INFO (6): LanguageGetIndexTranslations
+2018-01-04T14:05:32+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:32+01:00 INFO (6):
+2018-01-04T14:05:32+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:32+01:00 INFO (6): statement:  SELECT a.translationId , a.translation FROM translations a WHERE  a.languageId =  ?  AND a.isHeaderTranslation is NULL  ;
+2018-01-04T14:05:32+01:00 INFO (6): statement values:
+2018-01-04T14:05:32+01:00 INFO (6): array (
+  0 => '1',
+)
+2018-01-04T14:05:32+01:00 INFO (6): query succes.
+2018-01-04T14:05:32+01:00 INFO (6):
+2018-01-04T14:05:32+01:00 INFO (6): rows found: 192
+2018-01-04T14:05:32+01:00 INFO (6): AuthentificationController get rememberMe token
+2018-01-04T14:05:32+01:00 INFO (6):
+2018-01-04T14:05:32+01:00 INFO (6):
+2018-01-04T14:05:32+01:00 INFO (6): RememberMeTokensController construct
+2018-01-04T14:05:32+01:00 INFO (6):
+2018-01-04T14:05:32+01:00 INFO (6):
+2018-01-04T14:05:32+01:00 INFO (6): TokenGenerator construct
+2018-01-04T14:05:32+01:00 INFO (6): TokenGeneratorGetToken length: 256
+2018-01-04T14:05:32+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:32+01:00 INFO (6):
+2018-01-04T14:05:32+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:32+01:00 INFO (6): statement: INSERT INTO rememberMeTokens( token , expires )  VALUES ( ? , ?)
+2018-01-04T14:05:32+01:00 INFO (6): statement values:
+2018-01-04T14:05:32+01:00 INFO (6): array (
+  0 => '.jaejw2J6KK)z}8XsRkm~A8^&lt;!&lt;u.k&amp;shACi5^w&amp;YC)RTzD5Vfr[L^5&gt;AH2clZrN[cA2y3Xw,h&lt;yFTqoTxq99qL~[rf6nzDR&lt;2LX,WX*&lt;PG]fejptG0s0P4XWjECmL5@0t,.&gt;$&lt;Ky.&lt;Zf(E32^NwP).h}h.t1P*]7P~3AcnbAEqk~i7mLazIy],Eo^vp0@!(&amp;(kZFYfpP|N{|ST3&amp;!kCRD]zvR,H[2qxl(v&lt;EAl*nrf]3!MXSthC]BbE]g(Euk@@',
+  1 => '20180104141132',
+)
+2018-01-04T14:05:32+01:00 INFO (6): query succes.
+2018-01-04T14:05:32+01:00 INFO (6):
+2018-01-04T14:05:32+01:00 INFO (6): getLastGeneratedValue succes. l: 4865
+2018-01-04T14:05:32+01:00 INFO (6): AuthentificationCookieController createTestCookie
+2018-01-04T14:05:32+01:00 INFO (6): SettingsGetSetting
+2018-01-04T14:05:32+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:32+01:00 INFO (6):
+2018-01-04T14:05:32+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:32+01:00 INFO (6): statement:  SELECT a.value FROM settings a WHERE  a.name =  ? ;
+2018-01-04T14:05:32+01:00 INFO (6): statement values:
+2018-01-04T14:05:32+01:00 INFO (6): array (
+  0 => 'rememberMe',
+)
+2018-01-04T14:05:32+01:00 INFO (6): query succes.
+2018-01-04T14:05:32+01:00 INFO (6):
+2018-01-04T14:05:32+01:00 INFO (6): rows found: 1
+2018-01-04T14:05:32+01:00 INFO (6): not Mobile
+2018-01-04T14:05:32+01:00 INFO (6): LanguageGetDocumentHeaderTranslations
+2018-01-04T14:05:32+01:00 INFO (6): SqliteParser construct.
+2018-01-04T14:05:32+01:00 INFO (6):
+2018-01-04T14:05:32+01:00 INFO (6): Sqlite execute Statetement
+2018-01-04T14:05:32+01:00 INFO (6): statement:  SELECT a.translationId , a.translation FROM translations a WHERE  a.languageId =  ?  AND a.isHeaderTranslation = "true"  ;
+2018-01-04T14:05:32+01:00 INFO (6): statement values:
+2018-01-04T14:05:32+01:00 INFO (6): array (
+  0 => '1',
+)
+2018-01-04T14:05:32+01:00 INFO (6): query succes.
+2018-01-04T14:05:32+01:00 INFO (6):
+2018-01-04T14:05:32+01:00 INFO (6): rows found: 3
+2018-01-04T14:05:32+01:00 INFO (6): MbAdmin controller succes

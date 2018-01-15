@@ -1,0 +1,190 @@
+<?php
+
+/* Author: Pleisterman
+ * Info: 
+ * Web: www.pleisterman.nl 
+ * Mail: info@pleisterman.nl 
+ * GitHub: Pleisterman 
+ * 
+ * Purpose: this file constructs basic html for the web pages 
+ *          contains html tags, head and body
+ *          
+ *          variables:
+ *          
+ *              documentTitle:      sets documentTitle.
+ *              language:           sets html language attribute
+ *              description:        sets meta descrition
+ *              navigation          html for navigation
+ *              breadcrumbs         html for breadcrumbs
+ *              keywords:           set the meta keywords  
+ *              thirdPartyCssFiles  add css files      
+ *              cssFiles            add css files
+ *              thirdPartyJsFiles   add js files
+ *              jsProjectFiles      add js files
+ *              applicationJsFiles  add js files
+ *              inlineScript        add inline js script
+ * 
+ *   
+ * Last revision: 13-08-2015
+ * 
+ * NOTICE OF LICENSE
+ *
+ * Copyright (C) 2015  Pleisterman
+ * 
+ *    This program is free software: you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation, either version 3 of the License, or
+ *    (at your option) any later version.
+ * 
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+
+
+// doctype 
+echo $this->doctype();
+
+
+// open html tag
+if( isset( $language ) ){
+    echo '<html lang="' . substr( $language, 0, 2 ) . '">';
+}
+else {
+    echo '<html lang="nl">';
+}
+// done open html tag
+
+    // head
+    echo '<head>';
+
+        // charset
+        echo '<meta charset="utf-8">'; 
+
+        // favicon
+        echo '<link href="/img/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">';
+        
+        
+            // meta attributes
+            $this->headMeta()->appendName( 'viewport', 'width=device-width, initial-scale=1.0' );
+
+            // document title
+            if( isset( $this->documentTitle ) ){
+                echo $this->headTitle( $documentTitle )->setSeparator(' - ')->setAutoEscape(false);
+            }
+            else {
+                echo $this->headTitle( 'Welkom bij Pleisterman.' )->setSeparator(' - ')->setAutoEscape(false);
+            }
+            // done document title
+
+            // document description
+            if( isset( $this->documentDescription ) ){
+                $this->headMeta()->appendName( 'description', $this->documentDescription );
+            }
+
+            // keywords
+            if( isset( $this->keywords ) ){
+                $this->headMeta()->appendName( 'keywords', $this->keywords );
+            }
+            else {
+                if( !isset( $language ) || $language == 'nl' ){
+                    $this->headMeta()->appendName( 'keywords', implode(', ', array( 'Pleisterman', 'Software', 'Ontwikkeling' ) ) );
+                }
+                else {  
+                    $this->headMeta()->appendName( 'keywords', implode(', ', array( 'Pleisterman', 'Software', 'Development' ) ) );
+                }
+            }
+            // keywords
+
+            $this->headMeta()->appendHttpEquiv( 'X-UA-Compatible', 'IE=edge' );
+            
+        echo $this->headMeta();
+        // done meta attributes
+
+        // css
+        
+            // create third party links
+            if( isset( $this->thirdPartyCssFiles ) ){
+                foreach(  $this->thirdPartyCssFiles as $value ) {
+                    $this->headLink()->appendStylesheet( $value );
+                }
+            }
+            // done create third party links
+
+            // create application css links
+            if( isset( $this->cssFiles ) ){
+                foreach(  $this->cssFiles as $value ) {
+                    $this->headLink()->appendStylesheet( $value );
+                }
+            }
+            // done create application css links
+
+            // add the link to html
+            echo $this->headLink();
+        
+        // done css 
+        
+        
+    echo '</head>';
+    // done head
+
+
+    // body
+    echo '<body>';
+        
+        echo '<div id="topMargin" class="topMargin" style="position:absolute;">';
+        echo '</div>';
+
+        if( isset( $this->navigation ) ){
+            echo $this->navigation;
+        }
+
+        // content
+        if( isset( $this->content ) ){
+            echo $this->content;
+        }
+
+        // js
+        
+            // create third party links
+            if( isset( $this->thirdPartyJsFiles ) ){
+                foreach(  $this->thirdPartyJsFiles as $value ) {
+                    $this->inlineScript()->appendFile( $value );
+                }
+            }
+            // done create third party links
+
+            // jsProject links
+            if( isset( $this->jsProjectFiles ) ){
+                foreach(  $this->jsProjectFiles as $value ) {
+                    $this->inlineScript()->appendFile( $value );
+                }
+            }
+            // jsProject links
+
+            // application links
+            if( isset( $this->applicationJsFiles ) ){
+                foreach(  $this->applicationJsFiles as $value ) {
+                    $this->inlineScript()->appendFile( $value );
+                }
+            }
+            // application links
+
+            // add the script
+            echo $this->inlineScript();
+            
+        // done js
+        
+        
+    echo '</body>';
+    // done body
+
+
+echo '</html>';
+// done html tag
+

@@ -1,0 +1,85 @@
+<?php
+/* Author: Pleisterman
+ * Info: 
+ * Web: www.pleisterman.nl 
+ * Mail: info@pleisterman.nl 
+ * GitHub: Pleisterman 
+ * 
+ * Purpose: this file costructs the html for the navigation 
+ * 
+ *          variables:
+ * 
+ *                  header  contains the title for the header
+ *   
+ * Last revision: 04-09-2015
+ * 
+ * NOTICE OF LICENSE
+ *
+ * Copyright (C) 2015  Pleisterman
+ * 
+ *    This program is free software: you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation, either version 3 of the License, or
+ *    (at your option) any later version.
+ * 
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+
+// navigation
+echo '<nav class="navbar navbar-default navbar-fixed-top navigation" role="navigation" style="margin-bottom: 0">';
+    // container class ( centers content )
+    echo '<div class="container">';
+        // navbar header (  displayed left )
+        echo '<div class="navbar-header">';
+            // toggle button
+            echo '<button id="navbarToggle" type="button" class="navbar-toggle navigation" ';
+                echo ' style="margin-top:4px;height:40px;" data-toggle="collapse" data-target=".navbar-collapse">';
+                echo '<span class="sr-only">Toggle navigation</span>';
+                echo '<span class="icon-bar"></span>';
+                echo '<span class="icon-bar"></span>';
+                echo '<span class="icon-bar"></span>';
+            echo '</button>';
+            // done toggle button
+            echo '<a id="brandLink" class="navbar-brand"';
+            echo ' style="padding-top:5px;padding-left:25px;padding-bottom:3px;"';
+            echo ' href="/">';
+                echo '<img id="brandImage" ';
+                    echo ' title="Pleisterman Software Development" ';
+                    echo ' alt="Pleisterman" ';
+                    echo ' src="/img/brand.png"';
+                echo '>';
+            echo '</a>';
+            echo '<span id="navigationHeader" class="navbar-text" ';
+                echo 'style="position:absolute;padding-top:7px;" ';
+            echo '>';
+                if( isset( $this->header ) ){
+                    echo $this->header;
+                }
+            echo '</span>';
+        echo '</div>';
+        // done navbar header
+
+        // top menu's ( displayed right )
+        echo '<div id="navbarCollapse" class="navbar-collapse collapse">';
+            echo '<ul class="nav navbar-nav navbar-right">';
+                // about menu
+                echo '<li class="navigationMenuItem" id="aboutMenu" style="padding:12px;margin-right:20px;">';
+                    echo $this->translate( 'about' );
+                echo '</li>';
+            echo '</ul>';
+        echo '</div>';
+        // done top menu's
+        
+    echo '</div>';
+    // done container class
+    
+echo '</nav>';
+// done navigation
+

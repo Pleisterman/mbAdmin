@@ -1,0 +1,74 @@
+<?php
+
+/* 
+ *  Project: MbAdmin
+ * 
+ *  File: /view/MbAdmin/index.phtml
+ * 
+ * Last revision: 16-01-2017
+ * 
+ * Purpose: 
+ *      this file constructs basic content for the pages 
+ * 
+ *  Author: Sharesoft
+ *  Web: www.sharesoft.nl 
+ *  Mail: info@sharesoft.nl 
+ *  GitHub: SharesoftNL 
+ * 
+ *  Copyright (C) 2017 Sharesoft 
+ *  GNU General Public License 3+ 
+ *  see <http://www.gnu.org/licenses/>
+ * 
+ *  Zend Framework (http://framework.zend.com/)
+ *
+ *  @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
+ *  @license   http://framework.zend.com/license/new-bsd New BSD License
+ */
+
+?>
+
+<script>
+    // add onload event    
+    window.onload = function(){
+        // language
+        sharesoft.selectedLanguageId = <?php echo $selectedLanguageId; ?>; 
+        sharesoft.languages = <?php echo $languages; ?> 
+        // done language
+
+        // translations     
+        sharesoft.translations = <?php echo $translations; ?> 
+        // done translations
+
+        // add base directory
+        sharesoft.baseDirectory = '<?php echo $baseDirectory; ?>'; 
+        // add work directory
+        sharesoft.workDirectory = '<?php echo $workDirectory; ?>'; 
+        // add options
+        sharesoft.options = <?php echo $options; ?> 
+        // add colors
+        sharesoft.colors = <?php echo $colors; ?> 
+        // add languages
+        sharesoft.languages = <?php echo $languages; ?> 
+        // add elp subjects
+        sharesoft.helpSubjects = <?php echo $helpSubjects; ?> 
+        // add token
+        sharesoft.token = '<?php echo $token; ?>';
+        // add password reset
+        sharesoft.isResetPassword = '<?php echo $isResetPassword; ?>';
+        // add rememberMe option
+        sharesoft.rememberMe = <?php echo $rememberMe; ?>; 
+        // add minimum password strength
+        sharesoft.minimumPasswordStrength = <?php echo $minimumPasswordStrength; ?>; 
+        // add minimum password length
+        sharesoft.minimumPasswordLength = <?php echo $minimumPasswordLength; ?>; 
+        // add minimum login name length
+        sharesoft.minimumLoginNameLength = <?php echo $minimumLoginNameLength; ?>; 
+        // add page token refrsh period
+        sharesoft.pageTokenRefreshPeriod = <?php echo $pageTokenRefreshPeriod; ?>; 
+
+        // start the application
+        sharesoft.start();
+
+    };
+    // done add onload event    
+</script>

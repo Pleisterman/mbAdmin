@@ -6,14 +6,14 @@
  * 
  *  Last Revision:  25-01-2017
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: PleistermanNL 
  * 
  * Purpose: this class handles sending a mail containing a link to reset the password
  *     
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  * 
@@ -78,7 +78,7 @@ class AuthentificationSendResetPasswordEmail
         $body = new MimeMessage();
         $body->setParts( array( $bodyHeaderContent, $bodyLinkContent, $bodyFooterContent ) );
 
-        $message->addFrom( "info@sharesoft.nl", $languageController->getTranslation( 'resetPassswordMailHeaderAddress', $userLanguageId ) );
+        $message->addFrom( "info@pleisterman.nl", $languageController->getTranslation( 'resetPassswordMailHeaderAddress', $userLanguageId ) );
         $message->addTo( $emailAddress );
         $message->setSubject( $languageController->getTranslation( 'resetPassswordMailSubject', $userLanguageId ) );
         $message->setBody( $body );

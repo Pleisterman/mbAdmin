@@ -10,12 +10,12 @@
  * Purpose: 
  *      this file constructs basic content for the pages 
  * 
- *  Author: Sharesoft
- *  Web: www.sharesoft.nl 
- *  Mail: info@sharesoft.nl 
- *  GitHub: SharesoftNL 
+ *  Author: Pleisterman
+ *  Web: www.pleisterman.nl 
+ *  Mail: info@pleisterman.nl 
+ *  GitHub: Pleisterman 
  * 
- *  Copyright (C) 2017 Sharesoft 
+ *  Copyright (C) 2017 Pleisterman 
  *  GNU General Public License 3+ 
  *  see <http://www.gnu.org/licenses/>
  * 
@@ -31,43 +31,43 @@
     // add onload event    
     window.onload = function(){
         // language
-        sharesoft.selectedLanguageId = <?php echo $selectedLanguageId; ?>; 
-        sharesoft.languages = <?php echo $languages; ?> 
+        pleisterman.selectedLanguageId = <?php echo $selectedLanguageId; ?>; 
+        pleisterman.languages = <?php echo $languages; ?> 
         // done language
 
         // translations     
-        sharesoft.translations = <?php echo $translations; ?> 
+        pleisterman.translations = <?php echo $translations; ?> 
         // done translations
 
         // add base directory
-        sharesoft.baseDirectory = '<?php echo $baseDirectory; ?>'; 
+        pleisterman.baseDirectory = '<?php echo $baseDirectory; ?>'; 
         // add work directory
-        sharesoft.workDirectory = '<?php echo $workDirectory; ?>'; 
+        pleisterman.workDirectory = '<?php echo $workDirectory; ?>'; 
         // add options
-        sharesoft.options = <?php echo $options; ?> 
+        pleisterman.options = <?php echo $options; ?> 
         // add colors
-        sharesoft.colors = <?php echo $colors; ?> 
+        pleisterman.colors = <?php echo $colors; ?> 
         // add languages
-        sharesoft.languages = <?php echo $languages; ?> 
+        pleisterman.languages = <?php echo $languages; ?> 
         // add elp subjects
-        sharesoft.helpSubjects = <?php echo $helpSubjects; ?> 
+        pleisterman.helpSubjects = <?php echo $helpSubjects; ?> 
         // add token
-        sharesoft.token = '<?php echo $token; ?>';
+        pleisterman.token = '<?php echo $token; ?>';
         // add password reset
-        sharesoft.isResetPassword = '<?php echo $isResetPassword; ?>';
+        pleisterman.isResetPassword = '<?php echo $isResetPassword; ?>';
         // add rememberMe option
-        sharesoft.rememberMe = <?php echo $rememberMe; ?>; 
+        pleisterman.rememberMe = <?php echo $rememberMe; ?>; 
         // add minimum password strength
-        sharesoft.minimumPasswordStrength = <?php echo $minimumPasswordStrength; ?>; 
+        pleisterman.minimumPasswordStrength = <?php echo $minimumPasswordStrength; ?>; 
         // add minimum password length
-        sharesoft.minimumPasswordLength = <?php echo $minimumPasswordLength; ?>; 
+        pleisterman.minimumPasswordLength = <?php echo $minimumPasswordLength; ?>; 
         // add minimum login name length
-        sharesoft.minimumLoginNameLength = <?php echo $minimumLoginNameLength; ?>; 
+        pleisterman.minimumLoginNameLength = <?php echo $minimumLoginNameLength; ?>; 
         // add page token refrsh period
-        sharesoft.pageTokenRefreshPeriod = <?php echo $pageTokenRefreshPeriod; ?>; 
+        pleisterman.pageTokenRefreshPeriod = <?php echo $pageTokenRefreshPeriod; ?>; 
 
         // start the application
-        sharesoft.start();
+        pleisterman.start();
 
     };
     // done add onload event    
